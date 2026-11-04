@@ -25,7 +25,7 @@
     "dynamicBindingPathList": [],
     "name": "Get_Articles_Options",
     "pageId": "🔑 Location",
-    "runBehaviour": "AUTOMATIC",
-    "userSetOnLoad": false
+    "runBehaviour": "MANUAL",
+    "userSetOnLoad": true
   }
 }

@@ -25,7 +25,7 @@
     "dynamicBindingPathList": [],
     "name": "Get_Machines_Location",
     "pageId": "🔑 Location",
-    "runBehaviour": "AUTOMATIC",
-    "userSetOnLoad": false
+    "runBehaviour": "MANUAL",
+    "userSetOnLoad": true
   }
 }
