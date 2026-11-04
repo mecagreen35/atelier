@@ -10,8 +10,13 @@ SELECT
   pm."Marque",
   pm."Modele",
   pm."N_Serie",
-  pm."Type_Machine"
+  pm."Type_Machine",
+  d."ID_DEVIS" AS "ID_Devis_Lie" -- 🟢 Ajout de l'identifiant du devis
 FROM public."Interventions" i
 LEFT JOIN public."Clients" c ON i."ID_Client" = c."ID_Client"
 LEFT JOIN public."Parc_Materiel" pm ON i."ID_Machine" = pm."ID_Machine"
-WHERE i."ID_Intervention" = {{ appsmith.URL.queryParams.id }};
+-- 🟢 Jointure pour vérifier si un devis actif est rattaché
+LEFT JOIN public."DEVIS" d ON d."ID_INTERVENTION" = i."ID_Intervention" 
+                           AND d."STATUT" NOT IN ('Archivé', 'Refusé')
+WHERE i."ID_Intervention" = {{ appsmith.URL.queryParams.id }}
+LIMIT 1;

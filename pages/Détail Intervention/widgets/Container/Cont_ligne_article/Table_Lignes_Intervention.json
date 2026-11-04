@@ -796,7 +796,7 @@
       "id": "Marge_Brute",
       "index": 23,
       "isCellEditable": false,
-      "isCellVisible": "{{(() => { const tableData = Table_Lignes_Intervention.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Role_User.data && Get_Role_User.data[0] && Get_Role_User.data[0].Role === 'Patron' )) :  Get_Role_User.data && Get_Role_User.data[0] && Get_Role_User.data[0].Role === 'Patron'  })()}}",
+      "isCellVisible": "{{(() => { const tableData = Table_Lignes_Intervention.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.user_role === 'Patron' )) :  appsmith.store.user_role === 'Patron'  })()}}",
       "isDerived": false,
       "isDisabled": false,
       "isDiscardVisible": true,

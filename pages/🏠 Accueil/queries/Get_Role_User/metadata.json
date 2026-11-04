@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "6aae2b5c266fa4c200bde893_d8d97e78-08da-4348-a1ca-b8224868a53d",
-  "id": "Détail Intervention_Get_Max_Date_Facture",
+  "gitSyncId": "6aeb33b78b4c3a79b682d0c2_73683d53-7e54-4719-892d-af4834ace671",
+  "id": "🏠 Accueil_Get_Role_User",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT MAX(\"Date_Facture\") AS max_date \nFROM \"BONS_DE_LIVRAISON\" \nWHERE \"Date_Facture\" IS NOT NULL \nAND \"ID_BL\" != {{ appsmith.URL.queryParams.id }};",
+      "body": "SELECT \"Role\" \nFROM public.\"Employes\" \nWHERE LOWER(TRIM(\"Email\")) = LOWER(TRIM({{appsmith.user.email}}))\nLIMIT 1;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -27,8 +27,8 @@
         "key": "body"
       }
     ],
-    "name": "Get_Max_Date_Facture",
-    "pageId": "Détail Intervention",
+    "name": "Get_Role_User",
+    "pageId": "🏠 Accueil",
     "runBehaviour": "ON_PAGE_LOAD",
     "userSetOnLoad": true
   }

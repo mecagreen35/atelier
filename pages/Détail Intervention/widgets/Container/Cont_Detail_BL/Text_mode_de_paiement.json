@@ -1,7 +1,7 @@
 {
   "animateLoading": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 19,
+  "bottomRow": 21,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -46,7 +46,7 @@
   "text": "Machine : {{ Get_Detail_Intervention.data[0].Marque }} {{ Get_Detail_Intervention.data[0].Modele }} ({{ Get_Detail_Intervention.data[0].Type_Machine }}) — N° Série : {{ Get_Detail_Intervention.data[0].N_Serie || \"N/C\" }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
-  "topRow": 15,
+  "topRow": 17,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n  i.*,\n  c.\"Societe\",\n  c.\"Nom\",\n  c.\"Prénom\",\n  c.\"Telephone\",\n  c.\"Adresse\",\n  c.\"code_postal\",\n  c.\"ville\",\n  pm.\"Marque\",\n  pm.\"Modele\",\n  pm.\"N_Serie\",\n  pm.\"Type_Machine\"\nFROM public.\"Interventions\" i\nLEFT JOIN public.\"Clients\" c ON i.\"ID_Client\" = c.\"ID_Client\"\nLEFT JOIN public.\"Parc_Materiel\" pm ON i.\"ID_Machine\" = pm.\"ID_Machine\"\nWHERE i.\"ID_Intervention\" = {{ appsmith.URL.queryParams.id }};",
+      "body": "SELECT \n  i.*,\n  c.\"Societe\",\n  c.\"Nom\",\n  c.\"Prénom\",\n  c.\"Telephone\",\n  c.\"Adresse\",\n  c.\"code_postal\",\n  c.\"ville\",\n  pm.\"Marque\",\n  pm.\"Modele\",\n  pm.\"N_Serie\",\n  pm.\"Type_Machine\",\n  d.\"ID_DEVIS\" AS \"ID_Devis_Lie\" -- 🟢 Ajout de l'identifiant du devis\nFROM public.\"Interventions\" i\nLEFT JOIN public.\"Clients\" c ON i.\"ID_Client\" = c.\"ID_Client\"\nLEFT JOIN public.\"Parc_Materiel\" pm ON i.\"ID_Machine\" = pm.\"ID_Machine\"\n-- 🟢 Jointure pour vérifier si un devis actif est rattaché\nLEFT JOIN public.\"DEVIS\" d ON d.\"ID_INTERVENTION\" = i.\"ID_Intervention\" \n                           AND d.\"STATUT\" NOT IN ('Archivé', 'Refusé')\nWHERE i.\"ID_Intervention\" = {{ appsmith.URL.queryParams.id }}\nLIMIT 1;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

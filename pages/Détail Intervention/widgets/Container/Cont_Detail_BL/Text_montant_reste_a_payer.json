@@ -2,7 +2,7 @@
   "animateLoading": false,
   "borderColor": "#231f20",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 14,
+  "bottomRow": 16,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -55,7 +55,7 @@
   "text": "{{\n  (() => {\n    const val = Get_Detail_Intervention.data[0]?.Statut || \"\";\n    const statut = val.toUpperCase().trim();\n    let emoji = \"\";\n\n    switch (statut) {\n      case 'À VÉRIFIER': emoji = '👁️ '; break;\n      case 'PIECE A COMMANDER':\n      case 'PIÈCE À COMMANDER': emoji = '🛒 '; break;\n      case 'DEVIS': emoji = '📜 '; break;\n      case 'EN COURS': emoji = '🛠️'; break;\n      case 'EN TEST': emoji = '🧪 '; break;\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': emoji = '🔍 '; break;\n      case 'A REMONTER':\n      case 'À REMONTER': emoji = '🔨 '; break;\n      case 'ATTENTE CLIENT': emoji = '👨 '; break;\n      case 'PIECE EN COMMANDE':\n      case 'PIÈCE EN COMMANDE': emoji = '🚚 '; break;\n      case 'PRÊT': emoji = '✅ '; break;\n    }\n\n    return emoji + val;\n  })()\n}}",
   "textAlign": "LEFT",
   "textColor": "{{\n  (() => {\n    const statut = (Get_Detail_Intervention.data[0]?.Statut || \"\").toUpperCase().trim();\n    switch (statut) {\n      case 'PIECE A COMMANDER':\n      case 'PIÈCE À COMMANDER': return '#dc2626'; // Rouge\n      case 'PIECE EN COMMANDE':\n      case 'PIÈCE EN COMMANDE': return '#16a34a'; // Vert\n      case 'DEVIS': return '#9333ea'; // Violet\n      case 'A REMONTER':\n      case 'À REMONTER': return '#ea580c'; // Orange / Rouge\n      case 'À DIAGNOSTIQUER': return '#2563eb'; // Bleu\n      case 'PRÊT': return '#15803d'; // Vert foncé\n      default: return '#0f172a'; // Couleur texte sombre par défaut\n    }\n  })()\n}}",
-  "topRow": 10,
+  "topRow": 12,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
