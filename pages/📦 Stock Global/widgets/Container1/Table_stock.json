@@ -54,9 +54,10 @@
     "Capacite_Totale",
     "Prix_Vente_HT",
     "Nom_Fournisseur",
+    "Anciennes_References",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1793780596728,
+  "columnUpdatedAt": 1793808936733,
   "columnWidthMap": {
     "Montant_Acompte_TTC": 155,
     "Statut": 172,
@@ -197,6 +198,9 @@
     },
     {
       "key": "primaryColumns.Reappro_Auto.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Anciennes_References.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -250,6 +254,9 @@
     },
     {
       "key": "primaryColumns.Reappro_Auto.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Anciennes_References.onSubmit"
     }
   ],
   "dynamicTriggerPathList": [
@@ -279,6 +286,9 @@
     },
     {
       "key": "primaryColumns.Reappro_Auto.onClick"
+    },
+    {
+      "key": "primaryColumns.Anciennes_References.onSubmit"
     }
   ],
   "enableClientSideSearch": true,
@@ -311,6 +321,42 @@
   "parentRowSpace": 10,
   "primaryColumnId": "ID_Article",
   "primaryColumns": {
+    "Anciennes_References": {
+      "alias": "Anciennes_References",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_stock.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Anciennes_References\"])) : Anciennes_References })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Anciennes_References",
+      "index": 2,
+      "isCellEditable": true,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Anciennes_References",
+      "notation": "standard",
+      "onSubmit": "{{ \n  Update_Anciennes_References.run()\n    .then(() => {\n      showAlert('Anciennes références mises à jour !', 'success');\n      Get_Stock_Global.run();\n    })\n    .catch((err) => showAlert('Erreur : ' + err.message, 'error'))\n}}",
+      "originalId": "Anciennes_References",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "Capacite_Totale": {
       "alias": "Capacite_Totale",
       "allowCellWrapping": false,

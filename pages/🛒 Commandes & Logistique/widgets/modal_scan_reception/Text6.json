@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 40,
+  "bottomRow": 48,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -33,7 +33,7 @@
   "mobileRightColumn": 30,
   "mobileTopRow": 15,
   "needsErrorInfo": false,
-  "originalBottomRow": 51,
+  "originalBottomRow": 40,
   "originalTopRow": 32,
   "overflow": "NONE",
   "parentColumnSpace": 6.9375,
@@ -46,7 +46,7 @@
   "text": "{{\n  (() => {\n    const res = appsmith.store.lastScanResult;\n    if (!res) return \"👉 Scannez ou tapez une référence pour commencer.\";\n\n    return `${res.title}\\n\\n${res.detail}`;\n  })()\n}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
-  "topRow": 32,
+  "topRow": 36,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n  \"ID_Article\" AS value,\n  \"Recherche_Article\" AS label,\n  \"Code_Barre\",\n  \"Ref_Fournisseur\",\n  \"Prix_Vente_TTC\"\nFROM public.\"ARTICLES\"\nWHERE \"Statut_Ligne\" = 'Actif'\nORDER BY\n  CASE WHEN \"ID_Article\" = {{ appsmith.store.nouvel_article_id || '' }} THEN 0 ELSE 1 END,\n  \"Recherche_Article\" ASC;",
+      "body": "SELECT\n  \"ID_Article\" AS value,\n  TRIM(\n    COALESCE(\"Recherche_Article\", COALESCE(\"Ref_Fournisseur\", '') || ' - ' || COALESCE(\"Designation\", '')) ||\n    CASE \n      WHEN \"Anciennes_References\" IS NOT NULL AND TRIM(\"Anciennes_References\") <> '' \n      THEN ' (Anc: ' || \"Anciennes_References\" || ')' \n      ELSE '' \n    END\n  ) AS label,\n  \"Code_Barre\",\n  \"Ref_Fournisseur\",\n  \"Prix_Vente_TTC\",\n  \"Anciennes_References\"\nFROM public.\"ARTICLES\"\nWHERE \"Statut_Ligne\" = 'Actif'\nORDER BY\n  CASE WHEN \"ID_Article\" = {{ appsmith.store.nouvel_article_id || '' }} THEN 0 ELSE 1 END,\n  \"Recherche_Article\" ASC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

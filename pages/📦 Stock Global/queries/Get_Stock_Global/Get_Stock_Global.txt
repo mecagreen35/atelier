@@ -1,11 +1,12 @@
 SELECT
     a."ID_Article",
     a."Ref_Fournisseur" AS "Reference",
+    a."Anciennes_References",
     a."Code_Barre",
     a."Designation",
     a."Famille",
     a."Emplacement",
-		a."Reappro_Auto",  -- 🟢 Ajout
+    a."Reappro_Auto",
     a."Qte_Reappro",
     CASE
         WHEN a."Statut_Fiche"::text IN ('true', 't', '1', 'Finalisé') THEN '✅ Finalisé'

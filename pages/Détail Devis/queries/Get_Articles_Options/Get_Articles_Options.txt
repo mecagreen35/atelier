@@ -1,6 +1,16 @@
 SELECT
   "ID_Article" AS value,
-  "Recherche_Article" AS label
+  TRIM(
+    COALESCE("Recherche_Article", COALESCE("Ref_Fournisseur", '') || ' - ' || COALESCE("Designation", '')) ||
+    CASE 
+      WHEN "Anciennes_References" IS NOT NULL AND TRIM("Anciennes_References") <> '' 
+      THEN ' (Anc: ' || "Anciennes_References" || ')' 
+      ELSE '' 
+    END
+  ) AS label,
+  "Code_Barre",
+  "Ref_Fournisseur",
+  "Anciennes_References"
 FROM public."ARTICLES"
 WHERE "Statut_Ligne" = 'Actif'
 ORDER BY
