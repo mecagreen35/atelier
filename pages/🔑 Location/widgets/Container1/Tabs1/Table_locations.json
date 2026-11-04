@@ -44,9 +44,10 @@
     "Total_TTC",
     "isHeader",
     "Groupe_Statut",
-    "isSubHeader"
+    "isSubHeader",
+    "ID_Machine_Location"
   ],
-  "columnUpdatedAt": 1793746496575,
+  "columnUpdatedAt": 1793828088208,
   "columnWidthMap": {
     "Client": 221,
     "Client_Affichage": 315,
@@ -86,9 +87,6 @@
       "key": "primaryColumns.Statut.textColor"
     },
     {
-      "key": "primaryColumns.Statut.cellBackground"
-    },
-    {
       "key": "primaryColumns.ID.computedValue"
     },
     {
@@ -113,10 +111,25 @@
       "key": "primaryColumns.isHeader.computedValue"
     },
     {
-      "key": "primaryColumns.xn__N_Contrat_0na.cellBackground"
+      "key": "primaryColumns.Groupe_Statut.computedValue"
+    },
+    {
+      "key": "primaryColumns.isSubHeader.computedValue"
+    },
+    {
+      "key": "tableData"
     },
     {
       "key": "primaryColumns.Client.cellBackground"
+    },
+    {
+      "key": "primaryColumns.ID_Machine_Location.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__N_Contrat_0na.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Date_Dbut_g4a.cellBackground"
     },
     {
       "key": "primaryColumns.xn__Matriel_dya.cellBackground"
@@ -125,16 +138,7 @@
       "key": "primaryColumns.xn__Type_Dure_i4a.cellBackground"
     },
     {
-      "key": "primaryColumns.xn__Date_Dbut_g4a.cellBackground"
-    },
-    {
-      "key": "primaryColumns.Groupe_Statut.computedValue"
-    },
-    {
-      "key": "primaryColumns.isSubHeader.computedValue"
-    },
-    {
-      "key": "tableData"
+      "key": "primaryColumns.Statut.cellBackground"
     }
   ],
   "dynamicPropertyPathList": [
@@ -143,9 +147,6 @@
     },
     {
       "key": "onRowSelected"
-    },
-    {
-      "key": "cellBackground"
     },
     {
       "key": "textColor"
@@ -213,7 +214,7 @@
       "alias": "Client",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n)) : \n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n })()}}",
       "columnType": "text",
       "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Client\"])) : Client })()}}",
       "currencyCode": "USD",
@@ -311,11 +312,46 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "ID_Machine_Location": {
+      "alias": "ID_Machine_Location",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Machine_Location\"])) : ID_Machine_Location })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Machine_Location",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Machine_Location",
+      "notation": "standard",
+      "originalId": "ID_Machine_Location",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "Statut": {
       "alias": "Statut",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n)) : \n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n })()}}",
       "columnType": "text",
       "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const statut = (Get_Location_Detail.data[0]?.Statut || '').trim().toLowerCase();\n    \n    if (statut === 'reservation') return '🚀 Départ matériel';\n    if (statut === 'en cours' || statut === 'en_cours') return 'Retour matériel';\n    if (statut === 'terminé' || statut === 'termine') return '📄 Transférer en BL';\n    \n    return 'Aucune action';\n  })()\n)) : \n  (() => {\n    const statut = (Get_Location_Detail.data[0]?.Statut || '').trim().toLowerCase();\n    \n    if (statut === 'reservation') return '🚀 Départ matériel';\n    if (statut === 'en cours' || statut === 'en_cours') return 'Retour matériel';\n    if (statut === 'terminé' || statut === 'termine') return '📄 Transférer en BL';\n    \n    return 'Aucune action';\n  })()\n })()}}",
       "currencyCode": "USD",
@@ -451,7 +487,7 @@
       "alias": "Date Début",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n)) : \n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n })()}}",
       "columnType": "date",
       "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Date Début\"])) : Date Début })()}}",
       "currencyCode": "USD",
@@ -486,7 +522,7 @@
       "alias": "Matériel",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n)) : \n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n })()}}",
       "columnType": "text",
       "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Matériel\"]\")) : currentRow[\"Matériel\"]\" })()}}",
       "currencyCode": "USD",
@@ -520,7 +556,7 @@
       "alias": "N° Contrat",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n)) : \n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n })()}}",
       "columnType": "text",
       "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"N° Contrat\"])) : N° Contrat })()}}",
       "currencyCode": "USD",
@@ -554,7 +590,7 @@
       "alias": "Type Durée",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n)) : \n  (() => {\n    // 1. Si c'est l'en-tête de Statut (ex: 📌 3 - RÉSERVÉES), on met un fond gris clair\n    if (currentRow.isHeader) return \"#f4f4f5\";\n    \n    // 2. Si c'est l'en-tête de Machine (ex: 🚜 BROYEUR RABAUD)\n    if (currentRow.isSubHeader) {\n      // 🟢 CORRECTION ICI : get_locations avec un \"g\" minuscule\n      const allEvents = get_locations.data || [];\n      \n      // On crée la liste des machines uniques comme dans le calendrier\n      const machinesUniques = Array.from(\n        new Set(allEvents.map(e => String(e.ID_Machine_Location)))\n      ).sort();\n      \n      // On récupère le nom affiché de la machine en enlevant le \"🚜 \" et le compteur \" (X)\"\n      const nomAffiche = currentRow.Client || \"\";\n      const nomPropre = nomAffiche.replace(/🚜\\s*/g, '').replace(/\\s*\\(\\d+\\)$/, '').trim();\n      \n      // On cherche la machine dans allEvents qui correspond à ce nom\n      const eventTrouve = allEvents.find(e => (e[\"Matériel\"] || \"Machine non définie\") === nomPropre);\n      \n      if (eventTrouve) {\n        // On récupère son ID pour trouver la bonne couleur\n        const idMachine = String(eventTrouve.ID_Machine_Location);\n        const idx = machinesUniques.indexOf(idMachine);\n        \n        if (idx !== -1) {\n          const hue = (idx * 137.5) % 360;\n          return `hsl(${Math.round(hue)}, 70%, 42%)`; // Couleur de l'agenda\n        }\n      }\n      return \"#9ca3af\"; // Gris foncé si introuvable (sécurité)\n    }\n    \n    // 3. Les lignes normales (les contrats de location) restent transparentes (blanches)\n    return \"transparent\";\n  })()\n })()}}",
       "columnType": "text",
       "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Type Durée\"])) : Type Durée })()}}",
       "currencyCode": "USD",

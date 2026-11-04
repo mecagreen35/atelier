@@ -17,6 +17,7 @@ SELECT
   l."Date_Location" AS "Date Début",
   l."Statut" AS "Statut",
   l."TOTAL_TTC" AS "Total TTC",
+	l."ID_Machine_Location",
   
   -- Groupe principal : Statut
   CASE
