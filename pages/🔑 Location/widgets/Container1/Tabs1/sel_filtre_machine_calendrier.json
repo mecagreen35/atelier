@@ -1,0 +1,62 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "xmrdem2k8i",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "🚜 Filtrer le calendrier par machine",
+  "labelTextSize": "1rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 27,
+  "mobileRightColumn": 47,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 11.36328125,
+  "parentId": "6hp8vijd5n",
+  "parentRowSpace": 10,
+  "placeholderText": "Toutes les machines (ou choisir…)",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "serverSideFiltering": false,
+  "sourceData": "{{ \n  Get_Flotte_Location.data.map(m => ({ \n    label: m.Code_Interne + (m.Marque ? ' - ' + m.Marque : '') + (m.Modele ? ' ' + m.Modele : ''), \n    value: m.ID_Machine_Location \n  })) \n}}",
+  "topRow": 0,
+  "type": "MULTI_SELECT_WIDGET_V2",
+  "version": 1,
+  "widgetId": "zrys8ic841",
+  "widgetName": "sel_filtre_machine_calendrier"
+}

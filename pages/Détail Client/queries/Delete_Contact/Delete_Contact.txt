@@ -1,0 +1,2 @@
+DELETE FROM public."CONTACTS" 
+WHERE "ID_Contact" = {{ Table_contacts.triggeredRow.ID_Contact }};

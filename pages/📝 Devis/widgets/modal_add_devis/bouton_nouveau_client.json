@@ -1,0 +1,46 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 20,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "plus",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "t80ppzyzau",
+  "leftColumn": 56,
+  "minWidth": 50,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 56,
+  "mobileRightColumn": 60,
+  "mobileTopRow": 9,
+  "needsErrorInfo": false,
+  "onClick": "{{showModal(modal_add_client_rapide.name);}}",
+  "parentColumnSpace": 6.9375,
+  "parentId": "43wpcteseu",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "tooltip": "Nouveau Client",
+  "topRow": 16,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "f0cyzpqkt9",
+  "widgetName": "bouton_nouveau_client"
+}

@@ -1,0 +1,77 @@
+{
+  "backgroundColor": "#FFFFFF",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 98,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "defaultModel": "{{\n  {\n    \"selectedId\": \"\",\n    \"events\": Get_Calendar_Interventions.data || []\n  }\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onEventClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onResetClick"
+    },
+    {
+      "key": "onEventClick"
+    }
+  ],
+  "events": [
+    "onResetClick",
+    "onEventClick"
+  ],
+  "isCanvas": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "sspuulhofh",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 35,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 5,
+  "needsErrorInfo": false,
+  "onEventClick": "{{\n  storeValue('selected_creneau_id', Custom_Calendrier_Atelier.model.selectedId)\n    .then(() => Get_Creneau_Detail.run())\n    .then(() => showModal('modal_detail_creneau'))\n}}",
+  "onResetClick": "{{showAlert('Successfully reset!!', '');}}",
+  "parentColumnSpace": 11.75,
+  "parentId": "ttdp0raqw7",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "srcDoc": {
+    "css": "html, body {\n  margin: 0;\n  padding: 0;\n  height: 100%;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  background-color: #ffffff;\n  font-size: 13px;\n}\n\n#calendar {\n  height: 100vh;\n  padding: 8px;\n  box-sizing: border-box;\n}\n\n.fc-event {\n  cursor: pointer;\n  border: none !important;\n  border-radius: 4px;\n  padding: 2px 4px;\n  font-weight: 500;\n}\n\n.fc-toolbar-title {\n  font-size: 1.15rem !important;\n  font-weight: 700;\n  color: #1e293b;\n}",
+    "html": "<script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js\"></script>\n<div id=\"calendar\"></div>",
+    "js": "let calendar = null;\nappsmith.onReady(() => {\n  const calendarEl = document.getElementById('calendar');\n  calendar = new FullCalendar.Calendar(calendarEl, {\n    initialView: 'timeGridWeek',\n    locale: 'fr',\n    firstDay: 1,\n    // La semaine démarre le lundi\n\n    // Découpage horaire : de 8h à 20h\n    slotMinTime: '08:00:00',\n    slotMaxTime: '20:00:00',\n    expandRows: true,\n    // Étire les cases pour éviter de devoir scroller\n\n    headerToolbar: {\n      left: 'prev,next today',\n      center: 'title',\n      right: 'dayGridMonth,timeGridWeek,listMonth'\n    },\n    buttonText: {\n      today: \"Aujourd'hui\",\n      month: 'Mois',\n      week: 'Semaine',\n      list: 'Liste'\n    },\n    events: function (info, successCallback, failureCallback) {\n      const evts = appsmith.model && appsmith.model.events ? appsmith.model.events : [];\n      successCallback(evts);\n    },\n    eventClick: function (info) {\n      // 1. On envoie l'ID cliqué à Appsmith\n      appsmith.updateModel({\n        selectedId: info.event.id\n      });\n\n      // 2. Déclenchement sécurisé de l'action Appsmith\n      setTimeout(function () {\n        appsmith.triggerEvent(\"onEventClick\");\n      }, 100);\n    }\n  });\n  calendar.render();\n});\n\n// Rechargement immédiat au changement de mécano\nappsmith.onModelChange(model => {\n  if (calendar) {\n    calendar.refetchEvents();\n  }\n});"
+  },
+  "theme": "{{appsmith.theme}}",
+  "topRow": 5,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "html, body {\n  margin: 0; padding: 0; height: 100%;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  background-color: #ffffff; font-size: 13px;\n}\n#calendar { height: 100vh; padding: 8px; box-sizing: border-box; }\n.fc-event { cursor: pointer; border: none !important; border-radius: 4px; padding: 2px 4px; font-weight: 500; }\n.fc-toolbar-title { font-size: 1.15rem !important; font-weight: 700; color: #1e293b; }",
+    "html": "<script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js\"></script>\n<div id=\"calendar\"></div>",
+    "js": "let calendar = null;\n\nappsmith.onReady(() => {\n  const calendarEl = document.getElementById('calendar');\n\n  calendar = new FullCalendar.Calendar(calendarEl, {\n    initialView: 'timeGridWeek',\n    locale: 'fr',\n    firstDay: 1, // La semaine démarre le lundi\n    \n    // Découpage horaire : de 8h à 20h\n    slotMinTime: '08:00:00',\n    slotMaxTime: '20:00:00',\n    expandRows: true, // Étire les cases pour éviter de devoir scroller\n    \n    headerToolbar: {\n      left: 'prev,next today',\n      center: 'title',\n      right: 'dayGridMonth,timeGridWeek,listMonth'\n    },\n    buttonText: {\n      today: \"Aujourd'hui\",\n      month: 'Mois',\n      week: 'Semaine',\n      list: 'Liste'\n    },\n    \n    events: function(info, successCallback, failureCallback) {\n      const evts = (appsmith.model && appsmith.model.events) ? appsmith.model.events : [];\n      successCallback(evts);\n    },\n    \n    eventClick: function(info) {\n      // 1. On envoie l'ID cliqué à Appsmith\n      appsmith.updateModel({ selectedId: info.event.id });\n      \n      // 2. Déclenchement sécurisé de l'action Appsmith\n      setTimeout(function() {\n        appsmith.triggerEvent(\"onEventClick\");\n      }, 100);\n    }\n  });\n\n  calendar.render();\n});\n\n// Rechargement immédiat au changement de mécano\nappsmith.onModelChange((model) => {\n  if (calendar) {\n    calendar.refetchEvents();\n  }\n});"
+  },
+  "version": 1,
+  "widgetId": "oh63dpecqt",
+  "widgetName": "Custom_Calendrier_Atelier"
+}

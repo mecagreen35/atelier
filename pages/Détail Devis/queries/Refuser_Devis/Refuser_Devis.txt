@@ -1,0 +1,3 @@
+UPDATE public."DEVIS"
+SET "STATUT" = 'Refusé'
+WHERE "ID_DEVIS" = {{ appsmith.URL.queryParams.id }};

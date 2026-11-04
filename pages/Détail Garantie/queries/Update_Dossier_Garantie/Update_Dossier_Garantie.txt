@@ -1,0 +1,15 @@
+UPDATE public."BONS_DE_LIVRAISON"
+SET 
+  "Statut_Facturation" = '{{ sel_statut_dossier.selectedOptionValue }}',
+  "ID_Fournisseur_Garantie" = NULLIF('{{ sel_fournisseur_garantie.selectedOptionValue }}', ''),
+  "Ref_Avoir_Fournisseur" = NULLIF('{{ inp_ref_avoir.text }}', ''),
+  "Date_Reclamation_Garantie" = {{ date_envoi.selectedDate ? "'" + moment(date_envoi.selectedDate).format('YYYY-MM-DD') + "'" : "NULL" }},
+  
+  -- Ligne magique : si le dossier passe en "Clôturé" ou "Refusé", on enregistre la date du jour, sinon on laisse tel quel (ou NULL)
+  "Date_Cloture_Garantie" = CASE 
+    WHEN '{{ sel_statut_dossier.selectedOptionValue }}' IN ('Clôturé', 'Refusé') THEN CURRENT_DATE 
+    ELSE NULL 
+  END,
+
+  "Date_Modification" = NOW()
+WHERE "ID_BL" = '{{ appsmith.URL.queryParams.id }}';

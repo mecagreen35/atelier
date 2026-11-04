@@ -1,0 +1,4 @@
+SELECT "ID_Machine", "Designation_Complete", "Type_Machine", "Categorie_Materiel" 
+FROM public."v_parc_materiel_socle"
+WHERE "ID_Client" = '{{sel_devis_client.selectedOptionValue}}'
+ORDER BY "Designation_Complete" ASC;

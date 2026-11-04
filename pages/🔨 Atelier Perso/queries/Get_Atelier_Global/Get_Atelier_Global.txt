@@ -1,0 +1,29 @@
+WITH mecano_actuel AS (
+    SELECT "ID_Employe", "Specialite"
+    FROM public."Employes"
+    WHERE "Email" = '{{ appsmith.user.email }}'
+    LIMIT 1
+)
+SELECT v.* 
+FROM public.v_atelier_mecano v
+CROSS JOIN mecano_actuel m
+WHERE 
+    -- RÈGLE 1 & 2 : Assignation et Spécialité
+    (
+        v."Mecano_En_Charge" = m."ID_Employe"
+        OR 
+        (
+            (v."Mecano_En_Charge" IS NULL OR TRIM(v."Mecano_En_Charge") = '') 
+            AND m."Specialite" ILIKE '%' || v."Categorie_Materiel" || '%'
+        )
+    )
+    
+    -- 🟢 RÈGLE 3 : LE FILTRE DE LA BARRE DE RECHERCHE
+    -- 🟢 RÈGLE 3 : LE FILTRE DE LA BARRE DE RECHERCHE
+   AND (
+        v."Client_Affichage" ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+        OR COALESCE(v."N° OR", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+        OR COALESCE(v."Machine", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+    )
+
+ORDER BY v."Ordre_Tri_Mecano" ASC, v."Score_Priorite" DESC;

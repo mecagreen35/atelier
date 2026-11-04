@@ -1,0 +1,1 @@
+SELECT * FROM public.fn_recherche_globale({{ Inp_recherche_accueil.text }});

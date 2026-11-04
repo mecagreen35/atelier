@@ -1,0 +1,69 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 57,
+  "bottomRowBeforeCollapse": 57,
+  "boxShadow": "none",
+  "defaultText": "{{ Table_Flotte.triggeredRow.Prochaine_Vidange_Heures }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{Select_Edit_TypeSuivi.selectedOptionValue === \"Heures\"}}",
+  "key": "5tnbzz93s6",
+  "label": "Entretien",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 57,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 50,
+  "needsErrorInfo": false,
+  "originalBottomRow": 57,
+  "originalTopRow": 50,
+  "parentColumnSpace": 13.21875,
+  "parentId": "qbbxs0vvlq",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "showStepArrows": false,
+  "topRow": 50,
+  "topRowBeforeCollapse": 50,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "t8vtdgxxbm",
+  "widgetName": "Inp_Edit_Vidange"
+}

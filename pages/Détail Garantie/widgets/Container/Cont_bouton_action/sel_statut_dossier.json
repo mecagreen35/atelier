@@ -1,0 +1,55 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowClear": false,
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ Get_Detail_BL.data[0].Statut_Facturation }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "expandAll": false,
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "nvk4sfh9dl",
+  "labelAlignment": "left",
+  "labelPosition": "Left",
+  "labelText": "Statut du Dossier",
+  "labelTextSize": "1rem",
+  "labelWidth": 5,
+  "leftColumn": 21,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 33,
+  "mobileRightColumn": 53,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "options": "[\n  { \"label\": \"À déclarer\", \"value\": \"À déclarer\" },\n  { \"label\": \"Dossier envoyé\", \"value\": \"Dossier envoyé\" },\n  { \"label\": \"Accordé (Attente avoir)\", \"value\": \"Accordé\" },\n  { \"label\": \"Prise en charge interne\", \"value\": \"Prise en charge interne\" },\n  { \"label\": \"Clôturé (Avoir reçu)\", \"value\": \"Clôturé\" },\n  { \"label\": \"Refusé\", \"value\": \"Refusé\" }\n]",
+  "parentColumnSpace": 29.9375,
+  "parentId": "0ahz0p7kq0",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 41,
+  "topRow": 2,
+  "type": "SINGLE_SELECT_TREE_WIDGET",
+  "version": 1,
+  "widgetId": "fsxb2herz8",
+  "widgetName": "sel_statut_dossier"
+}

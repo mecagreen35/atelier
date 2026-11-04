@@ -1,0 +1,53 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 30,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "sjuqnlux06",
+  "leftColumn": 48,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Cloturer_Inventaire.run()\n    .then(() => {\n      showAlert('✅ Inventaire clôturé et stocks mis à jour !', 'success');\n      \n      // 1. On ferme le modal\n      closeModal('Modal_cloture_inv');\n      \n      // 2. On rafraîchit la liste des inventaires\n      return Get_Inventaires_Actifs.run();\n    })\n    .then(() => {\n      // 3. On vide les tableaux pour nettoyer l'écran\n      Get_Derniers_Scans.clear();\n      Get_Non_Scannes.clear();\n    })\n    .catch((error) => {\n      showAlert('Erreur lors de la clôture : ' + error.message, 'error');\n    });\n}}",
+  "originalBottomRow": 30,
+  "originalTopRow": 26,
+  "parentId": "4ia285h9ch",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Supprimer",
+  "topRow": 26,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "m994a3sx3z",
+  "widgetName": "Button4"
+}

@@ -1,0 +1,71 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 7,
+  "bottomRowBeforeCollapse": 7,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "iconName"
+    },
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ \n  [\n    \"VALIDÉ\", \n    \"VALIDE\", \n    \"REFUSÉ\", \n    \"REFUSE\", \n    \"ACCEPTÉ / TRANSFORMÉ\", \n    \"ACCEPTE / TRANSFORME\", \n    \"ARCHIVÉ\", \n    \"ARCHIVE\"\n  ].includes((Get_Devis_Detail.data[0]?.STATUT || \"\").toUpperCase().trim()) \n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "20kkzgi5qw",
+  "labelStyle": "",
+  "labelTextColor": "#231f20",
+  "labelTextSize": "1.875rem",
+  "leftColumn": 15,
+  "minWidth": 120,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 7,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    try {\n      await Refuser_Devis.run();\n      await Get_Devis_Detail.run();\n      showAlert('Devis marqué comme Refusé !', 'success');\n    } catch (err) {\n      showAlert('Erreur lors du refus : ' + err.message, 'error');\n    }\n  })()\n}}",
+  "originalBottomRow": 171,
+  "originalTopRow": 165,
+  "parentColumnSpace": 16.071484374999997,
+  "parentId": "og2opokv0y",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 21,
+  "text": "❌",
+  "tooltip": "❌ Refuser",
+  "topRow": 1,
+  "topRowBeforeCollapse": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "avqgm2xm36",
+  "widgetName": "bouton_impressionCopyCopyCopyCopy"
+}

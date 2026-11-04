@@ -1,0 +1,17 @@
+SELECT 
+  bl.*,
+  c."Nom",
+  c."Prénom",
+  c."Societe"
+FROM "BONS_DE_LIVRAISON" bl
+LEFT JOIN "Clients" c ON bl."Client" = c."ID_Client"
+WHERE (bl."Statut_Facturation" ILIKE '%à facturer%' OR bl."Statut_Facturation" ILIKE '%a facturer%')
+  AND bl."ID_Facture" IS NULL
+  AND (
+    {{ !inp_search_bon_de_livraison.text.trim() }} 
+    OR bl."Numero_BL" ILIKE {{ '%' + inp_search_bon_de_livraison.text.trim() + '%' }}
+    OR c."Nom" ILIKE {{ '%' + inp_search_bon_de_livraison.text.trim() + '%' }}
+    OR c."Prénom" ILIKE {{ '%' + inp_search_bon_de_livraison.text.trim() + '%' }}
+    OR c."Societe" ILIKE {{ '%' + inp_search_bon_de_livraison.text.trim() + '%' }}
+  )
+ORDER BY bl."Date_BL" DESC;

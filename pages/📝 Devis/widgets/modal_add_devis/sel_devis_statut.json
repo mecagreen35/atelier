@@ -1,0 +1,59 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "defaultOptionValue": "Brouillon",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "dkvtg2qb56",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Statut",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 29,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 19,
+  "mobileTopRow": 22,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 6.9375,
+  "parentId": "43wpcteseu",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"📝 Brouillon\", \"value\": \"Brouillon\" },\n  { \"label\": \"🔄 Sync Demandée\", \"value\": \"Sync Demandée\" },\n  { \"label\": \"✅ Validé\", \"value\": \"Validé\" },\n  { \"label\": \"📤 Envoyé\", \"value\": \"Envoyé\" },\n  { \"label\": \"⏳ Attente client\", \"value\": \"Attente client\" },\n  { \"label\": \"⚙️ Transformation Demandée\", \"value\": \"Transformation Demandée\" },\n  { \"label\": \"🤝 Accepté / Transformé\", \"value\": \"Accepté / Transformé\" },\n  { \"label\": \"🗄️ Archivé\", \"value\": \"Archivé\" }\n]",
+  "topRow": 20,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "a3i7qv9if7",
+  "widgetName": "sel_devis_statut"
+}

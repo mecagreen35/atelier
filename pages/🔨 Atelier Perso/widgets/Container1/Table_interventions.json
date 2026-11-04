@@ -1,0 +1,781 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowAddNewRow": false,
+  "animateLoading": false,
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 391,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "cachedTableData": {},
+  "canFreezeColumn": false,
+  "cellBackground": "",
+  "childStylesheet": {
+    "button": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "editActions": {
+      "discardBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "saveBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "saveButtonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "iconButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "menuButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "menuColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "columnOrder": [
+    "Date_Entree",
+    "Client_Affichage",
+    "ID_Intervention",
+    "xn__N_OR_5ga",
+    "Machine",
+    "Type_Machine",
+    "Statut",
+    "xn__Priorit_hya",
+    "Categorie_Materiel",
+    "Mecano_Nom",
+    "Ordre_Tri_Mecano",
+    "Score_Priorite",
+    "isHeader",
+    "OriginalStatut",
+    "Mecano_En_Charge"
+  ],
+  "columnUpdatedAt": 1790841786361,
+  "columnWidthMap": {
+    "Client_Affichage": 315,
+    "Montant_Acompte_TTC": 155,
+    "Statut": 228,
+    "Type_Machine": 182,
+    "customColumn1": 282,
+    "xn__N_OR_5ga": 88,
+    "xn__Priorit_hya": 126
+  },
+  "customIsLoading": false,
+  "customIsLoadingValue": "",
+  "defaultPageSize": 0,
+  "defaultSelectedRowIndex": "{{ appsmith.store.targetIndex || 0 }}",
+  "defaultSelectedRowIndices": [
+    0
+  ],
+  "delimiter": ",",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultSelectedRowIndex"
+    },
+    {
+      "key": "primaryColumns.ID_Intervention.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Entree.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__N_OR_5ga.computedValue"
+    },
+    {
+      "key": "primaryColumns.Type_Machine.computedValue"
+    },
+    {
+      "key": "primaryColumns.Statut.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__Priorit_hya.computedValue"
+    },
+    {
+      "key": "primaryColumns.Categorie_Materiel.computedValue"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.computedValue"
+    },
+    {
+      "key": "primaryColumns.Machine.computedValue"
+    },
+    {
+      "key": "primaryColumns.Mecano_Nom.computedValue"
+    },
+    {
+      "key": "primaryColumns.Ordre_Tri_Mecano.computedValue"
+    },
+    {
+      "key": "primaryColumns.Score_Priorite.computedValue"
+    },
+    {
+      "key": "primaryColumns.isHeader.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Entree.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.textColor"
+    },
+    {
+      "key": "primaryColumns.Statut.textColor"
+    },
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.OriginalStatut.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__N_OR_5ga.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Machine.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Type_Machine.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Statut.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Priorit_hya.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Categorie_Materiel.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Mecano_Nom.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Priorit_hya.textColor"
+    },
+    {
+      "key": "primaryColumns.Mecano_En_Charge.computedValue"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "onRowSelected"
+    },
+    {
+      "key": "cellBackground"
+    },
+    {
+      "key": "textColor"
+    },
+    {
+      "key": "primaryColumns.Date_Entree.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.textColor"
+    },
+    {
+      "key": "primaryColumns.Statut.textColor"
+    },
+    {
+      "key": "primaryColumns.xn__N_OR_5ga.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Machine.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Type_Machine.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Statut.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Priorit_hya.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Categorie_Materiel.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Mecano_Nom.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Priorit_hya.textColor"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
+  "enableClientSideSearch": true,
+  "endOfData": false,
+  "flexVerticalAlignment": "start",
+  "fontStyle": "BOLD",
+  "horizontalAlignment": "LEFT",
+  "infiniteScrollEnabled": false,
+  "inlineEditingSaveOption": "ROW_LEVEL",
+  "isLoading": false,
+  "isSortable": true,
+  "isVisible": true,
+  "isVisibleDownload": false,
+  "isVisibleFilters": false,
+  "isVisiblePagination": false,
+  "isVisibleSearch": false,
+  "key": "f5pxctir17",
+  "label": "Data",
+  "leftColumn": 0,
+  "minWidth": 450,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 39,
+  "mobileTopRow": 12,
+  "multiRowSelection": false,
+  "needsErrorInfo": false,
+  "onRowSelected": "{{\n  (async function() {\n    // Si la ligne cliquée est un séparateur, on stoppe l'action immédiatement\n    if (Table_interventions.selectedRow.isHeader) {\n       return; \n    }\n    \n    // Sinon, comportement normal :\n    await storeValue('page_precedente', '🔨 Atelier Perso');\n    await navigateTo('Détail Intervention', { id: Table_interventions.selectedRow.ID_Intervention });\n  })()\n}}",
+  "parentColumnSpace": 12.375,
+  "parentId": "ibpt7zhmx9",
+  "parentRowSpace": 10,
+  "primaryColumnId": "ID_Intervention",
+  "primaryColumns": {
+    "Categorie_Materiel": {
+      "alias": "Categorie_Materiel",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Categorie_Materiel\"])) : Categorie_Materiel })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Categorie_Materiel",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Categorie_Materiel",
+      "notation": "standard",
+      "originalId": "Categorie_Materiel",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Client_Affichage": {
+      "alias": "Client_Affichage",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    // 1. Si c'est un bandeau de séparation (ex: 🔽 DEVIS (2)), on l'affiche directement\n    if (currentRow.isHeader) {\n      return currentRow.Client_Affichage;\n    }\n\n    // 2. On récupère les valeurs renvoyées par ta vue Supabase\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    // On utilise directement ta colonne qui est déjà parfaitement formatée !\n    const client = currentRow[\"Client_Affichage\"] || \"Client inconnu\"; \n\n    // 3. On ajoute le bon emoji\n    let emoji = \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': emoji = '👁️ '; break;\n      case 'PIECE A COMMANDER': emoji = '🛒 '; break;\n      case 'DEVIS': emoji = '📋 '; break;\n      case 'EN COURS': emoji = '🛠️ '; break;\n      case 'EN TEST': emoji = '🧪 '; break;\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': emoji = '🔍 '; break;\n      case 'A REMONTER': emoji = '🔨 '; break;\n      case 'ATTENTE CLIENT': emoji = '👨‍💼 '; break;\n      case 'PIECE EN COMMANDE': emoji = '🚚 '; break;\n      case 'PRÊT': emoji = '✅ '; break;\n    }\n    \n    return emoji + client;\n  })()\n)) : \n  (() => {\n    // 1. Si c'est un bandeau de séparation (ex: 🔽 DEVIS (2)), on l'affiche directement\n    if (currentRow.isHeader) {\n      return currentRow.Client_Affichage;\n    }\n\n    // 2. On récupère les valeurs renvoyées par ta vue Supabase\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    // On utilise directement ta colonne qui est déjà parfaitement formatée !\n    const client = currentRow[\"Client_Affichage\"] || \"Client inconnu\"; \n\n    // 3. On ajoute le bon emoji\n    let emoji = \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': emoji = '👁️ '; break;\n      case 'PIECE A COMMANDER': emoji = '🛒 '; break;\n      case 'DEVIS': emoji = '📋 '; break;\n      case 'EN COURS': emoji = '🛠️ '; break;\n      case 'EN TEST': emoji = '🧪 '; break;\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': emoji = '🔍 '; break;\n      case 'A REMONTER': emoji = '🔨 '; break;\n      case 'ATTENTE CLIENT': emoji = '👨‍💼 '; break;\n      case 'PIECE EN COMMANDE': emoji = '🚚 '; break;\n      case 'PRÊT': emoji = '✅ '; break;\n    }\n    \n    return emoji + client;\n  })()\n })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Client_Affichage",
+      "index": 8,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Client_Affichage",
+      "notation": "standard",
+      "originalId": "Client_Affichage",
+      "sticky": "",
+      "textColor": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    // Si c'est un en-tête on lit OriginalStatut, sinon on lit le vrai Statut de la ligne\n    const statut = (currentRow.isHeader ? currentRow.OriginalStatut : currentRow.Statut)?.toUpperCase() || \"\";\n\n    switch (statut) {\n      case 'À VÉRIFIER': return '#0ea5e9'; // Bleu clair\n      case 'PIECE A COMMANDER': return '#ef4444'; // Rouge\n      case 'DEVIS': return '#a855f7'; // Violet\n      case 'EN COURS': return '#3b82f6'; // Bleu\n      case 'EN TEST': return '#8b5cf6'; // Violet foncé\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '#4b5563'; // Gris foncé\n      case 'A REMONTER': return '#e11d48'; // Rose/Rouge\n      case 'ATTENTE CLIENT': return '#eab308'; // Jaune/Orange\n      case 'PIECE EN COMMANDE': return '#22c55e'; // Vert\n      case 'PRÊT': return '#16a34a'; // Vert foncé\n      default: return '#000000'; // Noir par défaut\n    }\n  })()\n)) : \n  (() => {\n    // Si c'est un en-tête on lit OriginalStatut, sinon on lit le vrai Statut de la ligne\n    const statut = (currentRow.isHeader ? currentRow.OriginalStatut : currentRow.Statut)?.toUpperCase() || \"\";\n\n    switch (statut) {\n      case 'À VÉRIFIER': return '#0ea5e9'; // Bleu clair\n      case 'PIECE A COMMANDER': return '#ef4444'; // Rouge\n      case 'DEVIS': return '#a855f7'; // Violet\n      case 'EN COURS': return '#3b82f6'; // Bleu\n      case 'EN TEST': return '#8b5cf6'; // Violet foncé\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '#4b5563'; // Gris foncé\n      case 'A REMONTER': return '#e11d48'; // Rose/Rouge\n      case 'ATTENTE CLIENT': return '#eab308'; // Jaune/Orange\n      case 'PIECE EN COMMANDE': return '#22c55e'; // Vert\n      case 'PRÊT': return '#16a34a'; // Vert foncé\n      default: return '#000000'; // Noir par défaut\n    }\n  })()\n })()}}",
+      "textSize": "1.25rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Date_Entree": {
+      "alias": "Date_Entree",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "date",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Date_Entree\"])) : Date_Entree })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Date_Entree",
+      "index": 1,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Date_Entree",
+      "notation": "standard",
+      "originalId": "Date_Entree",
+      "outputFormat": "DD/MM/YYYY",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Intervention": {
+      "alias": "ID_Intervention",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Intervention\"])) : ID_Intervention })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Intervention",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Intervention",
+      "notation": "standard",
+      "originalId": "ID_Intervention",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Machine": {
+      "alias": "Machine",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Machine\"])) : Machine })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Machine",
+      "index": 9,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Machine",
+      "notation": "standard",
+      "originalId": "Machine",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Mecano_En_Charge": {
+      "alias": "Mecano_En_Charge",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Mecano_En_Charge\"])) : Mecano_En_Charge })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Mecano_En_Charge",
+      "index": 11,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Mecano_En_Charge",
+      "notation": "standard",
+      "originalId": "Mecano_En_Charge",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Mecano_Nom": {
+      "alias": "Mecano_Nom",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Mecano_Nom\"])) : Mecano_Nom })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Mecano_Nom",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Mecano_Nom",
+      "notation": "standard",
+      "originalId": "Mecano_Nom",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Ordre_Tri_Mecano": {
+      "alias": "Ordre_Tri_Mecano",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Ordre_Tri_Mecano\"])) : Ordre_Tri_Mecano })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Ordre_Tri_Mecano",
+      "index": 11,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Ordre_Tri_Mecano",
+      "notation": "standard",
+      "originalId": "Ordre_Tri_Mecano",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "OriginalStatut": {
+      "alias": "OriginalStatut",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"OriginalStatut\"])) : OriginalStatut })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "OriginalStatut",
+      "index": 1,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "OriginalStatut",
+      "notation": "standard",
+      "originalId": "OriginalStatut",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Score_Priorite": {
+      "alias": "Score_Priorite",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Score_Priorite\"])) : Score_Priorite })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Score_Priorite",
+      "index": 12,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Score_Priorite",
+      "notation": "standard",
+      "originalId": "Score_Priorite",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Statut": {
+      "alias": "Statut",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': return '👁️ ' + currentRow[\"Statut\"];\n      case 'PIECE A COMMANDER': return '🛒 ' + currentRow[\"Statut\"];\n      case 'DEVIS': return '📋 ' + currentRow[\"Statut\"];\n      case 'EN COURS': return '🛠️ ' + currentRow[\"Statut\"];\n      case 'EN TEST': return '🧪 ' + currentRow[\"Statut\"];\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '🔍 ' + currentRow[\"Statut\"];\n      case 'A REMONTER': return '🔨 ' + currentRow[\"Statut\"];\n      case 'ATTENTE CLIENT': return '👨‍💼 ' + currentRow[\"Statut\"];\n      case 'PIECE EN COMMANDE': return '🚚 ' + currentRow[\"Statut\"];\n      case 'PRÊT': return '✅ ' + currentRow[\"Statut\"];\n      default: return currentRow[\"Statut\"];\n    }\n  })()\n)) : \n  (() => {\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': return '👁️ ' + currentRow[\"Statut\"];\n      case 'PIECE A COMMANDER': return '🛒 ' + currentRow[\"Statut\"];\n      case 'DEVIS': return '📋 ' + currentRow[\"Statut\"];\n      case 'EN COURS': return '🛠️ ' + currentRow[\"Statut\"];\n      case 'EN TEST': return '🧪 ' + currentRow[\"Statut\"];\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '🔍 ' + currentRow[\"Statut\"];\n      case 'A REMONTER': return '🔨 ' + currentRow[\"Statut\"];\n      case 'ATTENTE CLIENT': return '👨‍💼 ' + currentRow[\"Statut\"];\n      case 'PIECE EN COMMANDE': return '🚚 ' + currentRow[\"Statut\"];\n      case 'PRÊT': return '✅ ' + currentRow[\"Statut\"];\n      default: return currentRow[\"Statut\"];\n    }\n  })()\n })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Statut",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Statut",
+      "notation": "standard",
+      "originalId": "Statut",
+      "sticky": "",
+      "textColor": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': return '#0ea5e9'; // Bleu clair\n      case 'PIECE A COMMANDER': return '#ef4444'; // Rouge\n      case 'DEVIS': return '#a855f7'; // Violet\n      case 'EN COURS': return '#3b82f6'; // Bleu\n      case 'EN TEST': return '#8b5cf6'; // Violet foncé\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '#4b5563'; // Gris foncé\n      case 'A REMONTER': return '#e11d48'; // Rose/Rouge\n      case 'ATTENTE CLIENT': return '#eab308'; // Jaune/Orange\n      case 'PIECE EN COMMANDE': return '#22c55e'; // Vert\n      case 'PRÊT': return '#16a34a'; // Vert foncé\n      default: return '#000000'; // Noir par défaut\n    }\n  })()\n)) : \n  (() => {\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': return '#0ea5e9'; // Bleu clair\n      case 'PIECE A COMMANDER': return '#ef4444'; // Rouge\n      case 'DEVIS': return '#a855f7'; // Violet\n      case 'EN COURS': return '#3b82f6'; // Bleu\n      case 'EN TEST': return '#8b5cf6'; // Violet foncé\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '#4b5563'; // Gris foncé\n      case 'A REMONTER': return '#e11d48'; // Rose/Rouge\n      case 'ATTENTE CLIENT': return '#eab308'; // Jaune/Orange\n      case 'PIECE EN COMMANDE': return '#22c55e'; // Vert\n      case 'PRÊT': return '#16a34a'; // Vert foncé\n      default: return '#000000'; // Noir par défaut\n    }\n  })()\n })()}}",
+      "textSize": "1.25rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Type_Machine": {
+      "alias": "Type_Machine",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Type_Machine\"])) : Type_Machine })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Type_Machine",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Type_Machine",
+      "notation": "standard",
+      "originalId": "Type_Machine",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "isHeader": {
+      "alias": "isHeader",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"isHeader\"])) : isHeader })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "isHeader",
+      "index": 0,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "isHeader",
+      "notation": "standard",
+      "originalId": "isHeader",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "xn__N_OR_5ga": {
+      "alias": "N° OR",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"N° OR\"])) : N° OR })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "xn__N_OR_5ga",
+      "index": 3,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "N° OR",
+      "notation": "standard",
+      "originalId": "N° OR",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "xn__Priorit_hya": {
+      "alias": "Priorité",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const prio = currentRow['Priorité'] || '';\n    if (prio === 'Pro') return '🔥 Pro';\n    if (prio === 'Pro urgent') return '🔥 Pro urgent';\n    if (prio === 'Urgent') return '🔥 Urgent';\n    if (prio === 'Bricolage') return '🚚 Bricolage';\n    return prio; // Retourne \"Normal\" tel quel\n  })()\n)) : \n  (() => {\n    const prio = currentRow['Priorité'] || '';\n    if (prio === 'Pro') return '🔥 Pro';\n    if (prio === 'Pro urgent') return '🔥 Pro urgent';\n    if (prio === 'Urgent') return '🔥 Urgent';\n    if (prio === 'Bricolage') return '🚚 Bricolage';\n    return prio; // Retourne \"Normal\" tel quel\n  })()\n })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "xn__Priorit_hya",
+      "index": 6,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Priorité",
+      "notation": "standard",
+      "originalId": "Priorité",
+      "sticky": "",
+      "textColor": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const prio = currentRow['Priorité'] || '';\n    if (prio === 'Pro') return '#d97706'; // Orange / Doré\n    if (prio === 'Pro urgent') return '#ea580c'; // Orange foncé\n    if (prio === 'Urgent') return '#dc2626'; // Rouge\n    if (prio === 'Bricolage') return '#2563eb'; // Bleu\n    return '#000000'; // Noir par défaut pour \"Normal\"\n  })()\n)) : \n  (() => {\n    const prio = currentRow['Priorité'] || '';\n    if (prio === 'Pro') return '#d97706'; // Orange / Doré\n    if (prio === 'Pro urgent') return '#ea580c'; // Orange foncé\n    if (prio === 'Urgent') return '#dc2626'; // Rouge\n    if (prio === 'Bricolage') return '#2563eb'; // Bleu\n    return '#000000'; // Noir par défaut pour \"Normal\"\n  })()\n })()}}",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    }
+  },
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "searchKey": "",
+  "serverSidePaginationEnabled": true,
+  "tableData": "{{\n  (() => {\n    const data = Get_Atelier_Global.data || [];\n    let groupedData = [];\n    \n    let counts = {};\n    data.forEach(row => {\n       let st = row.Statut || \"Non défini\";\n       counts[st] = (counts[st] || 0) + 1;\n    });\n\n    let currentStatut = null;\n    data.forEach((row) => {\n      let st = row.Statut || \"Non défini\";\n      \n      if (st !== currentStatut) {\n        // --- NOUVEAU : On détermine l'emoji ---\n        let emoji = \"🔽\";\n        switch (st.toUpperCase()) {\n          case 'À VÉRIFIER': emoji = '👁️'; break;\n          case 'PIECE A COMMANDER': emoji = '🛒'; break;\n          case 'DEVIS': emoji = '📋'; break;\n          case 'EN COURS': emoji = '🛠️'; break;\n          case 'EN TEST': emoji = '🧪'; break;\n          case 'TAST':\n          case 'À DIAGNOSTIQUER': emoji = '🔍'; break;\n          case 'A REMONTER': emoji = '🔨'; break;\n          case 'ATTENTE CLIENT': emoji = '👨‍💼'; break;\n          case 'PIECE EN COMMANDE': emoji = '🚚'; break;\n          case 'PRÊT': emoji = '✅'; break;\n        }\n\n        groupedData.push({\n          isHeader: true,\n          OriginalStatut: st, // ASTUCE : On garde le statut en mémoire secrètement pour la couleur !\n          Client_Affichage: `${emoji} ${st} (${counts[st]})`, \n          Statut: \"\", \n          Machine: \"\",\n          \"N° OR\": \"\",\n          Date_Entree: \"\",\n          ID_Intervention: null \n        });\n        currentStatut = st;\n      }\n      \n      groupedData.push({ ...row, isHeader: false });\n    });\n\n    return groupedData;\n  })()\n}}",
+  "textColor": "",
+  "textSize": "1rem",
+  "topRow": 6,
+  "totalRecordsCount": "1000",
+  "type": "TABLE_WIDGET_V2",
+  "version": 2,
+  "verticalAlignment": "CENTER",
+  "widgetId": "y2uxkxr59x",
+  "widgetName": "Table_interventions"
+}

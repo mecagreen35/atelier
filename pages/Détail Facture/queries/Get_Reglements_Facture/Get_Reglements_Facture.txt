@@ -1,0 +1,3 @@
+SELECT *
+FROM "Règlements"
+WHERE "ID_Facture" = {{ appsmith.URL.queryParams.id || appsmith.store.current_facture_id }};

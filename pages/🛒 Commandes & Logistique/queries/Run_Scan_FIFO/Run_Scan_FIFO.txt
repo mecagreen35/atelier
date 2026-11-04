@@ -1,0 +1,4 @@
+SELECT public.fn_traiter_scan_fifo(
+  {{ this.params.idLigne }},
+  {{ this.params.qteScan }}
+) AS result;

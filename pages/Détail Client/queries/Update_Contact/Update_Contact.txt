@@ -1,0 +1,8 @@
+UPDATE public."CONTACTS"
+SET 
+    "Nom_Contact" = {{ Table_contacts.updatedRow.Nom_Contact }},
+    "Fonction" = {{ Table_contacts.updatedRow.Fonction }},
+    "Telephone" = {{ (Table_contacts.updatedRow.Telephone || '').replace(/\s/g, '.') }},
+    "Email" = {{ Table_contacts.updatedRow.Email }},
+    "Notes" = {{ Table_contacts.updatedRow.Notes }}
+WHERE "ID_Contact" = {{ Table_contacts.updatedRow.ID_Contact }};

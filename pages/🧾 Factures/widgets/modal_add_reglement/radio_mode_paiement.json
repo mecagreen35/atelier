@@ -1,0 +1,58 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignment": "left",
+  "animateLoading": true,
+  "bottomRow": 20,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "options"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "options"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isDisabled": false,
+  "isInline": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "0nyvenuoji",
+  "label": "Mode Paiement",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextColor": "#71717a",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 20,
+  "mobileLeftColumn": 20,
+  "mobileRightColumn": 40,
+  "mobileTopRow": 14,
+  "needsErrorInfo": false,
+  "options": "{{\n  (function() {\n    // On utilise triggeredRow pour cibler la ligne du bouton cliqué\n    const statut = Table_facture.triggeredRow.Mode_Paiement_Synthese || \"\";\n\n    if (statut.includes(\"SIGNALER\")) {\n      return [\n        { \"label\": \"✉️ À ENVOYER\", \"value\": \"✉️ À ENVOYER\" },\n        { \"label\": \"À PERCEVOIR\", \"value\": \"À PERCEVOIR\" },\n        { \"label\": \"CB\", \"value\": \"CB\" },\n        { \"label\": \"Espèces\", \"value\": \"Espèces\" },\n        { \"label\": \"Virement\", \"value\": \"Virement\" },\n        { \"label\": \"Chèque\", \"value\": \"Chèque\" }\n      ];\n    } else if (statut.includes(\"ENVOYER\")) {\n      return [\n        { \"label\": \"À PERCEVOIR\", \"value\": \"À PERCEVOIR\" },\n        { \"label\": \"CB\", \"value\": \"CB\" },\n        { \"label\": \"Espèces\", \"value\": \"Espèces\" },\n        { \"label\": \"Virement\", \"value\": \"Virement\" },\n        { \"label\": \"Chèque\", \"value\": \"Chèque\" }\n      ];\n    } else {\n      // Pour tous les autres cas (À PERCEVOIR, etc.), on cache les options d'attente\n      return [\n        { \"label\": \"CB\", \"value\": \"CB\" },\n        { \"label\": \"Espèces\", \"value\": \"Espèces\" },\n        { \"label\": \"Virement\", \"value\": \"Virement\" },\n        { \"label\": \"Chèque\", \"value\": \"Chèque\" }\n      ];\n    }\n  })()\n}}",
+  "originalBottomRow": 22,
+  "originalTopRow": 14,
+  "parentColumnSpace": 6.9375,
+  "parentId": "iutrbl8y4v",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "topRow": 14,
+  "type": "RADIO_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "az2i38utm2",
+  "widgetName": "radio_mode_paiement"
+}

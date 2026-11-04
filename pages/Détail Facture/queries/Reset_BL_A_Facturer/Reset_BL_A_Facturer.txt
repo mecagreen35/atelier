@@ -1,0 +1,8 @@
+UPDATE public."BONS_DE_LIVRAISON"
+SET 
+  "Statut_Facturation" = 'À Facturer',
+  "ID_Facture" = NULL,
+  "Numero_Facture_Pennylane" = NULL,
+  "Lien_Facture" = NULL,
+  "Date_Facture" = NULL
+WHERE "ID_BL" = {{ this.params.id_bl }};

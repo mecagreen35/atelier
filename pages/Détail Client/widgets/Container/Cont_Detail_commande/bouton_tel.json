@@ -1,0 +1,53 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 9,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "phone",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "g9wvey7wvo",
+  "leftColumn": 60,
+  "minWidth": 50,
+  "mobileBottomRow": 10,
+  "mobileLeftColumn": 59,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (function() {\n    if (Get_Client_Infos.data[0].Telephone) {\n      // Nettoie le numéro en supprimant les points et les espaces\n      const numeroPropre = Get_Client_Infos.data[0].Telephone.replace(/[\\s.]/g, '');\n      \n      navigateTo('tel:' + numeroPropre, {}, 'SAME_WINDOW');\n    }\n  })()\n}}",
+  "originalBottomRow": 60,
+  "originalTopRow": 56,
+  "parentColumnSpace": 11.75,
+  "parentId": "dwjfim63mt",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "tooltip": "Appeler",
+  "topRow": 5,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "zmh808yt1h",
+  "widgetName": "bouton_tel"
+}

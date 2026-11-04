@@ -1,0 +1,3 @@
+UPDATE public."BONS_DE_LIVRAISON"
+SET "ID_Machine" = {{ Select_Machine_Vente.selectedOptionValue }}
+WHERE "ID_BL" = {{ Get_Facture_ById.data[0].ID_BL }};

@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 47,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "bczh97yx2g",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Update_Creneau.run()\n    .then(() => {\n      showAlert('Créneau modifié avec succès !', 'success');\n      closeModal('modal_detail_creneau');\n      return Get_Calendar_Interventions.run();\n    })\n    .catch((err) => showAlert('Erreur lors de la modification : ' + err.message, 'error'))\n}}",
+  "originalBottomRow": 47,
+  "originalTopRow": 43,
+  "parentId": "v6rlvwqi0b",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Valider",
+  "topRow": 43,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "ijigxz1knd",
+  "widgetName": "Button5"
+}

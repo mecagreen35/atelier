@@ -1,0 +1,70 @@
+{
+  "animateLoading": false,
+  "borderColor": "#231f20",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 14,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    },
+    {
+      "key": "textColor"
+    },
+    {
+      "key": "fontSize"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "textColor"
+    },
+    {
+      "key": "fontSize"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "{{ Get_Detail_BL.data[0].Statut_Facturation === 'Envoi n8n en cours' ? '1.875rem' : '1.25rem' }}",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "6kb2b51m4n",
+  "leftColumn": 9,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 14,
+  "mobileLeftColumn": 9,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 10,
+  "needsErrorInfo": false,
+  "originalBottomRow": 15,
+  "originalTopRow": 11,
+  "overflow": "NONE",
+  "parentColumnSpace": 17.1875,
+  "parentId": "g9s82vilda",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 41,
+  "shouldTruncate": false,
+  "text": "{{ Get_Detail_BL.data[0].Statut_Facturation }}",
+  "textAlign": "LEFT",
+  "textColor": "{{ Get_Detail_BL.data[0].Statut_Facturation === 'Envoi n8n en cours' ? 'red' : '#231f20' }}",
+  "topRow": 10,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "74x0msfkal",
+  "widgetName": "Text_montant_reste_a_payer"
+}

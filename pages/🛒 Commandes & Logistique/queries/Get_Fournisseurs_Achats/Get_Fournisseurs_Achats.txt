@@ -1,0 +1,28 @@
+SELECT 
+    COALESCE(la."ID_Fournisseur", 'NON_ASSIGNE') AS "ID_Fournisseur",
+    COALESCE(f."Nom_Fournisseur", la."ID_Fournisseur", 'DIVERS / NON ASSIGNÉ') AS "Nom_Fournisseur",
+    COALESCE(f."Franco_De_Port", 0) AS "Franco_De_Port",
+    COUNT(la."ID_Ligne_Achat") AS "Nb_Lignes",
+    COALESCE(SUM(la."Quantite_Commandee" * la."Prix_Achat"), 0) AS "Total_HT"
+FROM public."LIGNES_COMMANDES_ACHATS" la
+LEFT JOIN public."FOURNISSEURS" f 
+    ON f."ID_Fournisseur" = la."ID_Fournisseur"
+    OR f."Nom_Fournisseur" ILIKE la."ID_Fournisseur"
+WHERE 
+    CASE 
+        WHEN '{{ appsmith.store.tab_achats || 'A_COMMANDER' }}' = 'A_COMMANDER' 
+            THEN UPPER(TRIM(COALESCE(la."Statut_Achat", ''))) IN ('À COMMANDER', 'A COMMANDER')
+
+        WHEN '{{ appsmith.store.tab_achats }}' = 'EN_COMMANDE' 
+            THEN UPPER(TRIM(COALESCE(la."Statut_Achat", ''))) IN ('COMMANDÉ', 'COMMANDE', 'REÇU PARTIEL', 'RECU PARTIEL')
+
+        WHEN '{{ appsmith.store.tab_achats }}' = 'HISTORIQUE' 
+            THEN UPPER(TRIM(COALESCE(la."Statut_Achat", ''))) IN ('REÇU', 'RECU')
+
+        ELSE TRUE 
+    END
+GROUP BY 
+    COALESCE(la."ID_Fournisseur", 'NON_ASSIGNE'),
+    COALESCE(f."Nom_Fournisseur", la."ID_Fournisseur", 'DIVERS / NON ASSIGNÉ'),
+    COALESCE(f."Franco_De_Port", 0)
+ORDER BY "Total_HT" DESC;

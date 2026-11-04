@@ -1,0 +1,68 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "{{ appsmith.store.show_archives_interv ? \"PRIMARY\" : \"SECONDARY\" }}",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "buttonVariant"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "buttonVariant"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": "{{ Tabs1.selectedTab === \"🛠️ Atelier Global\" }}",
+  "key": "wcosu8mds8",
+  "leftColumn": 31,
+  "minWidth": 120,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 24,
+  "mobileRightColumn": 40,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  storeValue('show_archives_interv', !appsmith.store.show_archives_interv)\n  .then(() => Get_Atelier_Global.run());\n}}",
+  "parentColumnSpace": 11.75,
+  "parentId": "0boawk54tj",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 38,
+  "text": "📁",
+  "tooltip": "Afficher les archives (Facturé)",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "kcbjxl4ztv",
+  "widgetName": "Button1"
+}

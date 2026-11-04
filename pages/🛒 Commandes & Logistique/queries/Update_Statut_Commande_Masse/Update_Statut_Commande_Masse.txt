@@ -1,0 +1,10 @@
+UPDATE public."LIGNES_COMMANDES_ACHATS"
+SET 
+  "Statut_Achat" = 'COMMANDÉ',
+  "Numero_Commande_Fournisseur" = {{ Input_Ref_Commande_Fournisseur.text.trim() }},
+  "Date_Commande" = CURRENT_DATE,
+	"Date_Livraison_Prevue" = {{ DatePicker_Livraison.selectedDate ? DatePicker_Livraison.selectedDate : null }}
+WHERE "ID_Ligne_Achat" = ANY({{ 
+  Object.keys(appsmith.store.commande_selection || {})
+    .filter(id => appsmith.store.commande_selection[id] === true) 
+}});

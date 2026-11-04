@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 98,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "pt0cu7dfun",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Insert_Client_Rapide.run()\n    .then((res) => {\n      // 1. On récupère l'ID du client fraîchement créé (grâce à ton RETURNING)\n      const newClientId = res[0].ID_Client;\n      \n      // 2. On le met en mémoire pour dire à la page Détail Client qui afficher\n      return storeValue('detail_client_id', newClientId);\n    })\n    .then(() => storeValue('page_precedente', 'Clients')) // Pour que le bouton Retour de la fiche fonctionne\n    .then(() => Get_Clients.run()) // On rafraîchit ton tableau en arrière-plan\n    .then(() => {\n      // 3. On ferme la modale, on affiche une notification et on ouvre la fiche !\n      closeModal('modal_add_client_rapide');\n      showAlert('Client créé avec succès !', 'success');\n      navigateTo('Détail Client', {}, 'SAME_WINDOW');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la création : ' + err.message, 'error');\n    });\n}}",
+  "originalBottomRow": 98,
+  "originalTopRow": 94,
+  "parentId": "yia280c0lr",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "text": "Enregistrer",
+  "topRow": 94,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "r4c00lyaip",
+  "widgetName": "bouton_enregistrer_client"
+}

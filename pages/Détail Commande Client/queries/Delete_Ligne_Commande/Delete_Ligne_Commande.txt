@@ -1,0 +1,2 @@
+DELETE FROM "LIGNES_COMMANDES_CLIENTS"
+WHERE "ID_Ligne_Client" = {{ Table_Lignes_Commande.triggeredRow.ID_Ligne_Client }};

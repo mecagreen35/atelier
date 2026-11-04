@@ -1,0 +1,77 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 7,
+  "bottomRowBeforeCollapse": 7,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "iconName"
+    },
+    {
+      "key": "isDisabled"
+    },
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ Get_Commande_ById.data[0]?.Statut !== 'Commande complète' }}",
+  "isLoading": false,
+  "isVisible": "{{ Get_Lignes_Commande.data.length > 0 }}",
+  "key": "20kkzgi5qw",
+  "labelStyle": "",
+  "labelTextColor": "#231f20",
+  "labelTextSize": "1.875rem",
+  "leftColumn": 15,
+  "minWidth": 120,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 7,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    try {\n      // 1. On lance la création du BL (le trigger Supabase fait le job)\n      await Transfert_Commande_BL.run();\n      \n      // 2. On va chercher l'ID du BL qui vient d'être créé\n      const result = await Get_Nouveau_BL.run();\n      \n      // 3. On vérifie qu'on a bien l'ID, puis on redirige !\n      if (result && result.length > 0) {\n          const id_nouveau_bl = result[0].ID_BL;\n          navigateTo('Détail Bon de Livraison', { \"id\": id_nouveau_bl }, 'SAME_WINDOW');\n      } else {\n          showAlert(\"Le BL est créé mais impossible de l'ouvrir automatiquement.\", \"warning\");\n      }\n      \n    } catch (error) {\n      showAlert('Erreur lors du transfert : ' + error.message, 'error');\n    }\n  })()\n}}",
+  "originalBottomRow": 171,
+  "originalTopRow": 165,
+  "parentColumnSpace": 16.071484374999997,
+  "parentId": "kjaqkuzie5",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 22,
+  "text": "🚚",
+  "tooltip": "🚚 Générer Bon de Livraison",
+  "topRow": 1,
+  "topRowBeforeCollapse": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "q2smfel2pm",
+  "widgetName": "Btn_Transfert_BL"
+}

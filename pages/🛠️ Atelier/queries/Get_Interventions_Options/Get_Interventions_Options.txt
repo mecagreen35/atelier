@@ -1,0 +1,6 @@
+SELECT 
+    "ID_Intervention" AS value,
+    "N° OR" || ' - ' || "Client_Affichage" || ' (' || "Machine" || ')' AS label
+FROM public.v_atelier_dashboard
+WHERE UPPER(TRIM("Statut")) NOT IN ('LIVRÉ.FACTURÉ', 'FACTURE')
+ORDER BY "Date_Entree" DESC;

@@ -1,0 +1,9 @@
+SELECT 
+  ms."ID_Mouvement",
+  ms."Date_Mouvement",
+  ms."Quantite_Mouvement",
+  ms."Motif",
+  ms."Reference_Doc"
+FROM public."MOUVEMENTS_STOCK" ms
+WHERE ms."ID_Article" = {{ appsmith.URL.queryParams.id }}
+ORDER BY ms."Date_Mouvement" DESC;

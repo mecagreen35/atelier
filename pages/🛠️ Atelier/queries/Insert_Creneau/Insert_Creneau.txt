@@ -1,0 +1,23 @@
+INSERT INTO public."CRENEAUX_INTERVENTIONS" (
+  "ID_Creneau",
+  "ID_Intervention",
+  "ID_Employe",
+  "Type_Creneau",
+  "Date_Debut",
+  "Date_Fin",
+  "Statut_Creneau",
+  "Commentaire",
+  "Date_Creation"
+)
+VALUES (
+  gen_random_uuid()::text,
+  {{ sel_creneau_intervention.selectedOptionValue || null }},
+  {{ sel_creneau_mecano.selectedOptionValue || null }},
+  {{ sel_creneau_type.selectedOptionValue || 'Atelier' }},
+  {{ date_creneau_debut.selectedDate }},
+  {{ date_creneau_fin.selectedDate }},
+  'Planifié',
+  {{ inp_creneau_commentaire.text || null }},
+  NOW()
+)
+RETURNING "ID_Creneau";

@@ -1,0 +1,60 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 96,
+  "boxShadow": "none",
+  "defaultText": "{{ Table_Flotte.triggeredRow.Part_Batterie_Pct ?? 15 }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "inputType": "NUMBER",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "1uf4p5oyke",
+  "label": "Part énergie (%)",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 30,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 95,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 10,
+  "mobileTopRow": 88,
+  "needsErrorInfo": false,
+  "originalBottomRow": 96,
+  "originalTopRow": 89,
+  "parentColumnSpace": 11.746875,
+  "parentId": "qbbxs0vvlq",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 60,
+  "shouldAllowAutofill": false,
+  "showStepArrows": false,
+  "topRow": 89,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "7vuilr2h7c",
+  "widgetName": "Input_Part_Batterie"
+}

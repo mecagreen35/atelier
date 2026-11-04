@@ -1,0 +1,2 @@
+DELETE FROM public."LIGNES_COMMANDES_CLIENTS"
+WHERE "ID_Ligne_Client" = {{ _Get_Lignes_Commande_data_.triggeredRow.ID_Ligne_Client }};

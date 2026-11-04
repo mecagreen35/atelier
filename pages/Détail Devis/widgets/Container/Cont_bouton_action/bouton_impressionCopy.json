@@ -1,0 +1,74 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 7,
+  "bottomRowBeforeCollapse": 7,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "tooltip"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "iconName"
+    },
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ \n  [\"VALIDÉ\", \"VALIDE\", \"ACCEPTÉ / TRANSFORMÉ\", \"ACCEPTE / TRANSFORME\", \"ARCHIVÉ\", \"ARCHIVE\"].includes((Get_Devis_Detail.data[0]?.STATUT || \"\").toUpperCase().trim()) \n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "20kkzgi5qw",
+  "labelStyle": "",
+  "labelTextColor": "#231f20",
+  "labelTextSize": "1.875rem",
+  "leftColumn": 8,
+  "minWidth": 120,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 7,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    const devis = Get_Devis_Detail.data[0];\n    \n    // Teste si une intervention est liée au devis\n    const hasIntervention = devis?.ID_INTERVENTION && devis.ID_INTERVENTION.toString().trim() !== \"\";\n    \n    // Détermine le statut cible\n    const cibleStatut = hasIntervention ? \"Sync Demandée\" : \"Transformation Demandée\";\n    const msg = hasIntervention \n      ? \"Devis transféré vers l'intervention avec succès !\" \n      : \"Devis transformé en commande client avec succès !\";\n\n    try {\n      // Exécute la requête SQL en lui passant le statut dynamique\n      await Update_Statut_Action_Devis.run({ statut: cibleStatut });\n      showAlert(msg, \"success\");\n      \n      // Rafraîchit les données du devis\n      Get_Devis_Detail.run();\n    } catch (error) {\n      showAlert(\"Erreur lors de l'opération : \" + error.message, \"error\");\n    }\n  })()\n}}",
+  "originalBottomRow": 171,
+  "originalTopRow": 165,
+  "parentColumnSpace": 16.071484374999997,
+  "parentId": "og2opokv0y",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 14,
+  "text": "✅",
+  "tooltip": "{{ \n  Get_Devis_Detail.data[0]?.ID_INTERVENTION \n    ? \"🔄 Transférer vers Intervention\" \n    : \"🛒 Transformer en Commande\" \n}}",
+  "topRow": 1,
+  "topRowBeforeCollapse": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "8ma1lhcxth",
+  "widgetName": "bouton_impressionCopy"
+}

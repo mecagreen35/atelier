@@ -1,0 +1,5 @@
+UPDATE public."DEVIS"
+SET 
+  "Notes" = {{ Inp_notes.text }},
+  "Date_Modification" = NOW()
+WHERE "ID_DEVIS" = {{ appsmith.URL.queryParams.id }};

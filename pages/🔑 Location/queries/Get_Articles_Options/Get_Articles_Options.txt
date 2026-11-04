@@ -1,0 +1,6 @@
+SELECT 
+    "ID_Article", 
+    "Designation" || ' (' || COALESCE("Prix_Vente_HT"::text, '0') || ' € HT)' AS label,
+    "ID_Article" AS value
+FROM public."ARTICLES"
+ORDER BY "Designation" ASC;

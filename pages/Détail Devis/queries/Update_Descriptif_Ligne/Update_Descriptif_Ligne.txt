@@ -1,0 +1,3 @@
+UPDATE public."LIGNE_DEVIS"
+SET "Descriptif" = {{ inp_edit_descriptif.text || "" }}
+WHERE "ID_Ligne_Devis" = {{ Table_Lignes_Devis.triggeredRow.ID_Ligne_Devis }};

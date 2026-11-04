@@ -1,0 +1,9 @@
+INSERT INTO "LIGNES_COMMANDES_CLIENTS" (
+    "ID_Commande_Client",
+    "ID_Article",
+    "Quantite"
+) VALUES (
+    {{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }},
+    {{ sel_article.selectedOptionValue }},
+    {{ Number(inp_add_qte.text) || 1 }}
+);

@@ -1,0 +1,5 @@
+DELETE FROM public."LIGNES_INTERVENTIONS" 
+WHERE "ID_Intervention" = {{ appsmith.URL.queryParams.id }};
+
+DELETE FROM public."Interventions" 
+WHERE "ID_Intervention" = {{ appsmith.URL.queryParams.id }};

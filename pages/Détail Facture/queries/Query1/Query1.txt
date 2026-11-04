@@ -1,0 +1,4 @@
+UPDATE public."Règlements" r
+SET "ID_Facture" = bl."ID_BL"
+FROM public."BONS_DE_LIVRAISON" bl
+WHERE r."ID_Facture" = bl."ID_Facture";

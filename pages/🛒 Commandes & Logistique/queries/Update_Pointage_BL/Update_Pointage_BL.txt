@@ -1,0 +1,6 @@
+UPDATE public."LIGNES_COMMANDES_ACHATS"
+SET 
+  "Dans_Carton_En_Cours" = NOT COALESCE("Dans_Carton_En_Cours", FALSE),
+  -- On remet le compteur de scan à zéro quand on coche la ligne
+  "Livraison_Du_Jour" = 0 
+WHERE "ID_Ligne_Achat" = '{{ Table_Achats.triggeredRow.ID_Ligne_Achat }}';

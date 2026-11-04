@@ -1,0 +1,6 @@
+SELECT
+  *
+FROM
+  public.FOURNISSEURS
+WHERE
+  "Nom_Fournisseur" ilike '%{{Select_fournisseur.filterText}}%'

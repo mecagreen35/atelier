@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 4,
+  "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "plus",
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "pygfuvy5za",
+  "labelTextColor": "#ffffff",
+  "leftColumn": 53,
+  "minWidth": 120,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    // 1. On vide la mémoire du client et de la machine\n    await storeValue('nouveau_client_id', '');\n    await storeValue('nouvelle_machine_id', '');\n\n    // 2. On réinitialise la modale\n    await resetWidget('modal_add_intervention', true);\n\n    // 3. On charge la liste des clients\n  \n\n    // 4. On ouvre la modale\n    showModal('modal_add_intervention');\n\t\tGet_Clients_Options.run();\n  })()\n}}",
+  "parentColumnSpace": 12.0625,
+  "parentId": "1onngb5uhl",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "NOUVEAU",
+  "tooltip": "Nouveau",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "2gr610hpqx",
+  "widgetName": "Bouton_nouveau_intervention"
+}

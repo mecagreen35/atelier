@@ -1,0 +1,4 @@
+UPDATE public."BONS_DE_LOCATION"
+SET "Statut" = {{ this.params.newStatut }},
+    "Date_Modification" = NOW()
+WHERE "ID_Location" = {{ appsmith.URL.queryParams.id }};

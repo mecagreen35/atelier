@@ -1,0 +1,6 @@
+UPDATE public."COMMANDES_CLIENTS"
+SET 
+  "ID_Client" = {{ Select_client.selectedOptionValue }},
+  "Notes" = {{ inp_edit_notes.text }},
+	"Statut" = {{ sel_edit_statut.selectedOptionValue }}
+WHERE "ID_Commande_Client" = {{ Table_commande_client.selectedRow.ID_Commande_Client }};

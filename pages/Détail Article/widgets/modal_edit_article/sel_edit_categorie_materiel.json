@@ -1,0 +1,72 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 114,
+  "bottomRowBeforeCollapse": 107,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( Get_Detail_Article.data[0].Categorie_Materiel))(sel_edit_categorie_materiel.options, sel_edit_categorie_materiel.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultOptionValue"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{\n  ['MATÉRIEL NEUF', 'MATÉRIEL BATTERIE', 'ROBOT', 'OCCASION'].includes(sel_edit_famille.selectedOptionValue?.trim())\n}}",
+  "key": "sxlb5yopt5",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Catégorie Matériel",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 30,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 111,
+  "mobileLeftColumn": 3,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 104,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 114,
+  "originalTopRow": 107,
+  "parentColumnSpace": 12.9375,
+  "parentId": "b675vxfjlf",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  {\n    \"label\": \"4T\",\n    \"value\": \"4T\"\n  },\n  {\n    \"label\": \"2T\",\n    \"value\": \"2T\"\n  },\n  {\n    \"label\": \"Robot\",\n    \"value\": \"Robot\"\n  }\n]",
+  "topRow": 107,
+  "topRowBeforeCollapse": 100,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "om4gwj5vze",
+  "widgetName": "sel_edit_categorie_materiel"
+}

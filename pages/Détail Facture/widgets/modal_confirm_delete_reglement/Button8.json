@@ -1,0 +1,53 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 26,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "z07ipxwgwl",
+  "leftColumn": 48,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Delete_Reglement.run()\n    .then(() => {\n      showAlert('Règlement supprimé avec succès', 'success');\n      \n      // 1. Rafraîchit le tableau des règlements\n      Get_Reglements_Facture.run();\n      \n      // 2. Rafraîchit les données de la facture (et donc le reste à payer)\n      Get_Facture_ById.run();\n      \n      // 3. Ferme la modale\n      closeModal('modal_confirm_delete_reglement');\n    })\n    .catch(() => {\n      showAlert('Erreur lors de la suppression', 'error');\n    });\n}}",
+  "originalBottomRow": 26,
+  "originalTopRow": 22,
+  "parentId": "khg4geqahp",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Supprimer",
+  "topRow": 22,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "y4dkg0rxhf",
+  "widgetName": "Button8"
+}

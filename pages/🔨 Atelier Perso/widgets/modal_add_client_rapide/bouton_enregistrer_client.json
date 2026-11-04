@@ -1,0 +1,62 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 69,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n  !Inp_code_postal.text ||\n  !Inp_ville.text ||\n  (!Inp_nom.text && !Inp_societe.text)\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "pt0cu7dfun",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Insert_Client_Rapide.run()\n    .then((res) => {\n      // 1. On sauvegarde l'ID du nouveau client\n      storeValue('nouveau_client_id', res[0].ID_Client || res[0].id_client);\n      // 2. On rafraîchit la base (grâce à ta nouvelle requête SQL optimisée)\n      return Get_Clients_Options.run();\n    })\n    .then(() => {\n      // 3. On FERME la modale et on ATTEND qu'elle soit bien fermée\n      return closeModal('modal_add_client_rapide');\n    })\n    .then(() => {\n      // 4. On OUVRE la modale de commande\n      return showModal('modal_add_intervention');\n    })\n    .then(() => {\n      // 5. On force le menu déroulant à lire le nouveau client\n      resetWidget('sel_interv_client', true);\n      showAlert('Client créé et sélectionné !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la création : ' + err.message, 'error');\n    });\n}}",
+  "originalBottomRow": 98,
+  "originalTopRow": 94,
+  "parentId": "a14p9ga1xf",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "text": "Enregistrer",
+  "topRow": 65,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "2a2d440f7o",
+  "widgetName": "bouton_enregistrer_client"
+}

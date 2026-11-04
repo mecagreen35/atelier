@@ -1,0 +1,16 @@
+INSERT INTO public."DEVIS" (
+    "ID_DEVIS",
+    "DATE",
+    "ID_CLIENT",
+    "STATUT",
+    "Notes",
+    "TOTAL_TTC"
+) VALUES (
+    gen_random_uuid()::text,
+    '{{ date_devis_input.formattedDate || moment().format("YYYY-MM-DD") }}',
+    '{{ sel_devis_client.selectedOptionValue }}',
+    '{{ sel_devis_statut.selectedOptionValue }}',
+    $${{ inp_devis_notes.text }}$$,
+    0.00
+)
+RETURNING "ID_DEVIS";

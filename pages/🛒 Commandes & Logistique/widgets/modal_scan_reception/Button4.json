@@ -1,0 +1,62 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 61,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n  (Table_Achats.tableData || []).some(r => \n    r.Dans_Carton_En_Cours === true && \n    (Number(r.Livraison_Du_Jour) || 0) < (Number(r.Quantite_BL) || 0)\n  )\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "7lfkdlodrz",
+  "leftColumn": 46,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Update_Reception_Ligne.run()\n    .then(() => Get_Achats_Pool.run())\n    .then(() => {\n      storeValue('lastScanResult', null); // On efface le message pour le prochain carton\n      closeModal('modal_scan_reception');\n      showAlert('🎉 Carton clôturé et stock mis à jour avec succès !', 'success');\n    })\n    .catch((err) => showAlert('Erreur lors de la clôture : ' + err.message, 'error'))\n}}",
+  "originalBottomRow": 50,
+  "originalTopRow": 46,
+  "parentId": "328f3xsd9c",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "text": "Valider",
+  "topRow": 57,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "4gyygz9bns",
+  "widgetName": "Button4"
+}

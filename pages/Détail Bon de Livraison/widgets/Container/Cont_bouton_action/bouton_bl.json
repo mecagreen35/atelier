@@ -1,0 +1,68 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 7,
+  "bottomRowBeforeCollapse": 7,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    },
+    {
+      "key": "iconName"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ Get_Detail_BL.data[0].Statut_Facturation !== 'À Facturer' }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "20kkzgi5qw",
+  "labelStyle": "",
+  "labelTextColor": "#231f20",
+  "labelTextSize": "1.875rem",
+  "leftColumn": 1,
+  "minWidth": 120,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 7,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onClick": "{{showModal(Modal_generer_facture.name);}}",
+  "originalBottomRow": 171,
+  "originalTopRow": 165,
+  "parentColumnSpace": 16.071484374999997,
+  "parentId": "h8xa52lkes",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 7,
+  "text": "📄",
+  "tooltip": "📄 PDF — Générer Facture",
+  "topRow": 1,
+  "topRowBeforeCollapse": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "fxtpng0vyk",
+  "widgetName": "bouton_bl"
+}

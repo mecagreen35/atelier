@@ -1,0 +1,1 @@
+SELECT * FROM "VILLES_35" ORDER BY "Nom_Ville" ASC;

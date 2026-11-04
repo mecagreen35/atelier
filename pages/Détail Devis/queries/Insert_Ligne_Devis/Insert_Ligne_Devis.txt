@@ -1,0 +1,12 @@
+INSERT INTO public."LIGNE_DEVIS" (
+    "ID_Ligne_Devis",
+    "ID_Devis",
+    "ID_Article",
+    "Quantite"
+) 
+VALUES (
+    gen_random_uuid()::text,
+    '{{ appsmith.URL.queryParams.id }}',
+    '{{ sel_article.selectedOptionValue }}',
+    {{ inp_add_qte.text || 1 }}
+);

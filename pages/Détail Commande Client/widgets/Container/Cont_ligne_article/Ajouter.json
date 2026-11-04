@@ -1,0 +1,59 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 4,
+  "bottomRowBeforeCollapse": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "plus",
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "pygfuvy5za",
+  "leftColumn": 51,
+  "minWidth": 120,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 42,
+  "mobileRightColumn": 58,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    // 1. On vide la mémoire de l'article précédent\n    await storeValue('nouvel_article_id', undefined);\n\n    // 2. On ouvre la modale immédiatement\n    showModal('modal_add_ligne');\n\n    // 3. On lance le chargement des articles en arrière-plan\n    Get_Articles_Options.run();\n  })()\n}}",
+  "originalBottomRow": 4,
+  "originalTopRow": 0,
+  "parentColumnSpace": 11.06728515625,
+  "parentId": "1ewlqlqzst",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "text": "Ajouter",
+  "tooltip": "Ajouter Ligne Article",
+  "topRow": 0,
+  "topRowBeforeCollapse": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "nyhohzl6g0",
+  "widgetName": "Ajouter"
+}

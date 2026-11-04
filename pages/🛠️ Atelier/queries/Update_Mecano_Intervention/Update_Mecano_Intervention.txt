@@ -1,0 +1,10 @@
+UPDATE public."Interventions"
+SET 
+  "Mecano_En_Charge" = (
+    SELECT "ID_Employe" 
+    FROM public."Employes" 
+    WHERE "Prenom" = {{ Table_interventions.updatedRow.Mecano_Nom }}
+    LIMIT 1
+  ),
+  "Date_Modification" = NOW()
+WHERE "ID_Intervention" = {{ Table_interventions.updatedRow.ID_Intervention }};

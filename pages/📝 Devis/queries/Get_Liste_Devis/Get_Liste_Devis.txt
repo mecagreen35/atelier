@@ -1,0 +1,60 @@
+SELECT 
+    d."ID_DEVIS",
+    d."DATE" AS "Date_Entree",
+    i."N° OR",
+    i."Type_Machine",
+    d."TOTAL_TTC",
+    
+    CASE
+        WHEN NULLIF(TRIM(c."Societe"), '') IS NOT NULL AND NULLIF(TRIM(COALESCE(c."Nom", '') || ' ' || COALESCE(c."Prénom", '')), '') IS NOT NULL 
+        THEN TRIM(c."Societe") || ' (' || TRIM(COALESCE(c."Nom", '') || ' ' || COALESCE(c."Prénom", '')) || ')'
+        WHEN NULLIF(TRIM(c."Societe"), '') IS NOT NULL THEN TRIM(c."Societe")
+        ELSE TRIM(COALESCE(c."Nom", '') || ' ' || COALESCE(c."Prénom", ''))
+    END AS "Client_Affichage",
+    
+    COALESCE(pm."Marque", '') || ' - ' || COALESCE(pm."Modele", '') AS "Machine",
+
+    CASE
+        WHEN UPPER(d."STATUT") = 'PDF PRÊT' THEN '1 - 📄 PDF Prêt'
+        WHEN UPPER(d."STATUT") = 'BROUILLON' THEN '2 - 📝 Brouillon'
+        WHEN UPPER(d."STATUT") = 'SYNC DEMANDÉE' THEN '3 - 🔄 Sync Demandée'
+        WHEN UPPER(d."STATUT") = 'VALIDÉ' THEN '4 - ✅ Validé'
+        WHEN UPPER(d."STATUT") = 'ENVOI N8N EN COURS' THEN '5 - ⏳ Envoi n8n en cours'
+        WHEN UPPER(d."STATUT") = 'ENVOYÉ' THEN '6 - 📤 Envoyé'
+        WHEN UPPER(d."STATUT") = 'ATTENTE CLIENT' THEN '7 - ⌛ Attente client'
+        WHEN UPPER(d."STATUT") = 'TRANSFORMATION DEMANDÉE' THEN '8 - ⚙️ Transformation Demandée'
+        WHEN UPPER(d."STATUT") = 'ACCEPTÉ / TRANSFORMÉ' THEN '9 - 🤝 Accepté / Transformé'
+        WHEN UPPER(TRIM(d."STATUT")) IN ('FACTURÉ', 'FACTURE') THEN '10 - 🧾 Facturé'
+        WHEN UPPER(TRIM(d."STATUT")) IN ('REFUSÉ', 'REFUSE') THEN '99 - ❌ Refusé'
+        ELSE '98 - ❓ ' || COALESCE(d."STATUT", 'Inconnu')
+    END AS "Statut"
+
+FROM public."DEVIS" d
+LEFT JOIN public."Clients" c ON d."ID_CLIENT" = c."ID_Client"
+LEFT JOIN public."Interventions" i ON d."ID_INTERVENTION" = i."ID_Intervention"
+LEFT JOIN public."Parc_Materiel" pm ON i."ID_Machine" = pm."ID_Machine"
+
+WHERE 
+    d."STATUT" NOT ILIKE '%ARCHIV%'
+    
+    -- 🟢 Règle d'archivage : les devis Facturés sont masqués de la liste active (sauf si recherche textuelle)
+    AND (
+        UPPER(TRIM(d."STATUT")) NOT IN ('FACTURÉ', 'FACTURE')
+        OR '{{ inp_search_devis.text }}' <> ''
+    )
+
+    -- Exclusion des refusés de plus de 30 jours (sauf si recherche textuelle)
+    AND (
+        UPPER(TRIM(d."STATUT")) NOT IN ('REFUSÉ', 'REFUSE')
+        OR d."DATE" >= CURRENT_DATE - INTERVAL '30 days'
+        OR '{{ inp_search_devis.text }}' <> ''
+    )
+    
+    -- Barre de recherche
+    AND (
+        c."Nom" ILIKE '%' || '{{ inp_search_devis.text }}' || '%'
+        OR c."Societe" ILIKE '%' || '{{ inp_search_devis.text }}' || '%'
+        OR COALESCE(i."N° OR", '') ILIKE '%' || '{{ inp_search_devis.text }}' || '%'
+    )
+
+ORDER BY "Statut" ASC, d."DATE" DESC;

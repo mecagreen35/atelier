@@ -1,0 +1,61 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowCurrencyChange": true,
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 28,
+  "boxShadow": "none",
+  "decimals": 2,
+  "defaultCurrencyCode": "EUR",
+  "defaultText": "{{ \n  [\"À PERCEVOIR\", \"✉️ À ENVOYER\", \"À ENVOYER\"].includes(radio_mode_paiement.selectedOptionValue) \n    ? 0 \n    : Number(String(Get_Facture_ById.data[0].Reste_A_Payer || 0).replace(/[^0-9,.-]/g, '').replace(',', '.')) || 0 \n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "t5boco8ke7",
+  "label": "Montant",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 26,
+  "mobileLeftColumn": 13,
+  "mobileRightColumn": 33,
+  "mobileTopRow": 19,
+  "needsErrorInfo": false,
+  "originalBottomRow": 28,
+  "originalTopRow": 21,
+  "parentColumnSpace": 6.9375,
+  "parentId": "o6ep3qlaku",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "showStepArrows": false,
+  "topRow": 21,
+  "type": "CURRENCY_INPUT_WIDGET",
+  "version": 1,
+  "widgetId": "uzajits94s",
+  "widgetName": "inp_montant_reglement"
+}

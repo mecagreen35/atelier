@@ -1,0 +1,69 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 70,
+  "bottomRowBeforeCollapse": 70,
+  "boxShadow": "none",
+  "defaultText": "{{Get_Detail_Article.data[0].Saisie_Marge}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{ sel_edit_methode_calcul.selectedOptionValue === 'Par Marge' }}",
+  "key": "pxi6z53jys",
+  "label": "Coef Marge",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 62,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 55,
+  "needsErrorInfo": false,
+  "originalBottomRow": 70,
+  "originalTopRow": 63,
+  "parentColumnSpace": 12.9375,
+  "parentId": "b675vxfjlf",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "showStepArrows": false,
+  "topRow": 63,
+  "topRowBeforeCollapse": 63,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "5t6nvabw08",
+  "widgetName": "inp_edit_saisie_marge"
+}

@@ -1,0 +1,33 @@
+{
+  "animateLoading": true,
+  "bottomRow": 118,
+  "docUrl": "{{ \n  Get_Facture_ById.data[0]?.Lien_Facture?.startsWith('http')\n    ? Get_Facture_ById.data[0].Lien_Facture.replace('/view', '/preview')\n    : \"https://sgubwmfqcmshbyjgdksi.supabase.co/storage/v1/object/public/\" + Get_Facture_ById.data[0]?.Lien_Facture \n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "docUrl"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isCanvas": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "lizq7v15hp",
+  "leftColumn": 0,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 19,
+  "mobileRightColumn": 43,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "parentColumnSpace": 16.287499999999998,
+  "parentId": "2pqljhor99",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "topRow": 0,
+  "type": "DOCUMENT_VIEWER_WIDGET",
+  "version": 1,
+  "widgetId": "p3j4tu4yd4",
+  "widgetName": "DocumentPDF"
+}

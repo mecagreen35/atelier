@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 25,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !Input_Ref_Commande_Fournisseur.text?.trim() }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "z0cddmlhny",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (() => {\n    const refCmd = Input_Ref_Commande_Fournisseur.text?.trim();\n\n    if (!refCmd) {\n      showAlert('Veuillez saisir une référence de commande !', 'warning');\n      return;\n    }\n\n    Update_Statut_Commande_Masse.run()\n      .then(() => storeValue('commande_selection', {}))\n      .then(() => Get_Achats_Pool.run())\n      .then(() => Get_Fournisseurs_Achats.run())\n      .then(() => closeModal('modal_valider_commande_fournis')) // C'est ici que le nom est corrigé\n      .then(() => showAlert(`Commande \"${refCmd}\" validée avec succès !`, 'success'))\n      .catch((err) => showAlert('Erreur lors de la validation : ' + err.message, 'error'));\n  })()\n}}",
+  "parentId": "y7wkq4279y",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Valider",
+  "topRow": 21,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "06ze0u78kg",
+  "widgetName": "Button6"
+}

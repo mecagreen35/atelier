@@ -1,0 +1,64 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 5,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    },
+    {
+      "key": "textColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "fontSize"
+    },
+    {
+      "key": "textColor"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1.45rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "7qfmne971s",
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 41,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "originalBottomRow": 5,
+  "originalTopRow": 1,
+  "overflow": "NONE",
+  "parentId": "328f3xsd9c",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 60,
+  "shouldTruncate": false,
+  "text": "{{\n  (() => {\n    const data = Table_Achats.tableData || [];\n    \n    const totalAttendu = data.reduce((sum, row) => \n      row.Dans_Carton_En_Cours ? sum + (Number(row.Quantite_BL) || 0) : sum, 0\n    );\n\n    const totalScanne = data.reduce((sum, row) => \n      row.Dans_Carton_En_Cours ? sum + (Number(row.Livraison_Du_Jour) || 0) : sum, 0\n    );\n\n    // Si le total scanné atteint ou dépasse le total attendu\n    if (totalAttendu > 0 && totalScanne >= totalAttendu) {\n      return `✅ CARTON COMPLET : ${totalScanne} / ${totalAttendu} pièce(s)`;\n    }\n\n    // Sinon, on affiche la progression normale\n    return `📊 PROGRESSION SCAN : ${totalScanne} / ${totalAttendu} pièce(s)`;\n  })()\n}}",
+  "textAlign": "LEFT",
+  "textColor": "{{\n  (() => {\n    const data = Table_Achats.tableData || [];\n    const totalAttendu = data.reduce((sum, row) => row.Dans_Carton_En_Cours ? sum + (Number(row.Quantite_BL) || 0) : sum, 0);\n    const totalScanne = data.reduce((sum, row) => row.Dans_Carton_En_Cours ? sum + (Number(row.Livraison_Du_Jour) || 0) : sum, 0);\n    \n    return (totalAttendu > 0 && totalScanne >= totalAttendu) ? \"#059669\" : \"#000000\";\n  })()\n}}",
+  "topRow": 1,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "zyk5sepfzs",
+  "widgetName": "Text5"
+}

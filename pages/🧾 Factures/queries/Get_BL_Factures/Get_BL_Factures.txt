@@ -1,0 +1,15 @@
+SELECT
+  bl.*,
+  c."Client_Nom_Affichage"
+FROM public."BONS_DE_LIVRAISON" bl
+LEFT JOIN public."v_clients_socle" c ON bl."Client" = c."ID_Client"
+WHERE bl."Statut_Facturation" ILIKE 'FACTURÉ'
+  AND (
+    bl."Numero_BL" ILIKE '%' || {{inp_search_facture.text || ''}} || '%'
+    OR c."Client_Nom_Affichage" ILIKE '%' || {{inp_search_facture.text || ''}} || '%'
+  )
+ORDER BY 
+  bl."Date_Facture" DESC,
+  bl."Numero_Facture_Pennylane" DESC
+LIMIT {{ Table_facture.pageSize }}
+OFFSET {{ Table_facture.pageOffset }};

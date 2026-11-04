@@ -1,0 +1,57 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignment": "left",
+  "animateLoading": false,
+  "bottomRow": 32,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ Get_Detail_Intervention.data[0].Categorie_Materiel }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "options"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isDisabled": false,
+  "isInline": true,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "1ojr2epl6b",
+  "label": "Catégorie Matériel",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "1rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 44,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 19,
+  "mobileTopRow": 38,
+  "needsErrorInfo": false,
+  "options": "[\n  { \"label\": \"4T\", \"value\": \"4T\" },\n  { \"label\": \"2T\", \"value\": \"2T\" },\n  { \"label\": \"Robot\", \"value\": \"Robot\" }\n]",
+  "originalBottomRow": 32,
+  "originalTopRow": 26,
+  "parentColumnSpace": 10.84375,
+  "parentId": "yq016or2tb",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 53,
+  "topRow": 26,
+  "type": "RADIO_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "wkpi101vsw",
+  "widgetName": "grp_interv_categorie"
+}

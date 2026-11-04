@@ -1,0 +1,44 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonVariant": "TERTIARY",
+  "dynamicBindingPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "trash",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "17c45pg20l",
+  "leftColumn": 38,
+  "minWidth": 50,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 48,
+  "mobileRightColumn": 52,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{ showModal('modal_delete_commande') }}",
+  "parentColumnSpace": 5.377392578125,
+  "parentId": "eu04z1ctjg",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 49,
+  "tooltip": "Supprimer",
+  "topRow": 0,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "rf83zdnhkg",
+  "widgetName": "Bouton_supprimer"
+}

@@ -1,0 +1,980 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": false,
+  "borderColor": "#ffffff",
+  "borderRadius": "1.5rem",
+  "borderWidth": "0",
+  "bottomRow": 92,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "cachedTableData": {},
+  "canFreezeColumn": true,
+  "childStylesheet": {
+    "button": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "editActions": {
+      "discardBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "saveBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "saveButtonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "iconButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "menuButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "menuColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "columnOrder": [
+    "customColumn1",
+    "Ref_Fournisseur",
+    "Descriptif",
+    "Quantite",
+    "Prix_Achat",
+    "Prix_HT",
+    "Total_Ligne_TTC",
+    "Type_Remise",
+    "Valeur_Remise",
+    "N_Serie",
+    "Ordre_Affichage",
+    "customColumn2",
+    "ID_Ligne_BL",
+    "ID_BL",
+    "ID_Article",
+    "Code_TVA",
+    "Prise_En_Charge",
+    "EditActions1"
+  ],
+  "columnUpdatedAt": 1790604683566,
+  "columnWidthMap": {
+    "Action_Recommandee": 160,
+    "Descriptif": 188,
+    "Prix_Achat": 127,
+    "Prix_Vente_HT": 157,
+    "customColumn1": 70,
+    "customColumn2": 65
+  },
+  "customIsLoading": false,
+  "customIsLoadingValue": "",
+  "defaultPageSize": 0,
+  "defaultSelectedRowIndex": 0,
+  "defaultSelectedRowIndices": [
+    0
+  ],
+  "delimiter": ",",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "primaryColumns.Descriptif.computedValue"
+    },
+    {
+      "key": "primaryColumns.Quantite.computedValue"
+    },
+    {
+      "key": "primaryColumns.Total_Ligne_TTC.computedValue"
+    },
+    {
+      "key": "primaryColumns.Ref_Fournisseur.computedValue"
+    },
+    {
+      "key": "primaryColumns.Type_Remise.computedValue"
+    },
+    {
+      "key": "primaryColumns.Valeur_Remise.computedValue"
+    },
+    {
+      "key": "primaryColumns.Ordre_Affichage.computedValue"
+    },
+    {
+      "key": "primaryColumns.Prix_Achat.computedValue"
+    },
+    {
+      "key": "primaryColumns.EditActions1.saveButtonColor"
+    },
+    {
+      "key": "primaryColumns.EditActions1.saveBorderRadius"
+    },
+    {
+      "key": "primaryColumns.EditActions1.discardBorderRadius"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isSaveDisabled"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isDiscardDisabled"
+    },
+    {
+      "key": "primaryColumns.Valeur_Remise.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Valeur_Remise.isCellEditable"
+    },
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.customColumn2.boxShadow"
+    },
+    {
+      "key": "primaryColumns.customColumn2.cellBackground"
+    },
+    {
+      "key": "primaryColumns.customColumn2.isDisabled"
+    },
+    {
+      "key": "primaryColumns.customColumn1.isDisabled"
+    },
+    {
+      "key": "primaryColumns.Descriptif.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Quantite.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Type_Remise.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.ID_Ligne_BL.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_BL.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Article.computedValue"
+    },
+    {
+      "key": "primaryColumns.Prix_HT.computedValue"
+    },
+    {
+      "key": "primaryColumns.Code_TVA.computedValue"
+    },
+    {
+      "key": "primaryColumns.N_Serie.computedValue"
+    },
+    {
+      "key": "primaryColumns.Prise_En_Charge.computedValue"
+    },
+    {
+      "key": "primaryColumns.Prix_HT.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.N_Serie.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Ordre_Affichage.isCellEditable"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isSaveDisabled"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isDiscardDisabled"
+    },
+    {
+      "key": "primaryColumns.Valeur_Remise.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Valeur_Remise.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.customColumn2.isDisabled"
+    },
+    {
+      "key": "primaryColumns.customColumn1.isDisabled"
+    },
+    {
+      "key": "primaryColumns.Descriptif.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Quantite.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Type_Remise.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Prix_HT.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.N_Serie.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Ordre_Affichage.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Ordre_Affichage.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Descriptif.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Quantite.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Prix_HT.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Type_Remise.onOptionChange"
+    },
+    {
+      "key": "primaryColumns.Valeur_Remise.onSubmit"
+    },
+    {
+      "key": "primaryColumns.N_Serie.onSubmit"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "primaryColumns.Ordre_Affichage.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Descriptif.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Quantite.onSubmit"
+    },
+    {
+      "key": "primaryColumns.customColumn1.onClick"
+    },
+    {
+      "key": "primaryColumns.Type_Remise.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Valeur_Remise.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Type_Remise.onOptionChange"
+    },
+    {
+      "key": "primaryColumns.customColumn2.onClick"
+    },
+    {
+      "key": "primaryColumns.Prix_HT.onSubmit"
+    },
+    {
+      "key": "primaryColumns.N_Serie.onSubmit"
+    }
+  ],
+  "enableClientSideSearch": true,
+  "endOfData": false,
+  "flexVerticalAlignment": "start",
+  "horizontalAlignment": "LEFT",
+  "inlineEditingSaveOption": "ROW_LEVEL",
+  "isLoading": false,
+  "isSortable": true,
+  "isVisible": true,
+  "isVisibleDownload": false,
+  "isVisibleFilters": false,
+  "isVisiblePagination": false,
+  "isVisibleSearch": false,
+  "key": "1upzl9gebp",
+  "label": "Data",
+  "leftColumn": 0,
+  "minWidth": 450,
+  "mobileBottomRow": 44,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 32,
+  "mobileTopRow": 16,
+  "needsErrorInfo": false,
+  "originalBottomRow": 26,
+  "originalTopRow": 4,
+  "parentColumnSpace": 6.9375,
+  "parentId": "xyfrpjr6t0",
+  "parentRowSpace": 10,
+  "primaryColumnId": "ID_Ligne_BL",
+  "primaryColumns": {
+    "Code_TVA": {
+      "alias": "Code_TVA",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Code_TVA\"])) : Code_TVA })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Code_TVA",
+      "index": 8,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Code_TVA",
+      "notation": "standard",
+      "originalId": "Code_TVA",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Descriptif": {
+      "alias": "Descriptif",
+      "allowCellWrapping": true,
+      "allowSameOptionsInNewRow": true,
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Descriptif\"])) : Descriptif })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "id": "Descriptif",
+      "index": 0,
+      "isCellEditable": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer' )) :  Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer'  })()}}",
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Descriptif",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Ligne_BL.run()\n    .then(() => {\n      return Get_Lignes_BL.run();\n    })\n    .then(() => {\n      showAlert('Ligne modifiée avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la modification', 'error');\n      console.error(err);\n    });\n}}",
+      "originalId": "Descriptif",
+      "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "EditActions1": {
+      "alias": "EditActions1",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "editActions",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "discardActionLabel": "Discard",
+      "discardBorderRadius": "{{_Get_Lignes_BL.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "discardButtonColor": "#F22B2B",
+      "discardButtonVariant": "TERTIARY",
+      "discardIconAlign": "left",
+      "enableFilter": true,
+      "enableSort": true,
+      "id": "EditActions1",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardDisabled": "{{_Get_Lignes_BL.processedTableData.map((currentRow, currentIndex) => ( !_Get_Lignes_Commande_data_.updatedRowIndices.includes(currentIndex)))}}",
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveDisabled": "{{_Get_Lignes_BL.processedTableData.map((currentRow, currentIndex) => ( !_Get_Lignes_Commande_data_.updatedRowIndices.includes(currentIndex)))}}",
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Save / Discard",
+      "notation": "standard",
+      "originalId": "EditActions1",
+      "saveActionLabel": "Save",
+      "saveBorderRadius": "{{_Get_Lignes_BL.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "saveButtonColor": "{{_Get_Lignes_BL.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "saveIconAlign": "left",
+      "sticky": "right",
+      "thousandSeparator": true,
+      "validation": {},
+      "width": 150
+    },
+    "ID_Article": {
+      "alias": "ID_Article",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Article\"])) : ID_Article })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Article",
+      "index": 2,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Article",
+      "notation": "standard",
+      "originalId": "ID_Article",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_BL": {
+      "alias": "ID_BL",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_BL\"])) : ID_BL })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_BL",
+      "index": 1,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_BL",
+      "notation": "standard",
+      "originalId": "ID_BL",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Ligne_BL": {
+      "alias": "ID_Ligne_BL",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Ligne_BL\"])) : ID_Ligne_BL })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Ligne_BL",
+      "index": 0,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Ligne_BL",
+      "notation": "standard",
+      "originalId": "ID_Ligne_BL",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "N_Serie": {
+      "alias": "N_Serie",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"N_Serie\"])) : N_Serie })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "N_Serie",
+      "index": 12,
+      "isCellEditable": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer' )) :  Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer'  })()}}",
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "N_Serie",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Ligne_BL.run()\n    .then(() => {\n      // 1. On met à jour le tableau avec les nouvelles données de la ligne\n      return Get_Lignes_BL.run();\n    })\n    .then(() => {\n      // 2. On met à jour l'en-tête du BL pour actualiser le TOTAL TTC affiché en haut\n      return Get_Detail_BL.run();\n    })\n    .then(() => {\n      showAlert('Ligne modifiée avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la modification', 'error');\n      console.error(err);\n    });\n}}",
+      "originalId": "N_Serie",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Ordre_Affichage": {
+      "alias": "Ordre_Affichage",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Ordre_Affichage\"])) : Ordre_Affichage })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Ordre_Affichage",
+      "index": 10,
+      "isCellEditable": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer' )) :  Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer'  })()}}",
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Ordre_Affichage",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Ligne_BL.run()\n    .then(() => {\n      return Get_Lignes_BL.run();\n    })\n    .then(() => {\n      showAlert('Ligne modifiée avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la modification', 'error');\n      console.error(err);\n    });\n}}",
+      "originalId": "Ordre_Affichage",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Prise_En_Charge": {
+      "alias": "Prise_En_Charge",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "select",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ('[\n  { \"label\": \"Client (Refacturé)\", \"value\": \"Client\" },\n  { \"label\": \"Garantie (Accordée)\", \"value\": \"Garantie\" },\n  { \"label\": \"Perte Garantie (Non payée)\", \"value\": \"Perte Garantie\" },\n  { \"label\": \"Interne\", \"value\": \"Interne\" }\n]')) : '[\n  { \"label\": \"Client (Refacturé)\", \"value\": \"Client\" },\n  { \"label\": \"Garantie (Accordée)\", \"value\": \"Garantie\" },\n  { \"label\": \"Perte Garantie (Non payée)\", \"value\": \"Perte Garantie\" },\n  { \"label\": \"Interne\", \"value\": \"Interne\" }\n]' })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Prise_En_Charge",
+      "index": 13,
+      "isCellEditable": true,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Prise_En_Charge",
+      "notation": "standard",
+      "originalId": "Prise_En_Charge",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Prix_Achat": {
+      "alias": "Prix_Achat",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (currentRow.Prix_Achat || 0).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) )) :  (currentRow.Prix_Achat || 0).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })  })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Prix_Achat",
+      "index": 12,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Prix_Achat_HT",
+      "notation": "standard",
+      "originalId": "Prix_Achat",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Prix_HT": {
+      "alias": "Prix_HT",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Prix_HT\"])) : Prix_HT })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Prix_HT",
+      "index": 7,
+      "isCellEditable": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer' )) :  Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer'  })()}}",
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Prix_HT",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Ligne_BL.run()\n    .then(() => {\n      // 1. On met à jour le tableau avec les nouvelles données de la ligne\n      return Get_Lignes_BL.run();\n    })\n    .then(() => {\n      // 2. On met à jour l'en-tête du BL pour actualiser le TOTAL TTC affiché en haut\n      return Get_Detail_BL.run();\n    })\n    .then(() => {\n      showAlert('Ligne modifiée avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la modification', 'error');\n      console.error(err);\n    });\n}}",
+      "originalId": "Prix_HT",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Quantite": {
+      "alias": "Quantite",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Quantite\"])) : Quantite })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Quantite",
+      "index": 1,
+      "isCellEditable": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer' )) :  Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer'  })()}}",
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Quantité",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Ligne_BL.run()\n    .then(() => {\n      // 1. On met à jour le tableau avec les nouvelles données de la ligne\n      return Get_Lignes_BL.run();\n    })\n    .then(() => {\n      // 2. On met à jour l'en-tête du BL pour actualiser le TOTAL TTC affiché en haut\n      return Get_Detail_BL.run();\n    })\n    .then(() => {\n      showAlert('Ligne modifiée avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la modification', 'error');\n      console.error(err);\n    });\n}}",
+      "originalId": "Quantite",
+      "sticky": "",
+      "textSize": "1.25rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Ref_Fournisseur": {
+      "alias": "Ref_Fournisseur",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Ref_Fournisseur\"])) : Ref_Fournisseur })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Ref_Fournisseur",
+      "index": 1,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Ref_fournisseur",
+      "notation": "standard",
+      "originalId": "Ref_Fournisseur",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Total_Ligne_TTC": {
+      "alias": "Total_Ligne_TTC",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (currentRow.Total_Ligne_TTC || 0).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) )) :  (currentRow.Total_Ligne_TTC || 0).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })  })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Total_Ligne_TTC",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Total_Ligne_TTC",
+      "notation": "standard",
+      "originalId": "Total_Ligne_TTC",
+      "sticky": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Type_Remise": {
+      "alias": "Type_Remise",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "select",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Type_Remise\"])) : Type_Remise })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Type_Remise",
+      "index": 8,
+      "isCellEditable": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer' )) :  Get_Detail_BL.data[0].Statut_Facturation == 'À Facturer'  })()}}",
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Type_Remise",
+      "notation": "standard",
+      "onOptionChange": "{{\n  Update_Ligne_BL.run()\n    .then(() => {\n      // 1. On met à jour le tableau avec les nouvelles données de la ligne\n      return Get_Lignes_BL.run();\n    })\n    .then(() => {\n      // 2. On met à jour l'en-tête du BL pour actualiser le TOTAL TTC affiché en haut\n      return Get_Detail_BL.run();\n    })\n    .then(() => {\n      showAlert('Ligne modifiée avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la modification', 'error');\n      console.error(err);\n    });\n}}",
+      "onSubmit": "{{Update_Ligne_Commande.run().then(() => {\n  Get_Lignes_Commande.run();\n  Get_Commandes_Clients.run();\n  showAlert('Modification effectué', 'success');\n}).catch(() => {\n  showAlert('erreur', 'warning');\n});}}",
+      "originalId": "Type_Remise",
+      "selectOptions": "[\n  { \"label\": \"%\", \"value\": \"%\" },\n  { \"label\": \"€\", \"value\": \"€\" }\n]",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Valeur_Remise": {
+      "alias": "Valeur_Remise",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Valeur_Remise\"])) : Valeur_Remise })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "RIGHT",
+      "id": "Valeur_Remise",
+      "index": 9,
+      "isCellEditable": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( !!currentRow.Type_Remise )) :  !!currentRow.Type_Remise  })()}}",
+      "isCellVisible": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Lignes_Commande.data.some(ligne => ligne.Type_Remise != null && ligne.Type_Remise !== \"\") )) :  Get_Lignes_Commande.data.some(ligne => ligne.Type_Remise != null && ligne.Type_Remise !== \"\")  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Valeur_Remise",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Ligne_BL.run()\n    .then(() => {\n      // 1. On met à jour le tableau avec les nouvelles données de la ligne\n      return Get_Lignes_BL.run();\n    })\n    .then(() => {\n      // 2. On met à jour l'en-tête du BL pour actualiser le TOTAL TTC affiché en haut\n      return Get_Detail_BL.run();\n    })\n    .then(() => {\n      showAlert('Ligne modifiée avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la modification', 'error');\n      console.error(err);\n    });\n}}",
+      "originalId": "Valeur_Remise",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "customColumn1": {
+      "alias": "Edit",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "buttonLabel": "Action",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "buttonVariant": "PRIMARY",
+      "columnType": "iconButton",
+      "computedValue": "",
+      "configureMenuItems": {
+        "config": {
+          "id": "config",
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Menu Item"
+        },
+        "id": "config",
+        "label": "Configure menu items"
+      },
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "iconAlign": "left",
+      "iconName": "edit",
+      "id": "customColumn1",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Detail_BL.data[0].Statut_Facturation !== 'À Facturer' )) :  Get_Detail_BL.data[0].Statut_Facturation !== 'À Facturer'  })()}}",
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Edit",
+      "labelColor": "#FFFFFF",
+      "menuButtonLabel": " ",
+      "menuButtoniconName": "edit",
+      "menuItems": {
+        "menuItem3mxl7h5agl": {
+          "id": "menuItem3mxl7h5agl",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "edit",
+          "widgetId": "ts8zfxvyxd"
+        },
+        "menuItema162ugh2nf": {
+          "id": "menuItema162ugh2nf",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Ajouter",
+          "widgetId": "922xoc1lvq"
+        }
+      },
+      "menuItemsSource": "STATIC",
+      "menuVariant": "TERTIARY",
+      "notation": "standard",
+      "onClick": "{{showModal(modal_edit_ligne.name);}}",
+      "originalId": "customColumn1",
+      "sourceData": [],
+      "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "customColumn2": {
+      "alias": "Supprimer",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "1.5rem",
+      "boxShadow": "{{_Get_Lignes_BL.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "#ef4444",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "buttonVariant": "TERTIARY",
+      "cellBackground": "{{_Get_Lignes_BL.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.backgroundColor)))}}",
+      "columnType": "iconButton",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "iconName": "trash",
+      "id": "customColumn2",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": "{{(() => { const tableData = _Get_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Detail_BL.data[0].Statut_Facturation !== 'À Facturer' )) :  Get_Detail_BL.data[0].Statut_Facturation !== 'À Facturer'  })()}}",
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Supprimer",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "onClick": "{{showModal(modal_delete_ligne_bl.name);}}",
+      "originalId": "customColumn2",
+      "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    }
+  },
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "searchKey": "",
+  "showInlineEditingOptionDropdown": true,
+  "tableData": "{{ Get_Lignes_BL.data }}",
+  "textSize": "0.875rem",
+  "topRow": 4,
+  "totalRecordsCount": 0,
+  "type": "TABLE_WIDGET_V2",
+  "version": 2,
+  "verticalAlignment": "CENTER",
+  "widgetId": "ghs8vny52i",
+  "widgetName": "_Get_Lignes_BL"
+}

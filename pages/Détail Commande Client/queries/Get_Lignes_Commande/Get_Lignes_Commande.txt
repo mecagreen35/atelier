@@ -1,0 +1,4 @@
+SELECT *
+FROM public."v_lignes_commandes_clients_detail"
+WHERE "ID_Commande_Client" = {{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }}
+ORDER BY "Ordre_Affichage" ASC NULLS LAST;

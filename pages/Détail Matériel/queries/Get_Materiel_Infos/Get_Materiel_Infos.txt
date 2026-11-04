@@ -1,0 +1,4 @@
+SELECT * 
+FROM public.v_materiel_detail
+WHERE "ID_Machine"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }}
+LIMIT 1;

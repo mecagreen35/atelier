@@ -1,0 +1,67 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "bottomRowBeforeCollapse": 27,
+  "boxShadow": "none",
+  "defaultText": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{ rad_type_client.selectedOptionValue === 'Particulier' }}",
+  "key": "nd1yduuze9",
+  "label": "Prénom",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 29,
+  "mobileLeftColumn": 14,
+  "mobileRightColumn": 34,
+  "mobileTopRow": 22,
+  "needsErrorInfo": false,
+  "originalBottomRow": 27,
+  "originalTopRow": 20,
+  "parentColumnSpace": 6.9375,
+  "parentId": "2pcm24148j",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 61,
+  "showStepArrows": false,
+  "tabOrder": 3,
+  "topRow": 20,
+  "topRowBeforeCollapse": 20,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "0fl2o2neov",
+  "widgetName": "Inp_Prenom"
+}

@@ -1,0 +1,3 @@
+UPDATE public."LIGNES_INTERVENTIONS"
+SET "Descriptif" = {{ inp_edit_descriptif.text || "" }}
+WHERE "ID_Ligne_Intervention" = {{ Table_Lignes_Intervention.triggeredRow.ID_Ligne_Intervention }};

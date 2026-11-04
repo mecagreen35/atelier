@@ -1,0 +1,12 @@
+SELECT 
+    i."ID_Intervention",
+    i."N° OR",
+    i."Date_Entree",
+    i."Statut",
+    i."Symptome",
+    i."Travaux_Realises",
+    i."TOTAL_TTC",
+    i."Mecano_Nom"
+FROM public.v_interventions_socle i
+WHERE i."ID_Machine"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }}
+ORDER BY i."Date_Entree" DESC;

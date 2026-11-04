@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 118,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "r2c59ufz52",
+  "leftColumn": 46,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    try {\n      // 1. Exécuter la mise à jour SQL\n      await Update_Article.run();\n      \n      // 2. Rafraîchir les détails de la page\n      await Get_Detail_Article.run();\n      \n      // 3. Fermer la modale et notifier\n      await closeModal('modal_edit_article');\n      showAlert('Article mis à jour avec succès !', 'success');\n    } catch (e) {\n      showAlert('Erreur lors de la modification', 'error');\n    }\n  })()\n}}",
+  "originalBottomRow": 118,
+  "originalTopRow": 114,
+  "parentId": "b675vxfjlf",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "text": "Modifier",
+  "topRow": 114,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "4er93i5hcz",
+  "widgetName": "Button9"
+}

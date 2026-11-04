@@ -1,0 +1,62 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 41,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  Table_Flotte.triggeredRow.Categorie ))(Select_Loc_CategorieCopy.options, Select_Loc_CategorieCopy.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "mukrspdirb",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Catégorie",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 41,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 34,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 13.21875,
+  "parentId": "qbbxs0vvlq",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"BROYEUR\", \"value\": \"BROYEUR\" },\n\t{ \"label\": \"BROYEUR À FLÉAUX\", \"value\": \"BROYEUR À FLÉAUX\" },\n\t{ \"label\": \"AUTOPORTÉE\", \"value\": \"AUTOPORTÉE\" },\n\t{ \"label\": \"DÉBROUSSAILLEUSE\", \"value\": \"DÉBROUSSAILLEUSE\" },\n\t{ \"label\": \"SOUFFLEUR\", \"value\": \"SOUFFLEUR\" },\n\t{ \"label\": \"TRACTEUR DÉBROUSSAILLEUR\", \"value\": \"TRACTEUR DÉBROUSSAILLEUR\" },\n\t{ \"label\": \"REMORQUE\", \"value\": \"REMORQUE\" },\n\t{ \"label\": \"ENGAZONNEUSE\", \"value\": \"ENGAZONNEUSE\" },\n  { \"label\": \"TONDEUSE\", \"value\": \"TONDEUSE\" },\n\t{ \"label\": \"TRONC PERCHE\", \"value\": \"TRONC PERCHE\" },\n\t{ \"label\": \"ENCABLEUSE\", \"value\": \"ENCABLEUSE\" },\n\t{ \"label\": \"OUTIL MULTI\", \"value\": \"OUTIL MULTI\" },\n  { \"label\": \"MOTOCULTEUR\", \"value\": \"MOTOCULTEUR\" },\n  { \"label\": \"SCARIFICATEUR\", \"value\": \"SCARIFICATEUR\" },\n  { \"label\": \"TRONÇONNEUSE\", \"value\": \"TRONÇONNEUSE\" },\n\t{ \"label\": \"ÉLAGUEUSE\", \"value\": \"ÉLAGUEUSE\" },\n  { \"label\": \"TAILLE-HAIE\", \"value\": \"TAILLE-HAIE\" },\n  { \"label\": \"NETTOYEUR HP\", \"value\": \"NETTOYEUR HP\" },\n  { \"label\": \"AUTRE MATÉRIEL\", \"value\": \"Autre\" }\n]",
+  "topRow": 34,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "s3r2sxii9y",
+  "widgetName": "Select_Loc_CategorieCopy"
+}

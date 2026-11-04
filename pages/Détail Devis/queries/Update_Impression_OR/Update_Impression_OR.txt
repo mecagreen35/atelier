@@ -1,0 +1,3 @@
+UPDATE public."Interventions"
+SET "Date_Demande_Impression_OR" = NOW()
+WHERE "ID_Intervention" = {{ Get_Devis_Detail.data[0].ID_Intervention }};

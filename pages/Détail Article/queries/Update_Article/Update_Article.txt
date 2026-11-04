@@ -1,0 +1,21 @@
+UPDATE public."ARTICLES"
+SET
+  "Designation" = {{ inp_edit_designation.text }},
+  "Ref_Fournisseur" = {{ inp_edit_ref_fournisseur.text }},
+  "Code_Barre" = {{ inp_edit_code_barre.text }},
+  "Famille" = {{ sel_edit_famille.selectedOptionValue }},
+  "Fournisseur_Par_Defaut" = {{ sel_edit_fournisseur.selectedOptionValue }},
+  "Prix_Achat" = {{ inp_edit_prix_achat.text ? Number(inp_edit_prix_achat.text) : null }},
+	"Methode_Calcul_Prix" = {{ sel_edit_methode_calcul.selectedOptionValue }},
+  "Saisie_Marge" = {{ inp_edit_saisie_marge.text ? Number(inp_edit_saisie_marge.text) : null }},
+  "Saisie_Prix_HT" = {{ inp_edit_prix_vente_ht.text ? Number(inp_edit_prix_vente_ht.text) : null }},
+  "Taux_TVA" = {{ inp_edit_taux_tva.text ? Number(inp_edit_taux_tva.text) : 20 }},
+  "Eco_Taxe" = {{ inp_edit_eco_taxe.text ? Number(inp_edit_eco_taxe.text) : null }},
+  "Stock_Alerte" = {{ inp_edit_stock_alerte.text ? Number(inp_edit_stock_alerte.text) : null }},
+  "Suivi_en_stock" = {{ sw_edit_suivi_stock.isSwitchedOn }},
+  "Statut_Fiche" = {{ sel_edit_statut_fiche.isSwitchedOn }},
+  "Marque" = {{ inp_edit_marque.text }},
+  "Modele" = {{ inp_edit_modele.text }},
+  "Type_Machine" = {{ sel_edit_type_machine.selectedOptionValue }},
+  "Categorie_Materiel" = {{ sel_edit_categorie_materiel.selectedOptionValue }}
+WHERE "ID_Article" = {{ appsmith.URL.queryParams.id }};

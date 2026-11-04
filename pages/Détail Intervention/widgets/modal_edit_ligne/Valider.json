@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 24,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "n469mg4vwe",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "Update_Descriptif_Ligne.run()\n  .then(() => {\n    closeModal('modal_edit_ligne');\n    return Get_Lignes_Intervention.run();\n  })\n  .then(() => {\n    return Get_Detail_Intervention.run();\n  })\n  .then(() => {\n    showAlert('Ligne modifiée avec succès !', 'success');\n  })",
+  "originalBottomRow": 22,
+  "originalTopRow": 18,
+  "parentId": "dyfk3u0y8v",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Confirmer",
+  "topRow": 20,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "zgoi27appz",
+  "widgetName": "Valider"
+}

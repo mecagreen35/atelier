@@ -1,0 +1,72 @@
+{
+  "backgroundColor": "#FFFFFF",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 102,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "defaultModel": "{{\n  {\n    \"selectedId\": \"\",\n    \"events\": (() => {\n      const allEvents = Get_Calendar_Locations.data || [];\n      const selectedRaw = sel_filtre_machine_calendrier.selectedOptionValues || [];\n      const selected = selectedRaw.map(v => String(v));\n\n      // Test sécurisé du statut batterie (booléen ou texte \"true\")\n      const estBatterie = (e) => e.Est_Sur_Batterie === true || String(e.Est_Sur_Batterie).toLowerCase() === 'true';\n\n      // 1. Générateur de couleurs uniques par machine\n      function genererCouleurUnique(index) {\n        const hue = (index * 137.5) % 360;\n        return `hsl(${Math.round(hue)}, 70%, 42%)`;\n      }\n\n      const mapCouleurs = {};\n      const machinesUniques = Array.from(new Set(allEvents.map(e => String(e.ID_Machine_Location)))).sort();\n\n      machinesUniques.forEach((idMachine, idx) => {\n        mapCouleurs[idMachine] = genererCouleurUnique(idx);\n      });\n\n      // 2. Si aucune machine n'est filtrée : affichage normal de toutes les réservations\n      if (selected.length === 0) {\n        return allEvents.map(evt => {\n          const idStr = String(evt.ID_Machine_Location);\n          const couleur = mapCouleurs[idStr] || 'hsl(210, 70%, 42%)';\n          return { ...evt, backgroundColor: couleur, borderColor: couleur };\n        });\n      }\n\n      // 3. Vérification si au moins un matériel sélectionné est à batterie\n      const auMoinsUnBatterieSelectionne = allEvents.some(e => \n        selected.includes(String(e.ID_Machine_Location)) && estBatterie(e)\n      );\n\n      const result = [];\n\n      allEvents.forEach(evt => {\n        const idStr = String(evt.ID_Machine_Location);\n        const estSelectionne = selected.includes(idStr);\n\n        if (estSelectionne) {\n          // Machine sélectionnée : couleur dynamique dédiée\n          const couleur = mapCouleurs[idStr] || 'hsl(210, 70%, 42%)';\n          result.push({\n            ...evt,\n            backgroundColor: couleur,\n            borderColor: couleur\n          });\n        } else if (auMoinsUnBatterieSelectionne && estBatterie(evt)) {\n          // Autre machine à batterie non sélectionnée : affichage en GRIS\n          result.push({\n            ...evt,\n            title: `🔋 [Autre batterie] ${evt.title}`,\n            backgroundColor: '#64748b',\n            borderColor: '#475569'\n          });\n        }\n      });\n\n      return result;\n    })()\n  }\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onEventClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onEventClick"
+    }
+  ],
+  "events": [
+    "onEventClick"
+  ],
+  "isCanvas": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "uy5s7yycbi",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 41,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 11,
+  "needsErrorInfo": false,
+  "onEventClick": "{{\n  (async function() {\n    const locId = Custom1.model.selectedId;\n    \n    if (!locId) {\n      showAlert(\"Identifiant de réservation non détecté au clic.\", \"warning\");\n      return;\n    }\n\n    // Mémorise la page pour le bouton retour\n    await storeValue('page_precedente', '🔑 Location');\n    \n    // Ouvre la page Détail Location avec l'ID attendu par la requête\n    await navigateTo('Détail Location', { id: locId });\n  })()\n}}",
+  "parentColumnSpace": 11.75,
+  "parentId": "6hp8vijd5n",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "srcDoc": {
+    "css": "html, body {\n  margin: 0;\n  padding: 0;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  font-size: 13px;\n  height: 100%;\n  background-color: #ffffff;\n}\n\n#calendar {\n  height: 100vh;\n  padding: 8px;\n  box-sizing: border-box;\n}\n\n.fc-event {\n  cursor: pointer;\n  border: none !important;\n  border-radius: 4px;\n  padding: 2px 4px;\n  font-weight: 500;\n}\n\n.fc-toolbar-title {\n  font-size: 1.15rem !important;\n  font-weight: 700;\n  color: #1e293b;\n}",
+    "html": "<script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js\"></script>\n<div id=\"calendar\"></div>",
+    "js": "let calendar = null;\nappsmith.onReady(() => {\n  const calendarEl = document.getElementById('calendar');\n  calendar = new FullCalendar.Calendar(calendarEl, {\n    initialView: 'timeGridWeek',\n    locale: 'fr',\n    firstDay: 1,\n    // Démarre le lundi\n\n    // Découpage Matin / Après-midi\n    allDaySlot: false,\n    slotMinTime: '08:00:00',\n    slotMaxTime: '18:00:00',\n    slotDuration: '05:00:00',\n    expandRows: true,\n    displayEventTime: false,\n    slotLabelContent: function (arg) {\n      return arg.date.getHours() < 13 ? 'Matin' : 'Après-midi';\n    },\n    headerToolbar: {\n      left: 'prev,next today',\n      center: 'title',\n      right: 'dayGridMonth,timeGridWeek,listMonth'\n    },\n    buttonText: {\n      today: \"Aujourd'hui\",\n      month: 'Mois',\n      week: 'Semaine',\n      list: 'Liste'\n    },\n    // Chargement dynamique des événements\n    events: function (info, successCallback, failureCallback) {\n      const evts = appsmith.model && appsmith.model.events ? appsmith.model.events : [];\n      successCallback(evts);\n    },\n    // 🟢 Clic sur une réservation\n    eventClick: function (info) {\n      // 1. Enregistre l'ID dans le modèle\n      appsmith.updateModel({\n        selectedId: info.event.id\n      });\n\n      // 2. Déclenche l'événement configuré dans Appsmith (onEventClick)\n      setTimeout(function () {\n        appsmith.triggerEvent(\"onEventClick\");\n      }, 100);\n    }\n  });\n  calendar.render();\n});\n\n// Rechargement instantané au filtre\nappsmith.onModelChange(model => {\n  if (calendar) {\n    calendar.refetchEvents();\n  }\n});"
+  },
+  "theme": "{{appsmith.theme}}",
+  "topRow": 7,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "html, body {\n  margin: 0;\n  padding: 0;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  font-size: 13px;\n  height: 100%;\n  background-color: #ffffff;\n}\n#calendar {\n  height: 100vh;\n  padding: 8px;\n  box-sizing: border-box;\n}\n.fc-event {\n  cursor: pointer;\n  border: none !important;\n  border-radius: 4px;\n  padding: 2px 4px;\n  font-weight: 500;\n}\n.fc-toolbar-title {\n  font-size: 1.15rem !important;\n  font-weight: 700;\n  color: #1e293b;\n}",
+    "html": "<script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js\"></script>\n<div id=\"calendar\"></div>",
+    "js": "let calendar = null;\n\nappsmith.onReady(() => {\n  const calendarEl = document.getElementById('calendar');\n\n  calendar = new FullCalendar.Calendar(calendarEl, {\n    initialView: 'timeGridWeek',\n    locale: 'fr',\n    firstDay: 1, // Démarre le lundi\n    \n    // Découpage Matin / Après-midi\n    allDaySlot: false,\n    slotMinTime: '08:00:00',\n    slotMaxTime: '18:00:00',\n    slotDuration: '05:00:00',\n    expandRows: true,\n    displayEventTime: false,\n    \n    slotLabelContent: function(arg) {\n      return arg.date.getHours() < 13 ? 'Matin' : 'Après-midi';\n    },\n\n    headerToolbar: {\n      left: 'prev,next today',\n      center: 'title',\n      right: 'dayGridMonth,timeGridWeek,listMonth'\n    },\n    buttonText: {\n      today: \"Aujourd'hui\",\n      month: 'Mois',\n      week: 'Semaine',\n      list: 'Liste'\n    },\n    \n    // Chargement dynamique des événements\n    events: function(info, successCallback, failureCallback) {\n      const evts = (appsmith.model && appsmith.model.events) ? appsmith.model.events : [];\n      successCallback(evts);\n    },\n    \n    // 🟢 Clic sur une réservation\n    eventClick: function(info) {\n      // 1. Enregistre l'ID dans le modèle\n      appsmith.updateModel({ selectedId: info.event.id });\n      \n      // 2. Déclenche l'événement configuré dans Appsmith (onEventClick)\n      setTimeout(function() {\n        appsmith.triggerEvent(\"onEventClick\");\n      }, 100);\n    }\n  });\n\n  calendar.render();\n});\n\n// Rechargement instantané au filtre\nappsmith.onModelChange((model) => {\n  if (calendar) {\n    calendar.refetchEvents();\n  }\n});"
+  },
+  "version": 1,
+  "widgetId": "5gswxhhb4r",
+  "widgetName": "Custom1"
+}

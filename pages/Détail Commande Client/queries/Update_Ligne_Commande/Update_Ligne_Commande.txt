@@ -1,0 +1,11 @@
+UPDATE public."v_lignes_commandes_clients_detail"
+SET 
+  "Descriptif" = '{{ Table_Lignes_Commande.updatedRow.Descriptif }}',
+  "Quantite" = {{ Number(Table_Lignes_Commande.updatedRow.Quantite || 0) }},
+  "Prix_Vente_HT" = {{ Number(Table_Lignes_Commande.updatedRow.Prix_Vente_HT || 0) }},
+  "Prix_Achat" = {{ Number(Table_Lignes_Commande.updatedRow.Prix_Achat || 0) }},
+  "Coef" = {{ Number(Table_Lignes_Commande.updatedRow.Coef || 0) }},
+  "Type_Remise" = '{{ Table_Lignes_Commande.updatedRow.Type_Remise }}',
+  "Valeur_Remise" = {{ Number(Table_Lignes_Commande.updatedRow.Valeur_Remise || 0) }},
+  "Ordre_Affichage" = {{ Number(Table_Lignes_Commande.updatedRow.Ordre_Affichage || 0) }}
+WHERE "ID_Ligne_Client" = '{{ Table_Lignes_Commande.updatedRow.ID_Ligne_Client }}';

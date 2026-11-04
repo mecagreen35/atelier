@@ -1,0 +1,3 @@
+UPDATE public."COMMANDES_CLIENTS"
+SET "Notes" = {{ inp_notes_commande.text }}
+WHERE "ID_Commande_Client" = {{ Table_commande_client.selectedRow.ID_Commande_Client }};

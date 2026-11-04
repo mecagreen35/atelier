@@ -1,0 +1,3 @@
+SELECT "ID_Fournisseur", "Nom_Fournisseur" 
+FROM public."FOURNISSEURS" 
+ORDER BY "Nom_Fournisseur" ASC;

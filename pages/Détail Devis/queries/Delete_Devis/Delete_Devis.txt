@@ -1,0 +1,5 @@
+DELETE FROM public."LIGNE_DEVIS"
+WHERE "ID_Devis" = {{ appsmith.URL.queryParams.id }};
+
+DELETE FROM public."DEVIS"
+WHERE "ID_DEVIS" = {{ appsmith.URL.queryParams.id }};

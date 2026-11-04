@@ -1,0 +1,31 @@
+BEGIN;
+
+-- 1. Mise à jour du stock physique UNIQUEMENT pour les articles ayant un écart non nul
+UPDATE "ARTICLES" a
+SET "Stock_Actuel" = COALESCE(a."Stock_Actuel", 0) + li."Ecart"
+FROM "LIGNES_INVENTAIRE" li
+WHERE a."ID_Article" = li."ID_Article"
+  AND li."ID_Inventaire" = {{ select_inventaire.selectedOptionValue }}
+  AND li."Ecart" IS NOT NULL
+  AND li."Ecart" <> 0;
+
+-- 2. Création des mouvements de traçabilité (comme dans un ERP)
+INSERT INTO "MOUVEMENTS_STOCK" ("ID_Article", "Quantite_Mouvement", "Motif", "Reference_Doc")
+SELECT 
+  li."ID_Article",
+  li."Ecart",
+  'INVENTAIRE (Régularisation)',
+  li."ID_Inventaire"::text
+FROM "LIGNES_INVENTAIRE" li
+WHERE li."ID_Inventaire" = {{ select_inventaire.selectedOptionValue }}
+  AND li."Ecart" IS NOT NULL
+  AND li."Ecart" <> 0;
+
+-- 3. Clôture officielle de l'inventaire
+UPDATE "INVENTAIRES"
+SET 
+  "Statut" = 'CLOTURE',
+  "Date_Cloture" = CURRENT_TIMESTAMP
+WHERE "ID_Inventaire" = {{ select_inventaire.selectedOptionValue }};
+
+COMMIT;

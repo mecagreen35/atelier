@@ -1,0 +1,67 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 19,
+  "boxShadow": "none",
+  "defaultText": "1",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "iconAlign": "left",
+  "inputType": "NUMBER",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "5zqgsxzkax",
+  "label": "Quantité",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 19,
+  "mobileLeftColumn": 8,
+  "mobileRightColumn": 28,
+  "mobileTopRow": 12,
+  "needsErrorInfo": false,
+  "onSubmit": "{{\n  (async () => {\n    try {\n      const txt = Input_Scan_CodeBarre.text?.trim().toLowerCase();\n      const qteAjo = Number(Input_Qt_Scan.text) || 1;\n      if (!txt) return;\n\n      const data = Array.isArray(Table_Achats.tableData) ? Table_Achats.tableData : [];\n      const storeSelection = appsmith.store.carton_selection || {};\n\n      // 1. Filtrer les articles pointés (en BDD OU dans le store Appsmith)\n      const correspondances = data.filter(r => {\n        const estPointee = (r.Dans_Carton_En_Cours === true || storeSelection[r.ID_Ligne_Achat] === true);\n        const matchText = (r.Ref_Fournisseur && r.Ref_Fournisseur.toLowerCase().includes(txt)) ||\n                          (r.Article_Designation && r.Article_Designation.toLowerCase().includes(txt)) ||\n                          (r.ID_Article && r.ID_Article.toLowerCase().includes(txt));\n        return estPointee && matchText;\n      });\n\n      if (correspondances.length === 0) {\n        await storeValue('lastScanResult', {\n          title: `❌ ARTICLE INCONNU OU NON POINTÉ`,\n          detail: `Aucune ligne cochée sur ce BL ne correspond à \"${txt}\"`\n        });\n        resetWidget('Input_Scan_CodeBarre', true);\n        return;\n      }\n\n      // 2. Sélectionner en priorité la première ligne NON COMPLÈTE parmi les doublons\n      const nonCompletes = correspondances.filter(r => {\n        const qteScanne = Number(r.Livraison_Du_Jour) || 0;\n        const qteAttendue = Number(r.Quantite_BL) || Number(r.Quantite) || 0;\n        return qteScanne < qteAttendue;\n      });\n\n      const art = nonCompletes.length > 0 ? nonCompletes[0] : correspondances[0];\n\n      // 3. Exécution de la fonction SQL Supabase\n      const resQuery = await Run_Scan_FIFO.run({\n        idLigne: art.ID_Ligne_Achat,\n        qteScan: qteAjo\n      });\n\n      // 4. Extraction et décodage robuste du JSON\n      let reponse = resQuery?.[0]?.result || resQuery?.[0]?.fn_traiter_scan_fifo || resQuery?.[0];\n\n      if (typeof reponse === 'string') {\n        try { reponse = JSON.parse(reponse); } catch (e) {}\n      }\n\n      if (reponse && (reponse.success || reponse.title)) {\n        await storeValue('lastScanResult', {\n          title: reponse.title,\n          detail: reponse.detail\n        });\n      }\n\n      // 5. Rafraîchissement des données et nettoyage\n      await Get_Achats_Pool.run();\n      resetWidget('Input_Scan_CodeBarre', true);\n      resetWidget('Input_Qt_Scan', true);\n\n    } catch (err) {\n      showAlert('Erreur lors du scan : ' + err.message, 'error');\n    }\n  })()\n}}",
+  "originalBottomRow": 19,
+  "originalTopRow": 12,
+  "parentColumnSpace": 11.6875,
+  "parentId": "328f3xsd9c",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "shouldAllowAutofill": false,
+  "showStepArrows": false,
+  "topRow": 12,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "r8ffma70n1",
+  "widgetName": "Input_Qt_Scan"
+}

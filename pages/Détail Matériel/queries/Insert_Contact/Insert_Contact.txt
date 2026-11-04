@@ -1,0 +1,17 @@
+INSERT INTO public."CONTACTS" (
+    "ID_Contact",
+    "ID_Client",
+    "Nom_Contact",
+    "Fonction",
+    "Telephone",
+    "Email",
+    "Notes"
+) VALUES (
+    gen_random_uuid()::text,
+    {{ appsmith.store.detail_client_id }},
+    {{ Inp_contact_nom.text }},
+    {{ Inp_contact_fonction.text }},
+    {{ Inp_contact_tel.text.replace(/\s/g, '.') }},
+    {{ Inp_contact_email.text }},
+    {{ Inp_contact_notes.text }}
+);

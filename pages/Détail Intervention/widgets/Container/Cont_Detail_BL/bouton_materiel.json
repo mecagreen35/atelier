@@ -1,0 +1,65 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 22,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "wrench",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !Get_Detail_Intervention.data[0]?.ID_Machine }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "35lrt95lob",
+  "labelStyle": "BOLD",
+  "labelTextSize": "1rem",
+  "leftColumn": 58,
+  "minWidth": 120,
+  "mobileBottomRow": 14,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 18,
+  "mobileTopRow": 10,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    const data = Get_Detail_Intervention.data[0];\n    const machineId = data?.ID_Machine;\n\n    if (!machineId) {\n      showAlert(\"Aucune machine rattachée à cette intervention.\", \"warning\");\n      return;\n    }\n\n    // 1. Mémorisation de l'ID machine et de l'historique de retour\n    await storeValue('detail_machine_id', machineId);\n    await storeValue('page_precedente', 'Détail Intervention');\n    await storeValue('id_precedent', appsmith.URL.queryParams.id);\n\n    // 2. Navigation vers la fiche Détail Matériel\n    await navigateTo('Détail Matériel', { id: machineId });\n  })()\n}}",
+  "originalBottomRow": 19,
+  "originalTopRow": 10,
+  "parentColumnSpace": 11.121875,
+  "parentId": "a9ptcj2726",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "",
+  "tooltip": "VOIR DÉTAIL MATÉRIEL",
+  "topRow": 17,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "pjybw8het0",
+  "widgetName": "bouton_materiel"
+}

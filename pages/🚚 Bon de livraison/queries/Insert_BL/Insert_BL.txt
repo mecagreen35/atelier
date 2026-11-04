@@ -1,0 +1,14 @@
+INSERT INTO "BONS_DE_LIVRAISON" (
+  "ID_BL",
+  "Client",
+  "Description_Facture_Pennylane",
+  "Statut_Facturation",
+  "Date_BL"
+) VALUES (
+  gen_random_uuid(),
+  {{ sel_client.selectedOptionValue }},
+  {{ inp_new_notes.text }},
+  'À Facturer',
+  CURRENT_DATE
+)
+RETURNING *;

@@ -1,0 +1,603 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowAddNewRow": false,
+  "animateLoading": false,
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 384,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "cachedTableData": {},
+  "canFreezeColumn": false,
+  "cellBackground": "",
+  "childStylesheet": {
+    "button": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "editActions": {
+      "discardBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "saveBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "saveButtonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "iconButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "menuButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "menuColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "columnOrder": [
+    "xn__N_Contrat_0na",
+    "xn__Date_Dbut_g4a",
+    "Client",
+    "xn__Matriel_dya",
+    "Statut",
+    "xn__Type_Dure_i4a",
+    "ID",
+    "Total_TTC",
+    "isHeader",
+    "Groupe_Statut",
+    "isSubHeader"
+  ],
+  "columnUpdatedAt": 1793746496575,
+  "columnWidthMap": {
+    "Client": 221,
+    "Client_Affichage": 315,
+    "Montant_Acompte_TTC": 155,
+    "Statut": 228,
+    "Type_Machine": 182,
+    "customColumn1": 282,
+    "xn__Matriel_dya": 187,
+    "xn__N_OR_5ga": 88,
+    "xn__Priorit_hya": 126
+  },
+  "customIsLoading": false,
+  "customIsLoadingValue": "",
+  "defaultPageSize": 0,
+  "defaultSelectedRowIndex": "{{ appsmith.store.targetIndex || 0 }}",
+  "defaultSelectedRowIndices": [
+    0
+  ],
+  "delimiter": ",",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultSelectedRowIndex"
+    },
+    {
+      "key": "primaryColumns.Statut.computedValue"
+    },
+    {
+      "key": "primaryColumns.Statut.textColor"
+    },
+    {
+      "key": "primaryColumns.Statut.cellBackground"
+    },
+    {
+      "key": "primaryColumns.ID.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__N_Contrat_0na.computedValue"
+    },
+    {
+      "key": "primaryColumns.Client.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__Matriel_dya.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__Type_Dure_i4a.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__Date_Dbut_g4a.computedValue"
+    },
+    {
+      "key": "primaryColumns.Total_TTC.computedValue"
+    },
+    {
+      "key": "primaryColumns.isHeader.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__N_Contrat_0na.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Client.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Matriel_dya.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Type_Dure_i4a.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Date_Dbut_g4a.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Groupe_Statut.computedValue"
+    },
+    {
+      "key": "primaryColumns.isSubHeader.computedValue"
+    },
+    {
+      "key": "tableData"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "onRowSelected"
+    },
+    {
+      "key": "cellBackground"
+    },
+    {
+      "key": "textColor"
+    },
+    {
+      "key": "primaryColumns.Statut.textColor"
+    },
+    {
+      "key": "primaryColumns.Statut.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__N_Contrat_0na.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Client.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Matriel_dya.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Type_Dure_i4a.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__Date_Dbut_g4a.cellBackground"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
+  "enableClientSideSearch": true,
+  "endOfData": false,
+  "flexVerticalAlignment": "start",
+  "fontStyle": "BOLD",
+  "horizontalAlignment": "LEFT",
+  "infiniteScrollEnabled": false,
+  "inlineEditingSaveOption": "ROW_LEVEL",
+  "isLoading": false,
+  "isSortable": true,
+  "isVisible": true,
+  "isVisibleDownload": false,
+  "isVisibleFilters": false,
+  "isVisiblePagination": false,
+  "isVisibleSearch": false,
+  "key": "f5pxctir17",
+  "label": "Data",
+  "leftColumn": 0,
+  "minWidth": 450,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 39,
+  "mobileTopRow": 12,
+  "multiRowSelection": false,
+  "needsErrorInfo": false,
+  "onRowSelected": "{{\n  (async function() {\n    // Si la ligne cliquée est un séparateur (statut ou machine), on annule\n    if (Table_locations.selectedRow.isHeader || Table_locations.selectedRow.isSubHeader) {\n      return;\n    }\n\n    // Historique de navigation et redirection vers le détail de la location\n    await storeValue('page_precedente', '🔑 Location');\n    await navigateTo('Détail Location', { id: Table_locations.selectedRow.ID });\n  })()\n}}",
+  "originalBottomRow": 406,
+  "originalTopRow": 22,
+  "parentColumnSpace": 12.375,
+  "parentId": "flj2ctp97x",
+  "parentRowSpace": 10,
+  "primaryColumnId": "ID",
+  "primaryColumns": {
+    "Client": {
+      "alias": "Client",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Client\"])) : Client })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Client",
+      "index": 2,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Client",
+      "notation": "standard",
+      "originalId": "Client",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Groupe_Statut": {
+      "alias": "Groupe_Statut",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Groupe_Statut\"])) : Groupe_Statut })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Groupe_Statut",
+      "index": 9,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Groupe_Statut",
+      "notation": "standard",
+      "originalId": "Groupe_Statut",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID": {
+      "alias": "ID",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID\"])) : ID })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID",
+      "index": 0,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID",
+      "notation": "standard",
+      "originalId": "ID",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Statut": {
+      "alias": "Statut",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const statut = (Get_Location_Detail.data[0]?.Statut || '').trim().toLowerCase();\n    \n    if (statut === 'reservation') return '🚀 Départ matériel';\n    if (statut === 'en cours' || statut === 'en_cours') return 'Retour matériel';\n    if (statut === 'terminé' || statut === 'termine') return '📄 Transférer en BL';\n    \n    return 'Aucune action';\n  })()\n)) : \n  (() => {\n    const statut = (Get_Location_Detail.data[0]?.Statut || '').trim().toLowerCase();\n    \n    if (statut === 'reservation') return '🚀 Départ matériel';\n    if (statut === 'en cours' || statut === 'en_cours') return 'Retour matériel';\n    if (statut === 'terminé' || statut === 'termine') return '📄 Transférer en BL';\n    \n    return 'Aucune action';\n  })()\n })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Statut",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Statut",
+      "notation": "standard",
+      "originalId": "Statut",
+      "sticky": "",
+      "textColor": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': return '#0ea5e9'; // Bleu clair\n      case 'PIECE A COMMANDER': return '#ef4444'; // Rouge\n      case 'DEVIS': return '#a855f7'; // Violet\n      case 'EN COURS': return '#3b82f6'; // Bleu\n      case 'EN TEST': return '#8b5cf6'; // Violet foncé\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '#4b5563'; // Gris foncé\n      case 'A REMONTER': return '#e11d48'; // Rose/Rouge\n      case 'ATTENTE CLIENT': return '#eab308'; // Jaune/Orange\n      case 'PIECE EN COMMANDE': return '#22c55e'; // Vert\n      case 'PRÊT': return '#16a34a'; // Vert foncé\n      default: return '#000000'; // Noir par défaut\n    }\n  })()\n)) : \n  (() => {\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': return '#0ea5e9'; // Bleu clair\n      case 'PIECE A COMMANDER': return '#ef4444'; // Rouge\n      case 'DEVIS': return '#a855f7'; // Violet\n      case 'EN COURS': return '#3b82f6'; // Bleu\n      case 'EN TEST': return '#8b5cf6'; // Violet foncé\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '#4b5563'; // Gris foncé\n      case 'A REMONTER': return '#e11d48'; // Rose/Rouge\n      case 'ATTENTE CLIENT': return '#eab308'; // Jaune/Orange\n      case 'PIECE EN COMMANDE': return '#22c55e'; // Vert\n      case 'PRÊT': return '#16a34a'; // Vert foncé\n      default: return '#000000'; // Noir par défaut\n    }\n  })()\n })()}}",
+      "textSize": "1.25rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Total_TTC": {
+      "alias": "Total TTC",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Total TTC\"])) : Total TTC })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Total_TTC",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Total TTC",
+      "notation": "standard",
+      "originalId": "Total TTC",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "isHeader": {
+      "alias": "isHeader",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"isHeader\"])) : isHeader })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "isHeader",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "isHeader",
+      "notation": "standard",
+      "originalId": "isHeader",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "isSubHeader": {
+      "alias": "isSubHeader",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"isSubHeader\"])) : isSubHeader })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "isSubHeader",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "isSubHeader",
+      "notation": "standard",
+      "originalId": "isSubHeader",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "xn__Date_Dbut_g4a": {
+      "alias": "Date Début",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "date",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Date Début\"])) : Date Début })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "xn__Date_Dbut_g4a",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Date Début",
+      "notation": "standard",
+      "originalId": "Date Début",
+      "outputFormat": "DD/MM/YYYY",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "xn__Matriel_dya": {
+      "alias": "Matériel",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Matériel\"]\")) : currentRow[\"Matériel\"]\" })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "xn__Matriel_dya",
+      "index": 3,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Matériel",
+      "notation": "standard",
+      "originalId": "Matériel",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "xn__N_Contrat_0na": {
+      "alias": "N° Contrat",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"N° Contrat\"])) : N° Contrat })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "xn__N_Contrat_0na",
+      "index": 1,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "N° Contrat",
+      "notation": "standard",
+      "originalId": "N° Contrat",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "xn__Type_Dure_i4a": {
+      "alias": "Type Durée",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_locations.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Type Durée\"])) : Type Durée })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "xn__Type_Dure_i4a",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Type Durée",
+      "notation": "standard",
+      "originalId": "Type Durée",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    }
+  },
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "searchKey": "",
+  "serverSidePaginationEnabled": true,
+  "tableData": "{{\n  (function() {\n    const data = get_locations.data || [];\n    const result = [];\n    let currentStatut = null;\n    let currentMachine = null;\n\n    data.forEach(row => {\n      const machineNom = row[\"Matériel\"] || \"Machine non définie\";\n\n      // 1. En-tête principal : Changement de Statut\n      if (row.Groupe_Statut !== currentStatut) {\n        currentStatut = row.Groupe_Statut;\n        currentMachine = null; \n        \n        const countStatut = data.filter(r => r.Groupe_Statut === currentStatut).length;\n        \n        result.push({\n          \"ID\": \"hdr_statut_\" + currentStatut,\n          \"N° Contrat\": \"\",\n          \"Date Début\": \"\",\n          \"Client\": `📌 ${currentStatut.toUpperCase()} (${countStatut})`,\n          \"Matériel\": \"\",\n          \"Statut\": \"\",\n          \"Type Durée\": \"\",\n          \"isHeader\": true\n        });\n      }\n\n      // 2. En-tête secondaire : Changement de Machine\n      if (machineNom !== currentMachine) {\n        currentMachine = machineNom;\n        \n        const countMachine = data.filter(r => r.Groupe_Statut === currentStatut && (r[\"Matériel\"] || \"Machine non définie\") === currentMachine).length;\n        \n        result.push({\n          \"ID\": \"hdr_mach_\" + currentStatut + \"_\" + currentMachine,\n          \"N° Contrat\": \"\",\n          \"Date Début\": \"\",\n          \"Client\": `    🚜 ${currentMachine} (${countMachine})`,\n          \"Matériel\": \"\",\n          \"Statut\": \"\",\n          \"Type Durée\": \"\",\n          \"isSubHeader\": true\n        });\n      }\n\n      // 3. Ligne de réservation classique\n      result.push(row);\n    });\n\n    return result;\n  })()\n}}",
+  "textColor": "",
+  "textSize": "1rem",
+  "topRow": 0,
+  "totalRecordsCount": "1000",
+  "type": "TABLE_WIDGET_V2",
+  "version": 2,
+  "verticalAlignment": "CENTER",
+  "widgetId": "g9bnkmf4az",
+  "widgetName": "Table_locations"
+}

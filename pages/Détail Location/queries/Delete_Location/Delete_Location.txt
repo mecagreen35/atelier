@@ -1,0 +1,5 @@
+DELETE FROM public."LIGNES_LOCATION"
+WHERE "ID_Location" = '{{ appsmith.URL.queryParams.id }}';
+
+DELETE FROM public."BONS_DE_LOCATION"
+WHERE "ID_Location" = '{{ appsmith.URL.queryParams.id }}';

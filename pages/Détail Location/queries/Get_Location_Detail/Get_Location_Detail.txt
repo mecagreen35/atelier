@@ -1,0 +1,28 @@
+SELECT 
+  b."ID_Location",
+  b."ID_Client",
+  b."Numero_Location",
+  b."Statut",
+  b."Type_Duree",
+  b."Date_Location",
+  b."Date_Heure_Debut",
+  b."Date_Heure_Fin_Prevue",
+  b."Date_Heure_Fin_Reelle",
+  b."TOTAL_TTC",
+  b."Notes_Internes",
+  COALESCE(
+    NULLIF(TRIM(c."Societe"), ''), 
+    NULLIF(TRIM(CONCAT_WS(' ', c."Nom", c."Prénom")), '')
+  ) AS "Client_Affichage",
+  c."Telephone",
+  c."Email",
+  TRIM(CONCAT_WS(' - ', c."Adresse", TRIM(CONCAT_WS(' ', c.code_postal, c.ville)))) AS "Adresse_Complete",
+  COALESCE(
+    TRIM(CONCAT_WS(' - ', ml."Code_Interne", TRIM(CONCAT_WS(' ', ml."Marque", ml."Modele")))),
+    'Matériel non renseigné'
+  ) AS "Machine_Affichage",
+  ml."N_Serie"
+FROM public."BONS_DE_LOCATION" b
+LEFT JOIN public."Clients" c ON c."ID_Client" = b."ID_Client"
+LEFT JOIN public."MATERIEL_LOCATION" ml ON ml."ID_Machine_Location" = b."ID_Machine_Location"
+WHERE b."ID_Location" = '{{ appsmith.URL.queryParams.id }}';

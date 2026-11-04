@@ -1,0 +1,53 @@
+{
+  "animateLoading": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "lelsf40a7y",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 14,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "overflow": "NONE",
+  "parentColumnSpace": 12.375,
+  "parentId": "0boawk54tj",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 23,
+  "shouldTruncate": false,
+  "text": "{{\n  (() => {\n    // 1. On identifie l'onglet actif\n    const ongletActif = Tabs1.selectedTab || \"🛠️ Atelier Global\";\n    \n    // 2. On choisit la BONNE source de données selon l'onglet\n    // Si l'onglet contient \"Global\", on prend les données Globales, sinon on prend les données Perso\n    const data = ongletActif.includes(\"Global\") \n      ? (Get_Atelier_Global.data || []) \n      : (Get_Atelier_Perso.data || []);\n    \n    // 3. On formate le nom pour l'affichage (majuscules)\n    const nomAffichage = ongletActif.toUpperCase();\n    \n    if (!data.length) return ` ${nomAffichage} (0)`;\n\n    // 4. Initialisation des compteurs\n    let count2T = 0;\n    let count4T = 0;\n    let countRobot = 0;\n    let totalActifs = 0;\n\n    // 5. Boucle sur les données pour compter\n    for (let i = 0; i < data.length; i++) {\n      const row = data[i];\n      \n      if (row.isHeader) continue;\n\n      const st = (row.Statut || \"\").toUpperCase().trim();\n      \n      if (st.includes(\"PRÊT\") || st.includes(\"PRET\") || st.includes(\"H.S\") || st.includes(\"FACTUR\")) {\n        continue;\n      }\n\n      totalActifs++;\n      \n      const cat = (row.Categorie_Materiel || \"\").toUpperCase().trim();\n      \n      if (cat.includes(\"2T\")) count2T++;\n      else if (cat.includes(\"4T\")) count4T++;\n      else if (cat.includes(\"ROBOT\")) countRobot++;\n    }\n\n    // 6. Affichage final\n    return ` ${nomAffichage} (${totalActifs}) : 2T (${count2T}) - 4T (${count4T}) - Robot (${countRobot})`;\n  })()\n}}",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 0,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "aydyq3zpys",
+  "widgetName": "Text_titre_intervention"
+}

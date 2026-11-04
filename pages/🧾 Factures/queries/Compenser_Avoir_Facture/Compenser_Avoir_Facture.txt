@@ -1,0 +1,4 @@
+SELECT public.fn_compenser_avoir_facture(
+    '{{ Table_facture.triggeredRow.ID_BL || Table_facture.selectedRow.ID_BL }}',
+    '{{ sel_facture_a_compenser.selectedOptionValue }}'
+);

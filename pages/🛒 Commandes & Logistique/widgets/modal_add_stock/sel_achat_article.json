@@ -1,0 +1,80 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 14,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  appsmith.store.nouvel_article_id || \"\" ))(sel_achat_article.options, sel_achat_article.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "onOptionChange"
+    },
+    {
+      "key": "onFilterUpdate"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    },
+    {
+      "key": "onFilterUpdate"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "dkvtg2qb56",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Article",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "onFilterUpdate": "{{ Get_Articles_Options.run() }}",
+  "onOptionChange": "{{\n  (async () => {\n    const selectedId = sel_achat_article.selectedOptionValue;\n    const data = Get_Articles_Options.data || [];\n    const art = data.find(a => a.value === selectedId);\n\n    if (art) {\n      // 1. Mémorisation du fournisseur par défaut et du prix d'achat\n      await storeValue('fournisseur_auto_article', art.Fournisseur_Par_Defaut || '');\n      await storeValue('prix_auto_article', art.Prix_Achat || 0);\n      \n      // 2. Réinitialisation du Select Fournisseur pour qu'il relise la valeur par défaut\n      await resetWidget('sel_achat_fournisseur', true);\n    }\n  })()\n}}",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 6.9375,
+  "parentId": "f8ybenu69l",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 54,
+  "serverSideFiltering": true,
+  "sourceData": "{{ Get_Articles_Options.data }}",
+  "topRow": 7,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "t1xgghfrgo",
+  "widgetName": "sel_achat_article"
+}

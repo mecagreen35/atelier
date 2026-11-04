@@ -1,0 +1,23 @@
+WITH Verification AS (
+  SELECT 
+    (SELECT count(*) FROM public."Interventions" WHERE "ID_Client" = {{appsmith.store.detail_client_id}}) +
+    (SELECT count(*) FROM public."COMMANDES_CLIENTS" WHERE "ID_Client" = {{appsmith.store.detail_client_id}}) +
+    (SELECT count(*) FROM public."DEVIS" WHERE "ID_CLIENT" = {{appsmith.store.detail_client_id}}) +
+    (SELECT count(*) FROM public."BONS_DE_LOCATION" WHERE "ID_Client" = {{appsmith.store.detail_client_id}}) +
+    (SELECT count(*) FROM public."BONS_DE_LIVRAISON" WHERE "Client" = {{appsmith.store.detail_client_id}} OR "ClientOrigine" = {{appsmith.store.detail_client_id}}) +
+    (SELECT count(*) FROM public."Parc_Materiel" WHERE "ID_Client" = {{appsmith.store.detail_client_id}}) AS total_lignes
+),
+Archivage AS (
+  UPDATE public."Clients" 
+  SET "est_archive" = true 
+  WHERE "ID_Client" = {{appsmith.store.detail_client_id}} 
+  AND (SELECT total_lignes FROM Verification) > 0
+  RETURNING "ID_Client"
+),
+Suppression AS (
+  DELETE FROM public."Clients" 
+  WHERE "ID_Client" = {{appsmith.store.detail_client_id}} 
+  AND (SELECT total_lignes FROM Verification) = 0
+  RETURNING "ID_Client"
+)
+SELECT total_lignes FROM Verification;

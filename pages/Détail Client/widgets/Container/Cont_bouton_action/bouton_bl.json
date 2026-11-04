@@ -1,0 +1,67 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 7,
+  "bottomRowBeforeCollapse": 7,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ \n  (Table_commande_client.selectedRow.Statut || \"\").toUpperCase() !== \"COMMANDE COMPLÈTE\" \n}}",
+  "isLoading": false,
+  "isVisible": false,
+  "key": "20kkzgi5qw",
+  "labelStyle": "",
+  "labelTextColor": "#231f20",
+  "labelTextSize": "1.25rem",
+  "leftColumn": 1,
+  "minWidth": 120,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 7,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Update_Statut_BL.run()\n    .then(() => new Promise(resolve => setTimeout(resolve, 1500))) // Pause de sécurité Supabase\n    .then(() => Get_Commandes_Clients.run())\n    .then(() => resetWidget('Table_commande_client', true))\n    .then(() => showAlert('La commande a été transférée en BL !', 'success'))\n    .catch(() => showAlert('Erreur lors du transfert', 'error'));\n}}",
+  "originalBottomRow": 7,
+  "originalTopRow": 1,
+  "parentColumnSpace": 16.071484374999997,
+  "parentId": "kd6s0jocov",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 9,
+  "text": "📝 Vers BL",
+  "tooltip": "TRANSFÉRÉ EN BL",
+  "topRow": 1,
+  "topRowBeforeCollapse": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "epmx2heo9j",
+  "widgetName": "bouton_bl"
+}

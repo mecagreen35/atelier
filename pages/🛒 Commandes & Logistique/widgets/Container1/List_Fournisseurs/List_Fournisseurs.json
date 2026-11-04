@@ -1,0 +1,125 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "additionalStaticProps": [
+    "level",
+    "levelData",
+    "prefixMetaWidgetId",
+    "metaWidgetId"
+  ],
+  "animateLoading": false,
+  "backgroundColor": "",
+  "borderRadius": "1.5rem",
+  "bottomRow": 119,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "children": [
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 1050,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dropDisabled": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "7ulu232s7d",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 400,
+      "minWidth": 450,
+      "mobileBottomRow": 400,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 180.9375,
+      "mobileTopRow": 0,
+      "needsErrorInfo": false,
+      "noPad": true,
+      "openParentPropertyPane": true,
+      "parentColumnSpace": 1,
+      "parentId": "xya9fohxqc",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 180.9375,
+      "topRow": 0,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "4qvz5ued7d",
+      "widgetName": "Canvas16"
+    }
+  ],
+  "currentItemsView": "{{[]}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "currentItemsView"
+    },
+    {
+      "key": "selectedItemView"
+    },
+    {
+      "key": "triggeredItemView"
+    },
+    {
+      "key": "primaryKeys"
+    },
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "listData"
+    }
+  ],
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [],
+  "enhancements": true,
+  "flexVerticalAlignment": "start",
+  "gridType": "vertical",
+  "hasMetaWidgets": true,
+  "isCanvas": true,
+  "isLoading": false,
+  "isVisible": true,
+  "itemBackgroundColor": "#FFFFFF",
+  "itemSpacing": 8,
+  "key": "llybm3wwgg",
+  "leftColumn": 0,
+  "listData": "{{\n  (() => {\n    const poolData = Array.isArray(Get_Achats_Pool.data) ? Get_Achats_Pool.data : [];\n    const fournisseursData = Array.isArray(Get_Fournisseurs_Achats.data) ? [...Get_Fournisseurs_Achats.data] : [];\n    const currentTab = appsmith.store.tab_achats || 'A_COMMANDER';\n\n    // 1. Calcul de la date de référence par fournisseur\n    const dateRefParFournisseur = {};\n\n    poolData.forEach(row => {\n      const idF = row.ID_Fournisseur || 'DIVERS';\n      const statut = (row.Statut_Achat || '').toUpperCase();\n      \n      let dateLigne = null;\n      if (currentTab === 'A_COMMANDER' && ['À COMMANDER', 'A COMMANDER'].includes(statut)) {\n        dateLigne = row.Date_Demande;\n      } else if (currentTab === 'EN_COMMANDE' && ['COMMANDÉ', 'COMMANDE', 'REÇU PARTIEL', 'RECU PARTIEL'].includes(statut)) {\n        dateLigne = row.Date_Commande || row.Date_Demande;\n      } else if (currentTab === 'HISTORIQUE' && ['REÇU', 'RECU'].includes(statut)) {\n        dateLigne = row.Date_Reception || row.Date_Commande || row.Date_Demande;\n      }\n\n      if (dateLigne) {\n        const timestampLigne = new Date(dateLigne).getTime();\n        if (currentTab === 'HISTORIQUE') {\n          // Sur l'historique : date la plus récente\n          if (!dateRefParFournisseur[idF] || timestampLigne > dateRefParFournisseur[idF]) {\n            dateRefParFournisseur[idF] = timestampLigne;\n          }\n        } else {\n          // Sur A_COMMANDER / EN_COMMANDE : date la plus ancienne\n          if (!dateRefParFournisseur[idF] || timestampLigne < dateRefParFournisseur[idF]) {\n            dateRefParFournisseur[idF] = timestampLigne;\n          }\n        }\n      }\n    });\n\n    // 2. Tri des fournisseurs selon l'onglet\n    fournisseursData.sort((a, b) => {\n      const idA = a.ID_Fournisseur || 'DIVERS';\n      const idB = b.ID_Fournisseur || 'DIVERS';\n      \n      if (currentTab === 'HISTORIQUE') {\n        const timeA = dateRefParFournisseur[idA] || 0;\n        const timeB = dateRefParFournisseur[idB] || 0;\n        return timeB - timeA; // Plus récent en premier\n      } else {\n        const timeA = dateRefParFournisseur[idA] || Infinity;\n        const timeB = dateRefParFournisseur[idB] || Infinity;\n        return timeA - timeB; // Plus ancien en premier\n      }\n    });\n\n    // 3. Carte \"Tous les fournisseurs\" (conservée en 1ère position)\n    const totalNbLignes = fournisseursData.reduce((sum, f) => sum + Number(f.Nb_Lignes || f.Nb_Articles || 0), 0);\n    const totalHT = fournisseursData.reduce((sum, f) => sum + Number(f.Total_HT || 0), 0);\n\n    const carteTous = {\n      ID_Fournisseur: 'TOUS',\n      Nom_Fournisseur: 'Tous les fournisseurs',\n      Nb_Lignes: totalNbLignes,\n      Total_HT: totalHT,\n      Franco_De_Port: 0\n    };\n\n    return [carteTous, ...fournisseursData];\n  })()\n}}",
+  "mainCanvasId": "4qvz5ued7d",
+  "mainContainerId": "oztq3tah0q",
+  "minWidth": 450,
+  "mobileBottomRow": 47,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 15,
+  "mobileTopRow": 7,
+  "needsErrorInfo": false,
+  "originalBottomRow": 121,
+  "originalTopRow": 16,
+  "pageSize": 11,
+  "parentColumnSpace": 12.0625,
+  "parentId": "s04iswyt26",
+  "parentRowSpace": 10,
+  "primaryKeys": "{{List_Fournisseurs.listData.map((currentItem, currentIndex) => currentItem[\"ID_Fournisseur\"] )}}",
+  "renderMode": "CANVAS",
+  "requiresFlatWidgetChildren": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 8,
+  "selectedItemView": "{{{}}}",
+  "templateHeight": 160,
+  "topRow": 14,
+  "triggeredItemView": "{{{}}}",
+  "type": "LIST_WIDGET_V2",
+  "widgetId": "xya9fohxqc",
+  "widgetName": "List_Fournisseurs"
+}

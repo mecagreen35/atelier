@@ -1,0 +1,53 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignment": "left",
+  "animateLoading": true,
+  "bottomRow": 40,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "options"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isDisabled": false,
+  "isInline": true,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "einvqm93w7",
+  "label": "Catégorie Matériel",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 43,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 37,
+  "needsErrorInfo": false,
+  "options": "[\n  {\n    \"label\": \"4T\",\n    \"value\": \"4T\"\n  },\n  {\n    \"label\": \"2T\",\n    \"value\": \"2T\"\n  },\n  {\n    \"label\": \"Robot\",\n    \"value\": \"Robot\"\n  }\n]",
+  "originalBottomRow": 40,
+  "originalTopRow": 34,
+  "parentColumnSpace": 9.15625,
+  "parentId": "y3ced1gimi",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 63,
+  "topRow": 34,
+  "type": "RADIO_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "1h68ue0bmh",
+  "widgetName": "Rad_categorie_materiel"
+}

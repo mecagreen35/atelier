@@ -1,0 +1,62 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignment": "left",
+  "animateLoading": true,
+  "bottomRow": 40,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isDisabled": false,
+  "isInline": true,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "einvqm93w7",
+  "label": "Catégorie Matériel",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 43,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 37,
+  "needsErrorInfo": false,
+  "options": [
+    {
+      "label": "4T",
+      "value": "4T"
+    },
+    {
+      "label": "2T",
+      "value": "2T"
+    },
+    {
+      "label": "Robot",
+      "value": "Robot"
+    }
+  ],
+  "originalBottomRow": 40,
+  "originalTopRow": 34,
+  "parentColumnSpace": 9.15625,
+  "parentId": "gwlphp19sw",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 63,
+  "topRow": 34,
+  "type": "RADIO_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "2a45xie0d0",
+  "widgetName": "Rad_categorie_materiel"
+}

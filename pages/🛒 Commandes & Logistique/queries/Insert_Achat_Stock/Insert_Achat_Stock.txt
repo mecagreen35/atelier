@@ -1,0 +1,23 @@
+INSERT INTO public."LIGNES_COMMANDES_ACHATS" (
+  "ID_Ligne_Achat",
+  "ID_Article",
+  "Quantite_Commandee",
+  "ID_Fournisseur",
+  "Prix_Achat",
+  "Prix_Vente_HT",
+  "Prix_Vente_TTC",
+  "Statut_Achat",
+  "Date_Demande"
+)
+SELECT 
+  gen_random_uuid()::text,
+  a."ID_Article",
+  COALESCE({{ Number(inp_achat_qte.text) }}, 1),
+  COALESCE({{ sel_achat_fournisseur.selectedOptionValue }}, a."Fournisseur_Par_Defaut"),
+  COALESCE({{ Number(inp_achat_prix.text) }}, a."Prix_Achat", 0),
+  a."Prix_Vente_HT",
+  a."Prix_Vente_TTC",
+  'À COMMANDER',
+  CURRENT_DATE
+FROM public."ARTICLES" a
+WHERE a."ID_Article" = {{ sel_achat_article.selectedOptionValue }};

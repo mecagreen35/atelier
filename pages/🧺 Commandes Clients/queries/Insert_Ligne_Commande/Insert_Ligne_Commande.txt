@@ -1,0 +1,9 @@
+INSERT INTO public."LIGNES_COMMANDES_CLIENTS" (
+  "ID_Commande_Client",
+  "ID_Article",
+  "Quantite"
+) VALUES (
+  {{ Table_commande_client.selectedRow.ID_Commande_Client }},
+  {{ sel_article.selectedOptionValue }},
+  {{ inp_add_qte.text }}
+);

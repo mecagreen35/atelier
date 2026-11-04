@@ -1,0 +1,21 @@
+INSERT INTO "BONS_DE_LIVRAISON" (
+    "ID_BL",
+    "Numero_BL",
+    "Date_BL",
+    "Client",
+    "ClientOrigine",
+    "ID_BL_Origine",
+    "Origine",
+    "Statut_Facturation"
+)
+VALUES (
+    gen_random_uuid()::text,
+    'AV-' || LPAD(nextval('public.seq_num_bl_standard')::text, 5, '0'),
+    CURRENT_DATE,
+    {{ Get_Facture_ById.data[0].ClientOrigine || Get_Facture_ById.data[0].Client }},
+    {{ Get_Facture_ById.data[0].ClientOrigine || Get_Facture_ById.data[0].Client }},
+    {{ appsmith.URL.queryParams.id || appsmith.store.current_facture_id }},
+    'Avoir',
+    'À Facturer'
+)
+RETURNING "ID_BL";

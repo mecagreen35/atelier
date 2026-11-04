@@ -1,0 +1,6 @@
+UPDATE "LIGNES_INVENTAIRE"
+SET 
+    "Quantite_Comptee" = {{ Number(tbl_scans.updatedRow["Qté Comptée"]) }},
+    "Ecart" = {{ Number(tbl_scans.updatedRow["Qté Comptée"]) }} - "Stock_Theorique_Au_Scan",
+    "Date_Dernier_Scan" = CURRENT_TIMESTAMP
+WHERE "ID_Ligne_Inv" = {{ tbl_scans.updatedRow.ID_Ligne_Inv }};

@@ -1,0 +1,58 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 4,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "edit",
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ Get_Materiel_Infos.data[0].est_archive === true }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "h2novegn7g",
+  "leftColumn": 4,
+  "minWidth": 120,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 12,
+  "mobileRightColumn": 28,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onClick": "{{showModal(modal_edit_materiel.name);}}",
+  "parentColumnSpace": 5.377392578125,
+  "parentId": "ef4fhjsrqs",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 34,
+  "text": "Modifier",
+  "tooltip": "Modifier",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "xuao4da2ef",
+  "widgetName": "bouton_modifier"
+}

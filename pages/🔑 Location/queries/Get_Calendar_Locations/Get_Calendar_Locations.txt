@@ -1,0 +1,38 @@
+SELECT 
+    l."ID_Location"::text AS "id",
+    
+    -- Nom de la machine + Client
+    COALESCE(ml."Code_Interne", 'LOC') || ' — ' || 
+    CASE 
+        WHEN NULLIF(TRIM(c."Societe"), '') IS NOT NULL AND NULLIF(TRIM(COALESCE(c."Nom", '') || ' ' || COALESCE(c."Prénom", '')), '') IS NOT NULL 
+            THEN TRIM(c."Societe") || ' (' || TRIM(COALESCE(c."Nom", '') || ' ' || COALESCE(c."Prénom", '')) || ')'
+        WHEN NULLIF(TRIM(c."Societe"), '') IS NOT NULL 
+            THEN TRIM(c."Societe")
+        WHEN NULLIF(TRIM(COALESCE(c."Nom", '') || ' ' || COALESCE(c."Prénom", '')), '') IS NOT NULL 
+            THEN TRIM(COALESCE(c."Nom", '') || ' ' || COALESCE(c."Prénom", ''))
+        WHEN NULLIF(TRIM(l."Client_Affichage"), '') IS NOT NULL 
+            THEN TRIM(l."Client_Affichage")
+        ELSE 'Sans client'
+    END 
+    || ' (' || COALESCE(l."Type_Duree", 'Journée') || ')' AS "title",
+    
+    -- Heures de calage créneau
+    CASE 
+        WHEN l."Type_Duree" = 'Apres_Midi' THEN (to_char(l."Date_Location"::date, 'YYYY-MM-DD') || 'T13:00:00')
+        ELSE (to_char(l."Date_Location"::date, 'YYYY-MM-DD') || 'T08:00:00')
+    END AS "start",
+    
+    CASE 
+        WHEN l."Type_Duree" = 'Matin' THEN (to_char(l."Date_Location"::date, 'YYYY-MM-DD') || 'T13:00:00')
+        ELSE (to_char(l."Date_Location"::date, 'YYYY-MM-DD') || 'T18:00:00')
+    END AS "end",
+    
+    l."ID_Machine_Location"::text AS "ID_Machine_Location",
+    COALESCE(ml."Est_Sur_Batterie", false) AS "Est_Sur_Batterie", -- 👈 ÉLÉMENT AJOUTÉ
+    l."Statut"
+
+FROM public.v_locations_socle l
+LEFT JOIN public."MATERIEL_LOCATION" ml ON ml."ID_Machine_Location" = l."ID_Machine_Location"
+LEFT JOIN public."Clients" c ON c."ID_Client" = l."ID_Client"
+WHERE l."Statut" NOT IN ('Annule', 'ANNULE', 'Annulé', 'ANNULÉ')
+ORDER BY l."Date_Location" ASC;

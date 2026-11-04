@@ -1,0 +1,12 @@
+-- 1. On met à jour la fiche Article avec le nouveau prix d'achat
+-- Ton trigger Supabase "fn_calcul_tarifs_article_direct" va automatiquement recalculer la marge et le Prix Vente HT !
+UPDATE public."ARTICLES"
+SET "Prix_Achat" = {{ Table_Lignes_Devis.updatedRow.Prix_Achat }}
+WHERE "ID_Article" = {{ Table_Lignes_Devis.updatedRow.ID_Article }};
+
+-- 2. On met à jour la ligne d'intervention pour lui injecter le NOUVEAU Prix Vente HT de l'Article
+UPDATE public."LIGNES_INTERVENTIONS"
+SET 
+  "Prix_Achat" = {{ Table_Lignes_Devis.updatedRow.Prix_Achat }},
+  "Prix_Vente_HT" = (SELECT "Prix_Vente_HT" FROM public."ARTICLES" WHERE "ID_Article" = {{ Table_Lignes_Devis.updatedRow.ID_Article }})
+WHERE "ID_Ligne_Intervention" = {{ Table_Lignes_Devis.updatedRow.ID_Ligne_Intervention }};

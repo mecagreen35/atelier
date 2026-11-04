@@ -1,0 +1,28 @@
+SELECT 
+    d."ID_DEVIS",
+		d."ID_CLIENT",
+		d."ID_INTERVENTION",
+    d."Numero_Devis",
+    d."DATE",
+    d."STATUT",
+    d."TOTAL_TTC",
+    d."Notes",
+		d."Lien_PDF",
+    c."Societe",
+    c."Nom",
+    c."Prénom",
+    c."Telephone",
+    c."Adresse",
+    c."code_postal",
+    c."ville",
+    c."Email",
+    i."N° OR",
+    i."Symptome",
+    pm."Marque",
+    pm."Modele",
+    pm."N_Serie"
+FROM public."DEVIS" d
+LEFT JOIN public."Clients" c ON d."ID_CLIENT" = c."ID_Client"
+LEFT JOIN public."Interventions" i ON d."ID_INTERVENTION" = i."ID_Intervention"
+LEFT JOIN public."Parc_Materiel" pm ON i."ID_Machine" = pm."ID_Machine"
+WHERE d."ID_DEVIS" = '{{appsmith.URL.queryParams.id}}';

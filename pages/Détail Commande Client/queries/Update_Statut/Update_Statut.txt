@@ -1,0 +1,12 @@
+UPDATE public."Interventions" 
+SET 
+  "Statut" = {{this.params.nouveau_statut}},
+  
+  -- Assigne le mécano uniquement si le statut passe "En cours" et qu'il n'y a personne d'assigné
+  "Mecano_En_Charge" = CASE 
+      WHEN {{this.params.nouveau_statut}} = 'En cours' AND "Mecano_En_Charge" IS NULL 
+      THEN (SELECT "ID_Employe" FROM public."Employes" WHERE "Email" = {{appsmith.user.email}} LIMIT 1)
+      ELSE "Mecano_En_Charge" 
+  END
+  
+WHERE "ID_Intervention" = {{Get_Commande_ById.data[0].ID_Intervention}};

@@ -1,0 +1,14 @@
+SELECT 
+  bl.*, 
+  c."Nom", 
+  c."Prénom", 
+  c."Societe", 
+  c."Telephone", 
+  c."Email",
+  c."Adresse",
+  c."code_postal",
+  c."ville"
+FROM "BONS_DE_LIVRAISON" bl
+LEFT JOIN "Clients" c ON bl."Client" = c."ID_Client"
+WHERE bl."ID_BL" = {{ appsmith.URL.queryParams.id || appsmith.store.current_facture_id }}
+LIMIT 1;

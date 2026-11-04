@@ -1,0 +1,5 @@
+SELECT * FROM public."v_clients_socle"
+WHERE "Client_Nom_Affichage" ILIKE '%' || {{inp_search_client.text || ''}} || '%'
+   OR "Telephone" ILIKE '%' || {{inp_search_client.text || ''}} || '%'
+   OR "Email" ILIKE '%' || {{inp_search_client.text || ''}} || '%'
+ORDER BY "Societe" ASC, "Nom" ASC;

@@ -1,0 +1,1 @@
+UPDATE "COMMANDES_CLIENTS" SET "Notes" = {{ Inp_notes.text }} WHERE "ID_Commande_Client" = {{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }}

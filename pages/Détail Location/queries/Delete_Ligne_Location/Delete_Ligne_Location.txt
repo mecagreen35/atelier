@@ -1,0 +1,2 @@
+DELETE FROM public."v_lignes_location_detail"
+WHERE "ID_Ligne_Location" = '{{ Table_Lignes_Location.triggeredRow.ID_Ligne_Location }}';

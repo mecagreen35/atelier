@@ -1,0 +1,63 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignment": "left",
+  "animateLoading": false,
+  "bottomRow": 10,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isDisabled": false,
+  "isInline": true,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "62asigivmb",
+  "label": "Type de client",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelTooltip": "",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 9,
+  "mobileRightColumn": 29,
+  "mobileTopRow": 7,
+  "needsErrorInfo": false,
+  "options": [
+    {
+      "label": "Particulier",
+      "value": "Particulier"
+    },
+    {
+      "label": "Professionnel",
+      "value": "Professionnel"
+    },
+    {
+      "label": "Collectivité",
+      "value": "Collectivité"
+    }
+  ],
+  "originalBottomRow": 10,
+  "originalTopRow": 4,
+  "parentColumnSpace": 6.9375,
+  "parentId": "2pcm24148j",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 60,
+  "topRow": 4,
+  "type": "RADIO_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "xnqfcy6a2g",
+  "widgetName": "rad_type_client"
+}

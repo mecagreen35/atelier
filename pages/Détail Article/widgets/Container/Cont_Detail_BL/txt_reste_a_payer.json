@@ -1,0 +1,55 @@
+{
+  "animateLoading": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 21,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1.25rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "dnvfz794jr",
+  "leftColumn": 2,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 15,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 18,
+  "mobileTopRow": 11,
+  "needsErrorInfo": false,
+  "originalBottomRow": 21,
+  "originalTopRow": 15,
+  "overflow": "NONE",
+  "parentColumnSpace": 15.807226562499999,
+  "parentId": "268g548w76",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 15,
+  "shouldTruncate": false,
+  "text": "Stock Actuel : {{ Get_Detail_Article.data[0]?.Stock_Actuel }} {{ Get_Detail_Article.data[0]?.Suivi_en_stock ? '' : '(Non suivi)' }}",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 15,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "uf79cu9czp",
+  "widgetName": "txt_reste_a_payer"
+}

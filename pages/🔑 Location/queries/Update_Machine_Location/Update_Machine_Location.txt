@@ -1,0 +1,19 @@
+UPDATE public."MATERIEL_LOCATION"
+SET
+    "Code_Interne"             = {{ Inp_Edit_Code.text }},
+    "Marque"                   = {{ Inp_Edit_Marque.text }},
+    "Modele"                   = {{ Inp_Edit_Modele.text }},
+    "N_Serie"                  = {{ Inp_Edit_Serie.text }},
+    "Categorie"                = {{ Select_Loc_CategorieCopy.selectedOptionValue }},
+    "Prix_Achat_HT"            = {{ Number(String(Inp_Edit_PrixAchat.text || '0').replace(/[^0-9.-]+/g, '')) || 0 }},
+    "Date_Achat"               = {{ DatePicker_Edit_DateAchat.selectedDate ? moment(DatePicker_Edit_DateAchat.selectedDate).format('YYYY-MM-DD') : null }},
+    "Type_Suivi_Entretien"     = {{ Select_Edit_TypeSuivi.selectedOptionValue || 'Locations' }},
+    "Prochaine_Vidange_Heures" = {{ Number(String(Inp_Edit_Vidange.text || '').replace(/[^0-9.-]+/g, '')) || null }},
+    "Intervalle_Nb_Locations"  = {{ Number(String(Inp_Edit_SeuilLoc.text || '15').replace(/[^0-9.-]+/g, '')) || 15 }},
+    "ID_Article_Demi_Journee"  = {{ Select_Edit_DemiJournee.selectedOptionValue || null }},
+    "ID_Article_Journee"       = {{ Select_Edit_Journee.selectedOptionValue || null }},
+    "CA_Historique_HT"         = {{ Number(String(Inp_Edit_CA_Histo.text || '0').replace(/[^0-9.-]+/g, '')) || 0 }},
+    "Nb_Locations_Historique"  = {{ Number(String(Inp_Edit_Nb_Histo.text || '0').replace(/[^0-9.-]+/g, '')) || 0 }},
+    "Est_Sur_Batterie"         = {{ !!appsmith.store.edit_est_batterie }},
+    "Part_Batterie_Pct"        = {{ Number(String(Input_Part_Batterie.text || '15').replace(/[^0-9.-]+/g, '')) || 15.00 }}
+WHERE "ID_Machine_Location" = {{ Table_Flotte.triggeredRow.ID_Machine_Location }};

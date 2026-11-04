@@ -1,0 +1,1 @@
+SELECT "ID_Recherche", "Nom_Ville", "Code_Postal" FROM public."VILLES_35" ORDER BY "Nom_Ville";

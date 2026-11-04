@@ -1,0 +1,73 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 14,
+  "boxShadow": "none",
+  "closeOnSelection": true,
+  "dateFormat": "DD/MM/YYYY",
+  "datePickerType": "DATE_PICKER",
+  "defaultDate": "{{ moment().toISOString() }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "minDate"
+    },
+    {
+      "key": "maxDate"
+    },
+    {
+      "key": "defaultDate"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "minDate"
+    },
+    {
+      "key": "maxDate"
+    },
+    {
+      "key": "defaultDate"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "firstDayOfWeek": 0,
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "fo69chk3bf",
+  "label": "Date Facture",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDate": "{{ moment().toISOString() }}",
+  "maxDynamicHeight": 9000,
+  "minDate": "{{ Get_Max_Date_Facture.data[0].max_date ? moment(Get_Max_Date_Facture.data[0].max_date).toISOString() : \"\" }}",
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 14,
+  "mobileLeftColumn": 11,
+  "mobileRightColumn": 31,
+  "mobileTopRow": 7,
+  "needsErrorInfo": false,
+  "parentColumnSpace": 6.9375,
+  "parentId": "crd3zgtbro",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "shortcuts": false,
+  "timePrecision": "minute",
+  "topRow": 7,
+  "type": "DATE_PICKER_WIDGET2",
+  "version": 2,
+  "widgetId": "a4xtn1hosz",
+  "widgetName": "Date_facture"
+}

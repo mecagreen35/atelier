@@ -1,0 +1,236 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "backgroundColor": "#FFFFFF",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": 1,
+  "bottomRow": 401,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "children": [
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 3900,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": true,
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isDisabled": false,
+      "isLoading": false,
+      "isVisible": true,
+      "key": "8t7jn6ivcd",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 150,
+      "minWidth": 450,
+      "mobileBottomRow": 150,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 367.5,
+      "mobileTopRow": 0,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "63zckv06ih",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 367.5,
+      "shouldScrollContents": false,
+      "tabId": "tab1",
+      "tabName": "🛠️ Atelier Global",
+      "topRow": 0,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "88n1iw7c3m",
+      "widgetName": "Canvas16"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 3900,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": true,
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        },
+        {
+          "key": "tabName"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isDisabled": false,
+      "isLoading": false,
+      "isVisible": true,
+      "key": "8t7jn6ivcd",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 150,
+      "minWidth": 450,
+      "mobileBottomRow": 150,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 367.5,
+      "mobileTopRow": 0,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "63zckv06ih",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 367.5,
+      "shouldScrollContents": false,
+      "tabId": "tab2",
+      "tabName": "{{   (() => {     const prenom = Get_Mecano_Connecte.data?.[0]?.Prenom;     return prenom ? `🔨 Atelier ${prenom}` : \"🔨 Atelier Perso\";   })() }}",
+      "topRow": 0,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "2niq0jvypo",
+      "widgetName": "Canvas17"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 3900,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "rv9hpst0df",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 3930,
+      "minWidth": 450,
+      "mobileBottomRow": 3931,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1120,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "63zckv06ih",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1120,
+      "tabId": "tab7i2d4h5g7b",
+      "tabName": "📅 Planning",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "ttdp0raqw7",
+      "widgetName": "Canvas18"
+    }
+  ],
+  "defaultTab": "{{\n  (() => {\n    const cible = appsmith.store.tab_atelier_actif || \"\";\n\n    // 1. Si on a expressément mémorisé \"Global\"\n    if (cible === \"🛠️ Atelier Global\") {\n      return \"🛠️ Atelier Global\";\n    }\n\n    // 2. Si on a expressément mémorisé \"Planning\"\n    if (cible === \"📅 Planning\") {\n      return \"📅 Planning\";\n    }\n\n    // 3. Si on était sur l'atelier perso (David ou autre)\n    if (cible !== \"\") {\n      // Renvoie exactement le libellé de l'onglet 2 (qu'il soit encore \"Perso\" ou déjà \"David\")\n      return Tabs1.tabsObj.tab2.label;\n    }\n\n    // 4. Première connexion (selon l'adresse email de connexion)\n    if (appsmith.user.email === 'contact@meca-green-motoculture.com') {\n      return \"🛠️ Atelier Global\";\n    } else {\n      return Tabs1.tabsObj.tab2.label;\n    }\n  })()\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "tabsObj.tab2.label"
+    },
+    {
+      "key": "defaultTab"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onTabSelected"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onTabSelected"
+    }
+  ],
+  "flexVerticalAlignment": "stretch",
+  "isCanvas": true,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "s97s12rc31",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 15,
+  "minWidth": 450,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 7,
+  "needsErrorInfo": false,
+  "onTabSelected": "{{\n  (async function() {\n    // 1. On mémorise le nouvel onglet\n    await storeValue('tab_atelier_actif', Tabs1.selectedTab);\n    \n    // 2. On rafraîchit SEULEMENT si c'est un onglet de tableau\n    if (Tabs1.selectedTab === \"🛠️ Atelier Global\") {\n      await Get_Atelier_Global.run();\n    } \n    else if (Tabs1.selectedTab !== \"📅 Planning\") {\n      // Si ce n'est ni Global, ni Planning, c'est que c'est l'onglet Perso (David)\n      await Get_Atelier_Perso.run();\n    }\n    // Si c'est \"Planning\", on ne fait rien, le calendrier se charge tout seul !\n  })()\n}}",
+  "originalBottomRow": 392,
+  "originalTopRow": 7,
+  "parentColumnSpace": 17.5,
+  "parentId": "11b2xw0tq5",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "shouldScrollContents": true,
+  "shouldShowTabs": true,
+  "tabsObj": {
+    "tab1": {
+      "id": "tab1",
+      "index": 0,
+      "isVisible": true,
+      "label": "🛠️ Atelier Global",
+      "positioning": "vertical",
+      "widgetId": "88n1iw7c3m"
+    },
+    "tab2": {
+      "id": "tab2",
+      "index": 1,
+      "isVisible": true,
+      "label": "{{   (() => {     const prenom = Get_Mecano_Connecte.data?.[0]?.Prenom;     return prenom ? `🔨 Atelier ${prenom}` : \"🔨 Atelier Perso\";   })() }}",
+      "positioning": "vertical",
+      "widgetId": "2niq0jvypo"
+    },
+    "tab7i2d4h5g7b": {
+      "id": "tab7i2d4h5g7b",
+      "index": 2,
+      "isVisible": true,
+      "label": "📅 Planning",
+      "widgetId": "ttdp0raqw7"
+    }
+  },
+  "topRow": 7,
+  "type": "TABS_WIDGET",
+  "version": 3,
+  "widgetId": "63zckv06ih",
+  "widgetName": "Tabs1"
+}

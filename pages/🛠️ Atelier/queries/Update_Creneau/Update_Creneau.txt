@@ -1,0 +1,8 @@
+UPDATE public."CRENEAUX_INTERVENTIONS"
+SET 
+    "ID_Employe" = {{ sel_detail_creneau_mecano.selectedOptionValue || null }},
+    "Type_Creneau" = {{ sel_detail_creneau_type.selectedOptionValue }},
+    "Date_Debut" = {{ date_detail_creneau_debut.selectedDate }},
+    "Date_Fin" = {{ date_detail_creneau_fin.selectedDate }},
+    "Commentaire" = {{ inp_detail_creneau_commentaire.text || null }}
+WHERE "ID_Creneau" = {{ appsmith.store.selected_creneau_id || Custom_Calendrier_Atelier.model.selectedId }};

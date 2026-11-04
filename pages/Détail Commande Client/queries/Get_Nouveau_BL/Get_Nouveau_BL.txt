@@ -1,0 +1,4 @@
+SELECT "ID_BL" 
+FROM public."BONS_DE_LIVRAISON" 
+WHERE "ID_COMMANDE_CLIENT" = {{appsmith.URL.queryParams.id}}
+LIMIT 1;

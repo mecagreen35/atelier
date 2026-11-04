@@ -1,0 +1,67 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 18,
+  "boxShadow": "none",
+  "defaultText": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "dp7o9kjcsi",
+  "label": "Scan :",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "BOLD",
+  "labelTextSize": "1.25rem",
+  "labelWidth": 5,
+  "leftColumn": 14,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 19,
+  "mobileLeftColumn": 14,
+  "mobileRightColumn": 34,
+  "mobileTopRow": 12,
+  "needsErrorInfo": false,
+  "onSubmit": "{{\n  (async () => {\n    // --- VERROU ANTI-DOUBLE SCAN ---\n    if (appsmith.store.isScanning) {\n      console.log(\"Scan ignoré : un traitement est déjà en cours.\");\n      return;\n    }\n    await storeValue('isScanning', true);\n    // ---------------------------------\n\n    try {\n      const code = inp_scan_article.text?.trim();\n      const qte = inp_quantite.text !== \"\" && !isNaN(inp_quantite.text) ? Number(inp_quantite.text) : 1;\n      \n      if (!code) {\n        await storeValue('isScanning', false);\n        return;\n      }\n\n      // 1. Recherche de l'article dans la base (Code-barres, Réf ou ID)\n      const articles = Get_Tous_Articles.data || [];\n      const art = articles.find(a => \n        (a.Code_Barre && a.Code_Barre.toLowerCase() === code.toLowerCase()) ||\n        (a.Ref_Fournisseur && a.Ref_Fournisseur.toLowerCase() === code.toLowerCase()) ||\n        (a.ID_Article && a.ID_Article.toLowerCase() === code.toLowerCase())\n      );\n\n      if (!art) {\n        showAlert('❌ Article non reconnu pour le code : ' + code, 'error');\n        resetWidget('inp_scan_article', true);\n        storeValue('forceFocus', Date.now()); // <--- FORCER L'AUTOFOCUS\n        await storeValue('isScanning', false); // Libérer le verrou\n        return;\n      }\n\n      // 2. Enregistrement en base de données\n      await Valider_Scan_Inv.run({\n        idArticle: art.ID_Article,\n        quantite: qte\n      });\n\n      // 3. Message de succès\n      showAlert('✅ ' + art.Designation + ' (Qté : ' + qte + ')', 'success');\n\n      // 4. Nettoyage immédiat pour la douchette\n      resetWidget('inp_scan_article', true);\n      resetWidget('inp_quantite', true);\n      \n      // <--- FORCER L'AUTOFOCUS IMMÉDIATEMENT APRÈS LE NETTOYAGE\n      storeValue('forceFocus', Date.now());\n\n      // 5. Rafraîchissement des tableaux en arrière-plan\n      Get_Derniers_Scans.run();\n      Get_Non_Scannes.run();\n\n    } catch (err) {\n      showAlert('Erreur lors du scan : ' + err.message, 'error');\n      storeValue('forceFocus', Date.now()); // <--- FORCER L'AUTOFOCUS EN CAS D'ERREUR AUSSI\n    } finally {\n      // --- LIBÉRER LE VERROU DANS TOUS LES CAS ---\n      await storeValue('isScanning', false);\n    }\n  })()\n}}",
+  "originalBottomRow": 18,
+  "originalTopRow": 10,
+  "parentColumnSpace": 17.5,
+  "parentId": "tgijtpsovu",
+  "parentRowSpace": 10,
+  "placeholderText": "Scannez un code-barres",
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 46,
+  "showStepArrows": false,
+  "topRow": 10,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "0crlpkss4l",
+  "widgetName": "inp_scan_article"
+}

@@ -1,0 +1,29 @@
+SELECT 
+  lcc."ID_Ligne_Commande_Client",
+  lcc."Ref_Fournisseur",
+  lcc."ID_Article",
+  lcc."Quantite",
+  c."Nom_Societe_Ou_Nom" AS "Client_Nom",
+  cc."Date_Commande",
+  'COMMANDE CLIENT' AS "Type_Destination"
+FROM "LIGNES_COMMANDES_CLIENTS" lcc
+JOIN "COMMANDES_CLIENTS" cc ON cc."ID_Commande_Client" = lcc."ID_Commande_Client"
+JOIN "CLIENTS" c ON c."ID_Client" = cc."ID_Client"
+WHERE lcc."Statut_Piece" IN ('En attente', 'Promis sur Arrivage')
+
+UNION ALL
+
+SELECT 
+  li."ID_Ligne_Intervention",
+  li."Ref_Fournisseur",
+  li."ID_Article",
+  li."Quantite",
+  c."Nom_Societe_Ou_Nom" AS "Client_Nom",
+  i."Date_Intervention",
+  'ATELIER' AS "Type_Destination"
+FROM "LIGNES_INTERVENTIONS" li
+JOIN "INTERVENTIONS" i ON i."ID_Intervention" = li."ID_Intervention"
+JOIN "CLIENTS" c ON c."ID_Client" = i."ID_Client"
+WHERE li."Statut_Piece" IN ('En attente', 'Promis sur Arrivage')
+
+ORDER BY "Date_Commande" ASC;

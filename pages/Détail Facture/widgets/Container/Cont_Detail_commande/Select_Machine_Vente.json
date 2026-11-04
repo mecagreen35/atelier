@@ -1,0 +1,80 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 50,
+  "bottomRowBeforeCollapse": 35,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  Get_Facture_ById.data[0].ID_Machine || \"\" ))(Select_Machine_Vente.options, Select_Machine_Vente.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "defaultOptionValue"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{\n  // 1. Toujours visible si une machine est déjà liée à la facture\n  Boolean(Get_Facture_ById.data?.[0]?.ID_Machine) ||\n\n  // 2. Visible si au moins une ligne est une reprise ou vente d'occasion\n  (Get_Lignes_Facture.data || []).some(ligne => \n    ['ART-OCCAS-MARGE', 'ART-OCCAS-TVA20', 'ART-REPRISE-OCCAS'].includes(ligne.ID_Article) ||\n    (ligne.Descriptif && (\n      ligne.Descriptif.toUpperCase().includes('OCCASION') || \n      ligne.Descriptif.toUpperCase().includes('REPRISE')\n    ))\n  )\n}}",
+  "key": "cdpgncmz36",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Machine d'occasion",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 2,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 35,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 28,
+  "needsErrorInfo": false,
+  "onOptionChange": "{{Update_BL_Machine.run().then(() => {\n  Get_Facture_ById.run();\n  Get_Machines_Occasion_Dispo.run();\n});}}",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 47,
+  "originalTopRow": 40,
+  "parentColumnSpace": 29.9375,
+  "parentId": "aps6vf9trg",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 35,
+  "serverSideFiltering": false,
+  "sourceData": "{{ Get_Machines_Occasion_Dispo.data }}",
+  "topRow": 43,
+  "topRowBeforeCollapse": 28,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "nbqpcr8mis",
+  "widgetName": "Select_Machine_Vente"
+}

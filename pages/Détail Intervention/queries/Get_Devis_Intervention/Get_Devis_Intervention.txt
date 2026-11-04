@@ -1,0 +1,5 @@
+SELECT "ID_DEVIS"
+FROM public."DEVIS"
+WHERE "ID_INTERVENTION" = {{ appsmith.URL.queryParams.id }}
+  AND "STATUT" NOT IN ('Archivé', 'Refusé')
+LIMIT 1;

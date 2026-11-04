@@ -1,0 +1,5 @@
+UPDATE public."BONS_DE_LOCATION"
+SET 
+  "Notes_Internes" = {{ Inp_notes.text }},
+  "Date_Modification" = NOW()
+WHERE "ID_Location" = '{{ appsmith.URL.queryParams.id }}';

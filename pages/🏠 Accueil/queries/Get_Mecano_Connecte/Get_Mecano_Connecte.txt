@@ -1,0 +1,4 @@
+SELECT "Prenom" 
+FROM public."Employes" 
+WHERE LOWER(TRIM("Email")) = LOWER(TRIM({{appsmith.user.email}}))
+LIMIT 1;

@@ -1,0 +1,354 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "buttonVariant": "SECONDARY",
+  "childStylesheet": {
+    "button": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "dynamicBindingPathList": [
+    {
+      "key": "groupButtons.groupButton1.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton2.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton3.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton1.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton3.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton2.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton9je2rk6gd6.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton9je2rk6gd6.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton8db3y5ugqt.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton8db3y5ugqt.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButtonkvbgqj89yu.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButtonkvbgqj89yu.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton4lfnzzdbwe.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton4lfnzzdbwe.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButtonjv0k3mmoyy.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButtonjv0k3mmoyy.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButtond4rvpuefzi.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButtond4rvpuefzi.isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "groupButtons.groupButton1.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton3.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton2.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton9je2rk6gd6.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton8db3y5ugqt.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton3.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton1.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton2.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton9je2rk6gd6.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton8db3y5ugqt.onClick"
+    },
+    {
+      "key": "groupButtons.groupButtonkvbgqj89yu.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButtonkvbgqj89yu.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton4lfnzzdbwe.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton4lfnzzdbwe.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButtonjv0k3mmoyy.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButtonjv0k3mmoyy.onClick"
+    },
+    {
+      "key": "groupButtons.groupButtond4rvpuefzi.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButtond4rvpuefzi.onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "groupButtons.groupButton3.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton1.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton2.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton9je2rk6gd6.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton8db3y5ugqt.onClick"
+    },
+    {
+      "key": "groupButtons.groupButtonkvbgqj89yu.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton4lfnzzdbwe.onClick"
+    },
+    {
+      "key": "groupButtons.groupButtonjv0k3mmoyy.onClick"
+    },
+    {
+      "key": "groupButtons.groupButtond4rvpuefzi.onClick"
+    }
+  ],
+  "groupButtons": {
+    "groupButton1": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "disabledWhenInvalid": false,
+      "id": "groupButton1",
+      "index": 0,
+      "isDisabled": false,
+      "isVisible": "{{ Get_Detail_Intervention.data[0]?.Statut === 'En cours' || Get_Detail_Intervention.data[0]?.Statut === 'H.S.' }}",
+      "label": "👁️ À Vérifier",
+      "menuItems": {},
+      "onClick": "{{\n  Update_Statut.run({ nouveau_statut: 'À Vérifier' })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Statut mis à jour', 'success');\n    })\n    .catch(() => showAlert('Erreur lors de la mise à jour', 'error'));\n}}",
+      "placement": "CENTER",
+      "widgetId": ""
+    },
+    "groupButton2": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "disabledWhenInvalid": false,
+      "id": "groupButton2",
+      "index": 2,
+      "isDisabled": false,
+      "isVisible": "{{ Get_Detail_Intervention.data[0].Statut === 'En cours' }}",
+      "label": "🧪 En Test",
+      "menuItems": {},
+      "onClick": "{{\n  Update_Statut.run({ nouveau_statut: 'EN TEST' })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Statut mis à jour', 'success');\n    })\n    .catch(() => showAlert('Erreur lors de la mise à jour', 'error'));\n}}",
+      "placement": "CENTER",
+      "widgetId": ""
+    },
+    "groupButton3": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "disabledWhenInvalid": false,
+      "id": "groupButton3",
+      "index": 1,
+      "isDisabled": false,
+      "isVisible": "{{ ['À Diagnostiquer', 'A REMONTER', 'Attente client', 'EN TEST'].includes(Get_Detail_Intervention.data[0].Statut) }}",
+      "label": "🛠️ En cours",
+      "menuItems": {
+        "menuItem1": {
+          "backgroundColor": "#FFFFFF",
+          "disabledWhenInvalid": false,
+          "id": "menuItem1",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "First Option",
+          "onClick": "",
+          "widgetId": ""
+        },
+        "menuItem2": {
+          "backgroundColor": "#FFFFFF",
+          "disabledWhenInvalid": false,
+          "id": "menuItem2",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Second Option",
+          "onClick": "",
+          "widgetId": ""
+        },
+        "menuItem3": {
+          "backgroundColor": "#DD4B34",
+          "disabledWhenInvalid": false,
+          "iconAlign": "right",
+          "iconColor": "#FFFFFF",
+          "iconName": "trash",
+          "id": "menuItem3",
+          "index": 2,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Delete",
+          "onClick": "",
+          "textColor": "#FFFFFF",
+          "widgetId": ""
+        }
+      },
+      "onClick": "{{\n  Update_Statut.run({ nouveau_statut: 'En cours' })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Statut mis à jour', 'success');\n    })\n    .catch(() => showAlert('Erreur lors de la mise à jour', 'error'));\n}}",
+      "placement": "CENTER",
+      "widgetId": ""
+    },
+    "groupButton4lfnzzdbwe": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "id": "groupButton4lfnzzdbwe",
+      "index": 7,
+      "isDisabled": false,
+      "isSeparator": false,
+      "isVisible": "{{ \n  Get_Detail_Intervention.data[0]?.Statut === 'Devis' && \n  (!Get_Devis_Intervention.data || Get_Devis_Intervention.data.length === 0) \n}}",
+      "itemType": "BUTTON",
+      "label": "📝 Créer Devis",
+      "menuItems": {},
+      "onClick": "{{\n  (async function() {\n    try {\n      const res = await Creer_Devis_Intervention.run();\n      const newId = res?.[0]?.id_devis;\n\n      if (!newId) {\n        showAlert(\"Erreur : identifiant du devis introuvable.\", \"warning\");\n        return;\n      }\n\n      // Mémorisation pour le bouton retour de la page Détail Devis\n      await storeValue('page_precedente', 'Détail Intervention');\n      await storeValue('id_precedent', appsmith.URL.queryParams.id);\n\n      showAlert('Devis créé avec succès !', 'success');\n\n      // Redirection immédiate vers la fiche du devis\n      await navigateTo('Détail Devis', { id: newId });\n    } catch (error) {\n      showAlert('Erreur lors de la création du devis : ' + error.message, 'error');\n    }\n  })()\n}}",
+      "placement": "CENTER",
+      "variant": "filled",
+      "widgetId": "g3o7fs8mui"
+    },
+    "groupButton8db3y5ugqt": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "id": "groupButton8db3y5ugqt",
+      "index": 4,
+      "isDisabled": false,
+      "isSeparator": false,
+      "isVisible": "{{ ['En cours'].includes(Get_Detail_Intervention.data[0].Statut) }}",
+      "itemType": "BUTTON",
+      "label": "📜 Devis",
+      "menuItems": {},
+      "onClick": "{{\n  Update_Statut.run({ nouveau_statut: 'Devis' })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Statut mis à jour', 'success');\n    })\n    .catch(() => showAlert('Erreur lors de la mise à jour', 'error'));\n}}",
+      "placement": "CENTER",
+      "variant": "filled",
+      "widgetId": "szj65jg10g"
+    },
+    "groupButton9je2rk6gd6": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "id": "groupButton9je2rk6gd6",
+      "index": 3,
+      "isDisabled": false,
+      "isSeparator": false,
+      "isVisible": "{{ ['à vérifier', 'a verifier'].includes(Get_Detail_Intervention.data[0]?.Statut?.toLowerCase()) }}",
+      "itemType": "BUTTON",
+      "label": "✅ Prêt",
+      "menuItems": {},
+      "onClick": "{{\n  Update_Statut.run({ nouveau_statut: 'PRÊT' })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Statut mis à jour', 'success');\n    })\n    .catch(() => showAlert('Erreur lors de la mise à jour', 'error'));\n}}",
+      "placement": "CENTER",
+      "variant": "filled",
+      "widgetId": "hoba1ntm49"
+    },
+    "groupButtond4rvpuefzi": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "id": "groupButtond4rvpuefzi",
+      "index": 6,
+      "isDisabled": false,
+      "isSeparator": false,
+      "isVisible": "{{   Get_Detail_Intervention.data[0]?.Statut?.includes('Action requise') \n}}",
+      "itemType": "BUTTON",
+      "label": "🔨 À Remonter",
+      "menuItems": {},
+      "onClick": "{{\n  Update_Statut.run({\n    nouveau_statut: 'A REMONTER'\n  })\n  .then(() => {\n    Get_Detail_Intervention.run();\n    showAlert('Statut mis à jour : À Remonter', 'success');\n  })\n  .catch((err) => showAlert('Erreur lors de la mise à jour : ' + err.message, 'error'))\n}}",
+      "placement": "CENTER",
+      "variant": "filled",
+      "widgetId": "ofg00ypr7b"
+    },
+    "groupButtonjv0k3mmoyy": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "id": "groupButtonjv0k3mmoyy",
+      "index": 8,
+      "isDisabled": false,
+      "isSeparator": false,
+      "isVisible": "{{ Get_Devis_Intervention.data && Get_Devis_Intervention.data.length > 0 }}",
+      "itemType": "BUTTON",
+      "label": "📄 Voir le Devis",
+      "menuItems": {},
+      "onClick": "{{ navigateTo('Détail Devis', { id: Get_Devis_Intervention.data[0].ID_DEVIS }) }}",
+      "placement": "CENTER",
+      "variant": "filled",
+      "widgetId": "ehqda49t6h"
+    },
+    "groupButtonkvbgqj89yu": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "id": "groupButtonkvbgqj89yu",
+      "index": 5,
+      "isDisabled": false,
+      "isSeparator": false,
+      "isVisible": "{{ \n  Get_Detail_Intervention.data[0]?.Statut === 'En cours' || \n  Get_Detail_Intervention.data[0]?.Statut?.includes('Action requise') \n}}",
+      "itemType": "BUTTON",
+      "label": "🛒 Pièce à commander",
+      "menuItems": {},
+      "onClick": "{{\n  Update_Statut.run({ nouveau_statut: 'PIECE A COMMANDER' })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Statut mis à jour', 'success');\n    })\n    .catch(() => showAlert('Erreur lors de la mise à jour', 'error'));\n}}",
+      "placement": "CENTER",
+      "variant": "filled",
+      "widgetId": "7637q4xny8"
+    }
+  },
+  "isCanvas": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "sw0auv3hel",
+  "leftColumn": 8,
+  "minWidth": 450,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 16,
+  "mobileRightColumn": 40,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "orientation": "horizontal",
+  "parentColumnSpace": 17.1875,
+  "parentId": "7ssu4ocqcj",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 41,
+  "topRow": 1,
+  "type": "BUTTON_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "zazto0xmj2",
+  "widgetName": "bouton_statut"
+}

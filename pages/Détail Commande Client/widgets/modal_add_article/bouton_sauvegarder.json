@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 44,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "p4o6lpgmp4",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    try {\n      // 1. ACTION BASE DE DONNÉES\n      const res = await Insert_Article_Rapide.run();\n      await storeValue('nouvel_article_id', res[0].ID_Article);\n      await Get_Articles_Options.run(); \n      \n      // 2. ACTIONS VISUELLES (On ferme l'article, ON ROUVRE LA LIGNE)\n      closeModal('modal_add_article');\n      showModal('modal_add_ligne'); // ⬅️ La ligne magique est ici !\n      showAlert('Article créé et sélectionné !', 'success');\n      \n      // 3. NETTOYAGE\n      setTimeout(() => {\n        resetWidget('modal_add_article', true);\n      }, 500);\n\n    } catch (error) {\n      showAlert('Erreur : ' + error.message, 'error');\n    }\n  })()\n}}",
+  "parentId": "03hbkvmwxg",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "tabOrder": 6,
+  "text": "Sauvegarder",
+  "topRow": 40,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "gynv6dea7t",
+  "widgetName": "bouton_sauvegarder"
+}

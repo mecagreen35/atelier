@@ -1,0 +1,1 @@
+SELECT public.fn_creer_devis_depuis_intervention({{ appsmith.URL.queryParams.id }}) AS id_devis;

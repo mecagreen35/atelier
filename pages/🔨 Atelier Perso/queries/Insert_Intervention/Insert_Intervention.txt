@@ -1,0 +1,25 @@
+INSERT INTO public."Interventions" (
+  "ID_Intervention",
+  "ID_Client",
+  "ID_Machine",
+  "Type_Machine",
+  "Statut",
+  "Symptome",
+  "Categorie_Materiel",
+  "Priorité",
+  "Notes_Internes",
+  "Date_Entree"
+)
+VALUES (
+  gen_random_uuid()::text,
+  '{{sel_interv_client.selectedOptionValue}}',
+  {{ sel_interv_machine.selectedOptionValue ? "'" + sel_interv_machine.selectedOptionValue + "'" : "NULL" }},
+  {{ sel_interv_machine.selectedOptionValue ? "(SELECT \"Type_Machine\" FROM public.\"Parc_Materiel\" WHERE \"ID_Machine\" = '" + sel_interv_machine.selectedOptionValue + "')" : "NULL" }},
+  '{{sel_interv_statut.selectedOptionValue}}',
+  '{{inp_interv_symptome.text.replace(/'/g, "''")}}',
+  '{{grp_interv_categorie.selectedOptionValue}}',
+  '{{sel_interv_priorite.selectedOptionValue}}',
+  '{{inp_interv_notes.text.replace(/'/g, "''")}}',
+  NOW()
+)
+RETURNING "ID_Intervention";

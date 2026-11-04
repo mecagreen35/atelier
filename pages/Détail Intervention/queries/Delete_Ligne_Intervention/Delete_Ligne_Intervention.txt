@@ -1,0 +1,2 @@
+DELETE FROM public."LIGNES_INTERVENTIONS"
+WHERE "ID_Ligne_Intervention" = {{ Table_Lignes_Intervention.triggeredRow.ID_Ligne_Intervention }};

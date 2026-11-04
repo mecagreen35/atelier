@@ -1,0 +1,5 @@
+SELECT 
+  "ID_Article" AS value, 
+  CONCAT("Designation", ' - ', "Ref_Fournisseur") AS label 
+FROM public."ARTICLES" 
+ORDER BY "Designation";

@@ -1,0 +1,12 @@
+INSERT INTO public."COMMANDES_CLIENTS" (
+  "ID_Commande_Client",
+  "ID_Client",
+  "Date",
+  "Notes"
+) VALUES (
+  gen_random_uuid()::text,
+  {{ sel_client.selectedOptionValue }},
+  CURRENT_DATE,
+  {{ inp_new_notes.text || "" }}
+)
+RETURNING "ID_Commande_Client";

@@ -1,0 +1,72 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 44,
+  "bottomRowBeforeCollapse": 39,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{ Number(inp_montant_reglement.value) < 0 || String(inp_montant_reglement.text).includes('-') }}",
+  "key": "dznzfanqqm",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Lié une facture",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 39,
+  "mobileLeftColumn": 20,
+  "mobileRightColumn": 40,
+  "mobileTopRow": 32,
+  "needsErrorInfo": false,
+  "optionLabel": "Label",
+  "optionValue": "ID_BL",
+  "originalBottomRow": 46,
+  "originalTopRow": 39,
+  "parentColumnSpace": 6.9375,
+  "parentId": "iutrbl8y4v",
+  "parentRowSpace": 10,
+  "placeholderText": "Sélectionner une facture impayée...",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "serverSideFiltering": false,
+  "sourceData": "{{ Get_Factures_Impayees_Client.data || [] }}",
+  "topRow": 37,
+  "topRowBeforeCollapse": 32,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "xukl0ko7wj",
+  "widgetName": "sel_facture_a_compenser"
+}

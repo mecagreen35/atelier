@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 43,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{Insert_Ligne_Commande.isLoading}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "pygfuvy5za",
+  "leftColumn": 46,
+  "minWidth": 120,
+  "mobileBottomRow": 35,
+  "mobileLeftColumn": 46,
+  "mobileRightColumn": 62,
+  "mobileTopRow": 31,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Insert_Ligne_BL.run()\n    .then(() => {\n      // 1. On ferme la modale\n      closeModal('modal_add_ligne');\n      \n      // 2. On vide les champs pour la prochaine fois\n      resetWidget('sel_article', true);\n      resetWidget('inp_add_qte', true);\n      \n      // 3. On rafraîchit le tableau des lignes\n      return Get_Lignes_BL.run();\n    })\n    .then(() => {\n      // 4. On rafraîchit le Bon de Livraison global\n      return Get_Detail_BL.run();\n    })\n    .then(() => {\n      showAlert('Article ajouté !', 'success');\n    })\n    .catch((err) => {\n      showAlert(\"Erreur lors de l'ajout\", 'error');\n      console.error(err);\n    });\n}}",
+  "originalBottomRow": 43,
+  "originalTopRow": 39,
+  "parentColumnSpace": 6.9375,
+  "parentId": "hatdxazazd",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "text": "Ajouter",
+  "topRow": 39,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "cjq0j3sfnw",
+  "widgetName": "Bouton_ajouter"
+}

@@ -1,0 +1,4 @@
+SELECT *
+FROM public."v_lignes_interventions_detail"
+WHERE "ID_Intervention" = {{ appsmith.URL.queryParams.id }}
+ORDER BY "Ordre_Affichage" ASC NULLS LAST;

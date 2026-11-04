@@ -1,0 +1,17 @@
+SELECT 
+  i.*,
+  c."Societe",
+  c."Nom",
+  c."Prénom",
+  c."Telephone",
+  c."Adresse",
+  c."code_postal",
+  c."ville",
+  pm."Marque",
+  pm."Modele",
+  pm."N_Serie",
+  pm."Type_Machine"
+FROM public."Interventions" i
+LEFT JOIN public."Clients" c ON i."ID_Client" = c."ID_Client"
+LEFT JOIN public."Parc_Materiel" pm ON i."ID_Machine" = pm."ID_Machine"
+WHERE i."ID_Intervention" = {{ appsmith.URL.queryParams.id }};

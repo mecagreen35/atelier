@@ -1,0 +1,517 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowAddNewRow": false,
+  "animateLoading": false,
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 391,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "cachedTableData": {},
+  "canFreezeColumn": false,
+  "cellBackground": "",
+  "childStylesheet": {
+    "button": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "editActions": {
+      "discardBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "saveBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "saveButtonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "iconButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "menuButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "menuColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "columnOrder": [
+    "Date_Entree",
+    "Client_Affichage",
+    "xn__N_OR_5ga",
+    "Statut",
+    "isHeader",
+    "ID_DEVIS",
+    "TOTAL_TTC",
+    "Type_Machine",
+    "Machine"
+  ],
+  "columnUpdatedAt": 1790864509108,
+  "columnWidthMap": {
+    "Client_Affichage": 315,
+    "Montant_Acompte_TTC": 155,
+    "Statut": 228,
+    "Type_Machine": 182,
+    "customColumn1": 282,
+    "xn__N_OR_5ga": 88,
+    "xn__Priorit_hya": 126
+  },
+  "customIsLoading": false,
+  "customIsLoadingValue": "",
+  "defaultPageSize": 0,
+  "defaultSelectedRowIndex": "{{ appsmith.store.targetIndex || 0 }}",
+  "defaultSelectedRowIndices": [
+    0
+  ],
+  "delimiter": ",",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultSelectedRowIndex"
+    },
+    {
+      "key": "primaryColumns.Statut.computedValue"
+    },
+    {
+      "key": "primaryColumns.Statut.textColor"
+    },
+    {
+      "key": "primaryColumns.Statut.cellBackground"
+    },
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.computedValue"
+    },
+    {
+      "key": "primaryColumns.isHeader.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_DEVIS.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Entree.computedValue"
+    },
+    {
+      "key": "primaryColumns.xn__N_OR_5ga.computedValue"
+    },
+    {
+      "key": "primaryColumns.Type_Machine.computedValue"
+    },
+    {
+      "key": "primaryColumns.TOTAL_TTC.computedValue"
+    },
+    {
+      "key": "primaryColumns.Machine.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Entree.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__N_OR_5ga.cellBackground"
+    },
+    {
+      "key": "primaryColumns.TOTAL_TTC.cellBackground"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "onRowSelected"
+    },
+    {
+      "key": "cellBackground"
+    },
+    {
+      "key": "textColor"
+    },
+    {
+      "key": "primaryColumns.Statut.textColor"
+    },
+    {
+      "key": "primaryColumns.Statut.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Date_Entree.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.cellBackground"
+    },
+    {
+      "key": "primaryColumns.xn__N_OR_5ga.cellBackground"
+    },
+    {
+      "key": "primaryColumns.TOTAL_TTC.cellBackground"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
+  "enableClientSideSearch": true,
+  "endOfData": false,
+  "flexVerticalAlignment": "start",
+  "fontStyle": "BOLD",
+  "horizontalAlignment": "LEFT",
+  "infiniteScrollEnabled": false,
+  "inlineEditingSaveOption": "ROW_LEVEL",
+  "isLoading": false,
+  "isSortable": true,
+  "isVisible": true,
+  "isVisibleDownload": false,
+  "isVisibleFilters": false,
+  "isVisiblePagination": false,
+  "isVisibleSearch": false,
+  "key": "f5pxctir17",
+  "label": "Data",
+  "leftColumn": 0,
+  "minWidth": 450,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 39,
+  "mobileTopRow": 12,
+  "multiRowSelection": false,
+  "needsErrorInfo": false,
+  "onRowSelected": "{{\n  (async function() {\n    // Si la ligne cliquée est un séparateur, on stoppe l'action immédiatement\n    if (Table_devis.selectedRow.isHeader) {\n       return; \n    }\n    \n    // Sinon, comportement normal :\n    await storeValue('page_precedente', '📝 Devis');\n    await navigateTo('Détail Devis', { id: Table_devis.selectedRow.ID_DEVIS });\n  })()\n}}",
+  "parentColumnSpace": 12.375,
+  "parentId": "d9ktnno09d",
+  "parentRowSpace": 10,
+  "primaryColumnId": "ID_DEVIS",
+  "primaryColumns": {
+    "Client_Affichage": {
+      "alias": "Client_Affichage",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Client_Affichage\"])) : Client_Affichage })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Client_Affichage",
+      "index": 0,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Client_Affichage",
+      "notation": "standard",
+      "originalId": "Client_Affichage",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Date_Entree": {
+      "alias": "Date_Entree",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "date",
+      "computedValue": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Date_Entree\"])) : Date_Entree })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Date_Entree",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Date_Entree",
+      "notation": "standard",
+      "originalId": "Date_Entree",
+      "outputFormat": "DD/MM/YYYY",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_DEVIS": {
+      "alias": "ID_DEVIS",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_DEVIS\"])) : ID_DEVIS })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_DEVIS",
+      "index": 3,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_DEVIS",
+      "notation": "standard",
+      "originalId": "ID_DEVIS",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Machine": {
+      "alias": "Machine",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Machine\"])) : Machine })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Machine",
+      "index": 8,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Machine",
+      "notation": "standard",
+      "originalId": "Machine",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Statut": {
+      "alias": "Statut",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow.Statut)) : currentRow.Statut })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Statut",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Statut",
+      "notation": "standard",
+      "originalId": "Statut",
+      "sticky": "",
+      "textColor": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  (() => {\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': return '#0ea5e9'; // Bleu clair\n      case 'PIECE A COMMANDER': return '#ef4444'; // Rouge\n      case 'DEVIS': return '#a855f7'; // Violet\n      case 'EN COURS': return '#3b82f6'; // Bleu\n      case 'EN TEST': return '#8b5cf6'; // Violet foncé\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '#4b5563'; // Gris foncé\n      case 'A REMONTER': return '#e11d48'; // Rose/Rouge\n      case 'ATTENTE CLIENT': return '#eab308'; // Jaune/Orange\n      case 'PIECE EN COMMANDE': return '#22c55e'; // Vert\n      case 'PRÊT': return '#16a34a'; // Vert foncé\n      default: return '#000000'; // Noir par défaut\n    }\n  })()\n)) : \n  (() => {\n    const statut = currentRow[\"Statut\"]?.toUpperCase() || \"\";\n    switch (statut) {\n      case 'À VÉRIFIER': return '#0ea5e9'; // Bleu clair\n      case 'PIECE A COMMANDER': return '#ef4444'; // Rouge\n      case 'DEVIS': return '#a855f7'; // Violet\n      case 'EN COURS': return '#3b82f6'; // Bleu\n      case 'EN TEST': return '#8b5cf6'; // Violet foncé\n      case 'TAST':\n      case 'À DIAGNOSTIQUER': return '#4b5563'; // Gris foncé\n      case 'A REMONTER': return '#e11d48'; // Rose/Rouge\n      case 'ATTENTE CLIENT': return '#eab308'; // Jaune/Orange\n      case 'PIECE EN COMMANDE': return '#22c55e'; // Vert\n      case 'PRÊT': return '#16a34a'; // Vert foncé\n      default: return '#000000'; // Noir par défaut\n    }\n  })()\n })()}}",
+      "textSize": "1.25rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "TOTAL_TTC": {
+      "alias": "TOTAL_TTC",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"TOTAL_TTC\"] + ' €')) : currentRow[\"TOTAL_TTC\"] + ' €' })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "TOTAL_TTC",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "TOTAL_TTC",
+      "notation": "standard",
+      "originalId": "TOTAL_TTC",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Type_Machine": {
+      "alias": "Type_Machine",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Type_Machine\"])) : Type_Machine })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Type_Machine",
+      "index": 6,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Type_Machine",
+      "notation": "standard",
+      "originalId": "Type_Machine",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "isHeader": {
+      "alias": "isHeader",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"isHeader\"])) : isHeader })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "isHeader",
+      "index": 1,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "isHeader",
+      "notation": "standard",
+      "originalId": "isHeader",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "xn__N_OR_5ga": {
+      "alias": "N° OR",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_interventions.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"N° OR\"])) : N° OR })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "xn__N_OR_5ga",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "N° OR",
+      "notation": "standard",
+      "originalId": "N° OR",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "1rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    }
+  },
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "searchKey": "",
+  "serverSidePaginationEnabled": true,
+  "tableData": "{{\n  (function() {\n    const data = Get_Liste_Devis.data || [];\n    let groupedData = [];\n    let counts = {};\n\n    // 1. On compte combien on a de devis par statut\n    data.forEach(row => {\n      let st = row.Statut || \"Non défini\";\n      counts[st] = (counts[st] || 0) + 1;\n    });\n\n    let currentStatut = null;\n\n    // 2. On reconstruit la liste en insérant des \"fausses lignes\" de titre\n    data.forEach((row) => {\n      let st = row.Statut || \"Non défini\";\n\n      // Dès qu'on change de statut, on insère une ligne de titre\n      if (st !== currentStatut) {\n        groupedData.push({\n          Client_Affichage: st + \" (\" + counts[st] + \")\", \n          isHeader: true // On marque cette ligne pour pouvoir la colorer\n        });\n        currentStatut = st;\n      }\n\n      // Puis on insère la vraie ligne de devis\n      groupedData.push(row);\n    });\n\n    return groupedData;\n  })()\n}}",
+  "textColor": "",
+  "textSize": "1rem",
+  "topRow": 6,
+  "totalRecordsCount": "1000",
+  "type": "TABLE_WIDGET_V2",
+  "version": 2,
+  "verticalAlignment": "CENTER",
+  "widgetId": "vvuf9ldl24",
+  "widgetName": "Table_devis"
+}

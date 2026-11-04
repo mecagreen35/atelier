@@ -1,0 +1,1 @@
+SELECT public.fn_valider_controle_retour({{ Table_Flotte.triggeredRow.ID_Machine_Location }});

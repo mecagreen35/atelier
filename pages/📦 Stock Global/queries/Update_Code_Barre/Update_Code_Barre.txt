@@ -1,0 +1,3 @@
+UPDATE public."ARTICLES"
+SET "Code_Barre" = NULLIF(TRIM({{ Table_stock.updatedRow.Code_Barre ?? Table_stock.triggeredRow.Code_Barre }}), '')
+WHERE "ID_Article" = {{ Table_stock.updatedRow.ID_Article ?? Table_stock.triggeredRow.ID_Article }};

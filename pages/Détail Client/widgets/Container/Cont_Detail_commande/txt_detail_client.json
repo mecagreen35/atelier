@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 44,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1.25rem",
+  "fontStyle": "",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "dnvfz794jr",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 3,
+  "mobileRightColumn": 19,
+  "mobileTopRow": 9,
+  "needsErrorInfo": false,
+  "originalBottomRow": 42,
+  "originalTopRow": 0,
+  "overflow": "NONE",
+  "parentColumnSpace": 16.912499999999998,
+  "parentId": "dwjfim63mt",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 50,
+  "shouldTruncate": false,
+  "text": "👤 NOM / SOCIÉTÉ : <b>{{Get_Client_Infos.data[0].Societe || Get_Client_Infos.data[0].Nom + \" \" + Get_Client_Infos.data[0].Prénom}}</b>\n\n📞 TÉLÉPHONE : <b>{{Get_Client_Infos.data[0].Telephone || \"Non renseigné\"}}</b>\n\n✉️ EMAIL : <b>{{Get_Client_Infos.data[0].Email || \"Non renseigné\"}}</b>\n\n📍 ADRESSE : <b>{{Get_Client_Infos.data[0].Adresse}} -- {{Get_Client_Infos.data[0].code_postal}} {{Get_Client_Infos.data[0].ville}}</b>\n\n🏢 TYPE :   <b>{{Get_Client_Infos.data[0].Type_Client || \"Non défini\"}}</b>{{Get_Client_Infos.data[0].Type_Client === 'Particulier' ? '' : ' (SIRET : <b>' + (Get_Client_Infos.data[0].siret || 'Non renseigné') + '</b>)'}}\n\n💰 CA HISTORIQUE :   <b>{{Get_Client_Infos.data[0].Total_CA_Historique || \"0\"}} €</b>\n\n⚠️ ENCOURS IMPAYÉ :   <b>{{Get_Client_Infos.data[0].Encours_Impaye || \"0\"}} €</b>\n\n📅 CLIENT DEPUIS : <b> {{ Get_Client_Infos.data[0].Date_Creation ? moment(Get_Client_Infos.data[0].Date_Creation).format(\"DD/MM/YYYY\") : \"Non renseignée\" }} </b>\n\n📅 DERNIÈRE FACTURE :   <b>{{Get_Client_Infos.data[0].Derniere_Facture_Date ? moment(Get_Client_Infos.data[0].Derniere_Facture_Date).format(\"DD/MM/YYYY\") : \"Aucune\"}}</b>",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 0,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "u5evco92nr",
+  "widgetName": "txt_detail_client"
+}

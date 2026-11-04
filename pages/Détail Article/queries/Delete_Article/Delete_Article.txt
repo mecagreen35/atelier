@@ -1,0 +1,2 @@
+DELETE FROM public."ARTICLES"
+WHERE "ID_Article" = {{ appsmith.URL.queryParams.id }};

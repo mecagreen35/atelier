@@ -1,0 +1,20 @@
+{
+  "gitSyncId": "6aae2b5c266fa4c200bde893_ff7d3f54-a39b-4d5a-aa86-da2657097a55",
+  "id": "🧺 Commandes Clients_Utils_Recherche",
+  "unpublishedCollection": {
+    "name": "Utils_Recherche",
+    "pageId": "🧺 Commandes Clients",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "lancerRecherche",
+        "value": "_.debounce(() => {\n  resetWidget(\"Table_commande_client\", true).then(() => Get_Commandes_Clients.run());\n}, 600)"
+      },
+      {
+        "name": "chercherClient",
+        "value": "_.debounce(() => {\n  Get_Clients_Options.run();\n}, 400)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "animateLoading": true,
+  "bottomRow": 99,
+  "docUrl": "{{\n  (function() {\n    const url = Get_Devis_Detail.data[0]?.Lien_PDF;\n    if (!url) return \"\";\n    \n    // Si c'est un lien de téléchargement Google Drive, on le transforme en mode \"Preview\"\n    if (url.includes(\"uc?id=\")) {\n      const fileId = url.split(\"id=\")[1].split(\"&\")[0];\n      return \"https://drive.google.com/file/d/\" + fileId + \"/preview\";\n    }\n    \n    return url;\n  })()\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "docUrl"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isCanvas": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "d0vupazjpa",
+  "leftColumn": 11,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 14,
+  "mobileRightColumn": 38,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "parentColumnSpace": 16.546875,
+  "parentId": "fdh4br27j4",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 54,
+  "topRow": 0,
+  "type": "DOCUMENT_VIEWER_WIDGET",
+  "version": 1,
+  "widgetId": "3h3l3eqem4",
+  "widgetName": "DocumentViewer1"
+}

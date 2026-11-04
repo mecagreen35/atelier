@@ -1,0 +1,13 @@
+SELECT 
+    cc.*,
+    c."Societe",
+    c."Nom",
+    c."Prénom",
+    c."Telephone",
+    c."Email",
+    c."Adresse",
+    c.code_postal,
+    c.ville
+FROM "COMMANDES_CLIENTS" cc
+LEFT JOIN "Clients" c ON cc."ID_Client" = c."ID_Client"
+WHERE cc."ID_Commande_Client" = {{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }};

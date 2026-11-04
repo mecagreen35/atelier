@@ -1,0 +1,22 @@
+INSERT INTO "Règlements" (
+  "ID_Reglement",
+  "ID_Facture",
+  "Date_Paiement",
+  "Mode_Paiement",
+  "Montant",
+  "Date_Encaissement_Prevue",
+  "Source_Creation"
+)
+VALUES (
+  gen_random_uuid()::text,
+  {{ Get_Facture_ById.data[0].ID_BL || appsmith.URL.queryParams.id }},
+  {{ moment(date_paiement.selectedDate).format('YYYY-MM-DD') }},
+  {{ radio_mode_paiement.selectedOptionValue }},
+  {{ 
+    ["À PERCEVOIR", "✉️ À ENVOYER", "À ENVOYER"].includes(radio_mode_paiement.selectedOptionValue)
+      ? 0
+      : Number(String(inp_montant_reglement.text || inp_montant_reglement.value || 0).replace(/[^0-9,.-]/g, '').replace(',', '.')) || 0
+  }},
+  {{ date_encaissement.isVisible && date_encaissement.selectedDate ? moment(date_encaissement.selectedDate).format('YYYY-MM-DD') : null }},
+  'Appsmith'
+);

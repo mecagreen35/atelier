@@ -1,0 +1,2 @@
+DELETE FROM public."LIGNE_DEVIS"
+WHERE "ID_Ligne_Devis" = {{ Table_Lignes_Devis.triggeredRow.ID_Ligne_Devis }};

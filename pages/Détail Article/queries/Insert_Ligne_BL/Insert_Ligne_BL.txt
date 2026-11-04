@@ -1,0 +1,11 @@
+INSERT INTO "Ligne_BL" (
+  "ID_Ligne_BL",
+  "ID_BL",
+  "ID_Article",
+  "Quantite"
+) VALUES (
+  gen_random_uuid(),
+  {{ appsmith.URL.queryParams.id }},
+  {{ sel_article.selectedOptionValue }},
+  {{ inp_add_qte.text || 1 }}
+);

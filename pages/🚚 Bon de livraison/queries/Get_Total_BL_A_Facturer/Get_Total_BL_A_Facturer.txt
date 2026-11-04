@@ -1,0 +1,4 @@
+SELECT COUNT(*) AS total
+FROM "BONS_DE_LIVRAISON"
+WHERE ("Statut_Facturation" ILIKE '%à facturer%' OR "Statut_Facturation" ILIKE '%a facturer%')
+  AND "ID_Facture" IS NULL;

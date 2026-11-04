@@ -1,0 +1,5 @@
+SELECT * 
+FROM public."v_interventions_socle"
+WHERE "ID_Client" = {{ appsmith.store.detail_client_id }}
+  AND "Statut" NOT IN ('PRÊT', 'H.S.', 'Livré / Facturé', 'Livré.Facturé')
+ORDER BY "Date_Entree" DESC;

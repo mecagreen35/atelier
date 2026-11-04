@@ -1,0 +1,77 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 8,
+  "bottomRowBeforeCollapse": 7,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "tooltip"
+    },
+    {
+      "key": "text"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "iconName"
+    },
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "",
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": "{{\n  (() => {\n    const statut = (Get_Location_Detail.data[0]?.Statut || '').trim().toLowerCase();\n    \n    // Le bouton sera visible (true) uniquement s'il est dans l'un de ces états\n    return ['reservation', 'en cours', 'en_cours', 'terminé', 'termine'].includes(statut);\n  })()\n}}",
+  "key": "20kkzgi5qw",
+  "labelStyle": "",
+  "labelTextColor": "#231f20",
+  "labelTextSize": "1.875rem",
+  "leftColumn": 0,
+  "minWidth": 120,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 7,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async () => {\n    const statut = Get_Location_Detail.data[0]?.Statut;\n\n    // 1. Passage en départ\n    if (statut === 'Reservation') {\n      await Update_Statut.run({ newStatut: 'En Cours' });\n      showAlert('Matériel marqué comme parti !', 'success');\n      await Get_Location_Detail.run();\n    } \n    // 2. Enregistrement du retour\n    else if (statut === 'En Cours' || statut === 'En Cours') {\n      await Update_Statut.run({ newStatut: 'Termine' });\n      showAlert('Matériel retourné !', 'success');\n      await Get_Location_Detail.run();\n    } \n    // 3. Transfert en BL (Déclenche le trigger PostgreSQL)\n    else if (statut === 'Terminé' || statut === 'Termine') {\n      await Update_Statut.run({ newStatut: 'A_Transferer_BL' });\n      showAlert('Transfert en BL effectué avec succès !', 'success');\n      await Get_Location_Detail.run();\n    }\n  })()\n}}",
+  "originalBottomRow": 171,
+  "originalTopRow": 165,
+  "parentColumnSpace": 16.071484374999997,
+  "parentId": "qg1dinek7s",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 7,
+  "text": "{{\n  (() => {\n    const statut = (Get_Location_Detail.data[0]?.Statut || '').trim().toLowerCase();\n    \n    if (statut === 'reservation') return '🚀';\n    if (statut === 'en cours' || statut === 'en_cours') return '📥';\n    if (statut === 'terminé' || statut === 'termine') return '📄';\n    \n    return 'Aucune action';\n  })()\n}}",
+  "tooltip": "{{\n  (() => {\n    const statut = Get_Location_Detail.data[0]?.Statut;\n    \n    if (statut === 'Reservation') return '🚀 Valider le départ du matériel';\n    if (statut === 'En Cours' || statut === 'En_Cours') return '📥 Enregistrer le retour du matériel';\n    if (statut === 'Terminé' || statut === 'Termine') return '📄 Générer et transférer en Bon de Livraison';\n    \n    return 'Aucune action disponible';\n  })()\n}}",
+  "topRow": 1,
+  "topRowBeforeCollapse": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "9fnjc9f9qb",
+  "widgetName": "bouton_impression"
+}

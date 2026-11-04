@@ -1,0 +1,50 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "TERTIARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "cross",
+  "iconSize": 24,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "5m44v2unxi",
+  "leftColumn": 50,
+  "minWidth": 50,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 58,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    const pageSource = appsmith.store.page_precedente;\n    const idSource = appsmith.store.id_precedent;\n\n    // Si la page d'origine est la page actuelle ou qu'elle n'est pas définie\n    if (!pageSource || pageSource === 'Détail Devis') {\n      await navigateTo('📝 Devis');\n    } else {\n      // Sinon on navigue vers la page d'origine\n      if (idSource) {\n        await navigateTo(pageSource, { id: idSource });\n      } else {\n        await navigateTo(pageSource);\n      }\n    }\n  })()\n}}",
+  "parentId": "h9dpqgcrhv",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "tooltip": "Fermer",
+  "topRow": 0,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "d3cgvu75mq",
+  "widgetName": "Bouton_fermer"
+}

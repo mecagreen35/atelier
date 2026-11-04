@@ -1,0 +1,3 @@
+UPDATE public."COMMANDES_CLIENTS"
+SET "Statut" = 'TRANSFÉRÉ EN BL'
+WHERE "ID_Commande_Client" = {{appsmith.URL.queryParams.id}};

@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "9exr3iqia9",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 12,
+  "mobileLeftColumn": 19,
+  "mobileRightColumn": 35,
+  "mobileTopRow": 8,
+  "needsErrorInfo": false,
+  "originalBottomRow": 27,
+  "originalTopRow": 8,
+  "overflow": "NONE",
+  "parentColumnSpace": 11.0625,
+  "parentId": "suwffne9rd",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "shouldTruncate": false,
+  "text": "Êtes-vous sûr de vouloir transférer ce matériel vers le stock occasion ?\n\n• Machine : {{ Table_Flotte.triggeredRow.Designation_Complete }}\n• Code interne : {{ Table_Flotte.triggeredRow.Code_Interne || 'N/A' }}\n• N° Série : {{ Table_Flotte.triggeredRow.N_Serie || 'Non renseigné' }}\n• Heures moteur : {{ Table_Flotte.triggeredRow.Heures_Actuelles || 0 }} h\n\nCette action retirera définitivement l'engin des locations et l'enverra à l'atelier occasion au statut « À réviser ».",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 8,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "mk0m1rr43y",
+  "widgetName": "Text3"
+}

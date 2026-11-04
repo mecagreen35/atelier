@@ -1,0 +1,3 @@
+UPDATE public."LIGNES_COMMANDES_CLIENTS"
+SET "Statut_Piece" = {{ this.params.statut_cible }}
+WHERE "ID_Ligne_Client" = {{ this.params.id_ligne }};

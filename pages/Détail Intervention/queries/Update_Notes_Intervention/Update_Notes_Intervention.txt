@@ -1,0 +1,5 @@
+UPDATE public."Interventions"
+SET 
+  "Notes_Internes" = {{ Inp_notes.text }},
+  "Date_Modification" = NOW()
+WHERE "ID_Intervention" = {{ appsmith.URL.queryParams.id }};

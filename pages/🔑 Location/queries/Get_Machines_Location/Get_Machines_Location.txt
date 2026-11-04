@@ -1,0 +1,12 @@
+SELECT 
+    ml."ID_Machine_Location" AS "value",
+    TRIM(CONCAT_WS(' - ',
+        NULLIF(TRIM(ml."Code_Interne"), ''),
+        COALESCE(
+            pm."Designation_Complete",
+            TRIM(CONCAT_WS(' ', ml."Marque", ml."Modele"))
+        )
+    )) AS "label"
+FROM public."MATERIEL_LOCATION" ml
+LEFT JOIN public.v_parc_materiel_socle pm ON pm."ID_Machine" = ml."ID_Machine_Location"
+ORDER BY ml."Code_Interne" ASC, "label" ASC;

@@ -1,0 +1,4 @@
+SELECT * 
+FROM public."LIGNE_DEVIS"
+WHERE "ID_Devis" = {{ appsmith.URL.queryParams.id }}
+ORDER BY "Ordre_Affichage" ASC;

@@ -1,0 +1,145 @@
+WITH mecano_actuel AS (
+    SELECT "ID_Employe", "Specialite", "Prenom"
+    FROM public."Employes"
+    WHERE "Email" = '{{ appsmith.user.email }}'
+    LIMIT 1
+),
+
+-- 1. INTERVENTIONS CLASSIQUES DE L'ATELIER
+interventions_normales AS (
+    SELECT 
+        v."ID_Intervention",
+        v."Date_Entree",
+        v."N° OR",
+        v."Type_Machine",
+        v."Statut",
+        v."Priorité",
+        v."Categorie_Materiel",
+        v."Mecano_En_Charge",
+        v."Client_Affichage",
+        v."Machine",
+        v."Mecano_Nom",
+        v."Ordre_Tri_Mecano",
+        v."Score_Priorite",
+        NULL::text AS "ID_Creneau"
+    FROM public.v_atelier_mecano v
+    CROSS JOIN mecano_actuel m
+    WHERE 
+        (
+            v."Mecano_En_Charge" = m."ID_Employe"
+            OR 
+            (
+                (v."Mecano_En_Charge" IS NULL OR TRIM(v."Mecano_En_Charge") = '') 
+                AND m."Specialite" ILIKE '%' || v."Categorie_Materiel" || '%'
+            )
+        )
+        -- Évite le doublon si l'intervention a déjà un créneau planifié à venir
+        AND v."ID_Intervention" NOT IN (
+            SELECT c_sub."ID_Intervention" 
+            FROM public."CRENEAUX_INTERVENTIONS" c_sub 
+            WHERE c_sub."ID_Intervention" IS NOT NULL 
+              AND c_sub."Statut_Creneau" <> 'Annulé' 
+              AND c_sub."Date_Fin" >= NOW() - INTERVAL '2 hours'
+              AND c_sub."ID_Employe" = m."ID_Employe"
+        )
+        AND (
+            '{{ inp_search_intervention.text }}' = ''
+            OR v."Client_Affichage" ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(v."N° OR", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(v."Machine", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+        )
+),
+
+-- 2. CRÉNEAUX DU MÉCANICIEN (AVEC OU SANS INTERVENTION)
+creneaux_mecano AS (
+    SELECT 
+        c."ID_Intervention",
+        c."Date_Debut" AS "Date_Entree",
+        COALESCE(i."N° OR", '-') AS "N° OR",
+        COALESCE(i."Type_Machine", c."Type_Creneau") AS "Type_Machine",
+        
+        -- Détermination du groupe d'affichage
+        CASE 
+            -- Règle des < 24h OU créneaux du lundi visibles dès le vendredi
+            WHEN (c."Date_Debut" <= NOW() + INTERVAL '24 hours' AND c."Date_Fin" >= NOW() - INTERVAL '2 hours')
+                 OR (
+                     EXTRACT(ISODOW FROM c."Date_Debut" AT TIME ZONE 'Europe/Paris') = 1 -- Lundi
+                     AND EXTRACT(ISODOW FROM NOW() AT TIME ZONE 'Europe/Paris') IN (5, 6, 7, 1) -- Du vendredi au lundi
+                     AND (c."Date_Debut"::date - (NOW() AT TIME ZONE 'Europe/Paris')::date) BETWEEN 0 AND 3
+                     AND c."Date_Fin" >= NOW() - INTERVAL '2 hours'
+                 )
+            THEN 'CRÉNEAU IMMINENT'
+            ELSE 'CRÉNEAU PLANIFIÉ'
+        END AS "Statut",
+        
+        COALESCE(i."Priorité", 'Normal') AS "Priorité",
+        COALESCE(i."Categorie_Materiel", 'Planning') AS "Categorie_Materiel",
+        c."ID_Employe" AS "Mecano_En_Charge",
+        
+        -- Colonne Client_Affichage adaptée
+        CASE 
+            WHEN c."ID_Intervention" IS NOT NULL THEN
+                '[' || to_char(c."Date_Debut" AT TIME ZONE 'Europe/Paris', 'DD/MM HH24:MI') || '] ' ||
+                COALESCE(
+                    NULLIF(TRIM(cl."Societe"), ''), 
+                    TRIM(COALESCE(cl."Nom", '') || ' ' || COALESCE(cl."Prénom", ''))
+                )
+            ELSE
+                '[' || to_char(c."Date_Debut" AT TIME ZONE 'Europe/Paris', 'DD/MM HH24:MI') || '] [' || c."Type_Creneau" || '] ' || 
+                COALESCE(c."Commentaire", 'Tâche interne')
+        END AS "Client_Affichage",
+        
+        -- Colonne Machine adaptée
+        CASE 
+            WHEN c."ID_Intervention" IS NOT NULL THEN
+                COALESCE(pm."Marque", '') || ' - ' || COALESCE(pm."Modele", '')
+            ELSE
+                COALESCE(c."Commentaire", c."Type_Creneau")
+        END AS "Machine",
+        
+        COALESCE(e."Prenom", m."Prenom", 'Moi') AS "Mecano_Nom",
+        
+        -- Positionnement : 0 pour tout en haut, 5.5 pour se loger sous "5 - À Diagnostiquer"
+        CASE 
+            WHEN (c."Date_Debut" <= NOW() + INTERVAL '24 hours' AND c."Date_Fin" >= NOW() - INTERVAL '2 hours')
+                 OR (
+                     EXTRACT(ISODOW FROM c."Date_Debut" AT TIME ZONE 'Europe/Paris') = 1
+                     AND EXTRACT(ISODOW FROM NOW() AT TIME ZONE 'Europe/Paris') IN (5, 6, 7, 1)
+                     AND (c."Date_Debut"::date - (NOW() AT TIME ZONE 'Europe/Paris')::date) BETWEEN 0 AND 3
+                     AND c."Date_Fin" >= NOW() - INTERVAL '2 hours'
+                 )
+            THEN '0 - CRÉNEAU IMMINENT'
+            ELSE '5.5 - CRÉNEAU PLANIFIÉ'
+        END AS "Ordre_Tri_Mecano",
+        
+        -- Tri chronologique interne au groupe
+        ROUND(EXTRACT(EPOCH FROM ('2035-01-01'::timestamptz - c."Date_Debut")) / 60.0, 2) AS "Score_Priorite",
+        c."ID_Creneau"::text AS "ID_Creneau"
+        
+    FROM public."CRENEAUX_INTERVENTIONS" c
+    CROSS JOIN mecano_actuel m
+    LEFT JOIN public."Interventions" i ON i."ID_Intervention" = c."ID_Intervention"
+    LEFT JOIN public."Clients" cl ON cl."ID_Client" = i."ID_Client"
+    LEFT JOIN public."Parc_Materiel" pm ON pm."ID_Machine" = i."ID_Machine"
+    LEFT JOIN public."Employes" e ON e."ID_Employe" = c."ID_Employe"
+    WHERE 
+        c."ID_Employe" = m."ID_Employe"
+        AND c."Statut_Creneau" <> 'Annulé'
+        AND c."Date_Fin" >= NOW() - INTERVAL '2 hours'
+        AND (
+            '{{ inp_search_intervention.text }}' = ''
+            OR COALESCE(cl."Societe", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(cl."Nom", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(cl."Prénom", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(i."N° OR", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(pm."Marque", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(pm."Modele", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(c."Type_Creneau", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(c."Commentaire", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+        )
+)
+
+SELECT * FROM interventions_normales
+UNION ALL
+SELECT * FROM creneaux_mecano
+ORDER BY "Ordre_Tri_Mecano" ASC, "Score_Priorite" DESC;

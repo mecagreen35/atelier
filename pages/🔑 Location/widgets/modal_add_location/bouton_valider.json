@@ -1,0 +1,62 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 64,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n  (function() {\n    const machines = sel_loc_machine.selectedOptionValues || [];\n    if (!sel_loc_client.selectedOptionValue || machines.length === 0 || !dat_loc_debut.selectedDate || !sel_loc_duree.selectedOptionValue) {\n      return true;\n    }\n\n    const dureeChoisie = sel_loc_duree.selectedOptionValue;\n    const resas = Get_Calendar_Events_Machine.data || [];\n    const dateDebutStr = moment(dat_loc_debut.selectedDate).format(\"YYYY-MM-DD\");\n\n    // --- GESTION MULTI-JOURS ---\n    if (dureeChoisie === 'Multi_Jours') {\n      if (!dat_loc_fin.selectedDate) return true; \n      \n      const dateFinStr = moment(dat_loc_fin.selectedDate).format(\"YYYY-MM-DD\");\n      if (dateFinStr < dateDebutStr) return true; \n\n      const conflitMulti = resas.some(r => {\n        const dateResa = moment(r.Date_Location).format(\"YYYY-MM-DD\");\n        return dateResa >= dateDebutStr && dateResa <= dateFinStr;\n      });\n      \n      return conflitMulti; \n    }\n\n    // --- GESTION CLASSIQUE (1 Journée / Matin / Aprem) ---\n    const resasDuJour = resas.filter(r => moment(r.Date_Location).format(\"YYYY-MM-DD\") === dateDebutStr);\n    if (resasDuJour.length === 0) return false;\n\n    const aMatin = resasDuJour.some(r => ['Matin', 'Journee', 'Multi_Jours', 'Journee_Demi'].includes(r.Type_Duree));\n    const aAprem = resasDuJour.some(r => ['Apres_Midi', 'Journee', 'Multi_Jours', 'Journee_Demi'].includes(r.Type_Duree));\n\n    if (dureeChoisie === 'Journee') return resasDuJour.length > 0;\n    if (dureeChoisie === 'Matin') return aMatin;\n    if (dureeChoisie === 'Apres_Midi') return aAprem;\n\n    return false;\n  })()\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "oouvihbk73",
+  "leftColumn": 45,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Insert_Location.run()\n    .then(() => {\n      // 1. Affiche un message de succès\n      showAlert('Location(s) créée(s) avec succès !', 'success');\n      // 2. Ferme la fenêtre\n      closeModal('modal_add_location');\n      // 3. Met à jour le tableau principal\n      get_locations.run();\n    })\n    .catch((err) => {\n      // En cas d'erreur\n      showAlert(\"Erreur lors de la création : \" + err.message, 'error');\n    });\n}}",
+  "originalBottomRow": 57,
+  "originalTopRow": 53,
+  "parentId": "k8aj4rdjpu",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "text": "Valider",
+  "topRow": 60,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "36r82hpixn",
+  "widgetName": "bouton_valider"
+}

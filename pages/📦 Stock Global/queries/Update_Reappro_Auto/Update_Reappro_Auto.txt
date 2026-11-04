@@ -1,0 +1,3 @@
+UPDATE public."ARTICLES"
+SET "Reappro_Auto" = NOT COALESCE("Reappro_Auto", false)
+WHERE "ID_Article" = {{ this.params.id_article }};

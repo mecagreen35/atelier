@@ -1,0 +1,9 @@
+INSERT INTO public."COMPOSITION_FORFAITS" (
+    "ID_Article_Forfait", 
+    "ID_Article_Composant", 
+    "Quantite"
+) VALUES (
+    {{ appsmith.URL.queryParams.id }}, 
+    {{ sel_composant.selectedOptionValue }}, 
+    {{ inp_qte_composant.text }}
+);

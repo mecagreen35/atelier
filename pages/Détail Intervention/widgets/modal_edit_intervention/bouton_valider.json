@@ -1,0 +1,59 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 57,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n  !sel_interv_client.selectedOptionValue ||\n  !sel_interv_machine.selectedOptionValue ||\n  !sel_edit_statut.selectedOptionValue ||\n  !grp_interv_categorie.selectedOptionValue ||\n  !sel_interv_priorite.selectedOptionValue\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "oouvihbk73",
+  "leftColumn": 44,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{Update_Intervention.run().then(() => {\n  Get_Detail_Intervention.run();\n  closeModal(modal_edit_intervention.name);\n  showAlert('Intervention Modifier', 'success');\n});}}",
+  "originalBottomRow": 57,
+  "originalTopRow": 53,
+  "parentId": "yq016or2tb",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 60,
+  "text": "Valider",
+  "topRow": 53,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "8pph0hdgo0",
+  "widgetName": "bouton_valider"
+}

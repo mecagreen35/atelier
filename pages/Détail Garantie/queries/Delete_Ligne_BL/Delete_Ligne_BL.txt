@@ -1,0 +1,2 @@
+DELETE FROM "Ligne_BL"
+WHERE "ID_Ligne_BL" = {{ Table_Lignes_BL.triggeredRow.ID_Ligne_BL }};

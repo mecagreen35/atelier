@@ -1,0 +1,64 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 95,
+  "boxShadow": "none",
+  "buttonColor": "{{ appsmith.store.edit_est_batterie ? \"#16a34a\" : \"#64748b\" }}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "la8ivsm9tq",
+  "labelTextColor": "",
+  "leftColumn": 2,
+  "minWidth": 120,
+  "mobileBottomRow": 95,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 18,
+  "mobileTopRow": 91,
+  "needsErrorInfo": false,
+  "onClick": "{{ storeValue('edit_est_batterie', !appsmith.store.edit_est_batterie) }}",
+  "originalBottomRow": 95,
+  "originalTopRow": 91,
+  "parentColumnSpace": 11.746875,
+  "parentId": "qbbxs0vvlq",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 24,
+  "text": "{{ appsmith.store.edit_est_batterie ? \"🔋 Machine sur batterie\" : \"⛽ Machine thermique\" }}",
+  "topRow": 91,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "63yf3rdwe3",
+  "widgetName": "Btn_Toggle_Batterie"
+}

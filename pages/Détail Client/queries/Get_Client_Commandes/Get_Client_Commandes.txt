@@ -1,0 +1,3 @@
+SELECT * FROM public."COMMANDES_CLIENTS" 
+WHERE "ID_Client" = {{ appsmith.store.detail_client_id }} 
+ORDER BY "Date" DESC;

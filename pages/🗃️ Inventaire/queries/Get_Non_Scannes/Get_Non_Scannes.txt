@@ -1,0 +1,23 @@
+SELECT 
+    a."ID_Article",
+    a."Ref_Fournisseur",
+    a."Code_Barre",
+    a."Designation",
+    v."Stock_Physique_Dispo" AS "Stock_Attendu"
+FROM "ARTICLES" a
+JOIN "vue_stock_synthese" v ON a."ID_Article" = v."ID_Article"
+WHERE a."Suivi_en_stock" = true
+  AND v."Stock_Physique_Dispo" != 0
+  AND (
+      {{ !inp_recherche_non_scannes.text }} 
+      OR a."Ref_Fournisseur" ILIKE {{ '%' + inp_recherche_non_scannes.text + '%' }}
+      OR a."Designation" ILIKE {{ '%' + inp_recherche_non_scannes.text + '%' }}
+  )
+  AND NOT EXISTS (
+      SELECT 1 
+      FROM "LIGNES_INVENTAIRE" li 
+      WHERE li."ID_Article" = a."ID_Article"
+        AND li."ID_Inventaire" = {{ select_inventaire.selectedOptionValue }}
+  )
+ORDER BY a."Designation" ASC
+LIMIT 100;

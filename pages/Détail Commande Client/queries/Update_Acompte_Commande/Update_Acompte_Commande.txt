@@ -1,0 +1,6 @@
+UPDATE public."COMMANDES_CLIENTS"
+SET 
+  "Pourcentage_Acompte" = {{inp_acompte_pourcentage.text ? inp_acompte_pourcentage.text : null}},
+  "Montant_Acompte_TTC" = {{inp_acompte_montant.text ? inp_acompte_montant.text : null}},
+  "Statut_Acompte" = 'A_Facturer'
+WHERE "ID_Commande_Client" = {{Get_Commande_ById.data[0].ID_Commande_Client}};

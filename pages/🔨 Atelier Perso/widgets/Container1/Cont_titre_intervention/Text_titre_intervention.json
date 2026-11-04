@@ -1,0 +1,53 @@
+{
+  "animateLoading": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "lelsf40a7y",
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 14,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "overflow": "NONE",
+  "parentColumnSpace": 12.375,
+  "parentId": "1onngb5uhl",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 30,
+  "shouldTruncate": false,
+  "text": "{{\n  (() => {\n    const emoji = \"🔨\"; \n    const data = Get_Atelier_Global.data || [];\n    \n    // 1. On compte le total d'interventions (en excluant les faux bandeaux de séparation)\n    const vraiesInterventions = data.filter(row => !row.isHeader);\n    const totalCount = vraiesInterventions.length;\n\n    // 2. On prépare les compteurs par catégorie\n    let count2T = 0;\n    let count4T = 0;\n    let countRobot = 0;\n\n    // 3. On boucle sur les données pour reproduire la formule de comptage d'AppSheet\n    vraiesInterventions.forEach(row => {\n        const categorie = (row.Categorie_Materiel || \"\").toUpperCase();\n        const statut = (row.Statut || \"\").toUpperCase();\n        \n        // On exclut certains statuts du décompte (comme dans ton code AppSheet)\n        if (statut !== \"PRÊT\" && statut !== \"H.S.\" && statut !== \"LIVRÉ.FACTURÉ\" && statut !== \"FACTURE\") {\n            if (categorie === \"2T\") count2T++;\n            if (categorie === \"4T\") count4T++;\n            if (categorie === \"ROBOT\") countRobot++;\n        }\n    });\n\n    // 4. On génère le texte final\n    // On récupère le prénom, et si la requête charge on affiche \"PERSO\" par défaut\nconst prenom = Get_Mecano_Connecte.data?.[0]?.Prenom ? Get_Mecano_Connecte.data[0].Prenom.toUpperCase() : \"PERSO\";\n\nreturn `${emoji} ATELIER ${prenom} (${totalCount}) : 2T (${count2T}) - 4T (${count4T}) - Robot (${countRobot})`;\n  })()\n}}",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 0,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "elpdvlwc43",
+  "widgetName": "Text_titre_intervention"
+}

@@ -1,0 +1,25 @@
+INSERT INTO public."MATERIEL_LOCATION" (
+    "ID_Machine_Location",
+    "Code_Interne",
+    "Marque",
+    "Modele",
+    "N_Serie",
+    "Categorie",
+    "Prix_Achat_HT",
+    "Compteur_Heures_Actuel",
+    "Prochaine_Vidange_Heures",
+    "Statut_Dispo",
+    "Statut_Maintenance"
+) VALUES (
+    gen_random_uuid()::text,
+    {{ Input_Code_Interne.text }},
+    {{ Input_Loc_Marque.text }},
+    {{ Input_Loc_Modele.text }},
+    {{ Input_Loc_Serie.text }},
+    {{ Select_Loc_Categorie.selectedOptionValue }},
+    {{ Input_Loc_PrixAchat.value || 0 }},
+    0,                                      -- Compteur d'heures à 0 au départ
+    {{ Input_Loc_Vidange.value || null }},  -- Heures de la prochaine vidange
+    'Disponible',                           -- Machine prête à être louée
+    'A_Jour'                                -- Statut mécanique OK
+);

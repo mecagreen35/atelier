@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 29,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "sjuqnlux06",
+  "labelStyle": "BOLD",
+  "labelTextSize": "3rem",
+  "leftColumn": 50,
+  "minWidth": 120,
+  "mobileBottomRow": 31,
+  "mobileLeftColumn": 48,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 27,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async () => {\n    try {\n      let idCible = select_article.selectedOptionValue;\n      const qte = inp_quantite.text !== \"\" && !isNaN(inp_quantite.text) ? Number(inp_quantite.text) : 1;\n\n      // Si rien n'est choisi dans le menu déroulant, on tente de lire l'input de scan\n      if (!idCible && inp_scan_article.text?.trim()) {\n        const code = inp_scan_article.text.trim().toLowerCase();\n        const art = (Get_Tous_Articles.data || []).find(a => \n          (a.Code_Barre && a.Code_Barre.toLowerCase() === code) ||\n          (a.Ref_Fournisseur && a.Ref_Fournisseur.toLowerCase() === code)\n        );\n        if (art) idCible = art.ID_Article;\n      }\n\n      if (!idCible) {\n        showAlert('Veuillez sélectionner ou scanner un article', 'warning');\n        storeValue('forceFocus', Date.now()); // <--- FORCER L'AUTOFOCUS\n        return;\n      }\n\n      // Enregistrement manuel\n      await Valider_Scan_Inv.run({ idArticle: idCible, quantite: qte });\n      showAlert('✅ Scan enregistré !', 'success');\n\n      // Nettoyage et rafraîchissement\n      await Get_Derniers_Scans.run();\n      await Get_Non_Scannes.run();\n      resetWidget('select_article', true);\n      resetWidget('inp_scan_article', true);\n      resetWidget('inp_quantite', true);\n      \n      // <--- FORCER L'AUTOFOCUS MÊME APRÈS UN CLIC MANUEL\n      storeValue('forceFocus', Date.now());\n\n    } catch (err) {\n      showAlert('Erreur lors de la validation : ' + err.message, 'error');\n    }\n  })()\n}}",
+  "parentColumnSpace": 30.25,
+  "parentId": "tgijtpsovu",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "text": "VALIDER",
+  "topRow": 18,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "58yxxlteq1",
+  "widgetName": "Button2"
+}

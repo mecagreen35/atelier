@@ -1,0 +1,72 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{\n  (Get_Alertes_Controle_Loc.data || []).some(m => m.Alerte_Entretien?.includes('72h'))\n    ? '#de1717'   // 🔴 Rouge vif si au moins une machine repart sous 72 h\n    : '#d45125'   // 🟠 Orange si pas de réservation immédiate\n}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "text"
+    },
+    {
+      "key": "tooltip"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": "{{ (Get_Alertes_Controle_Loc.data || []).length > 0 }}",
+  "key": "0wgymx6jev",
+  "labelTextColor": "#ffffff",
+  "leftColumn": 23,
+  "minWidth": 120,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 24,
+  "mobileRightColumn": 40,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    await storeValue('tab_location', '🚜 Flotte & Matériel');\n    await storeValue('page_precedente', '🛠️ Atelier Global');\n    await navigateTo('🔑 Location');\n  })()\n}}",
+  "parentColumnSpace": 17.1875,
+  "parentId": "0boawk54tj",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 31,
+  "text": "{{\n  (() => {\n    const data = Get_Alertes_Controle_Loc.data || [];\n    const urgents = data.filter(m => m.Alerte_Entretien?.includes('72h')).length;\n    const standards = data.length - urgents;\n\n    if (urgents > 0) {\n      return `🚨 ${urgents} Loc URGENTE (< 72h)${standards > 0 ? ` (+${standards})` : ''}`;\n    }\n    return `🧽 ${standards} Loc à contrôler`;\n  })()\n}}",
+  "tooltip": "{{ (Get_Alertes_Controle_Loc.data || []).map(m => m.Code_Interne).join(', ') }}",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "g80yzv1eyy",
+  "widgetName": "Bouton_Alerte_Loc"
+}

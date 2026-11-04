@@ -1,0 +1,56 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignment": "left",
+  "animateLoading": true,
+  "bottomRow": 37,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ Get_Materiel_Infos.data[0]?.Categorie_Materiel || \"4T\" }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "options"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isDisabled": false,
+  "isInline": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "u82pog9zqs",
+  "label": "Catégorie",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 37,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 31,
+  "needsErrorInfo": false,
+  "options": "[\n  { \"label\": \"4T\", \"value\": \"4T\" },\n  { \"label\": \"2T\", \"value\": \"2T\" },\n  { \"label\": \"Robot\", \"value\": \"Robot\" }\n]",
+  "originalBottomRow": 37,
+  "originalTopRow": 31,
+  "parentColumnSpace": 8.125,
+  "parentId": "9mkczbd3lw",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 60,
+  "topRow": 31,
+  "type": "RADIO_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "4xccf9sojq",
+  "widgetName": "Rad_edit_categorie_materiel"
+}

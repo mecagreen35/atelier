@@ -1,0 +1,62 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 50,
+  "boxShadow": "none",
+  "defaultOptionValue": "Normal",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "dkvtg2qb56",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelText": "Priorité",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 50,
+  "mobileLeftColumn": 7,
+  "mobileRightColumn": 27,
+  "mobileTopRow": 43,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 50,
+  "originalTopRow": 43,
+  "parentColumnSpace": 6.9375,
+  "parentId": "9992eg09n1",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"Normal\", \"value\": \"Normal\" },\n  { \"label\": \"🔥 Pro\", \"value\": \"Pro\" },\n  { \"label\": \"🔥 Pro urgent\", \"value\": \"Pro urgent\" },\n  { \"label\": \"🔥 Urgent\", \"value\": \"Urgent\" },\n  { \"label\": \"🚚 Bricolage\", \"value\": \"Bricolage\" }\n]",
+  "topRow": 43,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "c9bpa9onjq",
+  "widgetName": "sel_interv_priorite"
+}

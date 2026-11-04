@@ -1,0 +1,4 @@
+UPDATE public."ARTICLES"
+SET "Code_Barre" = 'ART-' || UPPER(LEFT("ID_Article"::text, 6))
+WHERE "ID_Article" = {{ this.params.id_article }}
+  AND ("Code_Barre" IS NULL OR TRIM("Code_Barre") = '');

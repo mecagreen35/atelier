@@ -1,0 +1,19 @@
+SELECT 
+  "ID_Article" AS value,
+  TRIM(COALESCE("Ref_Fournisseur", '') || ' - ' || COALESCE("Designation", '')) AS label,
+  "Fournisseur_Par_Defaut",
+  COALESCE("Prix_Achat", 0) AS "Prix_Achat"
+FROM public."ARTICLES"
+WHERE 
+  (
+    {{ !sel_achat_article.filterText }} 
+    OR "Designation" ILIKE '%' || '{{sel_achat_article.filterText}}' || '%'
+    OR "Ref_Fournisseur" ILIKE '%' || '{{sel_achat_article.filterText}}' || '%'
+  )
+ORDER BY 
+  CASE 
+    WHEN "ID_Article" = {{ appsmith.store.nouvel_article_id || '' }} THEN 0 
+    ELSE 1 
+  END,
+  "Designation" ASC
+LIMIT 50;

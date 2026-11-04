@@ -1,0 +1,59 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 37,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{!sel_client.selectedOptionValue}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ocxr3hcvux",
+  "leftColumn": 40,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Insert_BL.run()\n    .then((res) => {\n      // 1. Vérification de l'identifiant retourné par Supabase\n      if (!res || !res[0]) return Promise.reject(\"Aucun ID retourné\");\n      const newId = res[0].ID_BL || res[0].id_bl;\n      if (!newId) return Promise.reject(\"Identifiant introuvable\");\n\n      // 2. Fermeture de la modale\n      closeModal('modal_add_bon_de_livraison');\n      \n      // 3. Nettoyage des champs de saisie pour la prochaine fois\n      resetWidget('sel_client', true);\n      resetWidget('inp_new_notes', true);\n\n      // 4. Message de succès\n      showAlert('Bon de livraison créé !', 'success');\n\n      // 5. Redirection immédiate vers la page \"Détail Bon de Livraison\" avec le nouvel ID\n      navigateTo('Détail Bon de Livraison', { id: newId });\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la création : ' + err, 'error');\n    });\n}}",
+  "originalBottomRow": 37,
+  "originalTopRow": 32,
+  "parentId": "gbsdac3zmj",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Créer Bon de Livraison",
+  "topRow": 32,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "u18ccgylzh",
+  "widgetName": "bouton_creer_commande"
+}

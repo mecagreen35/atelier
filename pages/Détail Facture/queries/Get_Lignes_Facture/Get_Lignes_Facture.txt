@@ -1,0 +1,3 @@
+SELECT *
+FROM "Ligne_BL"
+WHERE "ID_BL" = {{ appsmith.URL.queryParams.id || appsmith.store.current_facture_id }};

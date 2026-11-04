@@ -1,0 +1,3 @@
+UPDATE public."LIGNES_COMMANDES_CLIENTS"
+SET "Descriptif" = {{ inp_edit_descriptif.text || "" }}
+WHERE "ID_Ligne_Client" = {{ _Get_Lignes_BL.triggeredRow.ID_Ligne_Client }};

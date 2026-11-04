@@ -1,0 +1,67 @@
+{
+  "allowedFileTypes": [
+    "image/*",
+    "*",
+    "video/*",
+    "audio/*",
+    "text/*",
+    ".png",
+    "image/jpeg",
+    ".doc"
+  ],
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onFilesSelected"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onFilesSelected"
+    }
+  ],
+  "dynamicTyping": true,
+  "fileDataType": "Base64",
+  "files": [],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "rrmzfsfff7",
+  "label": "Joindre un justificatif",
+  "leftColumn": 9,
+  "maxFileSize": "15",
+  "maxNumFiles": 1,
+  "minWidth": 120,
+  "mobileBottomRow": 17,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 18,
+  "mobileTopRow": 13,
+  "needsErrorInfo": false,
+  "onFilesSelected": "{{ \n  Upload_Doc_Garantie_Drive.run()\n    .then(() => {\n      showAlert('Fichier transféré sur Google Drive !', 'success');\n      Get_Detail_BL.run();\n      resetWidget('fp_doc_garantie', true);\n    })\n    .catch((err) => showAlert(\"Erreur lors de l'envoi : \" + err.message, 'error'))\n}}",
+  "parentColumnSpace": 29.9375,
+  "parentId": "0ahz0p7kq0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 19,
+  "selectedFiles": [],
+  "topRow": 1,
+  "type": "FILE_PICKER_WIDGET_V2",
+  "version": 1,
+  "widgetId": "u30a3pi0mh",
+  "widgetName": "fp_doc_garantie"
+}

@@ -1,0 +1,3 @@
+UPDATE public."LIGNES_COMMANDES_ACHATS"
+SET "Quantite_BL" = {{ Table_Achats.updatedRow.Quantite_BL }}
+WHERE "ID_Ligne_Achat" = '{{ Table_Achats.updatedRow.ID_Ligne_Achat }}';

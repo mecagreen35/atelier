@@ -1,0 +1,18 @@
+SELECT 
+    c."ID_Creneau",
+    c."ID_Intervention",
+    c."ID_Employe",
+    c."Type_Creneau",
+    c."Date_Debut",
+    c."Date_Fin",
+    c."Statut_Creneau",
+    c."Commentaire",
+    -- Données de l'intervention liée (si existante)
+    i."N° OR",
+    COALESCE(NULLIF(TRIM(cl."Societe"), ''), TRIM(COALESCE(cl."Nom", '') || ' ' || COALESCE(cl."Prénom", ''))) AS "Client_Nom",
+    COALESCE(pm."Marque", '') || ' ' || COALESCE(pm."Modele", '') AS "Machine_Nom"
+FROM public."CRENEAUX_INTERVENTIONS" c
+LEFT JOIN public."Interventions" i ON i."ID_Intervention" = c."ID_Intervention"
+LEFT JOIN public."Clients" cl ON cl."ID_Client" = i."ID_Client"
+LEFT JOIN public."Parc_Materiel" pm ON pm."ID_Machine" = i."ID_Machine"
+WHERE c."ID_Creneau" = {{ appsmith.store.selected_creneau_id || Custom_Calendrier_Atelier.model.selectedId || '' }};

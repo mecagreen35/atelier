@@ -1,0 +1,44 @@
+SELECT 
+    c."ID_Creneau"::text AS "id",
+    c."ID_Intervention"::text AS "id_intervention",
+    
+    -- Titre complet visible sur le calendrier : [Type] Client - Machine OU [Tâche Interne]
+    CASE 
+        WHEN c."ID_Intervention" IS NOT NULL THEN
+            '[' || c."Type_Creneau" || '] ' || 
+            COALESCE(NULLIF(TRIM(cl."Societe"), ''), TRIM(COALESCE(cl."Nom", '') || ' ' || COALESCE(cl."Prénom", ''))) || 
+            ' — ' || COALESCE(pm."Marque", '') || ' ' || COALESCE(pm."Modele", '')
+        ELSE
+            '[Interne] ' || c."Type_Creneau" || COALESCE(' - ' || c."Commentaire", '')
+    END AS "title",
+
+    -- Horaires de début et fin au format ISO 8601
+    to_char(c."Date_Debut" AT TIME ZONE 'Europe/Paris', 'YYYY-MM-DD"T"HH24:MI:SS') AS "start",
+    to_char(c."Date_Fin" AT TIME ZONE 'Europe/Paris', 'YYYY-MM-DD"T"HH24:MI:SS') AS "end",
+
+    -- Code couleur par mécanicien
+    CASE 
+        WHEN UPPER(TRIM(e."Prenom")) = 'DAVID' THEN '#2563eb'     -- Bleu pour David
+        WHEN UPPER(TRIM(e."Prenom")) = 'FLAVIEN' THEN '#16a34a'   -- Vert pour Flavien
+        WHEN UPPER(TRIM(e."Prenom")) = 'YOAN' THEN '#ea580c'      -- Orange pour Yoan
+        ELSE '#475569'                                            -- Gris ardoise (Non assigné ou autre)
+    END AS "backgroundColor",
+
+    c."ID_Employe"::text AS "ID_Employe",
+    COALESCE(e."Prenom", 'Non assigné') AS "Mecano"
+
+FROM public."CRENEAUX_INTERVENTIONS" c
+LEFT JOIN public."Interventions" i ON i."ID_Intervention" = c."ID_Intervention"
+LEFT JOIN public."Clients" cl ON cl."ID_Client" = i."ID_Client"
+LEFT JOIN public."Parc_Materiel" pm ON pm."ID_Machine" = i."ID_Machine"
+LEFT JOIN public."Employes" e ON e."ID_Employe" = c."ID_Employe"
+WHERE c."Statut_Creneau" <> 'Annulé'
+  -- 🟢 FILTRE CORRIGÉ (supporte l'ID_Employe et le prénom)
+  AND (
+      {{ !sel_planning_mecano.selectedOptionValue }} 
+      OR {{ sel_planning_mecano.selectedOptionValue }} = 'TOUS'
+      OR c."ID_Employe"::text = {{ sel_planning_mecano.selectedOptionValue }}::text
+      OR e."Prenom" = {{ sel_planning_mecano.selectedOptionValue }}
+      OR ({{ sel_planning_mecano.selectedOptionValue }} = 'Non assigné' AND c."ID_Employe" IS NULL)
+  )
+ORDER BY c."Date_Debut" ASC;

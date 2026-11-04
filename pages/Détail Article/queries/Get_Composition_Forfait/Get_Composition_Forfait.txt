@@ -1,0 +1,11 @@
+SELECT 
+  cf."ID_Composition",
+  cf."ID_Article_Composant",
+  a."Ref_Fournisseur",
+  a."Designation",
+  cf."Quantite",
+  a."Prix_Achat",
+  a."Prix_Vente_HT"
+FROM public."COMPOSITION_FORFAITS" cf
+JOIN public."ARTICLES" a ON a."ID_Article" = cf."ID_Article_Composant"
+WHERE cf."ID_Article_Forfait" = {{ appsmith.URL.queryParams.id }};

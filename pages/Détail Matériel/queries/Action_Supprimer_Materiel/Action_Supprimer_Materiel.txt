@@ -1,0 +1,21 @@
+WITH Verification AS (
+  SELECT 
+    (SELECT count(*) FROM public."Interventions" WHERE "ID_Machine"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }}::text) +
+    (SELECT count(*) FROM public."BONS_DE_LIVRAISON" WHERE "ID_Machine"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }}::text) AS total_lignes
+),
+Archivage AS (
+  UPDATE public."Parc_Materiel"
+  SET 
+    "Statut_Ligne" = 'Inactif',
+    "Statut_Exploitation" = 'Archivé'
+  WHERE "ID_Machine"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }}::text
+    AND (SELECT total_lignes FROM Verification) > 0
+  RETURNING "ID_Machine"
+),
+Suppression AS (
+  DELETE FROM public."Parc_Materiel"
+  WHERE "ID_Machine"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }}::text
+    AND (SELECT total_lignes FROM Verification) = 0
+  RETURNING "ID_Machine"
+)
+SELECT total_lignes FROM Verification;

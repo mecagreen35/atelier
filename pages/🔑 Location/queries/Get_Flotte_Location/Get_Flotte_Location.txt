@@ -1,0 +1,30 @@
+SELECT 
+    ml."ID_Machine_Location",
+    ml."Code_Interne",
+    ml."Marque",
+    ml."Modele",
+    ml."N_Serie",
+    ml."Categorie",
+		ml."Date_Achat",
+    ml."ID_Article_Demi_Journee",
+    ml."ID_Article_Journee",
+    ml."ID_Article_Semaine",
+    ml."CA_Historique_HT",
+    ml."Nb_Locations_Historique",
+    ml."Est_Sur_Batterie",
+    ml."Part_Batterie_Pct",
+    v."Statut_Dispo",
+    v."Statut_Maintenance",
+    v."Heures_Actuelles",
+    v."Alerte_Entretien",
+    v."Heures_Restantes_Avant_Vidange",
+    v."Prix_Achat_HT",
+    v."Nb_Locations",
+    v."CA_Loc_Total_HT",
+    v."Frais_Entretien_Atelier_HT",
+    v."Rentabilite_Nette_HT",
+    v."Taux_Amortissement_Pct"
+FROM public.v_suivi_flotte_location v
+JOIN public."MATERIEL_LOCATION" ml ON ml."ID_Machine_Location" = v."ID_Machine_Location"
+WHERE v."Statut_Dispo" != 'Sorti_De_Flotte'
+ORDER BY v."Code_Interne" ASC;

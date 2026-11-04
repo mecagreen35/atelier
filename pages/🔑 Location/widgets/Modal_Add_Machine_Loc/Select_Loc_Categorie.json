@@ -1,0 +1,59 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 41,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "mukrspdirb",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Catégorie",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 41,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 34,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 13.21875,
+  "parentId": "mtlrowh762",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"Broyeur de végétaux\", \"value\": \"Broyeur\" },\n  { \"label\": \"Tondeuse / Débroussailleuse\", \"value\": \"Tondeuse\" },\n  { \"label\": \"Motoculteur / Motobineuse\", \"value\": \"Motoculteur\" },\n  { \"label\": \"Scarificateur\", \"value\": \"Scarificateur\" },\n  { \"label\": \"Tronçonneuse / Élagueuse\", \"value\": \"Tronçonneuse\" },\n  { \"label\": \"Tarière\", \"value\": \"Tarière\" },\n  { \"label\": \"Rogneuse de souche\", \"value\": \"Rogneuse\" },\n  { \"label\": \"Taille-haies\", \"value\": \"Taille-haies\" },\n  { \"label\": \"Nettoyeur haute pression\", \"value\": \"Nettoyeur HP\" },\n  { \"label\": \"Autre matériel\", \"value\": \"Autre\" }\n]",
+  "topRow": 34,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "pkhm7prakj",
+  "widgetName": "Select_Loc_Categorie"
+}

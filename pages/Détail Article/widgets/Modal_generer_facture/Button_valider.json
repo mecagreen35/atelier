@@ -1,0 +1,54 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 22,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "dw3v785fkx",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    try {\n      // 1. On lance la demande\n      await Demander_Facture.run();\n      closeModal('Modal_generer_facture');\n      showAlert('Génération de la facture lancée...', 'info');\n\n      let tentatives = 0;\n      const maxTentatives = 30;\n\n      const interval = setInterval(async () => {\n        tentatives++;\n        \n        // 2. On rafraîchit les données pour vérifier le statut\n        const res = await Get_Detail_Article.run();\n        const blData = res[0] || Get_Detail_Article.data[0];\n\n        // 3. Dès que n8n a passé le statut à \"Facturé\"\n        if (blData && blData.Statut_Facturation === 'Facturé') {\n          clearInterval(interval);\n          showAlert('Facture générée avec succès !', 'success');\n\n          // 4. On redirige vers la vue facture avec l'ID_BL actuel\n          navigateTo('Détail Facture', { id: blData.ID_BL });\n        } \n        else if (tentatives >= maxTentatives) {\n          clearInterval(interval);\n          showAlert('La génération prend plus de temps que prévu...', 'warning');\n        }\n      }, 1000);\n\n    } catch (err) {\n      showAlert('Erreur lors du lancement de la facturation', 'error');\n      console.error(err);\n    }\n  })()\n}}",
+  "parentId": "2wbirwqzow",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Valider",
+  "topRow": 18,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "4ausrnon0k",
+  "widgetName": "Button_valider"
+}

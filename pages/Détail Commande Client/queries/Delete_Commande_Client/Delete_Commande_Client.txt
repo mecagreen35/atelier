@@ -1,0 +1,2 @@
+DELETE FROM "COMMANDES_CLIENTS"
+WHERE "ID_Commande_Client" = {{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }};

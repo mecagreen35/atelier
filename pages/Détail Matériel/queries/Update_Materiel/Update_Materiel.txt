@@ -1,0 +1,17 @@
+UPDATE public."Parc_Materiel"
+SET 
+    "Marque"              = {{ Inp_edit_marque.text }},
+    "Modele"              = {{ Inp_edit_modele.text }},
+    "N_Serie"             = {{ Inp_edit_n_serie.text }},
+    "Type_Machine"        = {{ Sel_edit_type_machine.selectedOptionValue }},
+    "Categorie_Materiel"  = {{ Rad_edit_categorie_materiel.selectedOptionValue }},
+    "ID_Client"           = {{ Select_edit_client.selectedOptionValue }},
+    "Statut_Exploitation" = {{ Select_edit_statut.selectedOptionValue }},
+    "Regime_TVA"          = {{ Select_edit_regime_tva.selectedOptionValue }},
+    "Prix_Achat_Reprise"  = {{ Number(Inp_edit_prix_achat.text || 0) }},
+    "Prix_Vente_Occasion" = {{ Number(Inp_edit_prix_vente.text || 0) }},
+    "Notes_Techniques"    = {{ Inp_edit_notes.text }},
+    
+    -- Ne remplace la photo que si une nouvelle image a été prise avec la caméra
+    "Photo_Plaque"        = COALESCE({{ Cam_edit_plaque.imageBlobURL || Cam_edit_plaque.base64 || null }}, "Photo_Plaque")
+WHERE "ID_Machine"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }};

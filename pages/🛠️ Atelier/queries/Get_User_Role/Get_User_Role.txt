@@ -1,0 +1,3 @@
+SELECT "ID_Employe", "Prenom", "Role"
+FROM public."Employes"
+WHERE LOWER(TRIM("Email")) = LOWER(TRIM({{ appsmith.user.email }}));

@@ -1,0 +1,3 @@
+UPDATE "Ligne_BL"
+SET "Descriptif" = {{ inp_edit_descriptif.text }}
+WHERE "ID_Ligne_BL" = {{ Table_Lignes_BL.triggeredRow.ID_Ligne_BL }};

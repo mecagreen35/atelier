@@ -1,0 +1,17 @@
+UPDATE public."Interventions"
+SET
+  "Statut" = {{this.params.nouveau_statut}},
+
+  "Mecano_En_Charge" = CASE
+      WHEN LOWER(TRIM({{this.params.nouveau_statut}})) = 'en cours' 
+           AND ("Mecano_En_Charge" IS NULL OR TRIM("Mecano_En_Charge") = '')
+      THEN (
+        SELECT "ID_Employe" 
+        FROM public."Employes" 
+        WHERE LOWER(TRIM("Email")) = LOWER(TRIM({{appsmith.user.email}}))
+        LIMIT 1
+      )
+      ELSE "Mecano_En_Charge"
+  END
+
+WHERE "ID_Intervention" = {{Get_Detail_Intervention.data[0].ID_Intervention}};

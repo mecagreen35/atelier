@@ -1,0 +1,46 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 14,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "plus",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "by33ppy7e5",
+  "leftColumn": 54,
+  "minWidth": 50,
+  "mobileBottomRow": 16,
+  "mobileLeftColumn": 39,
+  "mobileRightColumn": 43,
+  "mobileTopRow": 12,
+  "needsErrorInfo": false,
+  "onClick": "{{showModal(modal_add_client_rapide.name).then(() => {\n  Get_Villes.run();\n});}}",
+  "parentColumnSpace": 8.125,
+  "parentId": "27fy1tbzwf",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "tooltip": "Nouveau Client",
+  "topRow": 10,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "rlp4espi8l",
+  "widgetName": "Nouveau_client"
+}

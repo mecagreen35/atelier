@@ -1,0 +1,69 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 100,
+  "bottomRowBeforeCollapse": 93,
+  "boxShadow": "none",
+  "defaultText": "{{Get_Detail_Article.data[0].Marque}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{\n  ['MATÉRIEL NEUF', 'MATÉRIEL BATTERIE', 'ROBOT', 'OCCASION'].includes(sel_edit_famille.selectedOptionValue?.trim())\n}}",
+  "key": "63m03c979y",
+  "label": "Marque",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 87,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 80,
+  "needsErrorInfo": false,
+  "originalBottomRow": 100,
+  "originalTopRow": 93,
+  "parentColumnSpace": 12.9375,
+  "parentId": "b675vxfjlf",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "showStepArrows": false,
+  "topRow": 93,
+  "topRowBeforeCollapse": 86,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "pxkgfs4hwt",
+  "widgetName": "inp_edit_marque"
+}

@@ -1,0 +1,9 @@
+SELECT 
+    "ID_BL",
+    COALESCE("Numero_Facture_Pennylane", "Numero_BL", "ID_BL") || ' (' || "TOTAL_TTC" || ' € - Reste : ' || "Reste_A_Payer" || ' €)' AS "Label",
+    "Reste_A_Payer"
+FROM public."BONS_DE_LIVRAISON"
+WHERE "Client" = '{{ Table_facture.triggeredRow.Client || Table_facture.triggeredRow.ID_Client }}'
+  AND "ID_BL" <> '{{ Table_facture.triggeredRow.ID_BL }}'
+  AND COALESCE("Reste_A_Payer", 0) > 0
+ORDER BY "Date_BL" DESC;

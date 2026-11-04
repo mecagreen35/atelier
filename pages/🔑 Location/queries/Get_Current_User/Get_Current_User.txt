@@ -1,0 +1,4 @@
+SELECT "Role" 
+FROM public."Employes" 
+WHERE "Email" = {{ appsmith.user.email }} 
+LIMIT 1;

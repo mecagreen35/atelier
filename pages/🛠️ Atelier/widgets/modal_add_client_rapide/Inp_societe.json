@@ -1,0 +1,66 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 15,
+  "bottomRowBeforeCollapse": 37,
+  "boxShadow": "none",
+  "defaultText": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{ rad_type_client.selectedOptionValue === 'Professionnel' || rad_type_client.selectedOptionValue === 'Collectivité' }}",
+  "key": "gty5g1tah9",
+  "label": "Société",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 36,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 29,
+  "needsErrorInfo": false,
+  "originalBottomRow": 37,
+  "originalTopRow": 30,
+  "parentColumnSpace": 6.9375,
+  "parentId": "wgdj1toi9z",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 61,
+  "showStepArrows": false,
+  "topRow": 15,
+  "topRowBeforeCollapse": 30,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "uixqcdqm6v",
+  "widgetName": "Inp_societe"
+}

@@ -1,0 +1,10 @@
+INSERT INTO public."v_lignes_interventions_detail" (
+  "ID_Intervention",
+  "ID_Article",
+  "Quantite"
+)
+VALUES (
+  {{ appsmith.URL.queryParams.id }},
+  {{ sel_article.selectedOptionValue }},
+  {{ inp_add_qte.text || 1 }}
+);

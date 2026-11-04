@@ -1,0 +1,4 @@
+SELECT *
+FROM public.v_lignes_location_detail
+WHERE "ID_Location" = '{{ appsmith.URL.queryParams.id }}'
+ORDER BY "Ordre_Affichage" ASC NULLS LAST;

@@ -1,0 +1,4 @@
+SELECT "ID_Inventaire", "Nom" 
+FROM "INVENTAIRES" 
+WHERE "Statut" = 'EN_COURS'
+ORDER BY "Date_Ouverture" DESC;

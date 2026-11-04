@@ -1,0 +1,6 @@
+{
+  "id_bl": "{{ appsmith.URL.queryParams.id }}",
+  "numero_bl": "{{ Get_Detail_BL.data[0]?.Numero_BL }}",
+  "nom_fichier": "{{ fp_doc_garantie.files[0]?.name }}",
+  "fichier_base64": "{{ fp_doc_garantie.files[0]?.data }}"
+}

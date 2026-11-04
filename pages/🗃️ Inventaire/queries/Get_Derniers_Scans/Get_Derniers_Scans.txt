@@ -1,0 +1,13 @@
+SELECT 
+    li."ID_Ligne_Inv",
+    a."Ref_Fournisseur",
+    a."Designation",
+    li."Quantite_Comptee" AS "Qté Comptée",
+    li."Stock_Theorique_Au_Scan" AS "Stock Initial",
+    li."Ecart",
+    li."Date_Dernier_Scan" AS "Heure du scan"
+FROM "LIGNES_INVENTAIRE" li
+JOIN "ARTICLES" a ON li."ID_Article" = a."ID_Article"
+WHERE li."ID_Inventaire" = {{ select_inventaire.selectedOptionValue }}
+ORDER BY li."Date_Dernier_Scan" DESC
+LIMIT 50; -- Affiche les 50 derniers scans pour ne pas alourdir l'écran

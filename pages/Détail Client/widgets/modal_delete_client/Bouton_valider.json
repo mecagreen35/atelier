@@ -1,0 +1,49 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 23,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "h2novegn7g",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Action_Supprimer_Client.run().then((res) => {\n    // res[0].total_lignes contient le résultat du calcul de la base de données\n    if (res[0].total_lignes > 0) {\n      showAlert('Client archivé (il possédait un historique).', 'info');\n    } else {\n      showAlert('Client supprimé définitivement.', 'success');\n    }\n    \n    // On ferme la modale\n    closeModal('modal_delete_client');\n    \n    // On redirige vers la liste des clients (Remplace 'Page_Clients' par le nom exact de ta page)\n    navigateTo('Page_Clients');\n  }).catch(() => {\n    showAlert('Erreur lors de la suppression/archivage', 'error');\n  });\n}}",
+  "originalBottomRow": 23,
+  "originalTopRow": 19,
+  "parentId": "c1l0lizle9",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Supprimer",
+  "topRow": 19,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "49c5lxbia6",
+  "widgetName": "Bouton_valider"
+}

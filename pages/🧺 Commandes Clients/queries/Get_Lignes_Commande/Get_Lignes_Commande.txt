@@ -1,0 +1,19 @@
+SELECT 
+  "ID_Ligne_Client",
+  "Ref_Fournisseur",
+	"Action_Recommandee",
+	"Statut_Cible", -- Nouvelle ligne
+  "Est_Traite",
+	"Prix_Achat",
+  "Descriptif",
+  "Statut_Piece_Synthese",
+  "Quantite",
+  "Prix_Vente_HT",
+  "Prix_Vente_TTC",
+  "Total_Ligne_TTC",
+  "Type_Remise",
+  "Valeur_Remise",
+  "Ordre_Affichage"
+FROM public."v_lignes_commandes_clients_detail"
+WHERE "ID_Commande_Client" = {{ Table_commande_client.selectedRow.ID_Commande_Client }}
+ORDER BY "Ordre_Affichage" ASC;

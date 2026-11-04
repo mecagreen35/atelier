@@ -1,0 +1,8 @@
+UPDATE public."LIGNES_COMMANDES_CLIENTS"
+SET 
+  "Ordre_Affichage" = {{ _Get_Lignes_Commande_data_.updatedRow.Ordre_Affichage || null }},
+  "Quantite" = {{ _Get_Lignes_Commande_data_.updatedRow.Quantite || null }},
+  "Prix_Vente_HT" = {{ _Get_Lignes_Commande_data_.updatedRow.Prix_Vente_HT ? Number(String(_Get_Lignes_Commande_data_.updatedRow.Prix_Vente_HT).replace(/[^0-9,-]+/g,"").replace(",", ".")) : null }},
+  "Type_Remise" = {{ _Get_Lignes_Commande_data_.updatedRow.Type_Remise || null }},
+  "Valeur_Remise" = {{ _Get_Lignes_Commande_data_.updatedRow.Valeur_Remise ? Number(String(_Get_Lignes_Commande_data_.updatedRow.Valeur_Remise).replace(/[^0-9,-]+/g,"").replace(",", ".")) : null }}
+WHERE "ID_Ligne_Client" = {{ _Get_Lignes_Commande_data_.updatedRow.ID_Ligne_Client }};

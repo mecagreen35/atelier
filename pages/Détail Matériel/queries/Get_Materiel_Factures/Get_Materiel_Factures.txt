@@ -1,0 +1,11 @@
+SELECT 
+    bl."ID_BL",
+    bl."Numero_BL",
+    bl."Date_BL",
+    bl."Statut_Facturation",
+    bl."TOTAL_TTC",
+    bl."Origine",
+    bl."Lien_Facture"
+FROM public.v_bl_socle bl
+WHERE bl."ID_Machine"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }}
+ORDER BY bl."Date_BL" DESC;

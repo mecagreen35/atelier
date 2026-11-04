@@ -1,0 +1,72 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 29,
+  "boxShadow": "none",
+  "closeOnSelection": true,
+  "dateFormat": "DD/MM/YYYY HH:mm",
+  "datePickerType": "DATE_PICKER",
+  "defaultDate": "{{\n  (() => {\n    const debutInitial = Get_Creneau_Detail.data[0]?.Date_Debut;\n    const finInitiale = Get_Creneau_Detail.data[0]?.Date_Fin;\n    const debutActuel = date_detail_creneau_debut.selectedDate;\n\n    // 1. À l'ouverture de la modale : on conserve la date de fin originale\n    if (!debutActuel || debutActuel === debutInitial) {\n      return finInitiale || \"\";\n    }\n\n    // 2. Si on modifie la date de début : on conserve la durée initiale du créneau (ex: 30 min, 1 h...)\n    const dureeMs = (debutInitial && finInitiale) \n      ? moment(finInitiale).diff(moment(debutInitial)) \n      : 30 * 60 * 1000;\n\n    // 3. On reporte automatiquement cette durée sur la nouvelle date de début\n    return moment(debutActuel).add(dureeMs > 0 ? dureeMs : 30, dureeMs > 0 ? 'ms' : 'minutes').toISOString();\n  })()\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultDate"
+    },
+    {
+      "key": "minDate"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultDate"
+    },
+    {
+      "key": "minDate"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "firstDayOfWeek": "1",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "o7pfegjquy",
+  "label": "Dates fin",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 32,
+  "maxDate": "2121-12-31T18:29:00.000Z",
+  "maxDynamicHeight": 9000,
+  "minDate": "{{ date_detail_creneau_debut.selectedDate }}",
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 35,
+  "mobileLeftColumn": 35,
+  "mobileRightColumn": 55,
+  "mobileTopRow": 28,
+  "needsErrorInfo": false,
+  "originalBottomRow": 29,
+  "originalTopRow": 22,
+  "parentColumnSpace": 10.28125,
+  "parentId": "v6rlvwqi0b",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "shortcuts": false,
+  "timePrecision": "minute",
+  "topRow": 22,
+  "type": "DATE_PICKER_WIDGET2",
+  "version": 2,
+  "widgetId": "hu50qrr38j",
+  "widgetName": "date_detail_creneau_fin"
+}

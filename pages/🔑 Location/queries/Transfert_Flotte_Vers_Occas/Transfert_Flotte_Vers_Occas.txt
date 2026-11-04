@@ -1,0 +1,22 @@
+-- 1. Sortie de la flotte de location
+UPDATE public."MATERIEL_LOCATION"
+SET 
+    "Statut_Dispo" = 'Sorti_De_Flotte',
+    "Statut_Maintenance" = 'Rebut_Ou_Vente'
+WHERE "ID_Machine_Location" = {{ Table_Flotte.triggeredRow.ID_Machine_Location }};
+
+-- 2. Bascule vers l'atelier occasion à coût d'achat zéro
+UPDATE public."Parc_Materiel"
+SET 
+    "ID_Client" = (
+        SELECT "ID_Client" 
+        FROM public."Clients" 
+        WHERE UPPER(TRIM(COALESCE("Societe", ''))) LIKE '%MECA GREEN OCCASION%' 
+           OR UPPER(TRIM(COALESCE("Nom", ''))) LIKE '%MECA GREEN OCCASION%' 
+        LIMIT 1
+    ),
+    "Statut_Exploitation" = 'À réviser',
+    "Date_Entree_Stock"   = CURRENT_DATE,
+    "Prix_Achat_Reprise"  = 0.00,
+    "Regime_TVA"          = 'TVA Standard 20%'
+WHERE "ID_Machine" = {{ Table_Flotte.triggeredRow.ID_Machine_Location }};

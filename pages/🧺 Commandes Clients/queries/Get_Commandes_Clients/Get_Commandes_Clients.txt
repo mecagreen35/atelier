@@ -1,0 +1,63 @@
+SELECT 
+  c."ID_Commande_Client",
+  c."Date",
+  c."ID_Client",
+  c."N_COMMANDE_CLIENT",
+  
+  -- 🟢 Création de la colonne "Client" unifiée pour l'affichage
+  CASE
+    WHEN NULLIF(TRIM(cl."Societe"), '') IS NOT NULL AND NULLIF(TRIM(COALESCE(cl."Nom", '') || ' ' || COALESCE(cl."Prénom", '')), '') IS NOT NULL 
+    THEN TRIM(cl."Societe") || ' (' || TRIM(COALESCE(cl."Nom", '') || ' ' || COALESCE(cl."Prénom", '')) || ')'
+    WHEN NULLIF(TRIM(cl."Societe"), '') IS NOT NULL THEN TRIM(cl."Societe")
+    ELSE TRIM(COALESCE(cl."Nom", '') || ' ' || COALESCE(cl."Prénom", ''))
+  END AS "Client",
+
+  cl."Societe",
+  cl."Nom",
+  cl."Prénom",
+  cl."Telephone",
+  c."Statut",
+  c."TOTAL_TTC",
+  c."Montant_Acompte_TTC",
+  c."Statut_Acompte",
+  c."Notes",
+  cl."Adresse",
+  cl."code_postal",
+  cl."ville"
+FROM public."COMMANDES_CLIENTS" c
+LEFT JOIN public."Clients" cl ON c."ID_Client" = cl."ID_Client"
+WHERE 
+  -- 1. Archivage des facturés
+  (
+    (
+      UPPER(TRIM(COALESCE(c."Statut", ''))) NOT IN ('FACTURÉ', 'FACTURE', 'LIVRÉ.FACTURÉ')
+      AND c."Statut" NOT ILIKE '%factur%'
+    )
+    OR {{ inp_search_commande.text.trim() !== "" }}
+  )
+  
+  -- 2. Filtre de recherche textuelle
+  AND (
+    {{ inp_search_commande.text.trim() === "" }}
+    OR c."N_COMMANDE_CLIENT" ILIKE '%' || {{ inp_search_commande.text.trim() }} || '%'
+    OR cl."Nom" ILIKE '%' || {{ inp_search_commande.text.trim() }} || '%'
+    OR cl."Societe" ILIKE '%' || {{ inp_search_commande.text.trim() }} || '%'
+    OR cl."Telephone" ILIKE '%' || {{ inp_search_commande.text.trim() }} || '%'
+    OR c."Statut" ILIKE '%' || {{ inp_search_commande.text.trim() }} || '%'
+    OR COALESCE(c."Notes", '') ILIKE '%' || {{ inp_search_commande.text.trim() }} || '%'
+  )
+
+ORDER BY 
+  CASE 
+    WHEN c."Statut" ILIKE '%Action requise%' THEN 1
+    WHEN c."Statut" ILIKE '%COMMANDE COMPLÈTE%' OR c."Statut" ILIKE '%COMMANDE COMPLETE%' THEN 2
+    WHEN c."Statut" ILIKE '%PIÈCE À COMMANDER%' OR c."Statut" ILIKE '%PIECE A COMMANDER%' THEN 3
+    WHEN c."Statut" ILIKE '%PIÈCE EN COMMANDE%' OR c."Statut" ILIKE '%PIECE EN COMMANDE%' THEN 4
+    WHEN c."Statut" ILIKE '%En attente%' THEN 5
+    WHEN c."Statut" ILIKE '%FACTURÉ%' OR c."Statut" ILIKE '%FACTURE%' THEN 99
+    ELSE 50
+  END ASC,
+  c."Date" DESC,
+  c."ID_Commande_Client" DESC
+LIMIT {{ Table_commande_client.pageSize || 100 }}
+OFFSET {{ Table_commande_client.pageOffset || 0 }};

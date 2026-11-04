@@ -1,0 +1,12 @@
+INSERT INTO public."LIGNES_LOCATION" (
+  "ID_Ligne_Location",
+  "ID_Location",
+  "ID_Article",
+  "Quantite"
+) 
+VALUES (
+  gen_random_uuid()::text,
+  '{{ appsmith.URL.queryParams.id }}',
+  '{{ sel_article.selectedOptionValue }}',
+  {{ Number(inp_add_qte.text || 1) }}
+);

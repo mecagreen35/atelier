@@ -1,0 +1,7 @@
+SELECT 'Tous les mécanos' AS label, 'TOUS' AS value, 0 AS ordre
+UNION ALL
+SELECT 'Non assigné' AS label, 'Non assigné' AS value, 1 AS ordre
+UNION ALL
+SELECT "Prenom" AS label, "ID_Employe" AS value, 2 AS ordre
+FROM public."Employes"
+ORDER BY ordre ASC, label ASC;

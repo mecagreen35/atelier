@@ -1,0 +1,49 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 47,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonVariant": "TERTIARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "trash",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "fx4fch7m6m",
+  "leftColumn": 1,
+  "minWidth": 50,
+  "mobileBottomRow": 47,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 5,
+  "mobileTopRow": 43,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Delete_Creneau.run()\n    .then(() => {\n      showAlert('Créneau supprimé', 'success');\n      closeModal('modal_detail_creneau');\n      return Get_Calendar_Interventions.run();\n    })\n    .catch((err) => showAlert('Erreur lors de la suppression : ' + err.message, 'error'))\n}}",
+  "originalBottomRow": 47,
+  "originalTopRow": 43,
+  "parentColumnSpace": 10.28125,
+  "parentId": "v6rlvwqi0b",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 5,
+  "topRow": 43,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "vq5u57qz1n",
+  "widgetName": "IconButton3"
+}

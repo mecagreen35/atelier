@@ -1,0 +1,6 @@
+SELECT
+  *
+FROM
+  public.VILLES_35
+WHERE
+  "Nom_Ville" ilike '%{{Select_recherche_ville.filterText}}%'

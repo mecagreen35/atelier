@@ -1,0 +1,68 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": false,
+  "borderRadius": "1.5rem",
+  "bottomRow": 15,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  appsmith.store.nouveau_client_id || \"\" ))(sel_client.options, sel_client.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onFilterUpdate"
+    }
+  ],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "4rij12vz7a",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Client",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 15,
+  "mobileLeftColumn": 12,
+  "mobileRightColumn": 32,
+  "mobileTopRow": 8,
+  "needsErrorInfo": false,
+  "onFilterUpdate": "{{Get_Clients_Options.run()}}",
+  "onOptionChange": "",
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 8.125,
+  "parentId": "221seb03jg",
+  "parentRowSpace": 10,
+  "placeholderText": "Recherche Client",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 53,
+  "serverSideFiltering": false,
+  "sourceData": "{{Get_Clients_Options.data}}",
+  "topRow": 8,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "gw05gbprob",
+  "widgetName": "sel_client"
+}

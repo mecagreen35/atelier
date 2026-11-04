@@ -1,0 +1,9 @@
+SELECT * FROM public.v_gestion_garanties
+WHERE ({{ !sel_statut.selectedOptionValue }} OR "Statut_Dossier" = {{ sel_statut.selectedOptionValue }})
+  AND ({{ !sel_filtre_fournisseur.selectedOptionValue }} OR "ID_Fournisseur_Garantie" = {{ sel_filtre_fournisseur.selectedOptionValue }})
+  AND (
+    {{ !inp_search.text }} 
+    OR "N° OR" ILIKE {{ '%' + inp_search.text + '%' }}
+    OR "Client_Nom" ILIKE {{ '%' + inp_search.text + '%' }}
+    OR "N_Serie" ILIKE {{ '%' + inp_search.text + '%' }}
+  );

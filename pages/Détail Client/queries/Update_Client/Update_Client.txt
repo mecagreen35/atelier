@@ -1,0 +1,14 @@
+UPDATE public."Clients"
+SET 
+    "Type_Client" = {{rad_type_client.selectedOptionValue}},
+    "Nom" = {{Inp_nom.text}},
+    "Prénom" = {{Inp_Prenom.text}},
+    "Societe" = {{Inp_societe.text}},
+    "siret" = {{Inp_siret.text}},
+    "Adresse" = {{Inp_adresse.text}},
+    "code_postal" = {{Inp_code_postal.text}},
+    "ville" = {{Inp_ville.text}},
+    "Telephone" = {{Inp_telephone.text}},
+    "Email" = {{Inp_email.text}},
+    "Statut_Ligne" = 'À Synchroniser'
+WHERE "ID_Client" = {{ appsmith.store.detail_client_id }};

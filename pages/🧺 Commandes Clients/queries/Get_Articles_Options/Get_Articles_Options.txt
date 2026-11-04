@@ -1,0 +1,17 @@
+SELECT 
+  "ID_Article" AS value,
+  "Recherche_Article" AS label
+FROM public."ARTICLES"
+WHERE 
+  "Statut_Ligne" = 'Actif'
+  AND (
+    {{ !sel_article.filterText }} 
+    OR "Recherche_Article" ILIKE {{ '%' + sel_article.filterText + '%' }}
+  )
+ORDER BY 
+  CASE 
+    WHEN "ID_Article" = {{ appsmith.store.nouvel_article_id || '' }} THEN 0 
+    ELSE 1 
+  END,
+  "Recherche_Article" ASC
+LIMIT 50;

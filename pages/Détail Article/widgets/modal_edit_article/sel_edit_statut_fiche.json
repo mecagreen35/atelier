@@ -1,0 +1,50 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 86,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{Get_Detail_Article.data[0].Statut_Fiche}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "aup9mt0oiz",
+  "label": "Statut Finalisé",
+  "labelPosition": "Left",
+  "leftColumn": 46,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 92,
+  "mobileLeftColumn": 17,
+  "mobileRightColumn": 29,
+  "mobileTopRow": 88,
+  "needsErrorInfo": false,
+  "originalBottomRow": 86,
+  "originalTopRow": 82,
+  "parentColumnSpace": 12.9375,
+  "parentId": "b675vxfjlf",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 60,
+  "topRow": 82,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "8ku98vsmal",
+  "widgetName": "sel_edit_statut_fiche"
+}

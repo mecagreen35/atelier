@@ -1,0 +1,6 @@
+UPDATE public."COMMANDES_CLIENTS"
+SET 
+  "Statut" = {{ sel_edit_statut_cmd.selectedOptionValue }},
+  "Notes" = {{ inp_edit_notes_cmd.text }},
+  "Date_Modification" = NOW()
+WHERE "ID_Commande_Client" = {{ Get_Commande_ById.data[0].ID_Commande_Client }};

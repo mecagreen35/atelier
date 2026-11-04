@@ -1,0 +1,2 @@
+SELECT * FROM public."Parc_Materiel" 
+WHERE "ID_Client" = {{ appsmith.store.detail_client_id }};

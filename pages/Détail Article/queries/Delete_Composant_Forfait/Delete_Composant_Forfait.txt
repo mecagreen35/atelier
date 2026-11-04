@@ -1,0 +1,2 @@
+DELETE FROM public."COMPOSITION_FORFAITS" 
+WHERE "ID_Composition" = {{ Table2.triggeredRow.ID_Composition }};

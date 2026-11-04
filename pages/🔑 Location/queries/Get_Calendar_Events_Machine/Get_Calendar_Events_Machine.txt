@@ -1,0 +1,13 @@
+SELECT 
+  "Date_Location",
+  "Type_Duree",
+  "Client_Affichage",
+  "Numero_Location",
+  "Machine_Louee"
+FROM public.v_locations_socle
+WHERE "ID_Machine_Location"::text IN (
+    SELECT jsonb_array_elements_text('{{ JSON.stringify(sel_loc_machine.selectedOptionValues || []) }}'::jsonb)
+)
+  AND COALESCE("Statut", '') NOT IN ('Annule', 'Transferé_en_BL')
+  AND "Date_Location" >= CURRENT_DATE
+ORDER BY "Date_Location" ASC;

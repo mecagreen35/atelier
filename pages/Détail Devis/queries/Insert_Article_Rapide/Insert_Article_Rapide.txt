@@ -1,0 +1,25 @@
+INSERT INTO public."ARTICLES" (
+  "ID_Article",
+  "Ref_Fournisseur",
+  "Designation",
+  "Prix_Achat",
+  "Fournisseur_Par_Defaut",
+  "Famille",
+  "Taux_TVA",
+  "Suivi_en_stock",
+  "Statut_Fiche",
+  "Statut_Ligne"
+)
+VALUES (
+  gen_random_uuid()::text, 
+  {{Inp_reference.text}},
+  {{Inp_designation.text}},
+  {{Inp_prix_achat.text}}::numeric,
+  {{Select_fournisseur.selectedOptionValue}},
+  'PIÈCE DÉTACHÉE',
+  20,
+  true,
+  false, -- ⚠️ Changement ici : false s'écrit sans guillemets pour un type bool
+  'Actif'
+)
+RETURNING "ID_Article", "Designation";

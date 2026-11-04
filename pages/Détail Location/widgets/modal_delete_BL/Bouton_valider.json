@@ -1,0 +1,49 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "h2novegn7g",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Delete_Location.run()\n    .then(() => {\n      // 1. Fermer la modale\n      closeModal('modal_delete_BL');\n      \n      // 2. Notification de succès\n      showAlert('Location supprimée avec succès', 'success');\n      \n      // 3. Retour à la page précédente ou à l'Atelier Global\n      navigateTo(appsmith.store.page_precedente || 'Atelier Global');\n    })\n    .catch(() => {\n      showAlert('Erreur lors de la suppression', 'error');\n    });\n}}",
+  "originalBottomRow": 27,
+  "originalTopRow": 23,
+  "parentId": "cu5zshpzrw",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Supprimer",
+  "topRow": 23,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "wumxkszqx3",
+  "widgetName": "Bouton_valider"
+}

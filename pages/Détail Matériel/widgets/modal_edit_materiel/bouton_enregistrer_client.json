@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 112,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "pt0cu7dfun",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Update_Materiel.run()\n    .then(() => {\n      showAlert('Machine mise à jour avec succès !', 'success');\n      closeModal('modal_edit_materiel');\n      Get_Materiel_Infos.run();\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la modification : ' + err.message, 'error');\n    });\n}}",
+  "originalBottomRow": 105,
+  "originalTopRow": 101,
+  "parentId": "9mkczbd3lw",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "text": "Modifier",
+  "topRow": 108,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "qi6fb65tuv",
+  "widgetName": "bouton_enregistrer_client"
+}

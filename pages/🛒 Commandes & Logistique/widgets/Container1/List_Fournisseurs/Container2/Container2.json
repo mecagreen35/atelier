@@ -1,0 +1,102 @@
+{
+  "animateLoading": true,
+  "backgroundColor": "{{\n  (() => {\n    const currentTab = appsmith.store.tab_achats || 'A_COMMANDER';\n    const total = Number(currentItem.Total_HT || 0);\n    const franco = Number(currentItem.Franco_De_Port || 0);\n\n    // 1. Onglet À COMMANDER : Gestion du Franco\n    if (currentTab === 'A_COMMANDER') {\n      if (franco > 0 && total >= franco) {\n        return \"#dcfce7\"; // Vert clair\n      }\n      return \"#ffffff\";\n    }\n\n    // 2. Onglet EN COMMANDE : Gestion des retards dynamiques\n    if (currentTab === 'EN_COMMANDE') {\n      const poolData = Array.isArray(Get_Achats_Pool.data) ? Get_Achats_Pool.data : [];\n      \n      const articlesEnCommande = poolData.filter(r => \n        (currentItem.ID_Fournisseur === 'TOUS' || (r.ID_Fournisseur || 'NON_ASSIGNE') === currentItem.ID_Fournisseur) &&\n        ['COMMANDÉ', 'COMMANDE', 'REÇU PARTIEL', 'RECU PARTIEL'].includes((r.Statut_Achat || '').toUpperCase()) &&\n        (r.Date_Livraison_Prevue || r.Date_Commande) // 👈 Sécurité sur l'une ou l'autre date\n      );\n\n      let maxJoursAttente = 0;\n      \n      // 👈 CORRECTION : moment() est dynamique, il prendra toujours la vraie date du jour\n      const aujourdhui = moment().startOf('day');\n      \n      articlesEnCommande.forEach(article => {\n        \n        // 👈 NOUVEAUTÉ : S'il y a une date de livraison prévue, on calcule le délai à partir d'elle.\n        // Sinon, on calcule depuis la date de création de la commande.\n        const dateReference = article.Date_Livraison_Prevue \n          ? moment(article.Date_Livraison_Prevue).startOf('day') \n          : moment(article.Date_Commande).startOf('day');\n\n        const diffJours = aujourdhui.diff(dateReference, 'days');\n        \n        if (diffJours > maxJoursAttente) {\n          maxJoursAttente = diffJours;\n        }\n      });\n\n      if (maxJoursAttente > 10) return \"#fee2e2\"; // Rouge clair (> 10 jours de retard)\n      if (maxJoursAttente > 4) return \"#ffedd5\";  // Orange clair (> 4 jours de retard)\n      \n      return \"#ffffff\"; // Blanc si dans les temps (ou présaison future)\n    }\n\n    return \"#ffffff\";\n  })()\n}}",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 9,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "children": [
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 90,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "7ulu232s7d",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minWidth": 450,
+      "mobileLeftColumn": 0,
+      "mobileTopRow": 0,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "oztq3tah0q",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "topRow": 0,
+      "type": "CANVAS_WIDGET",
+      "useAutoLayout": false,
+      "version": 1,
+      "widgetId": "gpo66klzsu",
+      "widgetName": "Canvas17"
+    }
+  ],
+  "containerStyle": "card",
+  "disabledWidgetFeatures": [
+    "dynamicHeight"
+  ],
+  "disallowCopy": true,
+  "dragDisabled": true,
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "backgroundColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "stretch",
+  "isCanvas": true,
+  "isDeletable": false,
+  "isListItemContainer": true,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "xg3uxpimjf",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 10,
+  "minWidth": 450,
+  "mobileBottomRow": 12,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "noContainerOffset": true,
+  "parentId": "4qvz5ued7d",
+  "positioning": "fixed",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "shouldScrollContents": false,
+  "topRow": 0,
+  "type": "CONTAINER_WIDGET",
+  "version": 1,
+  "widgetId": "oztq3tah0q",
+  "widgetName": "Container2"
+}

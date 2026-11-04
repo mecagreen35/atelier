@@ -1,0 +1,16 @@
+-- 1. Mise à jour de la fiche Article
+UPDATE public."ARTICLES"
+SET "Prix_Achat" = {{ Number(Table_Lignes_Location.updatedRow['Prix Achat'] || 0) }}
+WHERE "ID_Article" = '{{ Table_Lignes_Location.updatedRow.ID_Article }}';
+
+-- 2. Recalcul sur la ligne de location + suppression de l'alerte
+UPDATE public."LIGNES_LOCATION"
+SET 
+  "Prix_Vente_HT" = (
+    SELECT "Prix_Vente_HT" 
+    FROM public."ARTICLES" 
+    WHERE "ID_Article" = '{{ Table_Lignes_Location.updatedRow.ID_Article }}'
+  ),
+  "Prix_Achat" = {{ Number(Table_Lignes_Location.updatedRow['Prix Achat'] || 0) }},
+  "Alerte_Prix" = false
+WHERE "ID_Ligne_Location" = '{{ Table_Lignes_Location.updatedRow.ID_Ligne_Location }}';

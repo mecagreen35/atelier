@@ -1,0 +1,2 @@
+DELETE FROM public."COMMANDES_CLIENTS"
+WHERE "ID_Commande_Client" = {{ Table_commande_client.selectedRow.ID_Commande_Client }};

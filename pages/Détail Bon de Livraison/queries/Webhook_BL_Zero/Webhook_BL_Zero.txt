@@ -1,0 +1,3 @@
+{
+  "ID_BL": "{{ Get_Detail_BL.data[0].ID_BL }}"
+}

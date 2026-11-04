@@ -1,0 +1,67 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "defaultText": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onTextChanged"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onTextChanged"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "search",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "2h2i1oa4fy",
+  "label": "",
+  "labelAlignment": "left",
+  "labelPosition": "Left",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 38,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 26,
+  "mobileRightColumn": 46,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onSubmit": "",
+  "onTextChanged": "{{\n  (async function() {\n    // Si l'utilisateur est sur l'onglet Atelier Perso (Tab 1)\n    if (Tabs1.selectedTab !== \"🛠️ Atelier Global\") {\n      await Get_Atelier_Perso.run();\n    } else {\n      // S'il est sur l'onglet Atelier Global (Tab 2)\n      await Get_Atelier_Global.run();\n    }\n  })()\n}}",
+  "parentColumnSpace": 12.0625,
+  "parentId": "0boawk54tj",
+  "parentRowSpace": 10,
+  "placeholderText": "Rechercher Intervention",
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 55,
+  "showStepArrows": false,
+  "topRow": 0,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "bddmegax2e",
+  "widgetName": "inp_search_intervention"
+}

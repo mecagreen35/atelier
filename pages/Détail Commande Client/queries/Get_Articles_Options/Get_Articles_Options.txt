@@ -1,0 +1,8 @@
+SELECT
+  "ID_Article" AS value,
+  "Recherche_Article" AS label
+FROM public."ARTICLES"
+WHERE "Statut_Ligne" = 'Actif'
+ORDER BY
+  CASE WHEN "ID_Article" = {{ appsmith.store.nouvel_article_id || '' }} THEN 0 ELSE 1 END,
+  "Recherche_Article" ASC;

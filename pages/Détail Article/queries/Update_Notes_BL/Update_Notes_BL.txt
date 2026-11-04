@@ -1,0 +1,3 @@
+UPDATE "BONS_DE_LIVRAISON"
+SET "Description_Facture_Pennylane" = {{ inp_qte_composant.text }}
+WHERE "ID_BL" = {{ appsmith.URL.queryParams.id }};

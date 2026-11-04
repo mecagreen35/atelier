@@ -1,0 +1,2 @@
+DELETE FROM "LIGNES_INVENTAIRE"
+WHERE "ID_Ligne_Inv" = {{ tbl_scans.triggeredRow.ID_Ligne_Inv }};

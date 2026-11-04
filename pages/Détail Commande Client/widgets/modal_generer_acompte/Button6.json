@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 32,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "09zsjg9jgg",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Update_Acompte_Commande.run()\n    .then(() => {\n      // 1. Fermer la modale et prévenir l'utilisateur\n      closeModal('modal_generer_acompte');\n      showAlert('Génération de la facture en cours... Le PDF apparaîtra d\\'ici quelques secondes.', 'info');\n\n      // 2. Initialiser le compteur de Polling\n      let pollCount = 0;\n      const maxPolls = 45; // 45 secondes max (15 essais * 3s)\n      \n      // 3. Lancer la boucle\n      const pollInterval = setInterval(() => {\n        pollCount++;\n        \n        // Rafraîchir les données de la commande\n        Get_Commande_ById.run().then(() => {\n          const commande = Get_Commande_ById.data[0];\n          \n          // Vérifier si le lien de la facture est enfin arrivé\n          if (commande.Lien_Facture_Acompte && commande.Statut_Acompte === 'Facturé') {\n            clearInterval(pollInterval); // Arrêter la boucle\n            showAlert('Facture générée !', 'success');\n            // L'Iframe apparaîtra toute seule grâce à sa propriété Visible\n          } \n          // Si le temps est écoulé (timeout de sécurité)\n          else if (pollCount >= maxPolls) {\n            clearInterval(pollInterval);\n            showAlert('Le traitement est anormalement long. Veuillez rafraîchir manuellement dans 1 minute.', 'warning');\n          }\n        });\n      }, 1000); // Exécuter toutes les 3 secondes\n    })\n    .catch((err) => {\n      showAlert('Erreur d\\'envoi : ' + err.message, 'error');\n    });\n}}",
+  "originalBottomRow": 32,
+  "originalTopRow": 28,
+  "parentId": "s31iprigjy",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Créer Facture",
+  "topRow": 28,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "wu04f94a0u",
+  "widgetName": "Button6"
+}

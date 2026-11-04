@@ -1,0 +1,54 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 36,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "h2novegn7g",
+  "leftColumn": 48,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Update_Commande_Client.run()\n    .then(() => Get_Commandes_Clients.run())\n    .then((donnees) => {\n      const idCommande = Table_commande_client.selectedRow.ID_Commande_Client;\n      const commande = donnees ? donnees.find(c => String(c.ID_Commande_Client) === String(idCommande)) : null;\n      \n      const noteAttendue = inp_edit_notes.text || \"\";\n      const clientAttendu = Select_client.selectedOptionValue;\n      \n      if (commande && String(commande.Notes || \"\") === String(noteAttendue) && String(commande.ID_Client) === String(clientAttendu)) {\n        return true; \n      } else {\n        return new Promise(resolve => setTimeout(resolve, 1500))\n          .then(() => Get_Commandes_Clients.run());\n      }\n    })\n    .then(() => {\n      closeModal('modal_edit_commande');\n      closeModal('Vue_detail_commande_client');\n      \n      // L'ASTUCE ICI : On force le tableau à recharger sa ligne sélectionnée avec les données fraîches\n      return resetWidget('Table_commande_client', true);\n    })\n    .then(() => {\n      showAlert('Commande modifiée avec succès !', 'success');\n      \n      setTimeout(() => {\n        showModal('Vue_detail_commande_client');\n      }, 500);\n    })\n    .catch((err) => {\n      showAlert('Erreur : ' + (err.message || err), 'error');\n    });\n}}",
+  "parentId": "jpnr9teofx",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Modifier",
+  "topRow": 32,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "o1cuga1mna",
+  "widgetName": "Bouton_valider_modif"
+}

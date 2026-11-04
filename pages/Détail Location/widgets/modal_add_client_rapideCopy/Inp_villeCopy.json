@@ -1,0 +1,60 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 77,
+  "boxShadow": "none",
+  "defaultText": "{{ Get_Villes.data.find(row => row.ID_Recherche === Select_recherche_ville.selectedOptionLabel)?.Nom_Ville || \"\" }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "gty5g1tah9",
+  "label": "Ville",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 48,
+  "mobileLeftColumn": 15,
+  "mobileRightColumn": 35,
+  "mobileTopRow": 41,
+  "needsErrorInfo": false,
+  "originalBottomRow": 77,
+  "originalTopRow": 70,
+  "parentColumnSpace": 6.9375,
+  "parentId": "asvfcg90gi",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 60,
+  "showStepArrows": false,
+  "topRow": 70,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "ppaz3dszlm",
+  "widgetName": "Inp_villeCopy"
+}

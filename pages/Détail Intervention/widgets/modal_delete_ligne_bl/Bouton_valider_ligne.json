@@ -1,0 +1,49 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "h2novegn7g",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Delete_Ligne_Intervention.run()\n    .then(() => {\n      // 1. On ferme la petite modale de confirmation\n      closeModal('modal_delete_ligne_bl');\n      \n      // 2. On rafraîchit le tableau pour faire disparaître la ligne\n      return Get_Lignes_Intervention.run();\n    })\n    .then(() => {\n      // 3. On met à jour les infos du BL pour recalculer le TOTAL TTC\n      return Get_Detail_Intervention.run();\n    })\n    .then(() => {\n      showAlert('Article supprimé avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la suppression', 'error');\n      console.error(err);\n    });\n}}",
+  "originalBottomRow": 27,
+  "originalTopRow": 23,
+  "parentId": "6szycmm03k",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Supprimer",
+  "topRow": 23,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "at414ckp7z",
+  "widgetName": "Bouton_valider_ligne"
+}

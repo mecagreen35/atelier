@@ -1,0 +1,11 @@
+SELECT 
+    loc."ID_Location",
+    loc."Numero_Location",
+    loc."Date_Location",
+    loc."Statut",
+    loc."Type_Duree",
+    loc."Client_Affichage",
+    loc."TOTAL_TTC"
+FROM public.v_locations_socle loc
+WHERE loc."ID_Machine_Location"::text = {{ appsmith.URL.queryParams.id || appsmith.store.detail_machine_id }}
+ORDER BY loc."Date_Location" DESC;

@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 35,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1.25rem",
+  "fontStyle": "",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "dnvfz794jr",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 3,
+  "mobileRightColumn": 19,
+  "mobileTopRow": 9,
+  "needsErrorInfo": false,
+  "originalBottomRow": 35,
+  "originalTopRow": 0,
+  "overflow": "NONE",
+  "parentColumnSpace": 16.912499999999998,
+  "parentId": "126cj78od2",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 56,
+  "shouldTruncate": false,
+  "text": "🚜 MARQUE & MODÈLE : <b>{{ Get_Materiel_Infos.data[0]?.Designation_Complete || \"Non renseigné\" }}</b>\n\n🔢 N° SÉRIE : <b>{{ Get_Materiel_Infos.data[0]?.N_Serie || \"SANS N/S\" }}</b>\n\n🏷️ CATÉGORIE / TYPE : <b>{{ Get_Materiel_Infos.data[0]?.Type_Machine || \"Matériel\" }} ({{ Get_Materiel_Infos.data[0]?.Categorie_Materiel || \"Atelier\" }})</b>\n\n⚙️ EXPLOITATION : <b>{{ Get_Materiel_Infos.data[0]?.Statut_Exploitation || \"SAV Client\" }}</b>\n\n👤 PROPRIÉTAIRE : <b>{{ Get_Materiel_Infos.data[0]?.Proprietaire_Nom || \"Non assigné\" }}</b>\n📞 TÉLÉPHONE : <b>{{ Get_Materiel_Infos.data[0]?.Proprietaire_Telephone || \"Non renseigné\" }}</b>\n📍 VILLE : <b>{{ Get_Materiel_Infos.data[0]?.Proprietaire_Ville || \"Non renseignée\" }}</b>{{ Get_Materiel_Infos.data[0]?.Statut_Exploitation !== 'SAV Client' ? \"\\n\\n💶 RÉGIME FISCAL : <b>\" + (Get_Materiel_Infos.data[0]?.Regime_TVA || \"TVA Standard 20%\") + \"</b>\" : \"\" }}{{ Get_Materiel_Infos.data[0]?.Statut_Exploitation !== 'SAV Client' && Get_Materiel_Infos.data[0]?.Prix_Achat_Reprise > 0 ? \"\\n💰 PRIX ACHAT / REPRISE : <b>\" + Get_Materiel_Infos.data[0]?.Prix_Achat_Reprise + \" €</b>\" : \"\" }}{{ Get_Materiel_Infos.data[0]?.Statut_Exploitation !== 'SAV Client' && Get_Materiel_Infos.data[0]?.Prix_Vente_Occasion > 0 ? \"\\n🏷️ PRIX VENTE PRÉVU : <b>\" + Get_Materiel_Infos.data[0]?.Prix_Vente_Occasion + \" €</b>\" : \"\" }}{{ Get_Materiel_Infos.data[0]?.Code_Interne ? \"\\n🔑 CODE FLOTTE LOC : <b>\" + Get_Materiel_Infos.data[0]?.Code_Interne + \" (\" + (Get_Materiel_Infos.data[0]?.Compteur_Heures_Actuel || 0) + \"h)</b>\" : \"\" }}\n\n📝 NOTES TECHNIQUES : \n<b>{{ Get_Materiel_Infos.data[0]?.Notes_Techniques || \"Aucune note\" }}</b>",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 0,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "58qtkt251h",
+  "widgetName": "txt_detail_client"
+}

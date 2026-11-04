@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 5,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ appsmith.user.email !== \"contact@meca-green-motoculture.com\" }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "8ys47d39my",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onClick": "{{showModal(Modal_cloture_inv.name);}}",
+  "parentColumnSpace": 30.25,
+  "parentId": "tgijtpsovu",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Clôturer l'inventaire",
+  "topRow": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "xodfb5x2e4",
+  "widgetName": "Button1"
+}

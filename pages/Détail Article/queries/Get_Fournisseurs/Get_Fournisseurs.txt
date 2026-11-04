@@ -1,0 +1,5 @@
+SELECT 
+  "ID_Fournisseur" AS value, 
+  "Nom_Fournisseur" AS label 
+FROM public."FOURNISSEURS"
+ORDER BY "Nom_Fournisseur" ASC;

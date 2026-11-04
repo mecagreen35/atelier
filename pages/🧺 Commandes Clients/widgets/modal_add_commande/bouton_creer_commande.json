@@ -1,0 +1,59 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 37,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{!sel_client.selectedOptionValue}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ocxr3hcvux",
+  "leftColumn": 40,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Insert_Commande_Client.run()\n    .then((res) => {\n      if (!res || !res[0]) return Promise.reject(\"Pas d'ID\");\n      \n      // Le correctif magique pour contrer les caprices de PostgreSQL\n      const newId = res[0].ID_Commande_Client || res[0].id_commande_client;\n      if (!newId) return Promise.reject(\"Pas d'ID\");\n      \n      // 1ère tentative : On récupère les données IMMÉDIATEMENT\n      return Get_Commandes_Clients.run().then((data) => ({ id: newId, donnees: data }));\n    })\n    .then((resultat) => {\n      let index = resultat.donnees.findIndex(c => String(c.ID_Commande_Client) === String(resultat.id));\n      \n      if (index > -1) {\n        // Trouvée du 1er coup ! On passe à la suite sans attendre\n        return { id: resultat.id, finalIndex: index };\n      } else {\n        // Pas trouvée (Supabase est ralenti). On fait une pause de 1 seconde et on retente !\n        return new Promise(resolve => setTimeout(resolve, 1500))\n          .then(() => Get_Commandes_Clients.run())\n          .then((nouvellesDonnees) => {\n            const indexSecours = nouvellesDonnees.findIndex(c => String(c.ID_Commande_Client) === String(resultat.id));\n            return { id: resultat.id, finalIndex: indexSecours };\n          });\n      }\n    })\n    .then((final) => {\n      // On ferme et on nettoie la modale de création\n      closeModal('modal_add_commande');\n      resetWidget('sel_client', true);\n      resetWidget('inp_new_notes', true);\n      \n      if (final.finalIndex > -1) {\n        // Si la ligne est trouvée, on l'ouvre\n        storeValue('targetIndex', final.finalIndex);\n        setTimeout(() => { showModal('Vue_detail_commande_client'); }, 400);\n      } else {\n        // Si elle n'est toujours pas sur la page 1 du tableau\n        showAlert(\"Commande créée ! (Elle se trouve plus bas dans la liste)\", \"success\");\n      }\n    })\n    .catch((err) => {\n      if (err !== \"Pas d'ID\") showAlert('Erreur lors de la création', 'error');\n    });\n}}",
+  "originalBottomRow": 37,
+  "originalTopRow": 32,
+  "parentId": "27fy1tbzwf",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Créer la commande",
+  "topRow": 32,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "zoghvbqm7a",
+  "widgetName": "bouton_creer_commande"
+}

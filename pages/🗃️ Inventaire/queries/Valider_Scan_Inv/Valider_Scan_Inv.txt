@@ -1,0 +1,29 @@
+INSERT INTO "LIGNES_INVENTAIRE" (
+    "ID_Ligne_Inv",
+    "ID_Inventaire",
+    "ID_Article",
+    "Quantite_Comptee",
+    "Stock_Theorique_Au_Scan",
+    "Ecart",
+    "Date_Dernier_Scan"
+)
+VALUES (
+    {{ 'LINV_' + Date.now() + '_' + Math.floor(Math.random() * 1000) }},
+    {{ select_inventaire.selectedOptionValue }},
+    {{ this.params?.idArticle || select_article.selectedOptionValue }},
+    {{ this.params?.quantite ?? (inp_quantite.text !== "" ? Number(inp_quantite.text) : 1) }},
+    COALESCE((SELECT "Stock_Physique_Dispo" FROM "vue_stock_synthese" WHERE "ID_Article" = {{ this.params?.idArticle || select_article.selectedOptionValue }}), 0),
+    
+    -- Le calcul d'écart se fait proprement ici, uniquement en SQL !
+    ({{ this.params?.quantite ?? (inp_quantite.text !== "" ? Number(inp_quantite.text) : 1) }}::numeric) - COALESCE((SELECT "Stock_Physique_Dispo" FROM "vue_stock_synthese" WHERE "ID_Article" = {{ this.params?.idArticle || select_article.selectedOptionValue }}), 0),
+    
+    CURRENT_TIMESTAMP
+)
+ON CONFLICT ("ID_Inventaire", "ID_Article") 
+DO UPDATE SET 
+    "Quantite_Comptee" = "LIGNES_INVENTAIRE"."Quantite_Comptee" + {{ this.params?.quantite ?? (inp_quantite.text !== "" ? Number(inp_quantite.text) : 1) }},
+    
+    -- Idem ici, le calcul d'écart d'update est 100% SQL :
+    "Ecart" = ("LIGNES_INVENTAIRE"."Quantite_Comptee" + {{ this.params?.quantite ?? (inp_quantite.text !== "" ? Number(inp_quantite.text) : 1) }}) - "LIGNES_INVENTAIRE"."Stock_Theorique_Au_Scan",
+    
+    "Date_Dernier_Scan" = CURRENT_TIMESTAMP;

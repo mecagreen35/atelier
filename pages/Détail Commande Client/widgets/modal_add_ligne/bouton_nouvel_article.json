@@ -1,0 +1,45 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 13,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "plus",
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "z330jjwir8",
+  "leftColumn": 56,
+  "minWidth": 50,
+  "mobileBottomRow": 12,
+  "mobileLeftColumn": 57,
+  "mobileRightColumn": 61,
+  "mobileTopRow": 8,
+  "needsErrorInfo": false,
+  "onClick": "{{showModal(modal_add_article.name).then(() => {\n  Get_Fournisseurs.run();\n});}}",
+  "parentColumnSpace": 6.9375,
+  "parentId": "rzbewlob7w",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "topRow": 9,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "iqn0gxgzdw",
+  "widgetName": "bouton_nouvel_article"
+}

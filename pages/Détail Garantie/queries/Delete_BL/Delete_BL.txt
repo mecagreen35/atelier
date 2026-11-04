@@ -1,0 +1,2 @@
+DELETE FROM "BONS_DE_LIVRAISON"
+WHERE "ID_BL" = {{ appsmith.URL.queryParams.id }};

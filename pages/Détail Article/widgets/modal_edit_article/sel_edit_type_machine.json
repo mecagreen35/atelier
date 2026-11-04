@@ -1,0 +1,72 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 114,
+  "bottomRowBeforeCollapse": 107,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( Get_Detail_Article.data[0].Type_Machine))(sel_edit_type_machine.options, sel_edit_type_machine.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultOptionValue"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{\n  ['MATÉRIEL NEUF', 'MATÉRIEL BATTERIE', 'ROBOT', 'OCCASION'].includes(sel_edit_famille.selectedOptionValue?.trim())\n}}",
+  "key": "sxlb5yopt5",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Type Machine",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 103,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 96,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 114,
+  "originalTopRow": 107,
+  "parentColumnSpace": 12.9375,
+  "parentId": "b675vxfjlf",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 27,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"Tondeuse\", \"value\": \"TONDEUSE\" },\n  { \"label\": \"Autoportée\", \"value\": \"AUTOPORTÉE\" },\n  { \"label\": \"Tronçonneuse\", \"value\": \"TRONÇONNEUSE\" },\n  { \"label\": \"Taille haie\", \"value\": \"TAILLE HAIE\" },\n  { \"label\": \"Débroussailleuse\", \"value\": \"DÉBROUSSAILLEUSE\" },\n  { \"label\": \"Robot\", \"value\": \"ROBOT\" },\n  { \"label\": \"Souffleur\", \"value\": \"SOUFFLEUR\" },\n  { \"label\": \"Divers\", \"value\": \"DIVERS\" },\n  { \"label\": \"Motoculteur\", \"value\": \"MOTOCULTEUR\" },\n  { \"label\": \"Micro tracteur\", \"value\": \"MICRO TRACTEUR\" },\n  { \"label\": \"Motobineuse\", \"value\": \"MOTOBINEUSE\" },\n  { \"label\": \"Nett HP\", \"value\": \"NETT HP\" },\n  { \"label\": \"Broyeur\", \"value\": \"BROYEUR\" },\n  { \"label\": \"Scarificateur\", \"value\": \"SCARIFICATEUR\" },\n\t{ \"label\": \"ACCESSOIRE BATTERIE\", \"value\": \"ACCESSOIRE BATTERIE\" }\n]",
+  "topRow": 107,
+  "topRowBeforeCollapse": 100,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "7v18iuf1fn",
+  "widgetName": "sel_edit_type_machine"
+}

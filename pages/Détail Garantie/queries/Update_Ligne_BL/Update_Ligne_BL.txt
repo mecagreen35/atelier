@@ -1,0 +1,11 @@
+UPDATE "Ligne_BL"
+SET 
+  "Descriptif" = {{ Table_Lignes_BL.updatedRow.Descriptif }},
+  "Quantite" = {{ Table_Lignes_BL.updatedRow.Quantite }},
+  "Prix_HT" = {{ Table_Lignes_BL.updatedRow.Prix_HT }},
+  "Type_Remise" = {{ Table_Lignes_BL.updatedRow.Type_Remise }},
+  "Valeur_Remise" = {{ Table_Lignes_BL.updatedRow.Valeur_Remise }},
+  "N_Serie" = {{ Table_Lignes_BL.updatedRow.N_Serie }},
+  "Ordre_Affichage" = {{ Table_Lignes_BL.updatedRow.Ordre_Affichage }},
+  "Prise_En_Charge" = {{ Table_Lignes_BL.updatedRow.Prise_En_Charge }}
+WHERE "ID_Ligne_BL" = {{ Table_Lignes_BL.updatedRow.ID_Ligne_BL }};

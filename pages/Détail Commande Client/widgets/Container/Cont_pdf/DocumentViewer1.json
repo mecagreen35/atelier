@@ -1,0 +1,33 @@
+{
+  "animateLoading": true,
+  "bottomRow": 62,
+  "docUrl": "{{ Get_Commande_ById.data[0].Lien_Facture_Acompte }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "docUrl"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isCanvas": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "okxwiufwux",
+  "leftColumn": 16,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 16,
+  "mobileRightColumn": 40,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "parentColumnSpace": 20.203125,
+  "parentId": "lp697p028y",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 45,
+  "topRow": 0,
+  "type": "DOCUMENT_VIEWER_WIDGET",
+  "version": 1,
+  "widgetId": "9q0p1ktn2c",
+  "widgetName": "DocumentViewer1"
+}

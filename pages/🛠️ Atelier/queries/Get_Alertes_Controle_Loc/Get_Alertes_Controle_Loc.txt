@@ -1,0 +1,7 @@
+SELECT 
+    "ID_Machine_Location",
+    "Code_Interne",
+    "Designation_Complete",
+    "Alerte_Entretien"
+FROM public.v_suivi_flotte_location
+WHERE "Besoin_Controle_Retour" = true;

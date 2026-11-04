@@ -1,0 +1,10 @@
+SELECT 
+    a."ID_Article",
+    a."Ref_Fournisseur",
+    a."Code_Barre",
+    a."Designation",
+    a."Recherche_Article",
+    v."Stock_Physique_Dispo" 
+FROM "ARTICLES" a
+LEFT JOIN "vue_stock_synthese" v ON a."ID_Article" = v."ID_Article"
+WHERE a."Suivi_en_stock" = true;

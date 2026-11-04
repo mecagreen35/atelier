@@ -1,0 +1,49 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "buttonColor": "#b91c1c",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "h2novegn7g",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Delete_Ligne_Commande.run()\n    .then(() => {\n      closeModal('modal_delete_ligne_commande');\n      return Get_Lignes_Commande.run();\n    })\n    .then(() => Get_Commande_ById.run())\n    .then(() => showAlert('Article supprimé avec succès !', 'success'))\n    .catch(() => showAlert('Erreur lors de la suppression', 'error'))\n}}",
+  "originalBottomRow": 27,
+  "originalTopRow": 23,
+  "parentId": "w0cssitaew",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Supprimer",
+  "topRow": 23,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "6ouom76ssm",
+  "widgetName": "Bouton_valider_ligne"
+}

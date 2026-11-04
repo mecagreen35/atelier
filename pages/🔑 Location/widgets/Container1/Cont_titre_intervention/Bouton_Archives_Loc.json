@@ -1,0 +1,69 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "{{ appsmith.store.show_archives_loc ? \"PRIMARY\" : \"SECONDARY\" }}",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "buttonVariant"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "buttonVariant"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": "{{ Tabs1.selectedTab === \"📋 Contrats\" }}",
+  "key": "6v1d48bfnj",
+  "labelTextSize": "1.875rem",
+  "leftColumn": 27,
+  "minWidth": 120,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 16,
+  "mobileRightColumn": 32,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  // On inverse la valeur dans le store (si c'était vrai, ça devient faux, etc.)\n  storeValue('show_archives_loc', !appsmith.store.show_archives_loc)\n  // On relance la requête pour mettre à jour le tableau\n  .then(() => get_locations.run());\n}}",
+  "parentColumnSpace": 17.1875,
+  "parentId": "pevy9psxzb",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 32,
+  "text": "📁",
+  "tooltip": "Afficher les archives (Facturé)",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "3h1l1iyy2k",
+  "widgetName": "Bouton_Archives_Loc"
+}

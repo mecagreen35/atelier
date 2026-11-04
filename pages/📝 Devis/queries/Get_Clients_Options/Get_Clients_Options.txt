@@ -1,0 +1,8 @@
+SELECT
+  "ID_Client" AS value,
+  "Label_Deroulant" AS label
+FROM public."Clients"
+WHERE "est_archive" = false
+ORDER BY
+  CASE WHEN "ID_Client" = {{ appsmith.store.nouveau_client_id || '' }} THEN 0 ELSE 1 END,
+  "Label_Deroulant" ASC;

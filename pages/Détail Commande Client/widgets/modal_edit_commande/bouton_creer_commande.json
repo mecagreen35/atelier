@@ -1,0 +1,59 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 34,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{!sel_client.selectedOptionValue}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ocxr3hcvux",
+  "leftColumn": 40,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Update_Commande_Client.run()\n    .then(() => {\n      closeModal('modal_edit_commande');\n      Get_Commande_ById.run();\n      showAlert('Commande mise à jour avec succès !', 'success');\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de la mise à jour : ' + err.message, 'error');\n    })\n}}",
+  "originalBottomRow": 34,
+  "originalTopRow": 29,
+  "parentId": "bpa1fzjrg8",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Modifier la commande",
+  "topRow": 29,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "qg5s8xvsu5",
+  "widgetName": "bouton_creer_commande"
+}

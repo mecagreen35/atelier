@@ -1,0 +1,36 @@
+WITH Analyse_Facture AS (
+    -- On regarde s'il y a une ligne de reprise sur ce BL
+    SELECT 
+        EXISTS (
+            SELECT 1 FROM public."Ligne_BL" 
+            WHERE "ID_BL" = {{ Get_Facture_ById.data[0].ID_BL }} 
+              AND ("ID_Article" = 'ART-REPRISE-OCCAS' OR "Quantite" < 0)
+        ) AS "Est_Une_Reprise"
+)
+SELECT 
+    pm."ID_Machine" AS value,
+    TRIM(COALESCE(pm."Marque", '') || ' ' || COALESCE(pm."Modele", '')) 
+        || ' (N/S : ' || COALESCE(pm."N_Serie", 'SANS N/S') || ')' AS label,
+    pm."Regime_TVA" AS regime
+FROM public."Parc_Materiel" pm
+CROSS JOIN Analyse_Facture af
+WHERE 
+    -- CAS 1 : C'est une REPRISE -> On affiche les machines du client de la facture
+    (af."Est_Une_Reprise" = TRUE 
+     AND pm."ID_Client" = {{ Get_Facture_ById.data[0].Client }}
+     AND pm."Statut_Exploitation" = 'SAV Client')
+    
+    OR
+    
+    -- CAS 2 : C'est une VENTE -> On affiche les machines de ton stock occasion
+    (af."Est_Une_Reprise" = FALSE 
+     AND pm."Statut_Exploitation" IN ('Occasion en vente', 'Occasion (En vente)', 'À réviser'))
+    
+    OR
+    
+    -- Sécurité : On garde toujours la machine déjà liée (pour pouvoir l'afficher si elle a été sélectionnée)
+    pm."ID_BL_Vente" = {{ Get_Facture_ById.data[0].ID_BL }}
+    OR 
+    pm."ID_BL_Achat" = {{ Get_Facture_ById.data[0].ID_BL }}
+
+ORDER BY pm."Date_Entree_Stock" DESC NULLS LAST;

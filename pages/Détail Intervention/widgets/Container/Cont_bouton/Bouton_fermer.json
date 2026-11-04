@@ -1,0 +1,50 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "TERTIARY",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconName": "cross",
+  "iconSize": 24,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "5m44v2unxi",
+  "leftColumn": 50,
+  "minWidth": 50,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 58,
+  "mobileRightColumn": 64,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    const pageSource = appsmith.store.page_precedente;\n    const idSource = appsmith.store.id_precedent;\n\n    // Si on vient d'un de nos onglets Atelier (Global ou Perso)\n    if (pageSource === '🛠️ Atelier Global' || pageSource === '🔨 Atelier Perso') {\n      await navigateTo('🛠️ Atelier'); // IMPORTANT : c'est le nom de TA PAGE principale\n    } \n    // Si on vient d'une autre page (Client, Facture, etc.)\n    else if (pageSource && pageSource !== 'Détail Intervention') {\n      if (idSource) {\n        await navigateTo(pageSource, { id: idSource });\n      } else {\n        await navigateTo(pageSource);\n      }\n    } \n    // Sécurité au cas où rien n'est mémorisé\n    else {\n      await navigateTo('🛠️ Atelier');\n    }\n  })()\n}}",
+  "parentId": "pt2olsdd2v",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "tooltip": "Fermer",
+  "topRow": 0,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "uhhw4mi6mq",
+  "widgetName": "Bouton_fermer"
+}

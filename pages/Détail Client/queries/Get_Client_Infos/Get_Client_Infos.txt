@@ -1,0 +1,2 @@
+SELECT * FROM public."Clients"
+WHERE "ID_Client" = {{ appsmith.store.detail_client_id }};

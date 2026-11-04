@@ -1,0 +1,2 @@
+DELETE FROM public."CRENEAUX_INTERVENTIONS"
+WHERE "ID_Creneau" = {{ appsmith.store.selected_creneau_id || Custom_Calendrier_Atelier.model.selectedId }};

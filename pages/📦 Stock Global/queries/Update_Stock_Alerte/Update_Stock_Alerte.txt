@@ -1,0 +1,3 @@
+UPDATE public."ARTICLES"
+SET "Stock_Alerte" = {{ Number(this.params.stock_alerte || 0) }}
+WHERE "ID_Article" = {{ this.params.id_article }};

@@ -1,0 +1,5 @@
+UPDATE "BONS_DE_LIVRAISON"
+SET 
+  "Date_Facture" = {{ Date_facture.selectedDate }},
+  "Statut_Facturation" = 'Envoi n8n en cours'
+WHERE "ID_BL" = {{ appsmith.URL.queryParams.id }};

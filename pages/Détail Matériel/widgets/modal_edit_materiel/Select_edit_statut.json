@@ -1,0 +1,64 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 51,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  Get_Materiel_Infos.data[0]?.Statut_Exploitation || \"SAV Client\" ))(Select_edit_regime_tva.options, Select_edit_regime_tva.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "tt8a5tsqro",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Statut d'exploitation",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 44,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 37,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 51,
+  "originalTopRow": 44,
+  "parentColumnSpace": 6.9375,
+  "parentId": "9mkczbd3lw",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 61,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"SAV Client\", \"value\": \"SAV Client\" },\n  { \"label\": \"Occasion en vente\", \"value\": \"Occasion en vente\" },\n  { \"label\": \"À réviser\", \"value\": \"À réviser\" },\n  { \"label\": \"Parc Location\", \"value\": \"Parc Location\" },\n  { \"label\": \"Vendu\", \"value\": \"Vendu\" },\n  { \"label\": \"Démantelée / Pièces\", \"value\": \"Démantelée / Pièces\" },\n  { \"label\": \"Ferraille / Rebut\", \"value\": \"Ferraille / Rebut\" }\n]",
+  "topRow": 44,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "5b58awbvj6",
+  "widgetName": "Select_edit_statut"
+}

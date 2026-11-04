@@ -1,0 +1,28 @@
+SELECT * 
+FROM public.v_achats_pool
+WHERE 
+  (
+    CASE 
+      WHEN '{{ appsmith.store.tab_achats || 'A_COMMANDER' }}' = 'A_COMMANDER'
+      THEN UPPER(TRIM(COALESCE("Statut_Achat", ''))) IN ('À COMMANDER', 'A COMMANDER')
+      
+      WHEN '{{ appsmith.store.tab_achats }}' = 'EN_COMMANDE'
+      THEN UPPER(TRIM(COALESCE("Statut_Achat", ''))) IN ('COMMANDÉ', 'COMMANDE', 'REÇU PARTIEL', 'RECU PARTIEL')
+      
+      WHEN '{{ appsmith.store.tab_achats }}' = 'HISTORIQUE'
+      THEN UPPER(TRIM(COALESCE("Statut_Achat", ''))) IN ('REÇU', 'RECU')
+      
+      ELSE TRUE
+    END
+  )
+  AND 
+  (
+    {{ !inp_search_devis.text }} OR 
+    "Article_Designation" ILIKE '%' || '{{inp_search_devis.text}}' || '%' OR
+    "Ref_Fournisseur" ILIKE '%' || '{{inp_search_devis.text}}' || '%' OR
+    "Nom_Fournisseur" ILIKE '%' || '{{inp_search_devis.text}}' || '%' OR
+    "Article_Complet" ILIKE '%' || '{{inp_search_devis.text}}' || '%' OR
+    "Client_Affichage" ILIKE '%' || '{{inp_search_devis.text}}' || '%' OR
+		"Numero_Commande_Fournisseur" ILIKE '%' || '{{inp_search_devis.text}}' || '%'
+  )
+ORDER BY "Date_Demande" ASC, "ID_Ligne_Achat" ASC;

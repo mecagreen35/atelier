@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 29,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "m9k8zztgzu",
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 27,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 17,
+  "mobileTopRow": 23,
+  "needsErrorInfo": false,
+  "originalBottomRow": 29,
+  "originalTopRow": 25,
+  "overflow": "NONE",
+  "parentColumnSpace": 6.9375,
+  "parentId": "hatdxazazd",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "shouldTruncate": false,
+  "text": "{{\n  (() => {\n    const selectedId = sel_article.selectedOptionValue;\n    if (!selectedId) return \"Prix TTC : —\";\n\n    const art = (Get_Articles_Options.data || []).find(item => item.value === selectedId);\n    if (!art || art.Prix_Vente_TTC == null) return \"Prix TTC : Non renseigné\";\n\n    const prix = Number(art.Prix_Vente_TTC);\n    return \"Prix TTC : \" + prix.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' });\n  })()\n}}",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 25,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "o6f6adhxi3",
+  "widgetName": "txt_prix_ttc"
+}

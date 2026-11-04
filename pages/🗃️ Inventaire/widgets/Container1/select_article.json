@@ -1,0 +1,65 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "pbkjzzl78k",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "BOLD",
+  "labelText": "Recherche manuel :",
+  "labelTextSize": "1.25rem",
+  "labelWidth": 5,
+  "leftColumn": 14,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 19,
+  "mobileLeftColumn": 20,
+  "mobileRightColumn": 40,
+  "mobileTopRow": 12,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 27,
+  "originalTopRow": 19,
+  "parentColumnSpace": 30.25,
+  "parentId": "tgijtpsovu",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 46,
+  "serverSideFiltering": false,
+  "sourceData": "{{\n  Get_Tous_Articles.data.map(item => ({\n    label: `${item.Ref_Fournisseur || 'SANS-REF'} — ${item.Designation || ''} ${item.Code_Barre ? '[' + item.Code_Barre + ']' : ''} (Dispo : ${item.Stock_Physique_Dispo ?? 0})`,\n    value: item.ID_Article\n  }))\n}}",
+  "topRow": 19,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "4ogaacwskz",
+  "widgetName": "select_article"
+}

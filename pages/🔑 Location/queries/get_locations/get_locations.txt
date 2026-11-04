@@ -1,0 +1,56 @@
+SELECT
+  l."ID_Location" AS "ID",
+  l."Numero_Location" AS "N° Contrat",
+  
+  -- 🟢 CORRECTION DU NOM DU CLIENT ICI : On force le "Client" majuscule et on sécurise les prénoms vides
+  COALESCE(
+    NULLIF(TRIM(c."Societe"), ''), 
+    TRIM(COALESCE(c."Nom", '') || ' ' || COALESCE(c."Prénom", '')),
+    l."Client_Affichage" -- Plan de secours si c'est un très vieux client
+  ) AS "Client",
+
+  COALESCE(
+    TRIM(CONCAT_WS(' - ', ml."Code_Interne", TRIM(CONCAT_WS(' ', ml."Marque", ml."Modele")))),
+    l."Machine_Louee"
+  ) AS "Matériel",
+  l."Type_Duree" AS "Type Durée",
+  l."Date_Location" AS "Date Début",
+  l."Statut" AS "Statut",
+  l."TOTAL_TTC" AS "Total TTC",
+  
+  -- Groupe principal : Statut
+  CASE
+    WHEN l."Statut" = 'En Cours' THEN '1 - En cours'
+    WHEN l."Statut" = 'Termine' THEN '2 - Terminées'
+    WHEN l."Statut" = 'Reservation' THEN '3 - Réservées'
+    WHEN l."Statut" = 'Transferé_en_BL' THEN '4 - Transférées en BL'
+    WHEN l."Statut" = 'Annule' THEN '5 - Annulées'
+    ELSE '99 - Autre'
+  END AS "Groupe_Statut"
+
+FROM public.v_locations_socle l
+LEFT JOIN public."MATERIEL_LOCATION" ml ON ml."ID_Machine_Location" = l."ID_Machine_Location"
+-- On fait le lien avec la table Clients pour être sûr d'avoir les données brutes fiables
+LEFT JOIN public."Clients" c ON c."ID_Client" = l."ID_Client"
+
+WHERE 
+(
+  -- 1. Ton filtre de la barre de recherche (inchangé)
+  (
+    {{ !inp_search_location.text }} 
+    OR l."Client_Affichage" ILIKE '%' || {{ inp_search_location.text }} || '%'
+    OR l."Numero_Location" ILIKE '%' || {{ inp_search_location.text }} || '%'
+    OR ml."Marque" ILIKE '%' || {{ inp_search_location.text }} || '%'
+    OR ml."Modele" ILIKE '%' || {{ inp_search_location.text }} || '%'
+    OR ml."Code_Interne" ILIKE '%' || {{ inp_search_location.text }} || '%'
+  )
+  AND
+  -- 2. Le filtre intelligent basé sur le Store Appsmith
+  (
+    ( {{ !appsmith.store.show_archives_loc }} AND l."Statut" != 'Facturé' )
+    OR 
+    ( {{ !!appsmith.store.show_archives_loc }} )
+  )
+)
+
+ORDER BY "Groupe_Statut" ASC, "Matériel" ASC, l."Date_Location" ASC;

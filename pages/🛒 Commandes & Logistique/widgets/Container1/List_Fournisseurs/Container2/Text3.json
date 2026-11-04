@@ -1,0 +1,61 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    },
+    {
+      "key": "textColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "textColor"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "0.875rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "7qfmne971s",
+  "leftColumn": 2,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 36,
+  "mobileRightColumn": 52,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "overflow": "NONE",
+  "parentColumnSpace": 2.3896484375,
+  "parentId": "gpo66klzsu",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "shouldTruncate": false,
+  "text": "{{ currentItem.Nom_Fournisseur }}",
+  "textAlign": "LEFT",
+  "textColor": "{{\n  (() => {\n    const currentTab = appsmith.store.tab_achats || 'A_COMMANDER';\n\n    // Règle d'alerte texte uniquement sur l'onglet À COMMANDER\n    if (currentTab === 'A_COMMANDER') {\n      const poolData = Array.isArray(Get_Achats_Pool.data) ? Get_Achats_Pool.data : [];\n      const aujourdhui = moment().startOf('day');\n\n      // Filtrer les pièces à commander pour ce fournisseur\n      const articlesACommander = poolData.filter(r => \n        (currentItem.ID_Fournisseur === 'TOUS' || (r.ID_Fournisseur || 'NON_ASSIGNE') === currentItem.ID_Fournisseur) &&\n        ['À COMMANDER', 'A COMMANDER'].includes((r.Statut_Achat || '').toUpperCase()) &&\n        r.Date_Demande\n      );\n\n      let aRetardClientAtelier = false; // Retard > 8 jours pour une commande Client ou un OR Atelier\n      let aRetardStock = false;         // Retard > 8 jours uniquement pour du Stock Magasin\n\n      articlesACommander.forEach(r => {\n        const diffJours = aujourdhui.diff(moment(r.Date_Demande).startOf('day'), 'days');\n        \n        if (diffJours > 8) {\n          // Vérification si la pièce est destinée au stock ou à un client/atelier\n          const estDestineAuStock = !r.ID_Intervention && !r.ID_Commande_Client && (r.Destination === '📦 STOCK MAGASIN' || !r.Destination);\n          \n          if (estDestineAuStock) {\n            aRetardStock = true;\n          } else {\n            aRetardClientAtelier = true;\n          }\n        }\n      });\n\n      // Le rouge prévaut s'il y a au moins une pièce Client/Atelier en retard\n      if (aRetardClientAtelier) return \"#dc2626\"; // Rouge\n      if (aRetardStock) return \"#d97706\";         // Orange\n    }\n\n    return \"#231F20\"; // Couleur de texte sombre par défaut\n  })()\n}}",
+  "topRow": 0,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "9gf59n1vxe",
+  "widgetName": "Text3"
+}

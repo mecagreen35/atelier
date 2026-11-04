@@ -1,0 +1,183 @@
+WITH 
+-- 1. INTERVENTIONS GLOBALES DE L'ATELIER
+interventions_globales AS (
+    SELECT 
+        v."ID_Intervention",
+        v."Date_Entree",
+        v."N° OR",
+        v."Type_Machine",
+        v."Statut",
+        v."Priorité",
+        v."Categorie_Materiel",
+        v."Mecano_Nom",
+        v."Client_Affichage",
+        v."Machine",
+        v."Ordre_Tri_Mecano",
+        v."Score_Priorite",
+        NULL::text AS "ID_Creneau"
+    FROM public.v_atelier_dashboard v
+    WHERE 
+        -- Recherche texte
+        (
+            '{{ inp_search_intervention.text }}' = ''
+            OR v."N° OR" ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR v."Client_Affichage" ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR v."Machine" ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+        )
+        -- Filtre archives
+        AND (
+            (
+                {{ !appsmith.store.show_archives_interv }}
+                AND UPPER(TRIM(v."Statut")) NOT IN ('LIVRÉ.FACTURÉ', 'LIVRE.FACTURE', 'LIVRÉ / FACTURÉ', 'FACTURE', 'FACTURÉ')
+                AND LOWER(v."Statut") NOT LIKE '%factur%'
+            )
+            OR
+            (
+                {{ !!appsmith.store.show_archives_interv }}
+                AND (
+                    '{{ inp_search_intervention.text }}' <> ''
+                    OR UPPER(TRIM(v."Statut")) NOT IN ('LIVRÉ.FACTURÉ', 'LIVRE.FACTURE', 'LIVRÉ / FACTURÉ', 'FACTURE', 'FACTURÉ')
+                    OR LOWER(v."Statut") NOT LIKE '%factur%'
+                    OR v."Date_Entree" >= CURRENT_DATE - INTERVAL '365 days'
+                )
+            )
+        )
+        -- Évite le doublon si l'intervention a déjà un créneau planifié
+        AND v."ID_Intervention" NOT IN (
+            SELECT c_sub."ID_Intervention" 
+            FROM public."CRENEAUX_INTERVENTIONS" c_sub 
+            WHERE c_sub."ID_Intervention" IS NOT NULL 
+              AND c_sub."Statut_Creneau" <> 'Annulé' 
+              AND c_sub."Date_Fin" >= NOW() - INTERVAL '2 hours'
+        )
+),
+
+-- 2. CRÉNEAUX LOGISTIQUE & CLIENTS UNIQUEMENT
+creneaux_visibles AS (
+    SELECT 
+        c."ID_Intervention",
+        c."Date_Debut" AS "Date_Entree",
+        COALESCE(i."N° OR", '-') AS "N° OR",
+        COALESCE(i."Type_Machine", c."Type_Creneau") AS "Type_Machine",
+        
+        -- Détermination imminent vs planifié
+        CASE 
+            WHEN (c."Date_Debut" <= NOW() + INTERVAL '24 hours' AND c."Date_Fin" >= NOW() - INTERVAL '2 hours')
+                 OR (
+                     EXTRACT(ISODOW FROM c."Date_Debut" AT TIME ZONE 'Europe/Paris') = 1
+                     AND EXTRACT(ISODOW FROM NOW() AT TIME ZONE 'Europe/Paris') IN (5, 6, 7, 1)
+                     AND (c."Date_Debut"::date - (NOW() AT TIME ZONE 'Europe/Paris')::date) BETWEEN 0 AND 3
+                     AND c."Date_Fin" >= NOW() - INTERVAL '2 hours'
+                 )
+            THEN 'CRÉNEAU IMMINENT'
+            ELSE 'CRÉNEAU PLANIFIÉ'
+        END AS "Statut",
+        
+        COALESCE(i."Priorité", 'Normal') AS "Priorité",
+        COALESCE(i."Categorie_Materiel", 'Planning') AS "Categorie_Materiel",
+        COALESCE(e."Prenom", 'Non assigné') AS "Mecano_Nom",
+        
+        -- Client_Affichage
+        CASE 
+            WHEN c."ID_Intervention" IS NOT NULL THEN
+                '[' || to_char(c."Date_Debut" AT TIME ZONE 'Europe/Paris', 'DD/MM HH24:MI') || '] ' ||
+                COALESCE(
+                    NULLIF(TRIM(cl."Societe"), ''), 
+                    TRIM(COALESCE(cl."Nom", '') || ' ' || COALESCE(cl."Prénom", ''))
+                )
+            ELSE
+                '[' || to_char(c."Date_Debut" AT TIME ZONE 'Europe/Paris', 'DD/MM HH24:MI') || '] [' || c."Type_Creneau" || '] ' || 
+                COALESCE(
+                    NULLIF(TRIM(cl."Societe"), ''), 
+                    TRIM(COALESCE(cl."Nom", '') || ' ' || COALESCE(cl."Prénom", '')),
+                    c."Commentaire",
+                    'Client'
+                )
+        END AS "Client_Affichage",
+        
+        -- Machine
+        CASE 
+            WHEN c."ID_Intervention" IS NOT NULL THEN
+                COALESCE(pm."Marque", '') || ' - ' || COALESCE(pm."Modele", '')
+            ELSE
+                COALESCE(c."Commentaire", c."Type_Creneau")
+        END AS "Machine",
+        
+        -- Ordre de tri par défaut
+        CASE 
+            WHEN (c."Date_Debut" <= NOW() + INTERVAL '24 hours' AND c."Date_Fin" >= NOW() - INTERVAL '2 hours')
+                 OR (
+                     EXTRACT(ISODOW FROM c."Date_Debut" AT TIME ZONE 'Europe/Paris') = 1
+                     AND EXTRACT(ISODOW FROM NOW() AT TIME ZONE 'Europe/Paris') IN (5, 6, 7, 1)
+                     AND (c."Date_Debut"::date - (NOW() AT TIME ZONE 'Europe/Paris')::date) BETWEEN 0 AND 3
+                     AND c."Date_Fin" >= NOW() - INTERVAL '2 hours'
+                 )
+            THEN '0 - CRÉNEAU IMMINENT'
+            ELSE '5.5 - CRÉNEAU PLANIFIÉ'
+        END AS "Ordre_Tri_Mecano",
+        
+        ROUND(EXTRACT(EPOCH FROM ('2035-01-01'::timestamptz - c."Date_Debut")) / 60.0, 2) AS "Score_Priorite",
+        c."ID_Creneau"::text AS "ID_Creneau"
+        
+    FROM public."CRENEAUX_INTERVENTIONS" c
+    LEFT JOIN public."Interventions" i ON i."ID_Intervention" = c."ID_Intervention"
+    LEFT JOIN public."Clients" cl ON cl."ID_Client" = i."ID_Client"
+    LEFT JOIN public."Parc_Materiel" pm ON pm."ID_Machine" = i."ID_Machine"
+    LEFT JOIN public."Employes" e ON e."ID_Employe" = c."ID_Employe"
+    WHERE 
+        c."Statut_Creneau" <> 'Annulé'
+        AND c."Date_Fin" >= NOW() - INTERVAL '2 hours'
+        AND (
+            c."ID_Intervention" IS NOT NULL
+            OR c."Type_Creneau" IN ('Enlèvement', 'Restitution', 'Dépannage sur place', 'Mise en route Robot')
+        )
+        AND (
+            '{{ inp_search_intervention.text }}' = ''
+            OR COALESCE(cl."Societe", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(cl."Nom", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(cl."Prénom", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(i."N° OR", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+            OR COALESCE(c."Commentaire", '') ILIKE '%' || '{{ inp_search_intervention.text }}' || '%'
+        )
+),
+
+final_result AS (
+    SELECT * FROM interventions_globales
+    UNION ALL
+    SELECT * FROM creneaux_visibles
+)
+
+SELECT * FROM final_result
+ORDER BY 
+    CASE 
+        -- 🟢 Condition pour détecter le patron
+        WHEN {{ appsmith.user.email === 'contact@meca-green-motoculture.com' }} THEN
+            CASE
+                -- 1. Créneaux imminents tout en haut
+                WHEN UPPER("Statut") = 'CRÉNEAU IMMINENT' THEN '00'
+                
+                -- 2. Les actions et process classiques
+                WHEN UPPER("Statut") ILIKE '%ACTION REQUISE%' THEN '01'
+                WHEN UPPER("Statut") ILIKE '%VÉRIFIER%' OR UPPER("Statut") ILIKE '%VERIFIER%' THEN '02'
+                WHEN UPPER("Statut") ILIKE '%PIÈCE À COMMANDER%' OR UPPER("Statut") ILIKE '%PIECE A COMMANDER%' THEN '03'
+                WHEN UPPER("Statut") ILIKE '%DEVIS%' THEN '04'
+                WHEN UPPER("Statut") ILIKE '%EN COURS%' THEN '05'
+                WHEN UPPER("Statut") ILIKE '%REMONTER%' OR UPPER("Statut") ILIKE '%PIÈCES ARRIVÉES%' OR UPPER("Statut") ILIKE '%PIECES ARRIVEES%' THEN '06'
+                
+                -- 3. Diags, TAST et AC bien mélangés ensemble
+                WHEN UPPER("Statut") ILIKE '%DIAGNOSTIQUER%' OR UPPER("Statut") ILIKE '%TAST%' OR UPPER("Statut") ILIKE '%AC%' THEN '07'
+                
+                -- 4. Créneaux planifiés placés juste après les diags
+                WHEN UPPER("Statut") = 'CRÉNEAU PLANIFIÉ' THEN '08'
+                
+                -- 5. Les attentes et finalisations
+                WHEN UPPER("Statut") ILIKE '%ATTENTE%CLIENT%' OR UPPER("Statut") ILIKE '%INFO%CLIENT%' THEN '09'
+                WHEN UPPER("Statut") ILIKE '%COMMANDE%' OR UPPER("Statut") ILIKE '%ATTENTE PIÈCE%' OR UPPER("Statut") ILIKE '%ATTENTE PIECE%' THEN '10'
+                WHEN UPPER("Statut") ILIKE '%PRÊT%' OR UPPER("Statut") ILIKE '%PRET%' THEN '11'
+                
+                ELSE '99' -- Reste du monde
+            END
+        -- 🟡 Si c'est un mécano, l'ordre reste normal (Ordre_Tri_Mecano)
+        ELSE "Ordre_Tri_Mecano"
+    END ASC, 
+    "Score_Priorite" DESC;

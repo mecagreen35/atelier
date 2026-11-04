@@ -1,0 +1,55 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 20,
+  "defaultCheckedState": true,
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{\n  ['TRONÇONNEUSE', 'TRONCONNEUSE', 'ÉLAGUEUSE', 'ELAGUEUSE', 'TRONC PERCHE'].some(kw => \n    (Table_Flotte.triggeredRow.Categorie || '').toUpperCase().includes(kw) ||\n    (Table_Flotte.triggeredRow.Code_Interne || '').toUpperCase().includes(kw) ||\n    (Table_Flotte.triggeredRow.Marque || '').toUpperCase().includes(kw) ||\n    (Table_Flotte.triggeredRow.Modele || '').toUpperCase().includes(kw)\n  )\n}}",
+  "key": "zriwbgi0q2",
+  "label": "🪚 Chaîne affûtée ?",
+  "labelPosition": "Left",
+  "labelStyle": "BOLD",
+  "labelTextSize": "1.25rem",
+  "leftColumn": 3,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 18,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 17,
+  "mobileTopRow": 14,
+  "needsErrorInfo": false,
+  "parentColumnSpace": 9.125,
+  "parentId": "3cyqkowejc",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 32,
+  "topRow": 16,
+  "type": "CHECKBOX_WIDGET",
+  "version": 1,
+  "widgetId": "6tk4d41h4w",
+  "widgetName": "chk_chaine_affutee"
+}

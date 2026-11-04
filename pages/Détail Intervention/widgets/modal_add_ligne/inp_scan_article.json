@@ -1,0 +1,68 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 14,
+  "boxShadow": "none",
+  "defaultText": "{{ appsmith.store.forceFocus ? \"\" : \"\" }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "oatuc3y24e",
+  "label": "⚡ Scan douchette",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "BOLD",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 18,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 11,
+  "needsErrorInfo": false,
+  "onSubmit": "{{\n  (() => {\n    const code = inp_scan_article.text?.trim();\n    if (!code) return;\n\n    // 1. Recherche instantanée dans le catalogue déjà chargé en mémoire\n    const data = Get_Articles_Options.data || [];\n    const art = data.find(item => \n      (item.Code_Barre && item.Code_Barre.trim().toLowerCase() === code.toLowerCase()) ||\n      (item.Ref_Fournisseur && item.Ref_Fournisseur.trim().toLowerCase() === code.toLowerCase()) ||\n      (item.value && item.value.toString().toLowerCase() === code.toLowerCase())\n    );\n\n    if (art) {\n      // 2. Sélectionne automatiquement l'article dans le Select via le store\n      storeValue('nouvel_article_id', art.value);\n      showAlert('✅ Article trouvé : ' + art.label, 'success');\n      resetWidget('inp_scan_article', true);\n      storeValue('forceFocus', Date.now()); // Conserve l'autofocus pour le scan suivant\n    } else {\n      showAlert('❌ Aucun article trouvé pour : ' + code, 'warning');\n      resetWidget('inp_scan_article', true);\n      storeValue('forceFocus', Date.now());\n    }\n  })()\n}}",
+  "parentColumnSpace": 6.9375,
+  "parentId": "32lcz5h0uz",
+  "parentRowSpace": 10,
+  "placeholderText": "Bipez le code-barres ici...",
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "showStepArrows": false,
+  "topRow": 7,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "7xmkqoesm8",
+  "widgetName": "inp_scan_article"
+}

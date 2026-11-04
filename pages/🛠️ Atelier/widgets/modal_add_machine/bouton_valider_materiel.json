@@ -1,0 +1,62 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 79,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n  !Sel_type_machine.selectedOptionValue ||\n  !Rad_categorie_materiel.selectedOptionValue\n}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "mkyrw0t3g7",
+  "leftColumn": 45,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Insert_Machine.run()\n    .then((res) => {\n      // 1. On mémorise l'ID de la nouvelle machine\n      storeValue('nouvelle_machine_id', res[0].ID_Machine);\n      \n      // 2. On rafraîchit la liste des machines du client\n      return Get_Machines_Client.run();\n    })\n    .then(() => {\n      // 3. On ferme la modale de la machine\n      closeModal('modal_add_machine');\n    })\n    .then(() => {\n      // 4. On réouvre la modale d'intervention\n      return showModal('modal_add_intervention');\n    })\n    .then(() => {\n      showAlert('Machine ajoutée au parc avec succès !', 'success');\n    })\n    .catch(() => {\n      showAlert(\"Erreur lors de l'enregistrement de la machine.\", 'error');\n    });\n}}",
+  "originalBottomRow": 79,
+  "originalTopRow": 75,
+  "parentId": "y3ced1gimi",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "text": "Valider",
+  "topRow": 75,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "ggwcsfdp9m",
+  "widgetName": "bouton_valider_materiel"
+}

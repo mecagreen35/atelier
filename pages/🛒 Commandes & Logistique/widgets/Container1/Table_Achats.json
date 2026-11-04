@@ -1,0 +1,1897 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowAddNewRow": false,
+  "animateLoading": false,
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 391,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "cachedTableData": {},
+  "canFreezeColumn": false,
+  "cellBackground": "",
+  "childStylesheet": {
+    "button": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "editActions": {
+      "discardBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "saveBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "saveButtonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "iconButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    },
+    "menuButton": {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "boxShadow": "none",
+      "menuColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "columnOrder": [
+    "Quantite",
+    "Ref_Fournisseur",
+    "Article_Designation",
+    "Client_Affichage",
+    "ID_Ligne_Achat",
+    "Date_Demande",
+    "ID_Article",
+    "Prix_Achat",
+    "Article_Complet",
+    "Livraison_Du_Jour",
+    "customColumn3",
+    "Quantite_BL",
+    "customColumn2",
+    "customColumn1",
+    "Quantite_Deja_Recue",
+    "Prix_Vente_HT",
+    "Statut_Achat",
+    "ID_Fournisseur",
+    "Nom_Fournisseur",
+    "Destination",
+    "Doc_Origine",
+    "ID_Client",
+    "Mecano_Nom",
+    "ID_Intervention",
+    "ID_Commande_Client",
+    "ID_Ligne_Intervention_Liee",
+    "ID_Ligne_Commande_Client_Liee",
+    "Dans_Carton_En_Cours",
+    "Quantite_Scanee",
+    "Numero_Commande_Fournisseur",
+    "Date_Commande",
+    "Date_Livraison_Prevue",
+    "Date_Reception",
+    "Code_Barre",
+    "isHeader",
+    "EditActions1"
+  ],
+  "columnUpdatedAt": 1793798380035,
+  "columnWidthMap": {
+    "Article_Designation": 335,
+    "Client_Affichage": 315,
+    "Dans_Carton_En_Cours": 146,
+    "Date_Livraison_Prevue": 155,
+    "Destination": 259,
+    "Montant_Acompte_TTC": 155,
+    "Nom_Fournisseur": 176,
+    "Quantite": 87,
+    "Ref_Fournisseur": 151,
+    "Statut": 228,
+    "Type_Machine": 182,
+    "customColumn1": 123,
+    "customColumn2": 104,
+    "customColumn3": 81,
+    "xn__N_OR_5ga": 88,
+    "xn__Priorit_hya": 126
+  },
+  "customIsLoading": false,
+  "customIsLoadingValue": "",
+  "defaultPageSize": 0,
+  "defaultSelectedRowIndex": "{{ appsmith.store.targetIndex || 0 }}",
+  "defaultSelectedRowIndices": [
+    0
+  ],
+  "delimiter": ",",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultSelectedRowIndex"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.computedValue"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.cellBackground"
+    },
+    {
+      "key": "primaryColumns.ID_Ligne_Achat.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Demande.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Article.computedValue"
+    },
+    {
+      "key": "primaryColumns.Ref_Fournisseur.computedValue"
+    },
+    {
+      "key": "primaryColumns.Article_Designation.computedValue"
+    },
+    {
+      "key": "primaryColumns.Article_Complet.computedValue"
+    },
+    {
+      "key": "primaryColumns.Quantite.computedValue"
+    },
+    {
+      "key": "primaryColumns.Quantite_Deja_Recue.computedValue"
+    },
+    {
+      "key": "primaryColumns.Prix_Achat.computedValue"
+    },
+    {
+      "key": "primaryColumns.Prix_Vente_HT.computedValue"
+    },
+    {
+      "key": "primaryColumns.Statut_Achat.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Fournisseur.computedValue"
+    },
+    {
+      "key": "primaryColumns.Nom_Fournisseur.computedValue"
+    },
+    {
+      "key": "primaryColumns.Destination.computedValue"
+    },
+    {
+      "key": "primaryColumns.Doc_Origine.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Client.computedValue"
+    },
+    {
+      "key": "primaryColumns.Mecano_Nom.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Intervention.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Commande_Client.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Ligne_Intervention_Liee.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Ligne_Commande_Client_Liee.computedValue"
+    },
+    {
+      "key": "primaryColumns.EditActions1.saveButtonColor"
+    },
+    {
+      "key": "primaryColumns.EditActions1.saveBorderRadius"
+    },
+    {
+      "key": "primaryColumns.EditActions1.discardBorderRadius"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isSaveDisabled"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isDiscardDisabled"
+    },
+    {
+      "key": "primaryColumns.Livraison_Du_Jour.computedValue"
+    },
+    {
+      "key": "primaryColumns.Dans_Carton_En_Cours.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.boxShadow"
+    },
+    {
+      "key": "primaryColumns.customColumn1.borderRadius"
+    },
+    {
+      "key": "primaryColumns.Quantite_Scanee.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Livraison_Du_Jour.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Quantite_Deja_Recue.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Nom_Fournisseur.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Prix_Vente_HT.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Nom_Fournisseur.selectOptions"
+    },
+    {
+      "key": "primaryColumns.Quantite_Scanee.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.customColumn1.iconName"
+    },
+    {
+      "key": "primaryColumns.Quantite_BL.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn2.boxShadow"
+    },
+    {
+      "key": "primaryColumns.customColumn2.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn2.buttonColor"
+    },
+    {
+      "key": "primaryColumns.customColumn2.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.customColumn2.iconName"
+    },
+    {
+      "key": "primaryColumns.Quantite_BL.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Article_Designation.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Article_Designation.textColor"
+    },
+    {
+      "key": "primaryColumns.Quantite.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Ref_Fournisseur.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Prix_Achat.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Quantite_BL.cellBackground"
+    },
+    {
+      "key": "primaryColumns.customColumn1.cellBackground"
+    },
+    {
+      "key": "primaryColumns.customColumn1.isDisabled"
+    },
+    {
+      "key": "primaryColumns.Quantite_Deja_Recue.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Prix_Vente_HT.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Destination.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Doc_Origine.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Mecano_Nom.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Numero_Commande_Fournisseur.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Commande.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Commande.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Numero_Commande_Fournisseur.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Date_Livraison_Prevue.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Reception.computedValue"
+    },
+    {
+      "key": "primaryColumns.Date_Reception.isCellVisible"
+    },
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.Date_Demande.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.customColumn1.buttonColor"
+    },
+    {
+      "key": "primaryColumns.customColumn3.boxShadow"
+    },
+    {
+      "key": "primaryColumns.customColumn3.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn3.menuColor"
+    },
+    {
+      "key": "primaryColumns.customColumn3.isDisabled"
+    },
+    {
+      "key": "primaryColumns.customColumn3.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.customColumn3.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Quantite.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Code_Barre.computedValue"
+    },
+    {
+      "key": "primaryColumns.isHeader.computedValue"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "tableData"
+    },
+    {
+      "key": "cellBackground"
+    },
+    {
+      "key": "textColor"
+    },
+    {
+      "key": "primaryColumns.Client_Affichage.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Nom_Fournisseur.onOptionChange"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isSaveDisabled"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isDiscardDisabled"
+    },
+    {
+      "key": "primaryColumns.customColumn1.buttonColor"
+    },
+    {
+      "key": "primaryColumns.customColumn1.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Livraison_Du_Jour.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Quantite_Deja_Recue.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Nom_Fournisseur.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Prix_Vente_HT.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Quantite_Scanee.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Livraison_Du_Jour.onSubmit"
+    },
+    {
+      "key": "primaryColumns.customColumn1.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn1.iconName"
+    },
+    {
+      "key": "primaryColumns.Quantite_BL.onSubmit"
+    },
+    {
+      "key": "primaryColumns.customColumn2.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.customColumn2.iconName"
+    },
+    {
+      "key": "primaryColumns.customColumn2.buttonColor"
+    },
+    {
+      "key": "primaryColumns.customColumn2.onClick"
+    },
+    {
+      "key": "primaryColumns.Quantite_BL.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Article_Designation.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Article_Designation.textColor"
+    },
+    {
+      "key": "primaryColumns.Quantite.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Ref_Fournisseur.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Prix_Achat.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Quantite_BL.cellBackground"
+    },
+    {
+      "key": "primaryColumns.customColumn1.cellBackground"
+    },
+    {
+      "key": "primaryColumns.customColumn1.isDisabled"
+    },
+    {
+      "key": "primaryColumns.Quantite_Deja_Recue.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Prix_Vente_HT.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Destination.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Doc_Origine.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Mecano_Nom.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Date_Commande.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Numero_Commande_Fournisseur.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Date_Reception.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.Date_Demande.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.customColumn3.menuItems.menuItemgmner81usa.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn3.menuItems.menuItemizubb0bwu4.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn3.isDisabled"
+    },
+    {
+      "key": "primaryColumns.customColumn3.isCellVisible"
+    },
+    {
+      "key": "primaryColumns.customColumn3.cellBackground"
+    },
+    {
+      "key": "primaryColumns.Quantite.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Quantite.onSubmit"
+    },
+    {
+      "key": "primaryColumns.customColumn3.menuItems.menuItem9koifb9xh0.onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "primaryColumns.Nom_Fournisseur.onOptionChange"
+    },
+    {
+      "key": "primaryColumns.Prix_Achat.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Livraison_Du_Jour.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Dans_Carton_En_Cours.onCheckChange"
+    },
+    {
+      "key": "primaryColumns.customColumn1.onClick"
+    },
+    {
+      "key": "primaryColumns.Quantite_BL.onSubmit"
+    },
+    {
+      "key": "primaryColumns.customColumn2.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn3.menuItems.menuItemgmner81usa.onClick"
+    },
+    {
+      "key": "primaryColumns.customColumn3.menuItems.menuItemizubb0bwu4.onClick"
+    },
+    {
+      "key": "primaryColumns.Quantite.onSubmit"
+    },
+    {
+      "key": "primaryColumns.customColumn3.menuItems.menuItem9koifb9xh0.onClick"
+    }
+  ],
+  "enableClientSideSearch": true,
+  "endOfData": false,
+  "flexVerticalAlignment": "start",
+  "fontStyle": "BOLD",
+  "horizontalAlignment": "LEFT",
+  "infiniteScrollEnabled": false,
+  "inlineEditingSaveOption": "ROW_LEVEL",
+  "isLoading": false,
+  "isSortable": true,
+  "isVisible": true,
+  "isVisibleDownload": false,
+  "isVisibleFilters": false,
+  "isVisiblePagination": false,
+  "isVisibleSearch": false,
+  "key": "f5pxctir17",
+  "label": "Data",
+  "leftColumn": 8,
+  "minWidth": 450,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 39,
+  "mobileTopRow": 12,
+  "multiRowSelection": false,
+  "needsErrorInfo": false,
+  "onRowSelected": "",
+  "originalBottomRow": 391,
+  "originalTopRow": 17,
+  "parentColumnSpace": 12.375,
+  "parentId": "s04iswyt26",
+  "parentRowSpace": 10,
+  "primaryColumnId": "ID_Ligne_Achat",
+  "primaryColumns": {
+    "Article_Complet": {
+      "alias": "Article_Complet",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Article_Complet\"])) : Article_Complet })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Article_Complet",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Article_Complet",
+      "notation": "standard",
+      "originalId": "Article_Complet",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Article_Designation": {
+      "alias": "Article_Designation",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Article_Designation\"])) : Article_Designation })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Article_Designation",
+      "index": 6,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Article_Designation",
+      "notation": "standard",
+      "originalId": "Article_Designation",
+      "sticky": "",
+      "textColor": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#1e293b\" : \"\" )) :  currentRow.isHeader ? \"#1e293b\" : \"\"  })()}}",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Client_Affichage": {
+      "alias": "Client_Affichage",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e5e7eb\" : \"transparent\" )) :  currentRow.isHeader ? \"#e5e7eb\" : \"transparent\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Client_Affichage\"])) : Client_Affichage })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Client_Affichage",
+      "index": 0,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Client_Affichage",
+      "notation": "standard",
+      "originalId": "Client_Affichage",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Code_Barre": {
+      "alias": "Code_Barre",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Code_Barre\"])) : Code_Barre })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Code_Barre",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Code_Barre",
+      "notation": "standard",
+      "originalId": "Code_Barre",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Dans_Carton_En_Cours": {
+      "alias": "Dans_Carton_En_Cours",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Dans_Carton_En_Cours\"])) : Dans_Carton_En_Cours })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Dans_Carton_En_Cours",
+      "index": 12,
+      "isCellEditable": true,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "📦 Présent BL",
+      "notation": "standard",
+      "onCheckChange": "{{Update_Pointage_BL.run().then(() => {\n  showAlert('Ligne cochée !', 'success');\n});}}",
+      "originalId": "Dans_Carton_En_Cours",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Date_Commande": {
+      "alias": "Date_Commande",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "date",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Date_Commande\"])) : Date_Commande })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Date_Commande",
+      "index": 28,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.tab_achats || 'A_COMMANDER') !== 'A_COMMANDER' )) :  (appsmith.store.tab_achats || 'A_COMMANDER') !== 'A_COMMANDER'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Date_Commande",
+      "notation": "standard",
+      "originalId": "Date_Commande",
+      "outputFormat": "DD/MM/YYYY",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Date_Demande": {
+      "alias": "Date_Demande",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "date",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Date_Demande\"])) : Date_Demande })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Date_Demande",
+      "index": 3,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.tab_achats || 'A_COMMANDER') === 'A_COMMANDER' )) :  (appsmith.store.tab_achats || 'A_COMMANDER') === 'A_COMMANDER'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Date_Demande",
+      "notation": "standard",
+      "originalId": "Date_Demande",
+      "outputFormat": "DD/MM/YYYY",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Date_Livraison_Prevue": {
+      "alias": "Date_Livraison_Prevue",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Date_Livraison_Prevue\"])) : Date_Livraison_Prevue })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Date_Livraison_Prevue",
+      "index": 3,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Date_Livraison_Prevue",
+      "notation": "standard",
+      "originalId": "Date_Livraison_Prevue",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Date_Reception": {
+      "alias": "Date_Reception",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "date",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Date_Reception\"])) : Date_Reception })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Date_Reception",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.tab_achats === 'HISTORIQUE' )) :  appsmith.store.tab_achats === 'HISTORIQUE'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Date_Reception",
+      "notation": "standard",
+      "originalId": "Date_Reception",
+      "outputFormat": "DD-MM-YYYY",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Destination": {
+      "alias": "Destination",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Destination\"])) : Destination })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Destination",
+      "index": 15,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Destination",
+      "notation": "standard",
+      "originalId": "Destination",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Doc_Origine": {
+      "alias": "Doc_Origine",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Doc_Origine\"])) : Doc_Origine })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Doc_Origine",
+      "index": 16,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Doc_Origine",
+      "notation": "standard",
+      "originalId": "Doc_Origine",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "EditActions1": {
+      "alias": "EditActions1",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "editActions",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "discardActionLabel": "Discard",
+      "discardBorderRadius": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "discardButtonColor": "#F22B2B",
+      "discardButtonVariant": "TERTIARY",
+      "discardIconAlign": "left",
+      "enableFilter": true,
+      "enableSort": true,
+      "id": "EditActions1",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardDisabled": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( !Table_Achats.updatedRowIndices.includes(currentIndex)))}}",
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveDisabled": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( !Table_Achats.updatedRowIndices.includes(currentIndex)))}}",
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Save / Discard",
+      "notation": "standard",
+      "originalId": "EditActions1",
+      "saveActionLabel": "Save",
+      "saveBorderRadius": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "saveButtonColor": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "saveIconAlign": "left",
+      "sticky": "right",
+      "thousandSeparator": true,
+      "validation": {},
+      "width": 150
+    },
+    "ID_Article": {
+      "alias": "ID_Article",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Article\"])) : ID_Article })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Article",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Article",
+      "notation": "standard",
+      "originalId": "ID_Article",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Client": {
+      "alias": "ID_Client",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Client\"])) : ID_Client })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Client",
+      "index": 17,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Client",
+      "notation": "standard",
+      "originalId": "ID_Client",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Commande_Client": {
+      "alias": "ID_Commande_Client",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Commande_Client\"])) : ID_Commande_Client })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Commande_Client",
+      "index": 20,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Commande_Client",
+      "notation": "standard",
+      "originalId": "ID_Commande_Client",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Fournisseur": {
+      "alias": "ID_Fournisseur",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Fournisseur\"])) : ID_Fournisseur })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Fournisseur",
+      "index": 13,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Fournisseur",
+      "notation": "standard",
+      "originalId": "ID_Fournisseur",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Intervention": {
+      "alias": "ID_Intervention",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Intervention\"])) : ID_Intervention })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Intervention",
+      "index": 19,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Intervention",
+      "notation": "standard",
+      "originalId": "ID_Intervention",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Ligne_Achat": {
+      "alias": "ID_Ligne_Achat",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Ligne_Achat\"])) : ID_Ligne_Achat })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Ligne_Achat",
+      "index": 2,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Ligne_Achat",
+      "notation": "standard",
+      "originalId": "ID_Ligne_Achat",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Ligne_Commande_Client_Liee": {
+      "alias": "ID_Ligne_Commande_Client_Liee",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Ligne_Commande_Client_Liee\"])) : ID_Ligne_Commande_Client_Liee })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Ligne_Commande_Client_Liee",
+      "index": 22,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Ligne_Commande_Client_Liee",
+      "notation": "standard",
+      "originalId": "ID_Ligne_Commande_Client_Liee",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Ligne_Intervention_Liee": {
+      "alias": "ID_Ligne_Intervention_Liee",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Ligne_Intervention_Liee\"])) : ID_Ligne_Intervention_Liee })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Ligne_Intervention_Liee",
+      "index": 21,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "ID_Ligne_Intervention_Liee",
+      "notation": "standard",
+      "originalId": "ID_Ligne_Intervention_Liee",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Livraison_Du_Jour": {
+      "alias": "Livraison_Du_Jour",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( \n  Number(currentRow.Livraison_Du_Jour) > 0 \n    ? currentRow.Livraison_Du_Jour \n    : Math.max(0, (Number(currentRow.Quantite) || 0) - (Number(currentRow.Quantite_Deja_Recue) || 0)) \n)) :  \n  Number(currentRow.Livraison_Du_Jour) > 0 \n    ? currentRow.Livraison_Du_Jour \n    : Math.max(0, (Number(currentRow.Quantite) || 0) - (Number(currentRow.Quantite_Deja_Recue) || 0)) \n })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Livraison_Du_Jour",
+      "index": 8,
+      "isCellEditable": true,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.tab_achats === 'EN_COMMANDE' )) :  appsmith.store.tab_achats === 'EN_COMMANDE'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Livraison_Du_Jour",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Quantite_BL.run()\n    .then(() => Get_Achats_Pool.run())\n    .then(() => showAlert('Quantité BL mise à jour', 'success'))\n}}",
+      "originalId": "Livraison_Du_Jour",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Mecano_Nom": {
+      "alias": "Mecano_Nom",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Mecano_Nom\"])) : Mecano_Nom })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Mecano_Nom",
+      "index": 18,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Mecano_Nom",
+      "notation": "standard",
+      "originalId": "Mecano_Nom",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Nom_Fournisseur": {
+      "alias": "Nom_Fournisseur",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "select",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.Nom_Fournisseur )) :  currentRow.Nom_Fournisseur  })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Nom_Fournisseur",
+      "index": 14,
+      "isCellEditable": true,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.tab_achats || 'A_COMMANDER') === 'A_COMMANDER' )) :  (appsmith.store.tab_achats || 'A_COMMANDER') === 'A_COMMANDER'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Nom_Fournisseur",
+      "notation": "standard",
+      "onOptionChange": "{{\n  Update_Fournisseur_Ligne.run()\n    .then(() => Get_Achats_Pool.run())\n    .then(() => Get_Fournisseurs_Achats.run())\n    .then(() => showAlert('Fournisseur modifié pour cette ligne', 'success'))\n    .catch(() => showAlert('Erreur lors de la modification', 'error'))\n}}",
+      "originalId": "Nom_Fournisseur",
+      "selectOptions": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( Get_Fournisseurs.data.map(f => ({ label: f.Nom_Fournisseur, value: f.ID_Fournisseur })) )) :  Get_Fournisseurs.data.map(f => ({ label: f.Nom_Fournisseur, value: f.ID_Fournisseur }))  })()}}",
+      "sortBy": "value",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Numero_Commande_Fournisseur": {
+      "alias": "Numero_Commande_Fournisseur",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Numero_Commande_Fournisseur\"])) : Numero_Commande_Fournisseur })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Numero_Commande_Fournisseur",
+      "index": 17,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.tab_achats || 'A_COMMANDER') !== 'A_COMMANDER' )) :  (appsmith.store.tab_achats || 'A_COMMANDER') !== 'A_COMMANDER'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Numero_Commande_Fournisseur",
+      "notation": "standard",
+      "originalId": "Numero_Commande_Fournisseur",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Prix_Achat": {
+      "alias": "Prix_Achat",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "currency",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Prix_Achat\"])) : Prix_Achat })()}}",
+      "currencyCode": "EUR",
+      "decimals": 2,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Prix_Achat",
+      "index": 10,
+      "isCellEditable": true,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Prix_Achat",
+      "notation": "standard",
+      "onSubmit": "{{Update_Prix_Achat.run().then(() => {\n  Get_Achats_Pool.run();\n  showAlert('Prix achat modifier', 'success');\n});}}",
+      "originalId": "Prix_Achat",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Prix_Vente_HT": {
+      "alias": "Prix_Vente_HT",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Prix_Vente_HT\"])) : Prix_Vente_HT })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Prix_Vente_HT",
+      "index": 11,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.tab_achats === 'EN_COMMANDE' )) :  appsmith.store.tab_achats === 'EN_COMMANDE'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Prix_Vente_HT",
+      "notation": "standard",
+      "originalId": "Prix_Vente_HT",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Quantite": {
+      "alias": "Quantite",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Quantite\"])) : Quantite })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Quantite",
+      "index": 8,
+      "isCellEditable": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( \n  ['À COMMANDER', 'A COMMANDER'].includes((currentRow.Statut_Achat || '').trim().toUpperCase()) && \n  (currentRow.Destination || '').toUpperCase().includes('STOCK') \n)) :  \n  ['À COMMANDER', 'A COMMANDER'].includes((currentRow.Statut_Achat || '').trim().toUpperCase()) && \n  (currentRow.Destination || '').toUpperCase().includes('STOCK') \n })()}}",
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Qte",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Quantite_Achat.run()\n    .then(() => Get_Achats_Pool.run())\n    .then(() => showAlert('Quantité mise à jour', 'success'))\n    .catch((err) => showAlert('Erreur lors de la mise à jour : ' + err.message, 'error'))\n}}",
+      "originalId": "Quantite",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Quantite_BL": {
+      "alias": "Quantite_BL",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.Quantite_BL )) :  currentRow.Quantite_BL  })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Quantite_BL",
+      "index": 25,
+      "isCellEditable": true,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.tab_achats === 'EN_COMMANDE' )) :  appsmith.store.tab_achats === 'EN_COMMANDE'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Quantite_BL",
+      "notation": "standard",
+      "onSubmit": "{{\n  Update_Quantite_BL.run()\n    .then(() => Get_Achats_Pool.run())\n    .then(() => showAlert('Quantité BL mise à jour', 'success'))\n}}",
+      "originalId": "Quantite_BL",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Quantite_Deja_Recue": {
+      "alias": "Quantite_Deja_Recue",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Quantite_Deja_Recue\"])) : Quantite_Deja_Recue })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Quantite_Deja_Recue",
+      "index": 9,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.tab_achats === 'EN_COMMANDE' )) :  appsmith.store.tab_achats === 'EN_COMMANDE'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Quantite_Deja_Recue",
+      "notation": "standard",
+      "originalId": "Quantite_Deja_Recue",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Quantite_Scanee": {
+      "alias": "Quantite_Scanee",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.carton_scans || {})[currentRow.ID_Ligne_Achat] || 0 )) :  (appsmith.store.carton_scans || {})[currentRow.ID_Ligne_Achat] || 0  })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Quantite_Scanee",
+      "index": 8,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.tab_achats === 'EN_COMMANDE' )) :  appsmith.store.tab_achats === 'EN_COMMANDE'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Quantite_Scanee",
+      "notation": "standard",
+      "originalId": "Quantite_Scanee",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Ref_Fournisseur": {
+      "alias": "Ref_Fournisseur",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Ref_Fournisseur\"])) : Ref_Fournisseur })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Ref_Fournisseur",
+      "index": 5,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Ref_Fournisseur",
+      "notation": "standard",
+      "originalId": "Ref_Fournisseur",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Statut_Achat": {
+      "alias": "Statut_Achat",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Statut_Achat\"])) : Statut_Achat })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "Statut_Achat",
+      "index": 12,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Statut_Achat",
+      "notation": "standard",
+      "originalId": "Statut_Achat",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "customColumn1": {
+      "alias": "📦 Pointage",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n  currentRow.isHeader\n    ? '#e2e8f0'\n    : (Boolean(currentRow.Dans_Carton_En_Cours)\n        ? '#10B981'\n        : '#9CA3AF'\n      )\n)) : \n  currentRow.isHeader\n    ? '#e2e8f0'\n    : (Boolean(currentRow.Dans_Carton_En_Cours)\n        ? '#10B981'\n        : '#9CA3AF'\n      )\n })()}}",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "iconButton",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow.Dans_Carton_En_Cours)) : currentRow.Dans_Carton_En_Cours })()}}",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "iconName": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.carton_selection || {})[currentRow.ID_Ligne_Achat] || currentRow.Dans_Carton_En_Cours ? 'check' : 'plus' )) :  (appsmith.store.carton_selection || {})[currentRow.ID_Ligne_Achat] || currentRow.Dans_Carton_En_Cours ? 'check' : 'plus'  })()}}",
+      "id": "customColumn1",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.tab_achats === 'EN_COMMANDE' )) :  appsmith.store.tab_achats === 'EN_COMMANDE'  })()}}",
+      "isDerived": true,
+      "isDisabled": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader === true )) :  currentRow.isHeader === true  })()}}",
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "📦 Pointage",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "onClick": "{{\n  (async () => {\n    const id = currentRow.ID_Ligne_Achat;\n    const selection = appsmith.store.carton_selection || {};\n    const nouveauStatut = !selection[id];\n    \n    // 1. Mise à jour immédiate de la mémoire Appsmith (déclenche la couleur + le compteur 📦)\n    await storeValue('carton_selection', { ...selection, [id]: nouveauStatut });\n    \n    // 2. Enregistrement dans Supabase BDD\n    await Update_Pointage_BL.run();\n    \n    // 3. Rafraîchissement des données\n    await Get_Achats_Pool.run();\n  })()\n}}",
+      "originalId": "customColumn1",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "customColumn2": {
+      "alias": "Sélection",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.commande_selection || {})[currentRow.ID_Ligne_Achat] ? '#10B981' : '#9CA3AF' )) :  (appsmith.store.commande_selection || {})[currentRow.ID_Ligne_Achat] ? '#10B981' : '#9CA3AF'  })()}}",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "cellBackground": "",
+      "columnType": "iconButton",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "iconName": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.commande_selection || {})[currentRow.ID_Ligne_Achat] ? 'check' : 'plus' )) :  (appsmith.store.commande_selection || {})[currentRow.ID_Ligne_Achat] ? 'check' : 'plus'  })()}}",
+      "id": "customColumn2",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( (appsmith.store.tab_achats || 'A_COMMANDER') === 'A_COMMANDER' )) :  (appsmith.store.tab_achats || 'A_COMMANDER') === 'A_COMMANDER'  })()}}",
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Sélection",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "onClick": "{{\n  (async () => {\n    const id = currentRow.ID_Ligne_Achat;\n    const selection = appsmith.store.commande_selection || {};\n    const nouveauStatut = !selection[id];\n    await storeValue('commande_selection', { ...selection, [id]: nouveauStatut });\n  })()\n}}",
+      "originalId": "customColumn2",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "customColumn3": {
+      "alias": "🏷️",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "cellBackground": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader ? \"#e2e8f0\" : \"\" )) :  currentRow.isHeader ? \"#e2e8f0\" : \"\"  })()}}",
+      "columnType": "menuButton",
+      "computedValue": "",
+      "configureMenuItems": {
+        "config": {
+          "id": "config",
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Menu Item"
+        },
+        "id": "config",
+        "label": "Configure menu items"
+      },
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "customColumn3",
+      "index": 10,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.tab_achats !== 'A_COMMANDER' && currentRow.isHeader !== true )) :  appsmith.store.tab_achats !== 'A_COMMANDER' && currentRow.isHeader !== true  })()}}",
+      "isDerived": true,
+      "isDisabled": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( currentRow.isHeader === true )) :  currentRow.isHeader === true  })()}}",
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "🏷️",
+      "labelColor": "#FFFFFF",
+      "menuButtonLabel": "🏷️",
+      "menuColor": "{{Table_Achats.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "menuItems": {
+        "menuItem9koifb9xh0": {
+          "id": "menuItem9koifb9xh0",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "🏷️ 62x50",
+          "onClick": "{{\n  (async function() {\n    try {\n      if (!currentRow.ID_Article) {\n        showAlert(\"Aucun article associé à cette ligne.\", \"warning\");\n        return;\n      }\n      navigateTo(\n        'http://n8n-aylz3ptk0o2myccjljffrq8n.57.128.185.249.sslip.io/webhook/3bc94fda-ab45-4c66-b875-1d1c29234433?id=' + currentRow.ID_Article,\n        {},\n        'NEW_WINDOW'\n      );\n    } catch (err) {\n      showAlert(\"Erreur lors de l'impression : \" + err.message, 'error');\n    }\n  })()\n}}",
+          "widgetId": "4i11pbex0p"
+        },
+        "menuItemgmner81usa": {
+          "id": "menuItemgmner81usa",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "🏷️ 62x30",
+          "onClick": "{{\n  (async function() {\n    try {\n      // 1. On lance l'impression n8n dans un nouvel onglet\n      // On utilise currentRow.ID_Article pour cibler l'article de la ligne cliquée\n      navigateTo(\n        'http://n8n-aylz3ptk0o2myccjljffrq8n.57.128.185.249.sslip.io/webhook/etiquette_62*30?id=' + currentRow.ID_Article,\n        {},\n        'NEW_WINDOW'\n      );\n    } catch (err) {\n      showAlert('Erreur lors de l\\'impression : ' + err.message, 'error');\n    }\n  })()\n}}",
+          "widgetId": "deucbtaxzn"
+        },
+        "menuItemizubb0bwu4": {
+          "id": "menuItemizubb0bwu4",
+          "index": 2,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "🏷️ 62x70",
+          "onClick": "{{\n  (async function() {\n    try {\n      if (!currentRow.ID_Article) {\n        showAlert(\"Aucun article associé à cette ligne.\", \"warning\");\n        return;\n      }\n      navigateTo(\n        'http://n8n-aylz3ptk0o2myccjljffrq8n.57.128.185.249.sslip.io/webhook/etiquette-brother?id=' + currentRow.ID_Article,\n        {},\n        'NEW_WINDOW'\n      );\n    } catch (err) {\n      showAlert(\"Erreur lors de l'impression : \" + err.message, 'error');\n    }\n  })()\n}}",
+          "widgetId": "j0jh5i32hh"
+        }
+      },
+      "menuItemsSource": "STATIC",
+      "menuVariant": "SECONDARY",
+      "notation": "standard",
+      "originalId": "customColumn3",
+      "sourceData": [],
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "isHeader": {
+      "alias": "isHeader",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"isHeader\"])) : isHeader })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "isHeader",
+      "index": 1,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "isHeader",
+      "notation": "standard",
+      "originalId": "isHeader",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    }
+  },
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "searchKey": "",
+  "serverSidePaginationEnabled": true,
+  "showInlineEditingOptionDropdown": true,
+  "tableData": "{{\n  (function() {\n    const poolData = Array.isArray(Get_Achats_Pool.data) ? Get_Achats_Pool.data : [];\n    const selectedFournisseur = List_Fournisseurs.selectedItem?.ID_Fournisseur;\n    const currentTab = appsmith.store.tab_achats || 'A_COMMANDER';\n\n    let data = poolData;\n\n    // 1. Filtrage par le fournisseur sélectionné à gauche (CONSERVÉ)\n    if (selectedFournisseur && selectedFournisseur !== 'TOUS') {\n      data = data.filter(row => {\n        const idF = row.ID_Fournisseur || 'NON_ASSIGNE';\n        return idF === selectedFournisseur || row.Nom_Fournisseur === List_Fournisseurs.selectedItem?.Nom_Fournisseur;\n      });\n    }\n\n    // 2. Filtrage par onglet actif (CONSERVÉ)\n    if (currentTab === 'A_COMMANDER') {\n      data = data.filter(r => ['À COMMANDER', 'A COMMANDER'].includes((r.Statut_Achat || '').toUpperCase()));\n    } else if (currentTab === 'EN_COMMANDE') {\n      data = data.filter(r => ['COMMANDÉ', 'COMMANDE', 'REÇU PARTIEL', 'RECU PARTIEL'].includes((r.Statut_Achat || '').toUpperCase()));\n    } else if (currentTab === 'HISTORIQUE') {\n      data = data.filter(r => ['REÇU', 'RECU'].includes((r.Statut_Achat || '').toUpperCase()));\n    }\n\n    // 3. Regroupement par Référence de commande + Tri par date de dernière réception\n    if (currentTab === 'EN_COMMANDE' || currentTab === 'HISTORIQUE') {\n      const groupes = {};\n      data.forEach(item => {\n        const ref = item.Numero_Commande_Fournisseur?.trim() || 'Sans référence';\n        if (!groupes[ref]) groupes[ref] = [];\n        groupes[ref].push(item);\n      });\n\n      // Calcul de la date la plus récente par groupe (dernière pièce reçue)\n      const listeGroupes = Object.keys(groupes).map(ref => {\n        const items = groupes[ref];\n        const maxDate = items.reduce((max, item) => {\n          const t = new Date(item.Date_Reception || item.Date_Commande || item.Date_Demande || 0).getTime();\n          return t > max ? t : max;\n        }, 0);\n        return { ref, items, maxDate };\n      });\n\n      // Tri des commandes : la plus récente (ou le dernier reliquat reçu) remonte en premier\n      listeGroupes.sort((a, b) => b.maxDate - a.maxDate);\n\n      const dataGroupes = [];\n      const prefixe = currentTab === 'HISTORIQUE' ? '✅ COMMANDE REÇUE' : '🚚 COMMANDE';\n\n      listeGroupes.forEach(g => {\n        // Entête de groupe d'origine (CONSERVÉ À L'IDENTIQUE)\n        dataGroupes.push({\n          ID_Ligne_Achat: `HEADER_${g.ref}`,\n          isHeader: true,\n          Ref_Fournisseur: '',\n          Article_Designation: `${prefixe} : ${g.ref} (${g.items.length} article${g.items.length > 1 ? 's' : ''})`,\n          Prix_Achat: null,\n          Quantite_BL: null,\n          Quantite: null\n        });\n\n        // Tri interne des articles du groupe (du plus récent au plus ancien)\n        const itemsTries = [...g.items].sort((a, b) => {\n          const tA = new Date(a.Date_Reception || a.Date_Commande || 0).getTime();\n          const tB = new Date(b.Date_Reception || b.Date_Commande || 0).getTime();\n          return tB - tA;\n        });\n\n        dataGroupes.push(...itemsTries);\n      });\n\n      return dataGroupes;\n    }\n\n    return data;\n  })()\n}}",
+  "textColor": "",
+  "textSize": "0.875rem",
+  "topRow": 14,
+  "totalRecordsCount": "1000",
+  "type": "TABLE_WIDGET_V2",
+  "version": 2,
+  "verticalAlignment": "CENTER",
+  "widgetId": "az4ka2mrdm",
+  "widgetName": "Table_Achats"
+}

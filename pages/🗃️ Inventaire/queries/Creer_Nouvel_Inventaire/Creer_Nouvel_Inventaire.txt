@@ -1,0 +1,10 @@
+INSERT INTO "INVENTAIRES" (
+    "ID_Inventaire", 
+    "Nom", 
+    "Statut"
+)
+VALUES (
+    {{ 'INV_' + Date.now() }}, 
+    {{ 'Inventaire ' + new Date().getFullYear() + ' - ' + new Date().toLocaleDateString('fr-FR') }},
+    'EN_COURS'
+);

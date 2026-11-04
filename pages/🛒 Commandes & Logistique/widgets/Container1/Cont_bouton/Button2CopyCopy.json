@@ -1,0 +1,61 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "{{ appsmith.store.tab_achats === 'HISTORIQUE' ? 'PRIMARY' : 'SECONDARY' }}",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonVariant"
+    },
+    {
+      "key": "buttonColor"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "buttonVariant"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "7lfkdlodrz",
+  "labelTextColor": "#ffffff",
+  "labelTextSize": "1.875rem",
+  "leftColumn": 49,
+  "minWidth": 120,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 17,
+  "mobileRightColumn": 33,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onClick": "{{ \n  storeValue('tab_achats', 'HISTORIQUE').then(() => { \n    Get_Achats_Pool.run(); \n    Get_Fournisseurs_Achats.run(); \n  }) \n}}",
+  "parentColumnSpace": 11.75,
+  "parentId": "eqsekuqg77",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "📜",
+  "tooltip": "📜 Historique reçu",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "454d7wmwpx",
+  "widgetName": "Button2CopyCopy"
+}

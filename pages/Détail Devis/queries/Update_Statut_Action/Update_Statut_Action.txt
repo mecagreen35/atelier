@@ -1,0 +1,3 @@
+UPDATE public."LIGNES_INTERVENTIONS"
+SET "Statut_Piece" = {{ Table_Lignes_Devis.triggeredRow.Statut_Cible }}
+WHERE "ID_Ligne_Intervention" = {{ Table_Lignes_Devis.triggeredRow.ID_Ligne_Intervention }};

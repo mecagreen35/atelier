@@ -1,0 +1,66 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 45,
+  "bottomRowBeforeCollapse": 45,
+  "boxShadow": "none",
+  "defaultText": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{ rad_type_client.selectedOptionValue === 'Professionnel' || rad_type_client.selectedOptionValue === 'Collectivité' }}",
+  "key": "nd1yduuze9",
+  "label": "Siret",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 36,
+  "mobileLeftColumn": 13,
+  "mobileRightColumn": 33,
+  "mobileTopRow": 29,
+  "needsErrorInfo": false,
+  "originalBottomRow": 45,
+  "originalTopRow": 38,
+  "parentColumnSpace": 6.9375,
+  "parentId": "1zk7acnfea",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 59,
+  "showStepArrows": false,
+  "topRow": 38,
+  "topRowBeforeCollapse": 38,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "9uvigtv5rh",
+  "widgetName": "Inp_siret"
+}

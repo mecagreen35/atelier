@@ -1,0 +1,26 @@
+SELECT
+    a."ID_Article",
+    a."Ref_Fournisseur" AS "Reference",
+    a."Code_Barre",
+    a."Designation",
+    a."Famille",
+    a."Emplacement",
+		a."Reappro_Auto",  -- 🟢 Ajout
+    a."Qte_Reappro",
+    CASE
+        WHEN a."Statut_Fiche"::text IN ('true', 't', '1', 'Finalisé') THEN '✅ Finalisé'
+        ELSE '⚡ Rapide'
+    END AS "Statut_Fiche",
+    a."Stock_Alerte",
+    a."Stock_Actuel",
+    COALESCE(s."Stock_Physique_Dispo", a."Stock_Actuel") AS "Stock_Disponible",
+    COALESCE(s."Stock_Virtuel_Dispo", 0) AS "Stock_Virtuel",
+    COALESCE(s."Capacite_Totale_Dispo", a."Stock_Actuel") AS "Capacite_Totale",
+    a."Prix_Achat",
+    a."Prix_Vente_HT",
+    a."Prix_Vente_TTC",
+    a."Nom_Fournisseur",
+    a."Statut_Stock_Visuel"
+FROM "v_articles_socle" a
+LEFT JOIN "VUE_STOCK_SYNTHESE" s ON a."ID_Article" = s."ID_Article"
+ORDER BY a."Designation" ASC;

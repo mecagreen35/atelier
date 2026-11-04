@@ -1,0 +1,4 @@
+SELECT "ID_BL", "Numero_BL", "Date_BL", "TOTAL_TTC", "Statut_Facturation", "Reste_A_Payer"
+FROM public."BONS_DE_LIVRAISON" 
+WHERE "Client" = {{ appsmith.store.detail_client_id }} 
+ORDER BY "Date_BL" DESC;

@@ -1,0 +1,62 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 31,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  Get_Materiel_Infos.data?.[0]?.Type_Machine?.toUpperCase() || \"\" ))(Sel_edit_type_machine.options, Sel_edit_type_machine.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "1ivboyolsf",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Type de machine",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 36,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 19,
+  "mobileTopRow": 29,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 8.125,
+  "parentId": "9mkczbd3lw",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  { \"label\": \"Tondeuse\", \"value\": \"TONDEUSE\" },\n  { \"label\": \"Autoportée\", \"value\": \"AUTOPORTÉE\" },\n  { \"label\": \"Tronçonneuse\", \"value\": \"TRONÇONNEUSE\" },\n  { \"label\": \"Taille haie\", \"value\": \"TAILLE HAIE\" },\n  { \"label\": \"Débroussailleuse\", \"value\": \"DÉBROUSSAILLEUSE\" },\n  { \"label\": \"Robot\", \"value\": \"ROBOT\" },\n  { \"label\": \"Souffleur\", \"value\": \"SOUFFLEUR\" },\n  { \"label\": \"Divers\", \"value\": \"DIVERS\" },\n  { \"label\": \"Motoculteur\", \"value\": \"MOTOCULTEUR\" },\n  { \"label\": \"Micro tracteur\", \"value\": \"MICRO TRACTEUR\" },\n  { \"label\": \"Motobineuse\", \"value\": \"MOTOBINEUSE\" },\n  { \"label\": \"Nett HP\", \"value\": \"NETT HP\" },\n  { \"label\": \"Broyeur\", \"value\": \"BROYEUR\" },\n  { \"label\": \"Scarificateur\", \"value\": \"SCARIFICATEUR\" },\n  { \"label\": \"Accessoire batterie\", \"value\": \"ACCESSOIRE BATTERIE\" }\n]",
+  "topRow": 24,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "5hqxwg6yml",
+  "widgetName": "Sel_edit_type_machine"
+}

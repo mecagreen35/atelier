@@ -1,0 +1,24 @@
+WITH nouveau_num AS (
+  -- On génère 1 seul numéro de contrat pour tout le groupe
+  SELECT 'LOC-' || LPAD(nextval('public.seq_numero_location')::text, 5, '0') AS num
+)
+INSERT INTO public."BONS_DE_LOCATION" (
+  "ID_Location", 
+  "ID_Client", 
+  "ID_Machine_Location", 
+  "Numero_Location", 
+  "Date_Location", 
+  "Date_Heure_Fin_Prevue", 
+  "Type_Duree", 
+  "Statut"
+) 
+SELECT 
+  gen_random_uuid()::text,
+  '{{ sel_loc_client.selectedOptionValue }}',
+  mach_id,
+  (SELECT num FROM nouveau_num),
+  '{{ moment(dat_loc_debut.selectedDate).format("YYYY-MM-DD") }}'::date,
+  '{{ moment(sel_loc_duree.selectedOptionValue === "Multi_Jours" ? dat_loc_fin.selectedDate : dat_loc_debut.selectedDate).format("YYYY-MM-DD") }}'::timestamp,
+  '{{ sel_loc_duree.selectedOptionValue }}',
+  'Reservation'
+FROM jsonb_array_elements_text('{{ JSON.stringify(sel_loc_machine.selectedOptionValues) }}'::jsonb) AS mach_id;
