@@ -11,7 +11,11 @@
       "key": "buttonColor"
     }
   ],
-  "dynamicPropertyPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
   "dynamicTriggerPathList": [
     {
       "key": "onClick"
@@ -31,7 +35,7 @@
   "mobileRightColumn": 28,
   "mobileTopRow": 1,
   "needsErrorInfo": false,
-  "onClick": "{{showModal(modal_edit_commande.name);}}",
+  "onClick": "{{ showModal('modal_edit_location'); }}",
   "parentColumnSpace": 5.377392578125,
   "parentId": "v3xw4n4u8x",
   "parentRowSpace": 10,

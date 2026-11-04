@@ -1,0 +1,9 @@
+UPDATE public."BONS_DE_LOCATION"
+SET 
+  "Date_Location" = '{{ moment(dat_edit_debut.selectedDate).format("YYYY-MM-DD") }}'::date,
+  
+  "Date_Heure_Fin_Prevue" = '{{ moment(sel_edit_duree.selectedOptionValue === "Multi_Jours" ? dat_edit_fin.selectedDate : dat_edit_debut.selectedDate).format("YYYY-MM-DD") }}'::timestamp,
+  
+  "Type_Duree" = '{{ sel_edit_duree.selectedOptionValue }}'
+
+WHERE "ID_Location" = {{ appsmith.URL.queryParams.id }};

@@ -43,7 +43,7 @@
   "mobileRightColumn": 63,
   "mobileTopRow": 18,
   "needsErrorInfo": false,
-  "onClick": "{{\n  Insert_Location.run()\n    .then(() => {\n      // 1. Affiche un message de succès\n      showAlert('Location(s) créée(s) avec succès !', 'success');\n      // 2. Ferme la fenêtre\n      closeModal('modal_add_location');\n      // 3. Met à jour le tableau principal\n      get_locations.run();\n    })\n    .catch((err) => {\n      // En cas d'erreur\n      showAlert(\"Erreur lors de la création : \" + err.message, 'error');\n    });\n}}",
+  "onClick": "{{\n  Insert_Location.run()\n    .then(async () => {\n      // 1. Ferme la fenêtre immédiatement pour fluidifier l'expérience\n      closeModal('modal_add_location');\n      \n      // 2. Affiche un message de succès\n      showAlert('Location(s) créée(s) avec succès !', 'success');\n      \n      // 3. Rafraîchit les contrats ET l'agenda, puis met le cache à jour\n      await Cache_Location.initialiserPage();\n    })\n    .catch((err) => {\n      // En cas d'erreur\n      showAlert(\"Erreur lors de la création : \" + err.message, 'error');\n    });\n}}",
   "originalBottomRow": 57,
   "originalTopRow": 53,
   "parentId": "k8aj4rdjpu",

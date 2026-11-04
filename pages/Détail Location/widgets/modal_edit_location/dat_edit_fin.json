@@ -1,0 +1,88 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 31,
+  "bottomRowBeforeCollapse": 50,
+  "boxShadow": "none",
+  "closeOnSelection": true,
+  "dateFormat": "DD/MM/YYYY",
+  "datePickerType": "DATE_PICKER",
+  "defaultDate": "{{ Get_Location_Detail.data[0].Date_Heure_Fin_Prevue }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "minDate"
+    },
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "defaultDate"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "minDate"
+    },
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "defaultDate"
+    },
+    {
+      "key": "onDateSelected"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onDateSelected"
+    }
+  ],
+  "firstDayOfWeek": "1",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{ sel_edit_duree.selectedOptionValue === 'Multi_Jours' }}",
+  "key": "z15pqy9ez9",
+  "label": "Date de fin",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDate": "2121-12-31T18:29:00.000Z",
+  "maxDynamicHeight": 9000,
+  "minDate": "{{ dat_edit_debut.selectedDate || moment().format(\"YYYY-MM-DD\") }}",
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 53,
+  "mobileLeftColumn": 9,
+  "mobileRightColumn": 29,
+  "mobileTopRow": 46,
+  "needsErrorInfo": false,
+  "onDateSelected": "{{\n  (function() {\n    if (sel_edit_duree.selectedOptionValue !== 'Multi_Jours' || !dat_edit_fin.selectedDate || !dat_edit_debut.selectedDate) return;\n\n    const resas = Get_Calendar_Events_Machine.data || [];\n    const dateDebutStr = moment(dat_edit_debut.selectedDate).format(\"YYYY-MM-DD\");\n    const dateFinStr = moment(dat_edit_fin.selectedDate).format(\"YYYY-MM-DD\");\n\n    const conflit = resas.some(r => {\n      const dateResa = moment(r.Date_Location).format(\"YYYY-MM-DD\");\n      return dateResa >= dateDebutStr && dateResa <= dateFinStr;\n    });\n\n    if (conflit) {\n      // Affiche le message rouge en haut de l'écran\n      showAlert(\"⚠️ Impossible : Ce matériel est déjà réservé sur certaines dates de cette période.\", \"error\");\n    }\n  })()\n}}",
+  "originalBottomRow": 50,
+  "originalTopRow": 43,
+  "parentColumnSpace": 10.84375,
+  "parentId": "usxp2en5fk",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "shortcuts": false,
+  "timePrecision": "minute",
+  "topRow": 24,
+  "topRowBeforeCollapse": 43,
+  "type": "DATE_PICKER_WIDGET2",
+  "version": 2,
+  "widgetId": "ki9qgd0h92",
+  "widgetName": "dat_edit_fin"
+}

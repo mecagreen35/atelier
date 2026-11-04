@@ -1,0 +1,64 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 15,
+  "boxShadow": "none",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  Get_Location_Detail.data[0].Type_Duree ))(sel_edit_duree.options, sel_edit_duree.serverSideFiltering) }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultOptionValue"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "dkvtg2qb56",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Durée",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 29,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 19,
+  "mobileTopRow": 22,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "originalBottomRow": 35,
+  "originalTopRow": 28,
+  "parentColumnSpace": 6.9375,
+  "parentId": "usxp2en5fk",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 61,
+  "serverSideFiltering": false,
+  "sourceData": "[{ \"label\": \"Journée\", \"value\": \"Journee\" }, { \"label\": \"Matin\", \"value\": \"Matin\" }, { \"label\": \"Après-midi\", \"value\": \"Apres_Midi\" }, { \"label\": \"Plusieurs jours\", \"value\": \"Multi_Jours\" }]",
+  "topRow": 8,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "elibcrcebd",
+  "widgetName": "sel_edit_duree"
+}

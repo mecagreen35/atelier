@@ -1,7 +1,7 @@
 {
   "animateLoading": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 29,
+  "bottomRow": 32,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -38,8 +38,8 @@
   "mobileRightColumn": 18,
   "mobileTopRow": 23,
   "needsErrorInfo": false,
-  "originalBottomRow": 27,
-  "originalTopRow": 23,
+  "originalBottomRow": 32,
+  "originalTopRow": 28,
   "overflow": "NONE",
   "parentColumnSpace": 17.1875,
   "parentId": "5010lsci6l",
@@ -51,7 +51,7 @@
   "text": "Total TTC : {{ Get_Location_Detail.data[0]?.TOTAL_TTC ? Get_Location_Detail.data[0]?.TOTAL_TTC + \" €\" : \"0.00 €\" }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
-  "topRow": 25,
+  "topRow": 28,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

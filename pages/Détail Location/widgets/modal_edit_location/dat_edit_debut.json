@@ -1,0 +1,80 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 23,
+  "boxShadow": "none",
+  "closeOnSelection": true,
+  "dateFormat": "DD/MM/YYYY",
+  "datePickerType": "DATE_PICKER",
+  "defaultDate": "{{ Get_Location_Detail.data[0].Date_Location }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultDate"
+    },
+    {
+      "key": "minDate"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultDate"
+    },
+    {
+      "key": "onDateSelected"
+    },
+    {
+      "key": "minDate"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onDateSelected"
+    }
+  ],
+  "firstDayOfWeek": "1",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "z15pqy9ez9",
+  "label": "Date de location",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDate": "2121-12-31T18:29:00.000Z",
+  "maxDynamicHeight": 9000,
+  "minDate": "{{ moment().format(\"YYYY-MM-DD\") }}",
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 35,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 28,
+  "needsErrorInfo": false,
+  "onDateSelected": "{{\n  Get_Calendar_Events_Machine.run().then(() => {\n    const resas = Get_Calendar_Events_Machine.data || [];\n    const dateChoisie = moment(dat_edit_debut.selectedDate).format(\"YYYY-MM-DD\");\n    const dureeChoisie = sel_edit_duree.selectedOptionValue;\n\n    const resasDuJour = resas.filter(r => moment(r.Date_Location).format(\"YYYY-MM-DD\") === dateChoisie);\n    const aMatin = resasDuJour.some(r => ['Matin', 'Journee', 'Multi_Jours', 'Journee_Demi'].includes(r.Type_Duree));\n    const aAprem = resasDuJour.some(r => ['Apres_Midi', 'Journee', 'Multi_Jours', 'Journee_Demi'].includes(r.Type_Duree));\n\n    let estOccupe = false;\n    if ((dureeChoisie === 'Journee' || dureeChoisie === 'Multi_Jours') && resasDuJour.length > 0) estOccupe = true;\n    if (dureeChoisie === 'Matin' && aMatin) estOccupe = true;\n    if (dureeChoisie === 'Apres_Midi' && aAprem) estOccupe = true;\n\n    if (estOccupe) {\n      showAlert('⚠️ Ce créneau est déjà réservé pour ce matériel !', 'warning');\n    }\n  });\n}}",
+  "originalBottomRow": 43,
+  "originalTopRow": 36,
+  "parentColumnSpace": 10.84375,
+  "parentId": "usxp2en5fk",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "shortcuts": false,
+  "timePrecision": "minute",
+  "topRow": 16,
+  "type": "DATE_PICKER_WIDGET2",
+  "version": 2,
+  "widgetId": "95fj54s3r3",
+  "widgetName": "dat_edit_debut"
+}
