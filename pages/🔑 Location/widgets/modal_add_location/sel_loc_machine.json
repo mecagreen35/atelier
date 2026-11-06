@@ -20,9 +20,16 @@
   "dynamicPropertyPathList": [
     {
       "key": "sourceData"
+    },
+    {
+      "key": "onOptionChange"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onOptionChange"
+    }
+  ],
   "isDisabled": false,
   "isFilterable": true,
   "isLoading": false,
@@ -31,7 +38,7 @@
   "key": "byjttvi6ja",
   "labelAlignment": "left",
   "labelPosition": "Top",
-  "labelText": "Label",
+  "labelText": "Materiel",
   "labelTextSize": "0.875rem",
   "labelWidth": 5,
   "leftColumn": 0,
@@ -43,6 +50,7 @@
   "mobileRightColumn": 20,
   "mobileTopRow": 13,
   "needsErrorInfo": false,
+  "onOptionChange": "{{\n  Get_Calendar_Events_Machine.run().then(() => {\n    const resas = Get_Calendar_Events_Machine.data || [];\n    const dateChoisie = moment(dat_loc_debut.selectedDate).format(\"YYYY-MM-DD\");\n    const dureeChoisie = sel_loc_duree.selectedOptionValue;\n\n    const resasDuJour = resas.filter(r => moment(r.Date_Location).format(\"YYYY-MM-DD\") === dateChoisie);\n    const aMatin = resasDuJour.some(r => ['Matin', 'Journee', 'Multi_Jours', 'Journee_Demi'].includes(r.Type_Duree));\n    const aAprem = resasDuJour.some(r => ['Apres_Midi', 'Journee', 'Multi_Jours', 'Journee_Demi'].includes(r.Type_Duree));\n\n    let estOccupe = false;\n    if ((dureeChoisie === 'Journee' || dureeChoisie === 'Multi_Jours') && resasDuJour.length > 0) estOccupe = true;\n    if (dureeChoisie === 'Matin' && aMatin) estOccupe = true;\n    if (dureeChoisie === 'Apres_Midi' && aAprem) estOccupe = true;\n\n    if (estOccupe) {\n      showAlert('⚠️ Ce créneau est déjà réservé pour ce matériel !', 'warning');\n    }\n  });\n}}",
   "optionLabel": "label",
   "optionValue": "value",
   "parentColumnSpace": 10.84375,
