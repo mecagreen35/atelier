@@ -5,12 +5,12 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": 1,
-  "bottomRow": 401,
+  "bottomRow": 392,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 3900,
+      "bottomRow": 3810,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -56,7 +56,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 3900,
+      "bottomRow": 3880,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -105,7 +105,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 3900,
+      "bottomRow": 3810,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": false,
       "containerStyle": "none",
@@ -193,7 +193,7 @@
   "mobileTopRow": 7,
   "needsErrorInfo": false,
   "onTabSelected": "{{\n  (async function() {\n    // 1. On mémorise le nouvel onglet\n    await storeValue('tab_atelier_actif', Tabs1.selectedTab);\n    \n    // 2. On rafraîchit SEULEMENT si c'est un onglet de tableau\n    if (Tabs1.selectedTab === \"🛠️ Atelier Global\") {\n      await Get_Atelier_Global.run();\n    } \n    else if (Tabs1.selectedTab !== \"📅 Planning\") {\n      // Si ce n'est ni Global, ni Planning, c'est que c'est l'onglet Perso (David)\n      await Get_Atelier_Perso.run();\n    }\n    // Si c'est \"Planning\", on ne fait rien, le calendrier se charge tout seul !\n  })()\n}}",
-  "originalBottomRow": 392,
+  "originalBottomRow": 401,
   "originalTopRow": 7,
   "parentColumnSpace": 17.5,
   "parentId": "11b2xw0tq5",

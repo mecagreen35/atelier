@@ -1,4 +1,0 @@
-SELECT "Prenom" 
-FROM public."Employes" 
-WHERE "Email" = '{{appsmith.user.email}}' 
-LIMIT 1;
