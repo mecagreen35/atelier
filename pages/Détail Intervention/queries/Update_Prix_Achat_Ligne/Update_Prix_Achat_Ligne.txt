@@ -1,6 +1,6 @@
 -- 1. Mise à jour de la fiche Article
 UPDATE public."ARTICLES"
-SET "Prix_Achat" = {{ parseFloat(String(Table_Lignes_Intervention.updatedRow.Prix_Achat || 0).replace(/[^0-9.,-]/g, '').replace(',', '.')) || 0 }}
+SET "Prix_Achat" = {{ parseFloat(String(Table_Lignes_Intervention.updatedRow.Prix_Achat || '0').replace(/\s|€/g, '').replace(/[^0-9.,-]/g, '').replace(',', '.')) || 0 }}
 WHERE "ID_Article" = '{{ Table_Lignes_Intervention.updatedRow.ID_Article }}';
 
 -- 2. Mise à jour de la ligne d'intervention
@@ -11,6 +11,6 @@ SET
     FROM public."ARTICLES" 
     WHERE "ID_Article" = '{{ Table_Lignes_Intervention.updatedRow.ID_Article }}'
   ),
-  "Prix_Achat" = {{ parseFloat(String(Table_Lignes_Intervention.updatedRow.Prix_Achat || 0).replace(/[^0-9.,-]/g, '').replace(',', '.')) || 0 }},
+  "Prix_Achat" = {{ parseFloat(String(Table_Lignes_Intervention.updatedRow.Prix_Achat || '0').replace(/\s|€/g, '').replace(/[^0-9.,-]/g, '').replace(',', '.')) || 0 }},
   "Alerte_Prix" = false
 WHERE "ID_Ligne_Intervention" = '{{ Table_Lignes_Intervention.updatedRow.ID_Ligne_Intervention }}';
