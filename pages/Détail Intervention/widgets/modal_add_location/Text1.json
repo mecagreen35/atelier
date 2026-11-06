@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 25,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "3di7d76ze1",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 34,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 17,
+  "mobileTopRow": 30,
+  "needsErrorInfo": false,
+  "originalBottomRow": 26,
+  "originalTopRow": 21,
+  "overflow": "NONE",
+  "parentColumnSpace": 10.84375,
+  "parentId": "hdehvdp1b0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "shouldTruncate": false,
+  "text": "{{\n  (function() {\n    const machines = sel_loc_machine.selectedOptionValues || [];\n    if (machines.length === 0) {\n      return \"ℹ️ **Sélectionnez au moins une machine** pour afficher les plannings.\";\n    }\n\n    const resas = Get_Calendar_Events_Machine.data || [];\n\n    if (resas.length === 0) {\n      return \"✅ **Disponibilité validée** (aucune réservation à venir pour la sélection).\";\n    }\n\n    let planning = \"📅 **Réservations à venir pour ces matériels :**\\n\";\n    resas.forEach(r => {\n      const date = moment(r.Date_Location).format(\"DD/MM/YYYY\");\n      planning += `• **${date}** [${r.Type_Duree}] — ${r.Machine_Louee} (${r.Client_Affichage})\\n`;\n    });\n\n    return planning;\n  })()\n}}",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 21,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "pyd44tnn4c",
+  "widgetName": "Text1"
+}
