@@ -1,3 +1,0 @@
-UPDATE public."LIGNES_LOCATION"
-SET "Statut_Piece" = 'RÉSERVÉE'
-WHERE "ID_Ligne_Location" = '{{Table_Lignes_Location.triggeredRow.ID_Ligne_Location}}';
