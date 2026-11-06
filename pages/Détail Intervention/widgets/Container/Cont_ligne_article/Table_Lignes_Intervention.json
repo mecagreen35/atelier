@@ -43,12 +43,12 @@
     "Prix_Vente_HT",
     "Prix_Vente_TTC",
     "Total_Ligne_TTC",
-    "Type_Remise",
-    "Valeur_Remise",
     "Ordre_Affichage",
     "customColumn2",
     "Prise_En_Charge",
     "Stock_Physique_Dispo",
+    "Type_Remise",
+    "Valeur_Remise",
     "ID_Article",
     "Code_TVA",
     "ID_Ligne_Intervention",
@@ -62,7 +62,7 @@
     "Emplacement",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1793961860610,
+  "columnUpdatedAt": 1793983890577,
   "columnWidthMap": {
     "Action_Recommandee": 140,
     "Descriptif": 246,
