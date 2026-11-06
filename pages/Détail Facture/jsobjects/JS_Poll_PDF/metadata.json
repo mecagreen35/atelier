@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "6aeb33b78b4c3a79b682d0c2_17cb5732-e566-4dfd-a489-ee7e574227e1",
+  "id": "Détail Facture_JS_Poll_PDF",
+  "unpublishedCollection": {
+    "name": "JS_Poll_PDF",
+    "pageId": "Détail Facture",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}
