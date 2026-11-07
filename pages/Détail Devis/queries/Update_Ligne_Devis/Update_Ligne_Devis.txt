@@ -1,9 +1,9 @@
 UPDATE public."LIGNE_DEVIS"
 SET
   "Descriptif" = {{ Table_Lignes_Devis.updatedRow.Descriptif }},
-  "Quantite" = COALESCE(NULLIF(REPLACE({{ Table_Lignes_Devis.updatedRow.Quantite }}::text, ',', '.'), ''), '1')::numeric,
-  "Prix_Vente_HT" = COALESCE(NULLIF(REPLACE({{ Table_Lignes_Devis.updatedRow.Prix_Vente_HT }}::text, ',', '.'), ''), '0')::numeric,
-  "Type_Remise" = {{ Table_Lignes_Devis.updatedRow.Type_Remise }},
-  "Valeur_Remise" = COALESCE(NULLIF(REPLACE({{ Table_Lignes_Devis.updatedRow.Valeur_Remise }}::text, ',', '.'), ''), '0')::numeric,
-  "Ordre_Affichage" = COALESCE(NULLIF({{ Table_Lignes_Devis.updatedRow.Ordre_Affichage }}::text, ''), '1')::integer
-WHERE "ID_Ligne_Devis" = {{ Table_Lignes_Devis.triggeredRow.ID_Ligne_Devis }};
+  "Quantite" = {{ Number(String(Table_Lignes_Devis.updatedRow.Quantite ?? 1).replace(',', '.')) || 1 }},
+  "Prix_Vente_HT" = {{ Number(String(Table_Lignes_Devis.updatedRow.Prix_Vente_HT ?? 0).replace(',', '.')) || 0 }},
+  "Type_Remise" = {{ Table_Lignes_Devis.updatedRow.Type_Remise || null }},
+  "Valeur_Remise" = {{ Number(String(Table_Lignes_Devis.updatedRow.Valeur_Remise ?? 0).replace(',', '.')) || 0 }},
+  "Ordre_Affichage" = {{ Number(Table_Lignes_Devis.updatedRow.Ordre_Affichage ?? 1) || 1 }}
+WHERE "ID_Ligne_Devis" = {{ Table_Lignes_Devis.updatedRow.ID_Ligne_Devis || Table_Lignes_Devis.triggeredRow.ID_Ligne_Devis }};
