@@ -49,9 +49,12 @@
     "Statut_Piece",
     "ID_Ligne_Devis",
     "ID_Devis",
+    "Emplacement",
+    "Coef",
+    "Marge_Brute",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1790925018020,
+  "columnUpdatedAt": 1794049853391,
   "columnWidthMap": {
     "Action_Recommandee": 140,
     "Descriptif": 188,
@@ -150,6 +153,18 @@
     },
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.Emplacement.computedValue"
+    },
+    {
+      "key": "primaryColumns.Coef.computedValue"
+    },
+    {
+      "key": "primaryColumns.Marge_Brute.computedValue"
+    },
+    {
+      "key": "primaryColumns.Marge_Brute.isCellVisible"
     }
   ],
   "dynamicPropertyPathList": [
@@ -185,6 +200,9 @@
     },
     {
       "key": "primaryColumns.Prix_Achat.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Marge_Brute.isCellVisible"
     }
   ],
   "dynamicTriggerPathList": [
@@ -281,6 +299,41 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "Coef": {
+      "alias": "Coef",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{(() => { const tableData = Table_Lignes_Devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Coef\"])) : Coef })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Coef",
+      "index": 16,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Coef",
+      "notation": "standard",
+      "originalId": "Coef",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "Descriptif": {
       "alias": "Descriptif",
       "allowCellWrapping": true,
@@ -351,6 +404,41 @@
       "sticky": "right",
       "thousandSeparator": true,
       "validation": {},
+      "width": 150
+    },
+    "Emplacement": {
+      "alias": "Emplacement",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_Lignes_Devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Emplacement\"])) : Emplacement })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Emplacement",
+      "index": 15,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "Emplacement",
+      "notation": "standard",
+      "originalId": "Emplacement",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
       "width": 150
     },
     "ID_Article": {
@@ -447,6 +535,41 @@
       "label": "ID_Ligne_Devis",
       "notation": "standard",
       "originalId": "ID_Ligne_Devis",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Marge_Brute": {
+      "alias": "Marge_Brute",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "currency",
+      "computedValue": "{{(() => { const tableData = Table_Lignes_Devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Marge_Brute\"])) : Marge_Brute })()}}",
+      "currencyCode": "EUR",
+      "decimals": 2,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Marge_Brute",
+      "index": 17,
+      "isCellEditable": false,
+      "isCellVisible": "{{(() => { const tableData = Table_Lignes_Devis.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => ( appsmith.store.user_role === 'Patron' )) :  appsmith.store.user_role === 'Patron'  })()}}",
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Marge_Brute",
+      "notation": "standard",
+      "originalId": "Marge_Brute",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",

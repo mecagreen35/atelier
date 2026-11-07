@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT * \nFROM public.\"LIGNE_DEVIS\"\nWHERE \"ID_Devis\" = {{ appsmith.URL.queryParams.id }}\nORDER BY \"Ordre_Affichage\" ASC;",
+      "body": "SELECT *\nFROM public.v_lignes_devis_detail\nWHERE \"ID_Devis\" = {{ appsmith.URL.queryParams.id }}\nORDER BY \"Ordre_Affichage\" ASC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

@@ -1,4 +1,4 @@
-SELECT * 
-FROM public."LIGNE_DEVIS"
+SELECT *
+FROM public.v_lignes_devis_detail
 WHERE "ID_Devis" = {{ appsmith.URL.queryParams.id }}
 ORDER BY "Ordre_Affichage" ASC;
