@@ -4,7 +4,7 @@
   "borderColor": "#ffffff",
   "borderRadius": "1.5rem",
   "borderWidth": "0",
-  "bottomRow": 36,
+  "bottomRow": 33,
   "bottomRowBeforeCollapse": 33,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
@@ -53,9 +53,10 @@
     "Date_Entree_Stock",
     "Date_Sortie_Stock",
     "TVA_Pointee",
+    "Numero_Immo",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1792856917514,
+  "columnUpdatedAt": 1794228416222,
   "columnWidthMap": {
     "Action_Recommandee": 160,
     "Prix_Achat": 127,
@@ -158,6 +159,9 @@
     },
     {
       "key": "primaryColumns.TVA_Pointee.computedValue"
+    },
+    {
+      "key": "primaryColumns.Numero_Immo.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -172,9 +176,16 @@
     },
     {
       "key": "isVisible"
+    },
+    {
+      "key": "onRowSelected"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onRowSelected"
+    }
+  ],
   "enableClientSideSearch": true,
   "endOfData": false,
   "flexVerticalAlignment": "start",
@@ -196,12 +207,13 @@
   "mobileRightColumn": 32,
   "mobileTopRow": 16,
   "needsErrorInfo": false,
+  "onRowSelected": "{{\n  navigateTo('Détail Matériel', {\n    id_machine: Table_materiel.selectedRow.ID_Machine,\n    from: 'Détail Client',\n    from_id: appsmith.URL.queryParams.id || appsmith.URL.queryParams.id_client\n  })\n}}",
   "originalBottomRow": 36,
   "originalTopRow": 8,
   "parentColumnSpace": 6.9375,
   "parentId": "m0riih0nza",
   "parentRowSpace": 10,
-  "primaryColumnId": "ID_Ligne_Client",
+  "primaryColumnId": "ID_Machine",
   "primaryColumns": {
     "Annee": {
       "alias": "Annee",
@@ -655,6 +667,41 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "Numero_Immo": {
+      "alias": "Numero_Immo",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table_materiel.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Numero_Immo\"])) : Numero_Immo })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Numero_Immo",
+      "index": 20,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Numero_Immo",
+      "notation": "standard",
+      "originalId": "Numero_Immo",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "Photo_Plaque": {
       "alias": "Photo_Plaque",
       "allowCellWrapping": false,
@@ -940,7 +987,7 @@
   "showInlineEditingOptionDropdown": true,
   "tableData": "{{Get_Client_Parc.data}}",
   "textSize": "0.875rem",
-  "topRow": 8,
+  "topRow": 5,
   "topRowBeforeCollapse": 5,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",

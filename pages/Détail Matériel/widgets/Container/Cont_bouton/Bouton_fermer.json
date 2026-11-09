@@ -36,7 +36,7 @@
   "mobileRightColumn": 64,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "onClick": "{{ \n  navigateTo(\n    appsmith.store.page_precedente || 'Détail Client', \n    appsmith.store.id_precedent ? { id: appsmith.store.id_precedent } : {}\n  ) \n}}",
+  "onClick": "{{\n  navigateTo(appsmith.URL.queryParams.from || 'Détail Client', {\n    id: appsmith.URL.queryParams.from_id,\n    id_client: appsmith.URL.queryParams.from_id\n  })\n}}",
   "parentId": "ef4fhjsrqs",
   "renderMode": "CANVAS",
   "responsiveBehavior": "hug",
