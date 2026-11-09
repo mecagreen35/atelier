@@ -187,7 +187,7 @@
   "mobileTopRow": 7,
   "needsErrorInfo": false,
   "onTabSelected": "{{ \n  storeValue('tab_location', Tabs1.selectedTab, false) \n}}",
-  "originalBottomRow": 100,
+  "originalBottomRow": 397,
   "originalTopRow": 7,
   "parentColumnSpace": 17.5,
   "parentId": "94gukiq0i2",
