@@ -258,7 +258,7 @@
       "itemType": "BUTTON",
       "label": "📜 Devis",
       "menuItems": {},
-      "onClick": "{{\n  Update_Statut.run({ nouveau_statut: 'Devis' })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Statut mis à jour', 'success');\n    })\n    .catch(() => showAlert('Erreur lors de la mise à jour', 'error'));\n}}",
+      "onClick": "{{\n  Update_Statut.run({ nouveau_statut: 'DEVIS' })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Statut mis à jour', 'success');\n    })\n    .catch(() => showAlert('Erreur lors de la mise à jour', 'error'));\n}}",
       "placement": "CENTER",
       "variant": "filled",
       "widgetId": "szj65jg10g"
