@@ -46,7 +46,7 @@
   "mobileTopRow": 27,
   "needsErrorInfo": false,
   "onTextChanged": "{{Update_Notes_Intervention.run().then(() => {\n  showAlert('Notes enregistré', 'success');\n});}}",
-  "originalBottomRow": 57,
+  "originalBottomRow": 55,
   "originalTopRow": 44,
   "parentColumnSpace": 17.1875,
   "parentId": "a9ptcj2726",
