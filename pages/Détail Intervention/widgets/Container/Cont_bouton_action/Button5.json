@@ -1,0 +1,64 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": "{{\n  (Get_Detail_Intervention.data[0]?.Statut || '').toUpperCase().trim() === 'PRÊT' &&\n  !Get_Detail_Intervention.data[0]?.SMS_Pret_Envoye\n}}",
+  "key": "vel2d9kt04",
+  "labelStyle": "",
+  "labelTextSize": "1.875rem",
+  "leftColumn": 56,
+  "minWidth": 120,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Declencher_SMS_Pret.run()\n    .then(() => {\n      showAlert('SMS envoyé au client avec succès !', 'success');\n      Get_Detail_Intervention.run();\n    })\n    .catch((err) => {\n      showAlert('Erreur lors de l'envoi : ' + err.message, 'error');\n    })\n}}",
+  "parentColumnSpace": 11.75,
+  "parentId": "7ssu4ocqcj",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "💬",
+  "tooltip": "📱 SMS Prêt",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "d0lbwe3i3q",
+  "widgetName": "Button5"
+}

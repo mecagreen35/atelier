@@ -1,0 +1,1 @@
+SELECT public.fn_declencher_sms_manuel('{{ appsmith.URL.queryParams.id }}');
