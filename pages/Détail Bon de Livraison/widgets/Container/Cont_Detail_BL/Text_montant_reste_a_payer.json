@@ -2,7 +2,7 @@
   "animateLoading": false,
   "borderColor": "#231f20",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 14,
+  "bottomRow": 15,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -61,7 +61,7 @@
   "text": "{{ Get_Detail_BL.data[0].Statut_Facturation }}",
   "textAlign": "LEFT",
   "textColor": "{{ Get_Detail_BL.data[0].Statut_Facturation === 'Envoi n8n en cours' ? 'red' : '#231f20' }}",
-  "topRow": 10,
+  "topRow": 11,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "UPDATE public.\"Clients\"\nSET \n    \"Type_Client\" = {{rad_type_client.selectedOptionValue}},\n    \"Nom\" = {{Inp_nom.text}},\n    \"Prénom\" = {{Inp_Prenom.text}},\n    \"Societe\" = {{Inp_societe.text}},\n    \"siret\" = {{Inp_siret.text}},\n    \"Adresse\" = {{Inp_adresse.text}},\n    \"code_postal\" = {{Inp_code_postal.text}},\n    \"ville\" = {{Inp_ville.text}},\n    \"Telephone\" = {{Inp_telephone.text}},\n    \"Email\" = {{Inp_email.text}},\n    \"Statut_Ligne\" = 'À Synchroniser'\nWHERE \"ID_Client\" = {{ appsmith.store.detail_client_id }};",
+      "body": "UPDATE public.\"Clients\"\nSET \n    \"Type_Client\" = {{rad_type_client.selectedOptionValue}},\n    \"Nom\" = {{Inp_nom.text}},\n    \"Prénom\" = {{Inp_Prenom.text}},\n    \"Societe\" = {{Inp_societe.text}},\n    \"siret\" = {{Inp_siret.text}},\n    \"Adresse\" = {{Inp_adresse.text}},\n    \"code_postal\" = {{Inp_code_postal.text}},\n    \"ville\" = {{Inp_ville.text}},\n    \"Telephone\" = {{Inp_telephone.text}},\n    \"Email\" = {{Inp_email.text}},\n    \"Statut_Ligne\" = 'À Synchroniser',\n\t\t\"Statut_Avis_Google\" = {{sel_statut_avis.selectedOptionValue}}\nWHERE \"ID_Client\" = {{ appsmith.store.detail_client_id }};",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

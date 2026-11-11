@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "UPDATE \"BONS_DE_LIVRAISON\"\nSET \n  \"Date_Facture\" = {{ Date_facture.selectedDate }},\n  \"Statut_Facturation\" = 'Envoi n8n en cours'\nWHERE \"ID_BL\" = {{ appsmith.URL.queryParams.id }};",
+      "body": "UPDATE \"BONS_DE_LIVRAISON\"\nSET\n  \"Date_Facture\" = {{ Date_facture.selectedDate }},\n  \"Statut_Facturation\" = 'Envoi n8n en cours',\n  \"Demande_Avis_Autorisee\" = {{ Switch1.isVisible ? Switch1.isSwitchedOn : false }}\nWHERE \"ID_BL\"::text = '{{ appsmith.URL.queryParams.id }}';",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

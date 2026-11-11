@@ -4,7 +4,7 @@
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "bottomRow": 101,
   "boxShadow": "none",
-  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  Get_Client_Infos.data[0]?.Statut_Avis_Google || 'À solliciter' ))(Select1.options, Select1.serverSideFiltering) }}",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  Get_Client_Infos.data[0]?.Statut_Avis_Google || 'À solliciter' ))(sel_statut_avis.options, sel_statut_avis.serverSideFiltering) }}",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -45,6 +45,8 @@
   "needsErrorInfo": false,
   "optionLabel": "label",
   "optionValue": "value",
+  "originalBottomRow": 87,
+  "originalTopRow": 80,
   "parentColumnSpace": 6.9375,
   "parentId": "nmq4r49j9k",
   "parentRowSpace": 10,

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n  bl.*,\n  c.\"Societe\",\n  c.\"Nom\",\n  c.\"Prénom\",\n  c.\"Telephone\",\n  c.\"Adresse\",\n  c.\"code_postal\",\n  c.\"ville\"\nFROM \"BONS_DE_LIVRAISON\" bl\nLEFT JOIN \"Clients\" c ON bl.\"Client\" = c.\"ID_Client\"\nWHERE bl.\"ID_BL\" = {{ appsmith.URL.queryParams.id }};",
+      "body": "SELECT \n  bl.*,\n  c.\"Societe\",\n  c.\"Nom\",\n  c.\"Prénom\",\n  c.\"Telephone\",\n  c.\"Adresse\",\n  c.\"code_postal\",\n\tc.\"Statut_Avis_Google\",\n  c.\"Date_Dernier_SMS_Avis\",\n  c.\"ville\"\nFROM \"BONS_DE_LIVRAISON\" bl\nLEFT JOIN \"Clients\" c ON bl.\"Client\" = c.\"ID_Client\"\nWHERE bl.\"ID_BL\" = {{ appsmith.URL.queryParams.id }};",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

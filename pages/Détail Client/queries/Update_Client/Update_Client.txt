@@ -10,5 +10,6 @@ SET
     "ville" = {{Inp_ville.text}},
     "Telephone" = {{Inp_telephone.text}},
     "Email" = {{Inp_email.text}},
-    "Statut_Ligne" = 'À Synchroniser'
+    "Statut_Ligne" = 'À Synchroniser',
+		"Statut_Avis_Google" = {{sel_statut_avis.selectedOptionValue}}
 WHERE "ID_Client" = {{ appsmith.store.detail_client_id }};

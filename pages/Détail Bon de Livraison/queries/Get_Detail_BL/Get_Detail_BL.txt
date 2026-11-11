@@ -6,6 +6,8 @@ SELECT
   c."Telephone",
   c."Adresse",
   c."code_postal",
+	c."Statut_Avis_Google",
+  c."Date_Dernier_SMS_Avis",
   c."ville"
 FROM "BONS_DE_LIVRAISON" bl
 LEFT JOIN "Clients" c ON bl."Client" = c."ID_Client"
