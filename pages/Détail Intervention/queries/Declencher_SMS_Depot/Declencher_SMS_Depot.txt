@@ -1,0 +1,1 @@
+SELECT public.fn_declencher_sms_depot('{{ appsmith.URL.queryParams.id || Get_Detail_Intervention.data[0].ID_Intervention }}');
