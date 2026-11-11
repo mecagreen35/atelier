@@ -239,6 +239,7 @@
       "key": "primaryColumns.Emplacement.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

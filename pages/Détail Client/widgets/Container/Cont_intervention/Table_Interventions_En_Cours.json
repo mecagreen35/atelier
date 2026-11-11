@@ -133,6 +133,7 @@
       "key": "primaryColumns.Groupe_Statut.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

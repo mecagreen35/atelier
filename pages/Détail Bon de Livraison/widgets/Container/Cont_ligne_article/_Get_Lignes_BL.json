@@ -175,6 +175,7 @@
       "key": "primaryColumns.Ordre_Affichage.isCellEditable"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

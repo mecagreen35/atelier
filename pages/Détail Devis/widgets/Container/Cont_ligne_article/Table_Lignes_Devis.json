@@ -167,6 +167,7 @@
       "key": "primaryColumns.Marge_Brute.isCellVisible"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

@@ -143,6 +143,7 @@
       "key": "primaryColumns.Statut_Pennylane.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

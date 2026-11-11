@@ -137,6 +137,7 @@
       "key": "primaryColumns.Notes_Internes.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "isVisible"

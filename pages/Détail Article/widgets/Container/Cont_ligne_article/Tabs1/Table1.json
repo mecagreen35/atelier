@@ -79,6 +79,7 @@
       "key": "primaryColumns.Reference_Doc.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

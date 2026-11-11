@@ -170,6 +170,7 @@
       "key": "tableData"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

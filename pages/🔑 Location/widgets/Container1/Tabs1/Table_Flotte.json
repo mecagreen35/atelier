@@ -226,6 +226,7 @@
       "key": "primaryColumns.customColumn3.isDisabled"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

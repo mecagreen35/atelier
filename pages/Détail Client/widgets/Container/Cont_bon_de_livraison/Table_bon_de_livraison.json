@@ -85,6 +85,7 @@
       "key": "primaryColumns.ID_BL.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

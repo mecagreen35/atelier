@@ -164,6 +164,7 @@
       "key": "primaryColumns.Numero_Immo.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

@@ -173,6 +173,7 @@
       "key": "defaultSelectedRowIndex"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

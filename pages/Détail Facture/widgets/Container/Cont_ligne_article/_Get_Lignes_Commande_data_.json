@@ -158,6 +158,7 @@
       "key": "primaryColumns.Prise_En_Charge.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

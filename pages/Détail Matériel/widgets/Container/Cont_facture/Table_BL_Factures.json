@@ -85,6 +85,7 @@
       "key": "primaryColumns.Lien_Facture.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

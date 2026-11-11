@@ -201,6 +201,7 @@
       "key": "primaryColumns.Ref_Contrat_Parent.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

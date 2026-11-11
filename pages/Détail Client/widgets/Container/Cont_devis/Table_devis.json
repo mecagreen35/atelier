@@ -102,6 +102,7 @@
       "key": "primaryColumns.ID_Pennylane_Devis.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

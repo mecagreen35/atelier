@@ -89,6 +89,7 @@
       "key": "primaryColumns.TOTAL_TTC.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "isVisible"

@@ -203,6 +203,7 @@
       "key": "primaryColumns.Anciennes_References.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

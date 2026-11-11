@@ -141,6 +141,7 @@
       "key": "primaryColumns.Statut.cellBackground"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

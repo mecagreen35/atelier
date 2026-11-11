@@ -124,6 +124,7 @@
       "key": "primaryColumns.TOTAL_TTC.cellBackground"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

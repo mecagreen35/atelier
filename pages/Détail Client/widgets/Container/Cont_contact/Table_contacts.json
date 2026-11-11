@@ -128,6 +128,7 @@
       "key": "primaryColumns.customColumn3.boxShadow"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

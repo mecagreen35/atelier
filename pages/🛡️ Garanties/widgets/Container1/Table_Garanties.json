@@ -159,6 +159,7 @@
       "key": "primaryColumns.Nom_Fournisseur.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"

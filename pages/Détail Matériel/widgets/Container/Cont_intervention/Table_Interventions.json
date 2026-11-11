@@ -93,6 +93,7 @@
       "key": "primaryColumns.Mecano_Nom.computedValue"
     }
   ],
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
