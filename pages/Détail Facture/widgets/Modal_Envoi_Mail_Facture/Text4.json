@@ -11,9 +11,13 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
   "fontSize": "1.25rem",
   "fontStyle": "BOLD",
@@ -35,7 +39,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 41,
   "shouldTruncate": false,
-  "text": "Modal Title",
+  "text": "{{ '✉️ Envoyer la facture N° ' + (Get_Facture_ById.data[0]?.Numero_Facture_Pennylane || Get_Facture_ById.data[0]?.Numero_BL || '') }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 1,
