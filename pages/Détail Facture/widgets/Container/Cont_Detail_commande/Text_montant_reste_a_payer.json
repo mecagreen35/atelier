@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 15,
+  "bottomRow": 14,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -54,7 +54,7 @@
   "text": "{{ Number(Get_Facture_ById.data[0].Reste_A_Payer).toFixed(2) }} €",
   "textAlign": "LEFT",
   "textColor": "{{ Number(Get_Facture_ById.data[0].Reste_A_Payer) <= 0 ? '#16a34a' : '#dc2626' }}",
-  "topRow": 11,
+  "topRow": 10,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

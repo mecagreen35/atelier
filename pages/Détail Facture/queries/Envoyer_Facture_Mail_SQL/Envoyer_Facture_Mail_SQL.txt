@@ -1,0 +1,6 @@
+SELECT public.fn_declencher_mail_facture_manuel(
+    {{ Get_Facture_ById.data[0].ID_BL }}::text,
+    {{ Input_Mail_Destinataire.text }},
+    {{ Input_Mail_Objet.text }},
+    {{ Input_Mail_Message.text }}
+);

@@ -1,0 +1,3 @@
+UPDATE public."Clients"
+SET "Email" = TRIM({{ Input_Mail_Destinataire.text }})
+WHERE "ID_Client" = '{{ Get_Facture_ById.data[0].Client }}';
