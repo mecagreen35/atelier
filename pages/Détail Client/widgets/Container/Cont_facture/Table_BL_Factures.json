@@ -39,7 +39,7 @@
     "Reste_A_Payer",
     "ID_BL"
   ],
-  "columnUpdatedAt": 1790760789204,
+  "columnUpdatedAt": 1794528661234,
   "columnWidthMap": {},
   "customIsLoading": false,
   "customIsLoadingValue": "",
@@ -143,7 +143,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": true,
+      "isVisible": false,
       "label": "Date_BL",
       "notation": "standard",
       "originalId": "Date_BL",

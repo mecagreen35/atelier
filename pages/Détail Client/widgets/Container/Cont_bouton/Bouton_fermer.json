@@ -36,7 +36,7 @@
   "mobileRightColumn": 64,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "onClick": "{{ \n  navigateTo(\n    appsmith.store.page_precedente || 'Clients', \n    appsmith.store.id_precedent ? { id: appsmith.store.id_precedent } : {}\n  ) \n}}",
+  "onClick": "{{\n  (async function() {\n    let pageSource = appsmith.store.page_precedente;\n    const idSource = appsmith.store.id_precedent;\n\n    // Sécurité si une autre page a enregistré le nom sans emoji\n    const aliasPages = {\n      'Clients': '👥 Clients',\n      'Factures': '🧾 Factures',\n      'Bon de livraison': '🚚 Bon de livraison',\n      'Devis': '📝 Devis',\n      'Commandes & Logistique': '🛒 Commandes & Logistique',\n      'Location': '🔑 Location'\n    };\n\n    if (aliasPages[pageSource]) {\n      pageSource = aliasPages[pageSource];\n    }\n\n    // Retour par défaut vers la liste Clients si la mémoire est vide\n    if (!pageSource || pageSource === 'Détail Client') {\n      pageSource = '👥 Clients';\n    }\n\n    // Seules les fiches de détail reçoivent le paramètre ?id=...\n    const pagesDetail = [\n      'Détail Facture',\n      'Détail Bon de Livraison',\n      'Détail Devis',\n      'Détail Commande Client',\n      'Détail Intervention',\n      'Détail Matériel',\n      'Détail Location'\n    ];\n\n    if (pagesDetail.includes(pageSource) && idSource) {\n      await navigateTo(pageSource, { id: idSource });\n    } else {\n      await navigateTo(pageSource);\n    }\n  })()\n}}",
   "parentId": "nda023slup",
   "renderMode": "CANVAS",
   "responsiveBehavior": "hug",
