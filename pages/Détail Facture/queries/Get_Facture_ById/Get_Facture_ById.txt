@@ -7,7 +7,20 @@ SELECT
   c."Email",
   c."Adresse",
   c."code_postal",
-  c."ville"
+  c."ville",
+  (
+    bl."ID_BL" = (
+      SELECT b2."ID_BL"
+      FROM public."BONS_DE_LIVRAISON" b2
+      WHERE NULLIF(TRIM(COALESCE(b2."Numero_Facture_Pennylane", '')), '') IS NOT NULL
+         OR NULLIF(TRIM(COALESCE(b2."ID_Facture", '')), '') IS NOT NULL
+      ORDER BY 
+        b2."Date_Facture" DESC NULLS LAST,
+        b2."Numero_Facture_Pennylane" DESC NULLS LAST,
+        b2."ID_Facture" DESC NULLS LAST
+      LIMIT 1
+    )
+  ) AS "Est_Derniere_Facture"
 FROM "BONS_DE_LIVRAISON" bl
 LEFT JOIN "Clients" c ON bl."Client" = c."ID_Client"
 WHERE bl."ID_BL" = {{ appsmith.URL.queryParams.id || appsmith.store.current_facture_id }}

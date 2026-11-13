@@ -9,11 +9,17 @@
   "dynamicBindingPathList": [
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "onClick"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicTriggerPathList": [
@@ -25,7 +31,7 @@
   "isDefaultClickDisabled": true,
   "isDisabled": false,
   "isLoading": false,
-  "isVisible": true,
+  "isVisible": "{{ \n  Boolean(Get_Facture_ById.data?.[0]?.Est_Derniere_Facture) && \n  appsmith.user.email === 'contact@meca-green-motoculture.com'\n}}",
   "key": "h35r979313",
   "labelTextSize": "1.875rem",
   "leftColumn": 55,
@@ -35,7 +41,7 @@
   "mobileRightColumn": 53,
   "mobileTopRow": 2,
   "needsErrorInfo": false,
-  "onClick": "{{\n  (async () => {\n    try {\n      showAlert('⏳ Suppression dans Pennylane en cours...', 'info');\n\n      // 1. Suppression dans Pennylane\n      await Pennylane_Supprimer_Facture.run({\n        id_facture: Get_Facture_ById.data[0]?.ID_Facture || Get_Facture_ById.data[0]?.ID_Pennylane\n      });\n\n      // 2. Remise à zéro en base de données (Statut -> \"À facturer\")\n      await Reset_BL_A_Facturer.run({\n        id_bl: Get_Facture_ById.data[0]?.ID_BL\n      });\n\n      showAlert('✅ Facture annulée et remise à l\\'état \"À facturer\" !', 'success');\n\n      // 3. Redirection automatique vers la fiche du Bon de Livraison\n      await navigateTo('Détail Bon de Livraison', { \n        id: Get_Facture_ById.data[0]?.ID_BL \n      });\n\n    } catch (err) {\n      showAlert('❌ Erreur de suppression : ' + err.message, 'error');\n    }\n  })()\n}}",
+  "onClick": "{{\n  (async () => {\n    const idBL = Get_Facture_ById.data[0]?.ID_BL;\n    const numFacture = Get_Facture_ById.data[0]?.Numero_Facture_Pennylane || \"\";\n\n    if (!idBL) {\n      showAlert(\"Identifiant du bon de livraison introuvable.\", \"error\");\n      return;\n    }\n\n    try {\n      // 1. Remise à zéro en base de données (Statut -> \"À Facturer\")\n      await Reset_BL_A_Facturer.run({ id_bl: idBL });\n\n      // 2. Alerte de rappel pour Pennylane\n      showAlert(\"BL remis en « À Facturer ». Pense à archiver la facture \" + numFacture + \" dans Pennylane.\", \"warning\");\n\n      // 3. Redirection vers la fiche du Bon de Livraison\n      await navigateTo(\"Détail Bon de Livraison\", { id: idBL });\n    } catch (err) {\n      showAlert(\"Erreur lors de la réinitialisation : \" + err.message, \"error\");\n    }\n  })()\n}}",
   "parentColumnSpace": 11.75,
   "parentId": "m09y0z17kw",
   "parentRowSpace": 10,

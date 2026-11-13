@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n  bl.*, \n  c.\"Nom\", \n  c.\"Prénom\", \n  c.\"Societe\", \n  c.\"Telephone\", \n  c.\"Email\",\n  c.\"Adresse\",\n  c.\"code_postal\",\n  c.\"ville\"\nFROM \"BONS_DE_LIVRAISON\" bl\nLEFT JOIN \"Clients\" c ON bl.\"Client\" = c.\"ID_Client\"\nWHERE bl.\"ID_BL\" = {{ appsmith.URL.queryParams.id || appsmith.store.current_facture_id }}\nLIMIT 1;",
+      "body": "SELECT \n  bl.*, \n  c.\"Nom\", \n  c.\"Prénom\", \n  c.\"Societe\", \n  c.\"Telephone\", \n  c.\"Email\",\n  c.\"Adresse\",\n  c.\"code_postal\",\n  c.\"ville\",\n  (\n    bl.\"ID_BL\" = (\n      SELECT b2.\"ID_BL\"\n      FROM public.\"BONS_DE_LIVRAISON\" b2\n      WHERE NULLIF(TRIM(COALESCE(b2.\"Numero_Facture_Pennylane\", '')), '') IS NOT NULL\n         OR NULLIF(TRIM(COALESCE(b2.\"ID_Facture\", '')), '') IS NOT NULL\n      ORDER BY \n        b2.\"Date_Facture\" DESC NULLS LAST,\n        b2.\"Numero_Facture_Pennylane\" DESC NULLS LAST,\n        b2.\"ID_Facture\" DESC NULLS LAST\n      LIMIT 1\n    )\n  ) AS \"Est_Derniere_Facture\"\nFROM \"BONS_DE_LIVRAISON\" bl\nLEFT JOIN \"Clients\" c ON bl.\"Client\" = c.\"ID_Client\"\nWHERE bl.\"ID_BL\" = {{ appsmith.URL.queryParams.id || appsmith.store.current_facture_id }}\nLIMIT 1;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
