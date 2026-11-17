@@ -21,8 +21,10 @@ interventions_normales AS (
         v."Mecano_Nom",
         v."Ordre_Tri_Mecano",
         v."Score_Priorite",
-        NULL::text AS "ID_Creneau"
+        NULL::text AS "ID_Creneau",
+        i."Date_Heure_Creation"
     FROM public.v_atelier_mecano v
+    LEFT JOIN public."Interventions" i ON i."ID_Intervention" = v."ID_Intervention"
     CROSS JOIN mecano_actuel m
     WHERE 
         (
@@ -114,7 +116,8 @@ creneaux_mecano AS (
         
         -- Tri chronologique interne au groupe
         ROUND(EXTRACT(EPOCH FROM ('2035-01-01'::timestamptz - c."Date_Debut")) / 60.0, 2) AS "Score_Priorite",
-        c."ID_Creneau"::text AS "ID_Creneau"
+        c."ID_Creneau"::text AS "ID_Creneau",
+        NULL::timestamptz AS "Date_Heure_Creation"
         
     FROM public."CRENEAUX_INTERVENTIONS" c
     CROSS JOIN mecano_actuel m
@@ -142,4 +145,8 @@ creneaux_mecano AS (
 SELECT * FROM interventions_normales
 UNION ALL
 SELECT * FROM creneaux_mecano
-ORDER BY "Ordre_Tri_Mecano" ASC, "Score_Priorite" DESC;
+ORDER BY 
+    "Ordre_Tri_Mecano" ASC, 
+    "Score_Priorite" DESC,
+    "Date_Heure_Creation" ASC NULLS LAST,
+    "N° OR" ASC;

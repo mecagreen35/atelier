@@ -14,7 +14,8 @@ interventions_globales AS (
         v."Machine",
         v."Ordre_Tri_Mecano",
         v."Score_Priorite",
-        NULL::text AS "ID_Creneau"
+        NULL::text AS "ID_Creneau",
+        v."Date_Heure_Creation"
     FROM public.v_atelier_dashboard v
     WHERE 
         -- Recherche texte
@@ -117,7 +118,8 @@ creneaux_visibles AS (
         END AS "Ordre_Tri_Mecano",
         
         ROUND(EXTRACT(EPOCH FROM ('2035-01-01'::timestamptz - c."Date_Debut")) / 60.0, 2) AS "Score_Priorite",
-        c."ID_Creneau"::text AS "ID_Creneau"
+        c."ID_Creneau"::text AS "ID_Creneau",
+        c."Date_Creation" AS "Date_Heure_Creation"
         
     FROM public."CRENEAUX_INTERVENTIONS" c
     LEFT JOIN public."Interventions" i ON i."ID_Intervention" = c."ID_Intervention"
@@ -164,8 +166,8 @@ ORDER BY
                 WHEN UPPER("Statut") ILIKE '%EN COURS%' THEN '05'
                 WHEN UPPER("Statut") ILIKE '%REMONTER%' OR UPPER("Statut") ILIKE '%PIÈCES ARRIVÉES%' OR UPPER("Statut") ILIKE '%PIECES ARRIVEES%' THEN '06'
                 
-                -- 3. Diags, TAST et AC bien mélangés ensemble
-                WHEN UPPER("Statut") ILIKE '%DIAGNOSTIQUER%' OR UPPER("Statut") ILIKE '%TAST%' OR UPPER("Statut") ILIKE '%AC%' THEN '07'
+                -- 3. Diags, TAST, AC et VA bien mélangés ensemble
+                WHEN UPPER("Statut") ILIKE '%DIAGNOSTIQUER%' OR UPPER(TRIM("Statut")) IN ('TAST', 'AC', 'VA') THEN '07'
                 
                 -- 4. Créneaux planifiés placés juste après les diags
                 WHEN UPPER("Statut") = 'CRÉNEAU PLANIFIÉ' THEN '08'
@@ -180,4 +182,6 @@ ORDER BY
         -- 🟡 Si c'est un mécano, l'ordre reste normal (Ordre_Tri_Mecano)
         ELSE "Ordre_Tri_Mecano"
     END ASC, 
-    "Score_Priorite" DESC;
+    "Score_Priorite" DESC,
+    "Date_Heure_Creation" ASC NULLS LAST,
+    "N° OR" ASC;
