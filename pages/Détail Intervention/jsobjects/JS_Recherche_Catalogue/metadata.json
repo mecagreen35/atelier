@@ -1,0 +1,16 @@
+{
+  "gitSyncId": "6aeb33b78b4c3a79b682d0c2_c3951110-f165-4296-8eb9-e1c205b16da8",
+  "id": "Détail Intervention_JS_Recherche_Catalogue",
+  "unpublishedCollection": {
+    "name": "JS_Recherche_Catalogue",
+    "pageId": "Détail Intervention",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "timer",
+        "value": "null"
+      }
+    ]
+  }
+}

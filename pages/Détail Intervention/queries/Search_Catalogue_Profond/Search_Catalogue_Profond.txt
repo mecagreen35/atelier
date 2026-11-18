@@ -1,0 +1,2 @@
+SELECT *
+FROM public.fn_recherche_profonde_articles($txt${{ String(inp_recherche_profonde.text || "") }}$txt$);

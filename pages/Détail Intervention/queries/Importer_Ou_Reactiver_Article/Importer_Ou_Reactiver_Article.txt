@@ -1,0 +1,11 @@
+SELECT public.fn_activer_ou_creer_article_catalogue(
+  $txt${{ String(this.params.origine || "") }}$txt$,
+  {{ this.params.id_existant ? "$txt$" + String(this.params.id_existant) + "$txt$" : "NULL" }},
+  $txt${{ String(this.params.ref_nue || "") }}$txt$,
+  $txt${{ String(this.params.designation || "") }}$txt$,
+  {{ this.params.marque ? "$txt$" + String(this.params.marque) + "$txt$" : "NULL" }},
+  $txt${{ String(this.params.fournisseur || "") }}$txt$,
+  {{ Number(this.params.prix_achat) || 0 }},
+  {{ this.params.ean ? "$txt$" + String(this.params.ean) + "$txt$" : "NULL" }},
+  {{ this.params.anciennes_refs ? "$txt$" + String(this.params.anciennes_refs) + "$txt$" : "NULL" }}
+) AS id_article;
