@@ -1,9 +1,10 @@
-SELECT
+SELECT 
     a."ID_Article",
     a."Ref_Fournisseur" AS "Reference",
     a."Anciennes_References",
     a."Code_Barre",
     a."Designation",
+    a."Marque",  -- 🟢 AJOUT DE LA COLONNE MARQUE ICI
     a."Famille",
     a."Emplacement",
     a."Reappro_Auto",
