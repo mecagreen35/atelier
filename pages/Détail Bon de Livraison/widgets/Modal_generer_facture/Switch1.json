@@ -28,7 +28,7 @@
   "dynamicTriggerPathList": [],
   "isDisabled": false,
   "isLoading": false,
-  "isVisible": "{{ \n  Get_Detail_BL.data[0]?.Statut_Avis_Google === 'À solliciter' &&\n  (!Get_Detail_BL.data[0]?.Date_Dernier_SMS_Avis || moment().diff(moment(Get_Detail_BL.data[0]?.Date_Dernier_SMS_Avis), 'days') >= 365)\n}}",
+  "isVisible": "{{ \n  (Get_Detail_BL.data[0]?.TOTAL_TTC > 0) \n  && Get_Detail_BL.data[0]?.Statut_Avis_Google === 'À solliciter'\n  && (!Get_Detail_BL.data[0]?.Date_Dernier_SMS_Avis || moment().diff(moment(Get_Detail_BL.data[0]?.Date_Dernier_SMS_Avis), 'days') >= 365)\n}}",
   "key": "ararp5ttci",
   "label": "⭐ Demander un avis Google",
   "labelPosition": "Left",

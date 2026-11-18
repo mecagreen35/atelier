@@ -1,4 +1,0 @@
-SELECT MAX("Date_Facture") AS max_date 
-FROM "BONS_DE_LIVRAISON" 
-WHERE "Date_Facture" IS NOT NULL 
-AND "ID_BL" != {{ appsmith.URL.queryParams.id }};
