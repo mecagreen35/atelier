@@ -68,10 +68,9 @@
     "Date_Livraison_Prevue",
     "Date_Reception",
     "Code_Barre",
-    "isHeader",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1793799643618,
+  "columnUpdatedAt": 1794990802053,
   "columnWidthMap": {
     "Article_Designation": 335,
     "Client_Affichage": 315,
@@ -350,9 +349,6 @@
     },
     {
       "key": "primaryColumns.Code_Barre.computedValue"
-    },
-    {
-      "key": "primaryColumns.isHeader.computedValue"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -1835,41 +1831,6 @@
       "notation": "standard",
       "originalId": "customColumn3",
       "sourceData": [],
-      "sticky": "",
-      "textColor": "",
-      "textSize": "0.875rem",
-      "thousandSeparator": true,
-      "validation": {},
-      "verticalAlignment": "CENTER",
-      "width": 150
-    },
-    "isHeader": {
-      "alias": "isHeader",
-      "allowCellWrapping": false,
-      "allowHeaderWrapping": false,
-      "allowSameOptionsInNewRow": true,
-      "cellBackground": "",
-      "columnType": "checkbox",
-      "computedValue": "{{(() => { const tableData = Table_Achats.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"isHeader\"])) : isHeader })()}}",
-      "currencyCode": "USD",
-      "decimals": 0,
-      "enableFilter": true,
-      "enableSort": true,
-      "fontStyle": "BOLD",
-      "horizontalAlignment": "LEFT",
-      "id": "isHeader",
-      "index": 1,
-      "isCellEditable": false,
-      "isCellVisible": true,
-      "isDerived": false,
-      "isDisabled": false,
-      "isDiscardVisible": true,
-      "isEditable": false,
-      "isSaveVisible": true,
-      "isVisible": true,
-      "label": "isHeader",
-      "notation": "standard",
-      "originalId": "isHeader",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
