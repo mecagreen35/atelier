@@ -1,6 +1,11 @@
 SELECT
   "ID_Article" AS value,
   TRIM(
+    CASE
+      WHEN COALESCE("Plus_Livrable", FALSE) = TRUE AND COALESCE("Stock_Actuel", 0) <= 0
+      THEN '❌ [PLUS LIVRABLE] '
+      ELSE ''
+    END ||
     COALESCE("Recherche_Article", COALESCE("Ref_Fournisseur", '') || ' - ' || COALESCE("Designation", '')) ||
     CASE 
       WHEN "Anciennes_References" IS NOT NULL AND TRIM("Anciennes_References") <> '' 
@@ -10,7 +15,9 @@ SELECT
   ) AS label,
   "Code_Barre",
   "Ref_Fournisseur",
-  "Anciennes_References"
+  "Anciennes_References",
+  COALESCE("Plus_Livrable", FALSE) AS "Plus_Livrable",
+  COALESCE("Stock_Actuel", 0) AS "Stock_Actuel"
 FROM public."ARTICLES"
 WHERE "Statut_Ligne" = 'Actif'
 ORDER BY

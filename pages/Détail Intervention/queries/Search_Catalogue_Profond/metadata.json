@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT *\nFROM public.fn_recherche_profonde_articles($txt${{ String(inp_recherche_profonde.text || \"\") }}$txt$);",
+      "body": "SELECT *\nFROM public.fn_recherche_profonde_articles($txt${{ String(inp_recherche_profonde.text || appsmith.store.recherche_catalogue || \"\") }}$txt$);",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

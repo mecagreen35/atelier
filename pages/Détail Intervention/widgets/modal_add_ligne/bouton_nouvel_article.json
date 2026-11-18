@@ -35,7 +35,7 @@
   "mobileRightColumn": 61,
   "mobileTopRow": 8,
   "needsErrorInfo": false,
-  "onClick": "{{\n  (async function() {\n    Get_Fournisseurs.run();\n    await resetWidget('inp_recherche_profonde', true);\n    showModal('modal_add_article');\n    if ((sel_article.filterText || '').trim().length >= 2) {\n      Search_Catalogue_Profond.run();\n    }\n  })()\n}}",
+  "onClick": "{{\n  (async function() {\n    const texteSaisi = (sel_article.filterText || '').trim();\n    await storeValue('recherche_catalogue', texteSaisi);\n    await resetWidget('inp_recherche_profonde', true);\n    Get_Fournisseurs.run();\n    showModal('modal_add_article');\n    if (texteSaisi.length >= 2) {\n      Search_Catalogue_Profond.run();\n    }\n  })()\n}}",
   "parentColumnSpace": 6.9375,
   "parentId": "32lcz5h0uz",
   "parentRowSpace": 10,

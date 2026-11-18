@@ -10,10 +10,10 @@
       "key": "accentColor"
     },
     {
-      "key": "sourceData"
+      "key": "defaultOptionValue"
     },
     {
-      "key": "defaultOptionValue"
+      "key": "sourceData"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
@@ -22,11 +22,7 @@
       "key": "sourceData"
     }
   ],
-  "dynamicTriggerPathList": [
-    {
-      "key": "onFilterUpdate"
-    }
-  ],
+  "dynamicTriggerPathList": [],
   "isDisabled": false,
   "isFilterable": true,
   "isLoading": false,
@@ -48,7 +44,7 @@
   "mobileRightColumn": 27,
   "mobileTopRow": 7,
   "needsErrorInfo": false,
-  "onFilterUpdate": "{{Get_Articles_Options.run()}}",
+  "onFilterUpdate": "",
   "optionLabel": "label",
   "optionValue": "value",
   "originalBottomRow": 22,
@@ -59,10 +55,10 @@
   "placeholderText": "Select option",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 54,
-  "serverSideFiltering": false,
+  "rightColumn": 56,
+  "serverSideFiltering": true,
   "shouldScrollContents": true,
-  "sourceData": "{{ Get_Articles_Options.data }}",
+  "sourceData": "{{\n  (() => {\n    const all = Get_Articles_Options.data || [];\n    const raw = (sel_article.filterText || \"\").trim().toLowerCase();\n    const selectedId = appsmith.store.nouvel_article_id || \"\";\n\n    if (!raw) {\n      if (!selectedId) return all.slice(0, 100);\n      const sel = all.find(a => a.value === selectedId);\n      return sel ? [sel, ...all.filter(a => a.value !== selectedId).slice(0, 99)] : all.slice(0, 100);\n    }\n\n    const cleanSearch = raw.replace(/[\\s\\-\\/]+/g, \"\");\n    const words = raw.split(/\\s+/).filter(Boolean);\n\n    const matches = all.filter(item => {\n      const label = (item.label || \"\").toLowerCase();\n      const refClean = (item.Ref_Fournisseur || \"\").toLowerCase().replace(/[\\s\\-\\/]+/g, \"\");\n      const ancClean = (item.Anciennes_References || \"\").toLowerCase().replace(/[\\s\\-\\/]+/g, \"\");\n      const eanClean = (item.Code_Barre || \"\").toLowerCase().replace(/[\\s\\-\\/]+/g, \"\");\n\n      const matchRef = cleanSearch.length >= 2 && (\n        refClean.includes(cleanSearch) ||\n        ancClean.includes(cleanSearch) ||\n        eanClean.includes(cleanSearch)\n      );\n      const matchWords = words.every(w => label.includes(w));\n\n      return matchRef || matchWords;\n    });\n\n    if (selectedId && !matches.some(m => m.value === selectedId)) {\n      const sel = all.find(a => a.value === selectedId);\n      if (sel) return [sel, ...matches.slice(0, 99)];\n    }\n\n    return matches.slice(0, 100);\n  })()\n}}",
   "topRow": 15,
   "type": "SELECT_WIDGET",
   "version": 1,

@@ -1,14 +1,14 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 685,
+  "bottomRow": 88,
   "boxShadow": "none",
   "canEscapeKeyClose": true,
   "canOutsideClickClose": true,
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 650,
+      "bottomRow": 880,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -29,7 +29,7 @@
       "leftColumn": 0,
       "maxDynamicHeight": 9000,
       "minDynamicHeight": 4,
-      "minHeight": 460,
+      "minHeight": 650,
       "minWidth": 450,
       "mobileBottomRow": 240,
       "mobileLeftColumn": 0,
@@ -62,14 +62,14 @@
       "key": "onClose"
     }
   ],
-  "height": 650,
+  "height": 880,
   "isCanvas": true,
   "isLoading": false,
   "key": "3vaqalt0b6",
   "leftColumn": 20,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 24,
-  "minHeight": 650,
+  "minHeight": 880,
   "mobileBottomRow": 28,
   "mobileLeftColumn": 20,
   "mobileRightColumn": 44,
@@ -87,5 +87,5 @@
   "version": 2,
   "widgetId": "kj86nyw6mi",
   "widgetName": "modal_add_article",
-  "width": 763.8
+  "width": 1094.3999999999999
 }
