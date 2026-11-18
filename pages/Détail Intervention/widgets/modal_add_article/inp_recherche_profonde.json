@@ -61,7 +61,7 @@
   "parentColumnSpace": 11.746875,
   "parentId": "f7lnjy1u7d",
   "parentRowSpace": 10,
-  "placeholderText": "Ex : RC12YC, 491588, courroie Honda... (min. 2 caractères)",
+  "placeholderText": "Ex : RC12YC, 491588, courroie Honda... (min. 4 caractères)",
   "renderMode": "CANVAS",
   "resetOnSubmit": true,
   "responsiveBehavior": "fill",
