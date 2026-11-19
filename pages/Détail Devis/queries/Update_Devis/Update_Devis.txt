@@ -1,0 +1,6 @@
+UPDATE public."DEVIS"
+SET
+  "DATE"              = {{ dat_edit_devis.selectedDate ? moment(dat_edit_devis.selectedDate).format('YYYY-MM-DD') : null }}::date,
+  "STATUT"            = {{ sel_edit_statut_devis.selectedOptionValue }},
+  "Date_Modification" = NOW()
+WHERE "ID_DEVIS"::text = {{ appsmith.URL.queryParams.id }};

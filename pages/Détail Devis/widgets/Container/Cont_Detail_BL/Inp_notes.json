@@ -3,7 +3,7 @@
   "animateLoading": false,
   "autoFocus": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 48,
+  "bottomRow": 46,
   "boxShadow": "none",
   "defaultText": "{{ Get_Devis_Detail.data[0]?.Notes || \"\" }}",
   "dynamicBindingPathList": [
@@ -46,7 +46,7 @@
   "mobileTopRow": 27,
   "needsErrorInfo": false,
   "onTextChanged": "{{Update_Notes_Devis.run().then(() => {\n  showAlert('Notes enregistré', 'success');\n});}}",
-  "originalBottomRow": 50,
+  "originalBottomRow": 46,
   "originalTopRow": 35,
   "parentColumnSpace": 17.1875,
   "parentId": "773bwy2uil",
