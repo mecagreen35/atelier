@@ -1,0 +1,62 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 45,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !Input_Mail_Destinataire.text || !Input_Mail_Destinataire.isValid }}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "xs2m9wa62i",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async () => {\n    try {\n      await Envoyer_Devis_Mail_SQL.run();\n\n      if (!Get_Devis_Detail.data[0]?.Email && Get_Devis_Detail.data[0]?.ID_CLIENT) {\n        await Update_Client_Email_Devis.run();\n      }\n\n      await Get_Devis_Detail.run();\n      closeModal('Modal_Envoi_Mail_Devis');\n      showAlert('Devis envoyé par e-mail avec succès !', 'success');\n    } catch (err) {\n      showAlert(\"Erreur lors de l'envoi : \" + err.message, 'error');\n    }\n  })()\n}}",
+  "originalBottomRow": 45,
+  "originalTopRow": 41,
+  "parentId": "afj7aotkii",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Envoyer",
+  "topRow": 41,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "9w8bmzrhoq",
+  "widgetName": "Button11"
+}

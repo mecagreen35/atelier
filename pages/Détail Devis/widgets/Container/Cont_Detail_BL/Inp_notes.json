@@ -3,7 +3,7 @@
   "animateLoading": false,
   "autoFocus": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 46,
+  "bottomRow": 44,
   "boxShadow": "none",
   "defaultText": "{{ Get_Devis_Detail.data[0]?.Notes || \"\" }}",
   "dynamicBindingPathList": [
@@ -57,7 +57,7 @@
   "rightColumn": 64,
   "shouldAllowAutofill": false,
   "showStepArrows": false,
-  "topRow": 35,
+  "topRow": 33,
   "type": "INPUT_WIDGET_V2",
   "version": 2,
   "widgetId": "jw17zjhprz",

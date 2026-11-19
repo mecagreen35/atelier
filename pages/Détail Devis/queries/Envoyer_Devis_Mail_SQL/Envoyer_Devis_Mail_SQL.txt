@@ -1,0 +1,6 @@
+SELECT public.fn_declencher_mail_devis_manuel(
+    {{ appsmith.URL.queryParams.id }},
+    {{ Input_Mail_Destinataire.text }},
+    {{ Input_Mail_Objet.text }},
+    {{ Input_Mail_Message.text }}
+);
