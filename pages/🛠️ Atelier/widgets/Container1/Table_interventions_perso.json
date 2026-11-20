@@ -5,7 +5,8 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 388,
+  "bottomRow": 217,
+  "bottomRowBeforeCollapse": 116,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
   "canFreezeColumn": false,
@@ -52,7 +53,7 @@
     "ID_Creneau",
     "Date_Heure_Creation"
   ],
-  "columnUpdatedAt": 1794907817720,
+  "columnUpdatedAt": 1795191943033,
   "columnWidthMap": {
     "Client_Affichage": 324,
     "Montant_Acompte_TTC": 155,
@@ -172,6 +173,9 @@
     },
     {
       "key": "tableData"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -223,6 +227,9 @@
     },
     {
       "key": "primaryColumns.xn__Priorit_hya.textColor"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicTriggerPathList": [
@@ -239,7 +246,7 @@
   "inlineEditingSaveOption": "ROW_LEVEL",
   "isLoading": false,
   "isSortable": true,
-  "isVisible": true,
+  "isVisible": "{{ Tabs1.selectedTab !== \"🛠️ Atelier Global\" && Tabs1.selectedTab !== \"📅 Planning\" }}",
   "isVisibleDownload": false,
   "isVisibleFilters": false,
   "isVisiblePagination": false,
@@ -255,8 +262,10 @@
   "multiRowSelection": false,
   "needsErrorInfo": false,
   "onRowSelected": "{{\n  (function() {\n    const row = Table_interventions_perso.selectedRow;\n    if (!row || row.isHeader === true) return;\n\n    // 1. Si intervention liée : redirection vers la fiche d'intervention\n    if (row.ID_Intervention) {\n      return storeValue('tab_atelier_actif', Tabs1.selectedTab)\n        .then(() => storeValue('page_precedente', '🛠️ Atelier'))\n        .then(() => navigateTo('Détail Intervention', { id: row.ID_Intervention }));\n    }\n\n    // 2. Si tâche planifiée seule : mémorisation et ouverture de la modale\n    if (row.ID_Creneau) {\n      return storeValue('selected_creneau_id', row.ID_Creneau)\n        .then(() => Get_Creneau_Detail.run())\n        .then(() => showModal('modal_detail_creneau'));\n    }\n  })()\n}}",
+  "originalBottomRow": 217,
+  "originalTopRow": 113,
   "parentColumnSpace": 12.375,
-  "parentId": "2niq0jvypo",
+  "parentId": "11b2xw0tq5",
   "parentRowSpace": 10,
   "primaryColumnId": "ID_Intervention",
   "primaryColumns": {
@@ -386,7 +395,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": true,
+      "isVisible": false,
       "label": "Date_Heure_Creation",
       "notation": "standard",
       "originalId": "Date_Heure_Creation",
@@ -850,7 +859,8 @@
   "tableData": "{{\n  (() => {\n    const data = Get_Atelier_Perso.data || [];\n    let groupedData = [];\n\n    // Regroupement des statuts sous un en-tête unique\n    const STATUTS_A_DIAG = ['À DIAGNOSTIQUER', 'A DIAGNOSTIQUER', 'AC', 'TAST', 'VA'];\n    const getGroupe = (st) => {\n      const clean = (st || \"Non défini\").toUpperCase().replace(/^[^A-ZÀ-Ÿ0-9]+/, '').trim();\n      if (STATUTS_A_DIAG.includes(clean)) return 'À Diagnostiquer';\n      if (clean === 'ATTENTE CLIENT') return 'Attente client';\n      return (st || \"Non défini\");\n    };\n\n    // 1. Comptage cumulé par groupe\n    let counts = {};\n    data.forEach(row => {\n      const grp = getGroupe(row.Statut);\n      counts[grp] = (counts[grp] || 0) + 1;\n    });\n\n    // 2. Génération des bandeaux sans casser le mélange des lignes\n    let currentGroupe = null;\n    data.forEach((row) => {\n      const st = row.Statut || \"Non défini\";\n      const grp = getGroupe(st);\n\n      if (grp !== currentGroupe) {\n        let emoji = \"🔽\";\n        const cleanGrp = grp.toUpperCase().replace(/^[^A-ZÀ-Ÿ0-9]+/, '').trim();\n\n        switch (cleanGrp) {\n          case 'CRÉNEAU IMMINENT':\n          case 'CRENEAU IMMINENT': emoji = '⚡'; break;\n          case 'CRÉNEAU PLANIFIÉ':\n          case 'CRENEAU PLANIFIE': emoji = '📅'; break;\n          case 'ACTION REQUISE': emoji = '⚠️'; break;\n          case 'À VÉRIFIER':\n          case 'A VERIFIER': emoji = '👁️'; break;\n          case 'PIECE A COMMANDER':\n          case 'PIÈCE À COMMANDER': emoji = '🛒'; break;\n          case 'DEVIS': emoji = '📋'; break;\n          case 'EN COURS': emoji = '🛠️'; break;\n          case 'EN TEST': emoji = '🧪'; break;\n          case 'H.S.':\n          case 'HS': emoji = '🚫'; break;\n          case 'À DIAGNOSTIQUER':\n          case 'A DIAGNOSTIQUER': emoji = '🔍'; break;\n          case 'A REMONTER':\n          case 'À REMONTER': emoji = '🔨'; break;\n          case 'ATTENTE CLIENT': emoji = '👨‍💼'; break;\n          case 'PIECE EN COMMANDE':\n          case 'PIÈCE EN COMMANDE': emoji = '🚚'; break;\n          case 'PRÊT':\n          case 'PRET': emoji = '✅'; break;\n        }\n\n        const cleanLabel = grp.replace(/^[⚡📅⚠️🚫👁️🛒📋🛠️🧪🔍🔨👨‍💼🚚✅\\s]+/, '').trim();\n\n        groupedData.push({\n          isHeader: true,\n          OriginalStatut: grp,\n          Client_Affichage: `${emoji} ${cleanLabel} (${counts[grp]})`,\n          Statut: \"\",\n          Machine: \"\",\n          \"N° OR\": \"\",\n          Date_Entree: \"\",\n          ID_Intervention: null,\n          ID_Creneau: null\n        });\n        currentGroupe = grp;\n      }\n\n      groupedData.push({ ...row, isHeader: false });\n    });\n\n    return groupedData;\n  })()\n}}",
   "textColor": "",
   "textSize": "1rem",
-  "topRow": 1,
+  "topRow": 113,
+  "topRowBeforeCollapse": 12,
   "totalRecordsCount": "1000",
   "type": "TABLE_WIDGET_V2",
   "version": 2,

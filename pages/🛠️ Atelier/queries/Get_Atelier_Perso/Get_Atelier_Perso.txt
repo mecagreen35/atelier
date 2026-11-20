@@ -1,7 +1,18 @@
 WITH mecano_actuel AS (
     SELECT "ID_Employe", "Specialite", "Prenom"
     FROM public."Employes"
-    WHERE "Email" = '{{ appsmith.user.email }}'
+    WHERE 
+        CASE 
+            WHEN LOWER(COALESCE('{{ appsmith.store.user_role }}', '')) = 'patron' 
+                 AND '{{ Tabs1.selectedTab }}' = '🔨 Atelier Flavien'
+            THEN LOWER(TRIM("Prenom")) = 'flavien'
+            
+            WHEN LOWER(COALESCE('{{ appsmith.store.user_role }}', '')) = 'patron' 
+                 AND '{{ Tabs1.selectedTab }}' = '🔨 Atelier Yoan'
+            THEN LOWER(TRIM("Prenom")) = 'yoan'
+            
+            ELSE LOWER(TRIM("Email")) = LOWER(TRIM('{{ appsmith.user.email }}'))
+        END
     LIMIT 1
 ),
 

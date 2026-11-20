@@ -5,7 +5,8 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 379,
+  "bottomRow": 596,
+  "bottomRowBeforeCollapse": 596,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
   "canFreezeColumn": false,
@@ -52,7 +53,7 @@
     "Date_Heure_Creation",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1794908199657,
+  "columnUpdatedAt": 1795191969982,
   "columnWidthMap": {
     "Categorie_Materiel": 122,
     "Client_Affichage": 315,
@@ -192,6 +193,9 @@
     },
     {
       "key": "tableData"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -258,6 +262,9 @@
     },
     {
       "key": "primaryColumns.Mecano_Nom.onOptionChange"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicTriggerPathList": [
@@ -280,7 +287,7 @@
   "inlineEditingSaveOption": "ROW_LEVEL",
   "isLoading": false,
   "isSortable": true,
-  "isVisible": true,
+  "isVisible": "{{ Tabs1.selectedTab === \"🛠️ Atelier Global\" }}",
   "isVisibleDownload": false,
   "isVisibleFilters": false,
   "isVisiblePagination": false,
@@ -296,10 +303,10 @@
   "multiRowSelection": false,
   "needsErrorInfo": false,
   "onRowSelected": "{{\n  (function() {\n    const row = Table_interventions.selectedRow;\n    \n    if (!row || row.isHeader === true) {\n      return;\n    }\n    \n    return storeValue('tab_atelier_actif', '🛠️ Atelier Global')\n      .then(() => storeValue('page_precedente', '🛠️ Atelier'))\n      .then(() => navigateTo('Détail Intervention', { id: row.ID_Intervention }));\n  })()\n}}",
-  "originalBottomRow": 409,
-  "originalTopRow": 31,
+  "originalBottomRow": 596,
+  "originalTopRow": 217,
   "parentColumnSpace": 12.375,
-  "parentId": "88n1iw7c3m",
+  "parentId": "11b2xw0tq5",
   "parentRowSpace": 10,
   "primaryColumnId": "ID_Intervention",
   "primaryColumns": {
@@ -429,7 +436,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": true,
+      "isVisible": false,
       "label": "Date_Heure_Creation",
       "notation": "standard",
       "originalId": "Date_Heure_Creation",
@@ -680,7 +687,7 @@
       "isDiscardVisible": true,
       "isEditable": false,
       "isSaveVisible": true,
-      "isVisible": true,
+      "isVisible": false,
       "label": "OriginalStatut",
       "notation": "standard",
       "originalId": "OriginalStatut",
@@ -906,7 +913,8 @@
   "tableData": "{{\n  (() => {\n    const data = (Get_Atelier_Global.data && Get_Atelier_Global.data.length > 0)\n      ? Get_Atelier_Global.data\n      : (appsmith.store.cache_atelier_global || []);\n\n    // Statuts regroupés sous un en-tête unique\n    const STATUTS_A_DIAG = ['À DIAGNOSTIQUER', 'A DIAGNOSTIQUER', 'AC', 'TAST', 'VA'];\n    const getGroupe = (st) => {\n      const clean = (st || \"Non défini\").toUpperCase().replace(/^[^A-ZÀ-Ÿ0-9]+/, '').trim();\n      if (STATUTS_A_DIAG.includes(clean)) return 'À Diagnostiquer';\n      if (clean === 'ATTENTE CLIENT') return 'Attente client';\n      return (st || \"Non défini\");\n    };\n\n    // 1. Comptage par groupe (cumule À Diagnostiquer + AC + TAST + VA, et ATTENTE CLIENT + Attente client)\n    let counts = {};\n    data.forEach(row => {\n      const grp = getGroupe(row.Statut);\n      counts[grp] = (counts[grp] || 0) + 1;\n    });\n\n    // 2. Regroupement sans casser le mélange chronologique / priorité\n    let groupedData = [];\n    let currentGroupe = null;\n\n    data.forEach((row) => {\n      const st = row.Statut || \"Non défini\";\n      const grp = getGroupe(st);\n\n      if (grp !== currentGroupe) {\n        let emoji = \"🔽\";\n        const cleanGrp = grp.toUpperCase().replace(/^[^A-ZÀ-Ÿ0-9]+/, '').trim();\n\n        switch (cleanGrp) {\n          case 'CRÉNEAU IMMINENT':\n          case 'CRENEAU IMMINENT': emoji = '⚡'; break;\n          case 'CRÉNEAU PLANIFIÉ':\n          case 'CRENEAU PLANIFIE': emoji = '📅'; break;\n          case 'ACTION REQUISE': emoji = '⚠️'; break;\n          case 'À VÉRIFIER':\n          case 'A VERIFIER': emoji = '👁️'; break;\n          case 'PIECE A COMMANDER':\n          case 'PIÈCE À COMMANDER': emoji = '🛒'; break;\n          case 'DEVIS': emoji = '📋'; break;\n          case 'EN COURS': emoji = '🛠️'; break;\n          case 'EN TEST': emoji = '🧪'; break;\n          case 'H.S.':\n          case 'HS': emoji = '🚫'; break;\n          case 'À DIAGNOSTIQUER':\n          case 'A DIAGNOSTIQUER': emoji = '🔍'; break;\n          case 'A REMONTER':\n          case 'À REMONTER': emoji = '🔨'; break;\n          case 'ATTENTE CLIENT': emoji = '👨‍💼'; break;\n          case 'PIECE EN COMMANDE':\n          case 'PIÈCE EN COMMANDE': emoji = '🚚'; break;\n          case 'PRÊT':\n          case 'PRET': emoji = '✅'; break;\n        }\n\n        const cleanLabel = grp.replace(/^[⚡📅⚠️🚫👁️🛒📋🛠️🧪🔍🔨👨‍💼🚚✅\\s]+/, '').trim();\n\n        groupedData.push({\n          isHeader: true,\n          OriginalStatut: grp,\n          Client_Affichage: `${emoji} ${cleanLabel} (${counts[grp]})`,\n          Statut: \"\",\n          Machine: \"\",\n          \"N° OR\": \"\",\n          Date_Entree: \"\",\n          ID_Intervention: null,\n          ID_Creneau: null\n        });\n        currentGroupe = grp;\n      }\n\n      groupedData.push({ ...row, isHeader: false });\n    });\n\n    return groupedData;\n  })()\n}}",
   "textColor": "",
   "textSize": "1rem",
-  "topRow": 0,
+  "topRow": 217,
+  "topRowBeforeCollapse": 217,
   "totalRecordsCount": "1000",
   "type": "TABLE_WIDGET_V2",
   "version": 2,

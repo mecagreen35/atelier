@@ -2,7 +2,8 @@
   "accentColor": "{{appsmith.theme.colors.primaryColor}}",
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 5,
+  "bottomRow": 17,
+  "bottomRowBeforeCollapse": 17,
   "boxShadow": "none",
   "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( \n  appsmith.user.email === 'contact@meca-green-motoculture.com'\n  ? \"TOUS\"\n  : Get_User_Role.data?.[0]?.ID_Employe\n))(sel_planning_mecano.options, sel_planning_mecano.serverSideFiltering) }}",
   "dynamicBindingPathList": [
@@ -17,12 +18,18 @@
     },
     {
       "key": "defaultOptionValue"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "sourceData"
+    },
+    {
+      "key": "isVisible"
     }
   ],
   "dynamicTriggerPathList": [
@@ -34,7 +41,7 @@
   "isFilterable": true,
   "isLoading": false,
   "isRequired": false,
-  "isVisible": true,
+  "isVisible": "{{Tabs1.selectedTab === \"📅 Planning\"}}",
   "key": "tyltx1cx0v",
   "labelAlignment": "left",
   "labelPosition": "Left",
@@ -53,8 +60,10 @@
   "onOptionChange": "{{Get_Calendar_Interventions.run()}}",
   "optionLabel": "label",
   "optionValue": "value",
+  "originalBottomRow": 17,
+  "originalTopRow": 12,
   "parentColumnSpace": 11.75,
-  "parentId": "ttdp0raqw7",
+  "parentId": "11b2xw0tq5",
   "parentRowSpace": 10,
   "placeholderText": "Select option",
   "renderMode": "CANVAS",
@@ -62,7 +71,8 @@
   "rightColumn": 46,
   "serverSideFiltering": false,
   "sourceData": "{{ Get_Mecaniciens_Options.data }}",
-  "topRow": 0,
+  "topRow": 12,
+  "topRowBeforeCollapse": 12,
   "type": "SELECT_WIDGET",
   "version": 1,
   "widgetId": "j2gq27isbb",

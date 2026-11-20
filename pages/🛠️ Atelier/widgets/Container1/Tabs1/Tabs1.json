@@ -5,12 +5,12 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": 1,
-  "bottomRow": 401,
+  "bottomRow": 12,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "children": [
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 3900,
+      "bottomRow": 10,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -56,7 +56,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 3900,
+      "bottomRow": 10,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -105,7 +105,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 3900,
+      "bottomRow": 10,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": false,
       "containerStyle": "none",
@@ -147,6 +147,96 @@
       "version": 1,
       "widgetId": "ttdp0raqw7",
       "widgetName": "Canvas18"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 10,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "ya72kbiais",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 50,
+      "minWidth": 450,
+      "mobileBottomRow": 51,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1120,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "63zckv06ih",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1120,
+      "tabId": "tabwg30rxfkx3",
+      "tabName": "🔨 Atelier Flavien",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "qaz99dqb6k",
+      "widgetName": "Canvas21"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 10,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "ya72kbiais",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 50,
+      "minWidth": 450,
+      "mobileBottomRow": 51,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1120,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "63zckv06ih",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1120,
+      "tabId": "tabv76qwc1x9s",
+      "tabName": "🔨 Atelier Yoan",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "59iom3wxj0",
+      "widgetName": "Canvas22"
     }
   ],
   "defaultTab": "{{\n  (() => {\n    const cible = appsmith.store.tab_atelier_actif || \"\";\n\n    // 1. Si on a expressément mémorisé \"Global\"\n    if (cible === \"🛠️ Atelier Global\") {\n      return \"🛠️ Atelier Global\";\n    }\n\n    // 2. Si on a expressément mémorisé \"Planning\"\n    if (cible === \"📅 Planning\") {\n      return \"📅 Planning\";\n    }\n\n    // 3. Si on était sur l'atelier perso (David ou autre)\n    if (cible !== \"\") {\n      // Renvoie exactement le libellé de l'onglet 2 (qu'il soit encore \"Perso\" ou déjà \"David\")\n      return Tabs1.tabsObj.tab2.label;\n    }\n\n    // 4. Première connexion (selon l'adresse email de connexion)\n    if (appsmith.user.email === 'contact@meca-green-motoculture.com') {\n      return \"🛠️ Atelier Global\";\n    } else {\n      return Tabs1.tabsObj.tab2.label;\n    }\n  })()\n}}",
@@ -165,12 +255,24 @@
     },
     {
       "key": "defaultTab"
+    },
+    {
+      "key": "tabsObj.tabwg30rxfkx3.isVisible"
+    },
+    {
+      "key": "tabsObj.tabv76qwc1x9s.isVisible"
     }
   ],
-  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [
     {
       "key": "onTabSelected"
+    },
+    {
+      "key": "tabsObj.tabwg30rxfkx3.isVisible"
+    },
+    {
+      "key": "tabsObj.tabv76qwc1x9s.isVisible"
     }
   ],
   "dynamicTriggerPathList": [
@@ -193,8 +295,8 @@
   "mobileTopRow": 7,
   "needsErrorInfo": false,
   "onTabSelected": "{{\n  (async function() {\n    // 1. On mémorise le nouvel onglet\n    await storeValue('tab_atelier_actif', Tabs1.selectedTab);\n    \n    // 2. On rafraîchit SEULEMENT si c'est un onglet de tableau\n    if (Tabs1.selectedTab === \"🛠️ Atelier Global\") {\n      await Get_Atelier_Global.run();\n    } \n    else if (Tabs1.selectedTab !== \"📅 Planning\") {\n      // Si ce n'est ni Global, ni Planning, c'est que c'est l'onglet Perso (David)\n      await Get_Atelier_Perso.run();\n    }\n    // Si c'est \"Planning\", on ne fait rien, le calendrier se charge tout seul !\n  })()\n}}",
-  "originalBottomRow": 401,
-  "originalTopRow": 7,
+  "originalBottomRow": 10,
+  "originalTopRow": 5,
   "parentColumnSpace": 17.5,
   "parentId": "11b2xw0tq5",
   "parentRowSpace": 10,
@@ -226,6 +328,20 @@
       "isVisible": true,
       "label": "📅 Planning",
       "widgetId": "ttdp0raqw7"
+    },
+    "tabv76qwc1x9s": {
+      "id": "tabv76qwc1x9s",
+      "index": 4,
+      "isVisible": "{{ (appsmith.store.user_role || '').toLowerCase() === 'patron' }}",
+      "label": "🔨 Atelier Yoan",
+      "widgetId": "59iom3wxj0"
+    },
+    "tabwg30rxfkx3": {
+      "id": "tabwg30rxfkx3",
+      "index": 3,
+      "isVisible": "{{ (appsmith.store.user_role || '').toLowerCase() === 'patron' }}",
+      "label": "🔨 Atelier Flavien",
+      "widgetId": "qaz99dqb6k"
     }
   },
   "topRow": 7,
