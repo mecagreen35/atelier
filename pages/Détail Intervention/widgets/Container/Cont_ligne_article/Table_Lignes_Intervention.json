@@ -920,7 +920,7 @@
       "notation": "standard",
       "onOptionChange": "{{\n  Update_Ligne_Intervention.run()\n    .then(() => Get_Lignes_Intervention.run())\n    .then(() => Get_Detail_Intervention.run())\n    .then(() => showAlert('Prise en charge modifiée', 'success'))\n    .catch(() => showAlert('Erreur de modification', 'error'));\n}}",
       "originalId": "Prise_En_Charge",
-      "selectOptions": "[\n  { \"label\": \"Client\", \"value\": \"Client\" },\n  { \"label\": \"Garantie\", \"value\": \"Garantie\" },\n  { \"label\": \"Interne\", \"value\": \"Interne\" }\n]",
+      "selectOptions": "[\n  { \"label\": \"Client\", \"value\": \"Client\" },\n  { \"label\": \"Garantie\", \"value\": \"Garantie\" },\n  { \"label\": \"Interne (Geste Client)\", \"value\": \"Interne\" },\n  { \"label\": \"Casse Atelier (Masqué Client)\", \"value\": \"Casse Atelier\" }\n]",
       "sortBy": "value",
       "sticky": "",
       "textColor": "",
