@@ -17,6 +17,9 @@
     },
     {
       "key": "maxDate"
+    },
+    {
+      "key": "minDate"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -29,6 +32,9 @@
     },
     {
       "key": "onDateSelected"
+    },
+    {
+      "key": "minDate"
     }
   ],
   "dynamicTriggerPathList": [
@@ -50,7 +56,7 @@
   "leftColumn": 39,
   "maxDate": "{{ dat_facture_fin.selectedDate ? moment(dat_facture_fin.selectedDate).toISOString() : moment().toISOString() }}",
   "maxDynamicHeight": 9000,
-  "minDate": "1920-12-31T18:30:00.000Z",
+  "minDate": "{{ moment().subtract(2, 'years').startOf('year').toISOString() }}",
   "minDynamicHeight": 4,
   "minWidth": 450,
   "mobileBottomRow": 7,
