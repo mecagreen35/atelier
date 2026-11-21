@@ -4,11 +4,56 @@ SELECT
 FROM public."BONS_DE_LIVRAISON" bl
 LEFT JOIN public."v_clients_socle" c ON bl."Client" = c."ID_Client"
 WHERE bl."Statut_Facturation" ILIKE 'FACTURÉ'
+
+  -- 1. Barre de recherche (accessible à tous)
   AND (
-    bl."Numero_BL" ILIKE '%' || {{inp_search_facture.text || ''}} || '%'
-    OR c."Client_Nom_Affichage" ILIKE '%' || {{inp_search_facture.text || ''}} || '%'
+    COALESCE({{ inp_search_facture.text || '' }}, '') = ''
+    OR bl."Numero_BL" ILIKE '%' || {{ inp_search_facture.text || '' }} || '%'
+    OR COALESCE(bl."Numero_Facture_Pennylane", '') ILIKE '%' || {{ inp_search_facture.text || '' }} || '%'
+    OR c."Client_Nom_Affichage" ILIKE '%' || {{ inp_search_facture.text || '' }} || '%'
   )
-ORDER BY 
+
+  -- 2. Filtre Statut de règlement
+  AND (
+    {{ appsmith.store.filtre_facture_statut || 'TOUS' }} = 'TOUS'
+    OR (
+      {{ appsmith.store.filtre_facture_statut || 'TOUS' }} = 'IMPAYE'
+      AND COALESCE(bl."Reste_A_Payer", 0) > 0
+    )
+    OR (
+      {{ appsmith.store.filtre_facture_statut || 'TOUS' }} = 'A_ENVOYER'
+      AND COALESCE(bl."Mode_Paiement_Synthese", '') ILIKE '%ENVOYER%'
+    )
+    OR (
+      {{ appsmith.store.filtre_facture_statut || 'TOUS' }} = 'A_PERCEVOIR'
+      AND COALESCE(bl."Mode_Paiement_Synthese", '') ILIKE '%PERCEVOIR%'
+    )
+    OR (
+      {{ appsmith.store.filtre_facture_statut || 'TOUS' }} = 'PAYE'
+      AND COALESCE(bl."Reste_A_Payer", 0) <= 0
+      AND COALESCE(bl."TOTAL_TTC", 0) > 0
+    )
+  )
+
+  -- 3. Filtre Origine
+  AND (
+    {{ sel_filtre_origine.selectedOptionValue || '' }} = ''
+    OR COALESCE(bl."Origine", '') ILIKE '%' || {{ sel_filtre_origine.selectedOptionValue || '' }} || '%'
+  )
+
+  -- 4. Filtre Date Début
+  AND (
+    {{ dat_facture_debut.selectedDate ? '1' : '0' }} = '0'
+    OR bl."Date_Facture"::date >= TO_DATE({{ dat_facture_debut.selectedDate ? moment(dat_facture_debut.selectedDate).format('YYYY-MM-DD') : '1900-01-01' }}, 'YYYY-MM-DD')
+  )
+
+  -- 5. Filtre Date Fin
+  AND (
+    {{ dat_facture_fin.selectedDate ? '1' : '0' }} = '0'
+    OR bl."Date_Facture"::date <= TO_DATE({{ dat_facture_fin.selectedDate ? moment(dat_facture_fin.selectedDate).format('YYYY-MM-DD') : '2100-01-01' }}, 'YYYY-MM-DD')
+  )
+
+ORDER BY
   bl."Date_Facture" DESC,
   bl."Numero_Facture_Pennylane" DESC
 LIMIT {{ Table_facture.pageSize }}

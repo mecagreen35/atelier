@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "g2kkiwtpem",
+  "labelTextSize": "1rem",
+  "leftColumn": 58,
+  "minWidth": 120,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 45,
+  "mobileRightColumn": 61,
+  "mobileTopRow": 9,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async () => {\n    await storeValue('filtre_facture_statut', 'TOUS');\n    await resetWidget('sel_filtre_origine');\n    await resetWidget('dat_facture_debut');\n    await resetWidget('dat_facture_fin');\n    await resetWidget('inp_search_facture');\n    await resetWidget('Table_facture', false);\n    await Get_BL_Factures.run();\n  })()\n}}",
+  "parentColumnSpace": 16.875,
+  "parentId": "pyg5j1wh0z",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "🔄 Reset",
+  "topRow": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "pcrum5k3cd",
+  "widgetName": "btn_reset_filtres"
+}
