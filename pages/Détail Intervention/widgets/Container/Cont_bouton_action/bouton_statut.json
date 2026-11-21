@@ -63,6 +63,12 @@
     },
     {
       "key": "groupButtons.groupButtond4rvpuefzi.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton3xf85srv7k.buttonColor"
+    },
+    {
+      "key": "groupButtons.groupButton3xf85srv7k.isVisible"
     }
   ],
   "dynamicPropertyPathList": [
@@ -119,6 +125,12 @@
     },
     {
       "key": "groupButtons.groupButtond4rvpuefzi.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3xf85srv7k.isVisible"
+    },
+    {
+      "key": "groupButtons.groupButton3xf85srv7k.onClick"
     }
   ],
   "dynamicTriggerPathList": [
@@ -148,6 +160,9 @@
     },
     {
       "key": "groupButtons.groupButtond4rvpuefzi.onClick"
+    },
+    {
+      "key": "groupButtons.groupButton3xf85srv7k.onClick"
     }
   ],
   "groupButtons": {
@@ -231,6 +246,22 @@
       "placement": "CENTER",
       "widgetId": ""
     },
+    "groupButton3xf85srv7k": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "id": "groupButton3xf85srv7k",
+      "index": 8,
+      "isDisabled": false,
+      "isSeparator": false,
+      "isVisible": "{{\n  ['À VÉRIFIER', 'A VÉRIFIER'].includes(\n    (Get_Detail_Intervention.data[0]?.Statut || '').toUpperCase().trim()\n  ) &&\n  (Get_Detail_Intervention.data[0]?.Categorie_Materiel || '').toUpperCase().includes('ROBOT')\n}}",
+      "itemType": "BUTTON",
+      "label": "❄️ Hivernage",
+      "menuItems": {},
+      "onClick": "{{\n  Update_Statut.run({\n    nouveau_statut: 'Hivernage'\n  })\n    .then(() => {\n      Get_Detail_Intervention.run();\n      showAlert('Robot passé en hivernage', 'success');\n    })\n    .catch(() =>\n      showAlert('Erreur lors de la mise à jour', 'error')\n    );\n}}",
+      "placement": "CENTER",
+      "variant": "filled",
+      "widgetId": "1l9sgeulwj"
+    },
     "groupButton4lfnzzdbwe": {
       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
       "buttonType": "SIMPLE",
@@ -270,7 +301,7 @@
       "index": 3,
       "isDisabled": false,
       "isSeparator": false,
-      "isVisible": "{{ ['à vérifier', 'a verifier'].includes(Get_Detail_Intervention.data[0]?.Statut?.toLowerCase()) }}",
+      "isVisible": "{{\n  ['à vérifier', 'a verifier', 'hivernage'].includes(\n    (Get_Detail_Intervention.data[0]?.Statut || '').toLowerCase().trim()\n  )\n}}",
       "itemType": "BUTTON",
       "label": "✅ Prêt",
       "menuItems": {},
@@ -299,7 +330,7 @@
       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
       "buttonType": "SIMPLE",
       "id": "groupButtonjv0k3mmoyy",
-      "index": 8,
+      "index": 9,
       "isDisabled": false,
       "isSeparator": false,
       "isVisible": "{{ \n  Get_Detail_Intervention.data && \n  Get_Detail_Intervention.data.length > 0 && \n  Get_Detail_Intervention.data[0].ID_Devis_Lie != null\n}}",

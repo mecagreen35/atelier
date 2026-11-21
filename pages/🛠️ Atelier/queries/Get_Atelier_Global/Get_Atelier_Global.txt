@@ -152,7 +152,7 @@ final_result AS (
 SELECT * FROM final_result
 ORDER BY 
     CASE 
-        -- 🟢 Condition pour détecter le patron
+        -- Condition pour détecter le patron
         WHEN {{ appsmith.user.email === 'contact@meca-green-motoculture.com' }} THEN
             CASE
                 -- 1. Créneaux imminents tout en haut
@@ -172,14 +172,15 @@ ORDER BY
                 -- 4. Créneaux planifiés placés juste après les diags
                 WHEN UPPER("Statut") = 'CRÉNEAU PLANIFIÉ' THEN '08'
                 
-                -- 5. Les attentes et finalisations
+                -- 5. Les attentes, hivernage et finalisations
                 WHEN UPPER("Statut") ILIKE '%ATTENTE%CLIENT%' OR UPPER("Statut") ILIKE '%INFO%CLIENT%' THEN '09'
                 WHEN UPPER("Statut") ILIKE '%COMMANDE%' OR UPPER("Statut") ILIKE '%ATTENTE PIÈCE%' OR UPPER("Statut") ILIKE '%ATTENTE PIECE%' THEN '10'
-                WHEN UPPER("Statut") ILIKE '%PRÊT%' OR UPPER("Statut") ILIKE '%PRET%' THEN '11'
+                WHEN UPPER(TRIM("Statut")) = 'HIVERNAGE' THEN '11'
+                WHEN UPPER("Statut") ILIKE '%PRÊT%' OR UPPER("Statut") ILIKE '%PRET%' THEN '12'
                 
                 ELSE '99' -- Reste du monde
             END
-        -- 🟡 Si c'est un mécano, l'ordre reste normal (Ordre_Tri_Mecano)
+        -- Si c'est un mécano, l'ordre reste normal (Ordre_Tri_Mecano)
         ELSE "Ordre_Tri_Mecano"
     END ASC, 
     "Score_Priorite" DESC,
