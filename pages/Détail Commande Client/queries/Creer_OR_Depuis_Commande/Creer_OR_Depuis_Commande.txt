@@ -1,0 +1,9 @@
+SELECT public.fn_creer_intervention_depuis_commande(
+    {{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }},
+    {{ Sel_Type_OR_Cmd.selectedOptionValue }},
+    {{ Sel_Forfait_OR_Cmd.selectedOptionValue || null }},
+    {{ Sel_Machine_OR_Cmd.selectedOptionValue || null }},
+    {{ Sel_Mecano_OR_Cmd.selectedOptionValue || null }},
+    {{ Date_Prevue_OR_Cmd.selectedDate ? Date_Prevue_OR_Cmd.formattedDate : null }}::timestamp,
+    {{ Inp_Notes_OR_Cmd.text || null }}
+) AS id_intervention;

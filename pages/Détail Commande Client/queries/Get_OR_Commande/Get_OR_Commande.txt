@@ -1,0 +1,14 @@
+SELECT 
+    i."ID_Intervention",
+    i."N° OR",
+    i."Type_Intervention",
+    i."Statut",
+    i."Priorité",
+    i."Date_Entree",
+    i."Date_Prevue_Intervention",
+    COALESCE(e."Prenom", 'Non assigné') AS "Mecano_Nom",
+    i."Symptome"
+FROM public."Interventions" i
+LEFT JOIN public."Employes" e ON e."ID_Employe" = i."Mecano_En_Charge"
+WHERE TRIM(COALESCE(i."ID_Commande_Client"::text, '')) = '{{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }}'
+ORDER BY i."Date_Entree" DESC;

@@ -1,7 +1,7 @@
 {
   "animateLoading": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 9,
+  "bottomRow": 10,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -46,7 +46,7 @@
   "text": "{{\n  (() => {\n    const cmd = Get_Commande_ById.data?.[0];\n    if (!cmd) return \"CLIENT : Chargement...\";\n    \n    const nomComplet = [cmd.Nom, cmd.Prénom].filter(v => v && String(v).trim() !== '' && v !== 'null').join(' ');\n    const clientNom = cmd.Societe || nomComplet || \"Client inconnu\";\n    const tel = cmd.Telephone ? `📞 ${cmd.Telephone}` : \"📞 Non renseigné\";\n    const adresse = [cmd.Adresse, cmd.code_postal, cmd.ville].filter(v => v && String(v).trim() !== '' && v !== 'null').join(' ');\n\n    return `CLIENT : ${clientNom} -- ${tel}${adresse ? ' -- ' + adresse : ''}`;\n  })()\n}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
-  "topRow": 5,
+  "topRow": 6,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

@@ -1,0 +1,7 @@
+SELECT 
+    "ID_Article" AS value,
+    "Designation" AS label
+FROM public."ARTICLES"
+WHERE UPPER(TRIM(COALESCE("Famille", ''))) IN ('FORFAIT', 'FORFAITS', 'SERVICE', 'PRESTATION')
+  AND COALESCE("Statut_Ligne", 'Actif') <> 'Archivé'
+ORDER BY "Designation" ASC;
