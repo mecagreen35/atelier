@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 62,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "i08l9hyf0t",
+  "leftColumn": 46,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async function() {\n    try {\n      await Creer_OR_Depuis_Commande.run();\n      await closeModal(modal_creer_or_commande.name);\n      showAlert('✅ Intervention créée et liée à la commande !', 'success');\n\n      // Réinitialisation ciblée (sans toucher au DatePicker pour éviter le crash)\n      resetWidget('Sel_Type_OR_Cmd', true);\n      resetWidget('Sel_Machine_OR_Cmd', true);\n      resetWidget('Sel_Forfait_OR_Cmd', true);\n      resetWidget('Sel_Mecano_OR_Cmd', true);\n      resetWidget('Inp_Notes_OR_Cmd', true);\n\n      await Get_Commande_ById.run();\n      if (typeof Get_OR_Commande !== 'undefined') {\n        await Get_OR_Commande.run();\n      }\n    } catch (err) {\n      showAlert('❌ Erreur : ' + err.message, 'error');\n    }\n  })()\n}}",
+  "originalBottomRow": 62,
+  "originalTopRow": 58,
+  "parentId": "3ov0tcbk4f",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 62,
+  "text": "Validé",
+  "topRow": 58,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "2utibnksfn",
+  "widgetName": "Button8"
+}

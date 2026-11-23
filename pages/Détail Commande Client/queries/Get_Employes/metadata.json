@@ -25,7 +25,7 @@
     "dynamicBindingPathList": [],
     "name": "Get_Employes",
     "pageId": "Détail Commande Client",
-    "runBehaviour": "MANUAL",
+    "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false
   }
 }

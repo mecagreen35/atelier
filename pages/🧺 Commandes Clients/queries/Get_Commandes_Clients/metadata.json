@@ -29,7 +29,7 @@
     ],
     "name": "Get_Commandes_Clients",
     "pageId": "🧺 Commandes Clients",
-    "runBehaviour": "AUTOMATIC",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }

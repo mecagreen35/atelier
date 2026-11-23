@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT public.fn_creer_intervention_depuis_commande(\n    {{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }},\n    {{ Sel_Type_OR_Cmd.selectedOptionValue }},\n    {{ Sel_Forfait_OR_Cmd.selectedOptionValue || null }},\n    {{ Sel_Machine_OR_Cmd.selectedOptionValue || null }},\n    {{ Sel_Mecano_OR_Cmd.selectedOptionValue || null }},\n    {{ Date_Prevue_OR_Cmd.selectedDate ? Date_Prevue_OR_Cmd.formattedDate : null }}::timestamp,\n    {{ Inp_Notes_OR_Cmd.text || null }}\n) AS id_intervention;",
+      "body": "SELECT public.fn_creer_intervention_depuis_commande(\n    {{ appsmith.URL.queryParams.id || appsmith.store.current_commande_id }},\n    {{ Sel_Type_OR_Cmd.selectedOptionValue }},\n    {{ Sel_Forfait_OR_Cmd.selectedOptionValue || null }},\n    {{ Sel_Machine_OR_Cmd.selectedOptionValue || null }},\n    {{ Sel_Mecano_OR_Cmd.selectedOptionValue || null }},\n    {{ Date_Prevue_OR_Cmd.selectedDate ? moment(Date_Prevue_OR_Cmd.selectedDate).format('YYYY-MM-DD HH:mm:ss') : null }}::timestamp,\n    {{ Inp_Notes_OR_Cmd.text || null }}\n) AS id_intervention;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

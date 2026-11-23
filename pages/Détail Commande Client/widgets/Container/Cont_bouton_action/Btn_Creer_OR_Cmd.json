@@ -48,7 +48,7 @@
   "mobileRightColumn": 23,
   "mobileTopRow": 2,
   "needsErrorInfo": false,
-  "onClick": "{{ showModal('modal_creer_or_commande'); }}",
+  "onClick": "{{\n  Get_Employes.run();\n  Get_Forfaits_Atelier.run();\n  showModal('modal_creer_or_commande');\n}}",
   "originalBottomRow": 171,
   "originalTopRow": 165,
   "parentColumnSpace": 16.071484374999997,
