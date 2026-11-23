@@ -3,7 +3,7 @@
   "animateLoading": false,
   "autoFocus": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 34,
+  "bottomRow": 35,
   "boxShadow": "none",
   "defaultText": "{{ Get_Detail_BL.data[0].Description_Facture_Pennylane }}",
   "dynamicBindingPathList": [
@@ -57,7 +57,7 @@
   "rightColumn": 64,
   "shouldAllowAutofill": false,
   "showStepArrows": false,
-  "topRow": 23,
+  "topRow": 24,
   "type": "INPUT_WIDGET_V2",
   "version": 2,
   "widgetId": "pijqleamkw",

@@ -920,7 +920,7 @@
       "notation": "standard",
       "onOptionChange": "{{\n  Update_Ligne_Intervention.run()\n    .then(() => Get_Lignes_Intervention.run())\n    .then(() => Get_Detail_Intervention.run())\n    .then(() => showAlert('Prise en charge modifiée', 'success'))\n    .catch(() => showAlert('Erreur de modification', 'error'));\n}}",
       "originalId": "Prise_En_Charge",
-      "selectOptions": "[\n  { \"label\": \"Client\", \"value\": \"Client\" },\n  { \"label\": \"Garantie\", \"value\": \"Garantie\" },\n  { \"label\": \"Interne (Geste Client)\", \"value\": \"Interne\" },\n  { \"label\": \"Casse Atelier (Masqué Client)\", \"value\": \"Casse Atelier\" }\n]",
+      "selectOptions": "[\n  { \"label\": \"Client (Facturé)\", \"value\": \"Client\" },\n  { \"label\": \"Casse Locataire (Facturé)\", \"value\": \"Casse Locataire\" },\n  { \"label\": \"Garantie Constructeur\", \"value\": \"Garantie\" },\n  { \"label\": \"Montage Neuf\", \"value\": \"Montage Neuf\" },\n  { \"label\": \"Montage Expo\", \"value\": \"Montage Expo\" },\n  { \"label\": \"Occasion (Reconditionnement)\", \"value\": \"Occasion\" },\n  { \"label\": \"Location (Maintenance)\", \"value\": \"Location\" },\n  { \"label\": \"Interne (Geste / Commercial)\", \"value\": \"Interne\" },\n  { \"label\": \"Casse Atelier (Masqué Client)\", \"value\": \"Casse Atelier\" },\n  { \"label\": \"Perte Atelier\", \"value\": \"Perte Atelier\" },\n  { \"label\": \"Perte MO\", \"value\": \"Perte MO\" },\n  { \"label\": \"Perte Garantie\", \"value\": \"Perte Garantie\" }\n]",
       "sortBy": "value",
       "sticky": "",
       "textColor": "",

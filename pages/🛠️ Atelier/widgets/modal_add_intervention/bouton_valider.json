@@ -32,7 +32,7 @@
     }
   ],
   "isDefaultClickDisabled": true,
-  "isDisabled": "{{\n  !sel_interv_client.selectedOptionValue ||\n  !sel_interv_machine.selectedOptionValue ||\n  !sel_interv_statut.selectedOptionValue ||\n  !grp_interv_categorie.selectedOptionValue ||\n  !sel_interv_priorite.selectedOptionValue\n}}",
+  "isDisabled": "{{\n  !sel_interv_client.selectedOptionValue ||\n  (!sel_interv_machine.selectedOptionValue && !(sel_interv_client.selectedOptionLabel || '').toUpperCase().includes('MAGASIN')) ||\n  !sel_interv_statut.selectedOptionValue ||\n  !grp_interv_categorie.selectedOptionValue ||\n  !sel_interv_priorite.selectedOptionValue\n}}",
   "isLoading": false,
   "isVisible": true,
   "key": "oouvihbk73",
