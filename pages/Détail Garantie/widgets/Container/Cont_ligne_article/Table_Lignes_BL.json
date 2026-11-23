@@ -49,9 +49,10 @@
     "ID_Article",
     "Code_TVA",
     "Prise_En_Charge",
+    "Masquer_Facture",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1792440361394,
+  "columnUpdatedAt": 1795477318228,
   "columnWidthMap": {
     "Action_Recommandee": 160,
     "Descriptif": 188,
@@ -173,6 +174,9 @@
     },
     {
       "key": "primaryColumns.Ordre_Affichage.isCellEditable"
+    },
+    {
+      "key": "primaryColumns.Masquer_Facture.computedValue"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -501,6 +505,41 @@
       "label": "ID_Ligne_BL",
       "notation": "standard",
       "originalId": "ID_Ligne_BL",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "Masquer_Facture": {
+      "alias": "Masquer_Facture",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "checkbox",
+      "computedValue": "{{(() => { const tableData = Table_Lignes_BL.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Masquer_Facture\"])) : Masquer_Facture })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Masquer_Facture",
+      "index": 15,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Masquer_Facture",
+      "notation": "standard",
+      "originalId": "Masquer_Facture",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",

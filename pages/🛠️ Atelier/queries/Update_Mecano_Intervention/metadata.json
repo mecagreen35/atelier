@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "UPDATE public.\"Interventions\"\nSET \n  \"Mecano_En_Charge\" = (\n    SELECT \"ID_Employe\" \n    FROM public.\"Employes\" \n    WHERE \"Prenom\" = {{ Table_interventions.updatedRow.Mecano_Nom }}\n    LIMIT 1\n  ),\n  \"Date_Modification\" = NOW()\nWHERE \"ID_Intervention\" = {{ Table_interventions.updatedRow.ID_Intervention }};",
+      "body": "UPDATE public.\"Interventions\"\nSET\n  \"Mecano_En_Charge\" = (\n    SELECT \"ID_Employe\"\n    FROM public.\"Employes\"\n    WHERE \"ID_Employe\"::text = TRIM(COALESCE({{ Table_interventions.updatedRow.Mecano_Nom || Table_interventions.triggeredRow.Mecano_Nom }}, ''))\n       OR UPPER(TRIM(\"Prenom\")) = UPPER(TRIM(COALESCE({{ Table_interventions.updatedRow.Mecano_Nom || Table_interventions.triggeredRow.Mecano_Nom }}, '')))\n    LIMIT 1\n  ),\n  \"Date_Modification\" = NOW()\nWHERE \"ID_Intervention\" = {{ Table_interventions.updatedRow.ID_Intervention || Table_interventions.triggeredRow.ID_Intervention }};",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

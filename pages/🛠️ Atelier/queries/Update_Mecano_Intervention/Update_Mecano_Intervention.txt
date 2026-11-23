@@ -1,10 +1,11 @@
 UPDATE public."Interventions"
-SET 
+SET
   "Mecano_En_Charge" = (
-    SELECT "ID_Employe" 
-    FROM public."Employes" 
-    WHERE "Prenom" = {{ Table_interventions.updatedRow.Mecano_Nom }}
+    SELECT "ID_Employe"
+    FROM public."Employes"
+    WHERE "ID_Employe"::text = TRIM(COALESCE({{ Table_interventions.updatedRow.Mecano_Nom || Table_interventions.triggeredRow.Mecano_Nom }}, ''))
+       OR UPPER(TRIM("Prenom")) = UPPER(TRIM(COALESCE({{ Table_interventions.updatedRow.Mecano_Nom || Table_interventions.triggeredRow.Mecano_Nom }}, '')))
     LIMIT 1
   ),
   "Date_Modification" = NOW()
-WHERE "ID_Intervention" = {{ Table_interventions.updatedRow.ID_Intervention }};
+WHERE "ID_Intervention" = {{ Table_interventions.updatedRow.ID_Intervention || Table_interventions.triggeredRow.ID_Intervention }};

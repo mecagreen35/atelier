@@ -47,7 +47,7 @@
   "needsErrorInfo": false,
   "onTextChanged": "{{Update_Notes_BL.run().then(() => {\n  showAlert('Notes enregistré', 'success');\n});}}",
   "originalBottomRow": 63,
-  "originalTopRow": 43,
+  "originalTopRow": 46,
   "parentColumnSpace": 17.1875,
   "parentId": "bm863nqu79",
   "parentRowSpace": 10,
