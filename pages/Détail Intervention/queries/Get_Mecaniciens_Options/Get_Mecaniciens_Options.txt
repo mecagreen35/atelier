@@ -1,0 +1,6 @@
+SELECT
+  "Prenom" AS label,
+  "ID_Employe" AS value
+FROM public."Employes"
+WHERE NULLIF(TRIM("Prenom"), '') IS NOT NULL
+ORDER BY "Prenom" ASC;

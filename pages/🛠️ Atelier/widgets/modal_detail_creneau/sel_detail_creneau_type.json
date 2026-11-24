@@ -55,7 +55,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 63,
   "serverSideFiltering": false,
-  "sourceData": "[\n  { \"label\": \"Dépannage sur place\", \"value\": \"Dépannage sur place\" },\n  { \"label\": \"Enlèvement\", \"value\": \"Enlèvement\" },\n  { \"label\": \"Restitution\", \"value\": \"Restitution\" },\n  { \"label\": \"Mise en route Robot\", \"value\": \"Mise en route Robot\" },\n  { \"label\": \"Atelier\", \"value\": \"Atelier\" },\n  { \"label\": \"Tâche Interne\", \"value\": \"Tâche Interne\" }\n]",
+  "sourceData": "[{\"label\": \"Dépannage sur place\", \"value\": \"Dépannage sur place\"}, {\"label\": \"Enlèvement\", \"value\": \"Enlèvement\"}, {\"label\": \"Restitution\", \"value\": \"Restitution\"}, {\"label\": \"Mise en route Robot\", \"value\": \"Mise en route Robot\"}, {\"label\": \"Atelier\", \"value\": \"Atelier\"}, {\"label\": \"Tâche Interne (Course, Rangement...)\", \"value\": \"Tâche Interne\"}]",
   "topRow": 14,
   "type": "SELECT_WIDGET",
   "version": 1,

@@ -60,12 +60,14 @@
     "Coef",
     "Marge_Brute",
     "Emplacement",
+    "ID_Mecano_Ligne",
     "EditActions1"
   ],
-  "columnUpdatedAt": 1794990364710,
+  "columnUpdatedAt": 1795480015573,
   "columnWidthMap": {
     "Action_Recommandee": 140,
     "Descriptif": 246,
+    "ID_Mecano_Ligne": 189,
     "Piece_Montee": 60,
     "Prix_Achat": 127,
     "Prix_Vente_HT": 126,
@@ -237,6 +239,12 @@
     },
     {
       "key": "primaryColumns.Emplacement.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Mecano_Ligne.computedValue"
+    },
+    {
+      "key": "primaryColumns.ID_Mecano_Ligne.selectOptions"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -359,6 +367,9 @@
     },
     {
       "key": "primaryColumns.Piece_Montee.onClick"
+    },
+    {
+      "key": "primaryColumns.ID_Mecano_Ligne.onOptionChange"
     }
   ],
   "enableClientSideSearch": true,
@@ -772,6 +783,44 @@
       "label": "ID_Ligne_Intervention",
       "notation": "standard",
       "originalId": "ID_Ligne_Intervention",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "ID_Mecano_Ligne": {
+      "alias": "ID_Mecano_Ligne",
+      "allowCellWrapping": false,
+      "allowHeaderWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "select",
+      "computedValue": "{{(() => { const tableData = Table_Lignes_Intervention.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"ID_Mecano_Ligne\"])) : ID_Mecano_Ligne })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "BOLD",
+      "horizontalAlignment": "LEFT",
+      "id": "ID_Mecano_Ligne",
+      "index": 26,
+      "isCellEditable": true,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": true,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Mecano Ligne",
+      "notation": "standard",
+      "onOptionChange": "{{Update_Ligne_Intervention.run().then(() => {\n  showAlert('', 'success');\n});}}",
+      "originalId": "ID_Mecano_Ligne",
+      "selectOptions": "{{(() => { const tableData = Table_Lignes_Intervention.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (Get_Mecaniciens_Options.data)) : Get_Mecaniciens_Options.data })()}}",
+      "sortBy": "label",
       "sticky": "",
       "textColor": "",
       "textSize": "0.875rem",
