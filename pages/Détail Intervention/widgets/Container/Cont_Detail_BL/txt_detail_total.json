@@ -14,9 +14,17 @@
     },
     {
       "key": "text"
+    },
+    {
+      "key": "textColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "textColor"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
   "fontSize": "1.25rem",
@@ -33,8 +41,8 @@
   "mobileRightColumn": 18,
   "mobileTopRow": 14,
   "needsErrorInfo": false,
-  "originalBottomRow": 36,
-  "originalTopRow": 32,
+  "originalBottomRow": 31,
+  "originalTopRow": 27,
   "overflow": "NONE",
   "parentColumnSpace": 15.807226562499999,
   "parentId": "a9ptcj2726",
@@ -43,10 +51,10 @@
   "responsiveBehavior": "fill",
   "rightColumn": 25,
   "shouldTruncate": false,
-  "text": "TOTAL TTC :   {{ Get_Detail_Intervention.data[0].TOTAL_TTC }} €",
+  "text": "{{\n  (() => {\n    // 1. Récupération du total TTC de l'intervention\n    const totalTTC = Get_Detail_Intervention.data[0]?.TOTAL_TTC || 0;\n    const texteTotal = \"TOTAL TTC : \" + totalTTC + \" €\";\n\n    // 2. Recherche de lignes avec une prise en charge spécifique\n    const lignes = Table_Lignes_Intervention.tableData || [];\n    \n    // On isole les prises en charge différentes de \"Client\"\n    const autresPrisesEnCharge = lignes\n      .map(row => row.Prise_En_Charge)\n      .filter(charge => charge && charge.toUpperCase() !== 'CLIENT');\n      \n    // 3. Si tout est payé par le client, on affiche juste le total\n    if (autresPrisesEnCharge.length === 0) {\n      return texteTotal;\n    }\n    \n    // 4. S'il y a des prises en charge différentes, on crée l'alerte rouge\n    // new Set() supprime les doublons (ex: s'il y a 3 pièces en garantie, on l'écrit 1 fois)\n    const uniques = [...new Set(autresPrisesEnCharge)];\n    \n    // On ajoute un saut de ligne et l'alerte après le total\n    return texteTotal + \"\\n⚠️ Prise en charge : \" + uniques.join(\", \");\n  })()\n}}",
   "textAlign": "LEFT",
-  "textColor": "#231F20",
-  "topRow": 29,
+  "textColor": "{{\n  (Table_Lignes_Intervention.tableData && Table_Lignes_Intervention.tableData.some(row => row.Prise_En_Charge && row.Prise_En_Charge.toUpperCase() !== 'CLIENT'))\n    ? \"#dc2626\"  // Rouge si prise en charge autre\n    : \"#000000\"  // Noir (ou ta couleur par défaut) si tout est normal\n}}",
+  "topRow": 27,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
