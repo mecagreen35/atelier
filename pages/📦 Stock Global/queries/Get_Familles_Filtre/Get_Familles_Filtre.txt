@@ -1,0 +1,6 @@
+SELECT DISTINCT 
+  "Famille" AS label, 
+  "Famille" AS value 
+FROM public."ARTICLES" 
+WHERE NULLIF(TRIM("Famille"), '') IS NOT NULL 
+ORDER BY "Famille" ASC;
