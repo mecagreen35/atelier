@@ -240,6 +240,9 @@
     },
     {
       "key": "primaryColumns.N_Serie.onSubmit"
+    },
+    {
+      "key": "primaryColumns.Prix_Achat.isCellVisible"
     }
   ],
   "dynamicTriggerPathList": [
@@ -666,6 +669,7 @@
       "id": "Prix_Achat",
       "index": 12,
       "isCellEditable": false,
+      "isCellVisible": "true",
       "isDerived": false,
       "isDisabled": false,
       "isDiscardVisible": true,
