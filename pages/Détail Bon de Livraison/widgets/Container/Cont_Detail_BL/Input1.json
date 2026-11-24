@@ -3,7 +3,7 @@
   "animateLoading": false,
   "autoFocus": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 36,
+  "bottomRow": 43,
   "boxShadow": "none",
   "defaultText": "{{ Get_Detail_BL.data[0].Description_Facture_Pennylane }}",
   "dynamicBindingPathList": [
@@ -46,7 +46,7 @@
   "mobileTopRow": 27,
   "needsErrorInfo": false,
   "onTextChanged": "{{Update_Notes_BL.run().then(() => {\n  showAlert('Notes enregistré', 'success');\n});}}",
-  "originalBottomRow": 45,
+  "originalBottomRow": 36,
   "originalTopRow": 23,
   "parentColumnSpace": 17.1875,
   "parentId": "g9s82vilda",
