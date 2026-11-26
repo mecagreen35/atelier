@@ -1,0 +1,67 @@
+{
+  "allowedFileTypes": "[\"application/pdf\"]",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "allowedFileTypes"
+    },
+    {
+      "key": "onFilesSelected"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onFilesSelected"
+    }
+  ],
+  "dynamicTyping": true,
+  "fileDataType": "Base64",
+  "files": [],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{\n  [\n    'MATÉRIEL NEUF', 'MATERIEL NEUF', 'ROBOT',\n    'MATÉRIEL BATTERIE', 'MATERIEL BATTERIE',\n    'OCCASION', 'OCCASION TVA SUR MARGE'\n  ].includes((Get_Detail_Article.data?.[0]?.Famille || '').trim().toUpperCase())\n}}",
+  "key": "xoch6a1sk3",
+  "label": "PDF ÉCLATÉE",
+  "leftColumn": 23,
+  "maxFileSize": 5,
+  "maxNumFiles": "1",
+  "minWidth": 120,
+  "mobileBottomRow": 6,
+  "mobileLeftColumn": 23,
+  "mobileRightColumn": 39,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "onFilesSelected": "{{\n  (async () => {\n    if (!fp_eclate_article.files?.length) return;\n    try {\n      await Envoyer_Eclate_N8N.run();\n      resetWidget('fp_eclate_article', true);\n      showAlert('⏳ PDF envoyé vers Google Drive, mise à jour en cours...', 'info');\n      setTimeout(() => {\n        Get_Detail_Article.run();\n      }, 3500);\n    } catch (err) {\n      showAlert('❌ Erreur envoi : ' + (err.message || err), 'error');\n    }\n  })()\n}}",
+  "parentColumnSpace": 17.1875,
+  "parentId": "k8i8muk45a",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 34,
+  "selectedFiles": [],
+  "topRow": 1,
+  "type": "FILE_PICKER_WIDGET_V2",
+  "version": 1,
+  "widgetId": "wly7sly0sk",
+  "widgetName": "fp_eclate_article"
+}

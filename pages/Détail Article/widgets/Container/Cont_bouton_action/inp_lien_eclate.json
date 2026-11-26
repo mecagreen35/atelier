@@ -1,0 +1,74 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "boxShadow": "none",
+  "defaultText": "{{ Get_Detail_Article.data[0]?.Lien_Eclate || \"\" }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": "{{\n  [\n    'MATÉRIEL NEUF', 'MATERIEL NEUF', 'ROBOT',\n    'MATÉRIEL BATTERIE', 'MATERIEL BATTERIE',\n    'OCCASION', 'OCCASION TVA SUR MARGE'\n  ].includes((Get_Detail_Article.data?.[0]?.Famille || '').trim().toUpperCase())\n}}",
+  "key": "xu33lsdvcb",
+  "label": "",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 35,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 8,
+  "mobileLeftColumn": 35,
+  "mobileRightColumn": 55,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onSubmit": "{{\n  Update_Eclate_Article.run({\n    id_article: Get_Detail_Article.data[0].ID_Article,\n    lien: inp_lien_eclate.text\n  })\n  .then(() => Get_Detail_Article.run())\n  .then(() => showAlert('✅ Lien éclaté mis à jour !', 'success'))\n}}",
+  "parentColumnSpace": 17.1875,
+  "parentId": "k8i8muk45a",
+  "parentRowSpace": 10,
+  "placeholderText": "Lien web ou PDF Google Drive...",
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 55,
+  "showStepArrows": false,
+  "topRow": 2,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "4luj9ji88m",
+  "widgetName": "inp_lien_eclate"
+}

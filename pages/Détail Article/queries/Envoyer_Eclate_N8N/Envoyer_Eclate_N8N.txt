@@ -1,0 +1,5 @@
+SELECT public.fn_envoyer_eclate_article_n8n(
+    {{ Get_Detail_Article.data[0].ID_Article }},
+    {{ (Get_Detail_Article.data[0]?.Marque || 'ECLATE') + '_' + (Get_Detail_Article.data[0]?.Ref_Fournisseur || Get_Detail_Article.data[0]?.ID_Article) + '.pdf' }},
+    {{ fp_eclate_article.files[0]?.data }}
+);

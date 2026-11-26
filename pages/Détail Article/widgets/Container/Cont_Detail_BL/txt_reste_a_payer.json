@@ -1,7 +1,7 @@
 {
   "animateLoading": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 21,
+  "bottomRow": 18,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -46,7 +46,7 @@
   "text": "Stock Actuel : {{ Get_Detail_Article.data[0]?.Stock_Actuel }} {{ Get_Detail_Article.data[0]?.Suivi_en_stock ? '' : '(Non suivi)' }}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
-  "topRow": 15,
+  "topRow": 14,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,

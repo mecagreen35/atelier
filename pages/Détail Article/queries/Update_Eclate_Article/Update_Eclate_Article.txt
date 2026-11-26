@@ -1,0 +1,9 @@
+UPDATE public."ARTICLES"
+SET
+    "Lien_Eclate" = NULLIF(TRIM({{ this.params.lien }}), ''),
+    "Type_Eclate" = CASE
+        WHEN NULLIF(TRIM({{ this.params.lien }}), '') IS NULL THEN NULL
+        WHEN {{ this.params.lien }} ILIKE '%drive.google.com%' THEN 'PDF_DRIVE'
+        ELSE 'LIEN_WEB'
+    END
+WHERE "ID_Article" = {{ this.params.id_article }};
