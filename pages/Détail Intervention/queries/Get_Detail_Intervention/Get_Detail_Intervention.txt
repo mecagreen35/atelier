@@ -11,10 +11,13 @@ SELECT
   pm."Modele",
   pm."N_Serie",
   pm."Type_Machine",
+	COALESCE(NULLIF(TRIM(pm."Lien_Eclate"), ''), a_mach."Lien_Eclate") AS "Lien_Eclate",
+  COALESCE(NULLIF(TRIM(pm."Type_Eclate"), ''), a_mach."Type_Eclate") AS "Type_Eclate",
   d."ID_DEVIS" AS "ID_Devis_Lie" -- 🟢 Ajout de l'identifiant du devis
 FROM public."Interventions" i
 LEFT JOIN public."Clients" c ON i."ID_Client" = c."ID_Client"
 LEFT JOIN public."Parc_Materiel" pm ON i."ID_Machine" = pm."ID_Machine"
+LEFT JOIN public."ARTICLES" a_mach ON a_mach."ID_Article" = pm."ID_Article"
 -- 🟢 Jointure pour vérifier si un devis actif est rattaché
 LEFT JOIN public."DEVIS" d ON d."ID_INTERVENTION" = i."ID_Intervention" 
                            AND d."STATUT" NOT IN ('Archivé', 'Refusé')

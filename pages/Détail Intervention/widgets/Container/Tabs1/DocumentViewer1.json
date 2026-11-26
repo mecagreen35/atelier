@@ -1,0 +1,41 @@
+{
+  "animateLoading": true,
+  "bottomRow": 42,
+  "docUrl": "{{\n  (() => {\n    const url = Get_Detail_Intervention.data?.[0]?.Lien_Eclate || '';\n    const match = url.match(/\\/d\\/([a-zA-Z0-9_-]+)/);\n    return match ? `https://drive.google.com/file/d/${match[1]}/preview` : '';\n  })()\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "docUrl"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isCanvas": false,
+  "isLoading": false,
+  "isVisible": "{{ Get_Detail_Intervention.data?.[0]?.Type_Eclate === 'PDF_DRIVE' }}",
+  "key": "1ujuus4ett",
+  "leftColumn": 0,
+  "mobileBottomRow": 42,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 24,
+  "mobileTopRow": 2,
+  "needsErrorInfo": false,
+  "parentColumnSpace": 17.1875,
+  "parentId": "lmkgatawua",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "topRow": 2,
+  "type": "DOCUMENT_VIEWER_WIDGET",
+  "version": 1,
+  "widgetId": "k55k87m1tx",
+  "widgetName": "DocumentViewer1"
+}
