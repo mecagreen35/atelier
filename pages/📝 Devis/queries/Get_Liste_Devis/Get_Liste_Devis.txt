@@ -1,5 +1,6 @@
 SELECT 
     d."ID_DEVIS",
+    d."Numero_Devis",
     d."DATE" AS "Date_Entree",
     i."N° OR",
     i."Type_Machine",
@@ -55,6 +56,7 @@ WHERE
         c."Nom" ILIKE '%' || '{{ inp_search_devis.text }}' || '%'
         OR c."Societe" ILIKE '%' || '{{ inp_search_devis.text }}' || '%'
         OR COALESCE(i."N° OR", '') ILIKE '%' || '{{ inp_search_devis.text }}' || '%'
+        OR COALESCE(d."Numero_Devis", '') ILIKE '%' || '{{ inp_search_devis.text }}' || '%'
     )
 
 ORDER BY "Statut" ASC, d."DATE" DESC;
